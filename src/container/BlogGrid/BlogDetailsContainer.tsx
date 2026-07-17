@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import React from 'react';
 import Link from "next/link";
 import BlogDetails from '../../components/Blog/BlogDetails';
-import Comment from '../../components/Comment/Comment';
 import SidebarWrap from '../../components/Sidebar/SidebarWrap';
 import SidebarWidget from '../../components/Sidebar/SidebarWidget';
 import SidebarBanner from '../../components/Sidebar/SidebarBanner';
@@ -11,9 +10,8 @@ import SidebarTitle from '../../components/Sidebar/SidebarTitle';
 import SidebarSearch from '../../components/Sidebar/SidebarSearch';
 import SidebarCategories from '../../components/Sidebar/SidebarCategories';
 import SidebarPost from '../../components/Sidebar/SidebarPost';
-import SidebarTag from '../../components/Sidebar/SidebarTag';
 
-const BlogDetailsContainer = ({data}) => {
+const BlogDetailsContainer = ({data, popularPosts = [], relatedPosts = [], categories = []}) => {
     return (
         <div className="section section-padding fix">
             <div className="container">
@@ -23,7 +21,7 @@ const BlogDetailsContainer = ({data}) => {
                         <div className="row row-cols-1 no-gutters">
 
                             <BlogDetails data={data} />
-                            <div className="entry-author">
+                            {/* <div className="entry-author">
                                 <div className="author-info">
                                     <div className="author-avatar">
                                         <img src={"/images/author/blog-author.png"} alt="" />
@@ -36,44 +34,30 @@ const BlogDetailsContainer = ({data}) => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <div className="blog-nav-links">
-                                <h4 className="title">Related Posts </h4>
-                                <div className="nav-list">
-                                    <div className="nav-item prev">
-                                        <div className="inner">
-                                            <Link href={`/blog-details/${data.id}`}>
-                                                <div className="hover-bg has-thumbnail" style={{backgroundImage: `url(/images/pagination/blog-pagination.jpg)`}}></div>
-                                                <span className="cate">Marketing</span>
-                                                <h6>Eleven top tips for developing agile marketing strategies that work</h6>
-                                            </Link>
-                                        </div>
-                                    </div>
-
-                                    <div className="nav-item next">
-                                        <div className="inner">
-                                            <Link href={`/blog-details/${data.id}`}>
-                                                <div className="hover-bg has-thumbnail" style={{backgroundImage: `url(/images/pagination/blog-pagination-2.jpg)`}}></div>
-                                                <span className="cate">Startup</span>
-                                                <h6>Growing a startup involves balancing out the financial stack</h6>
-                                            </Link>
-                                        </div>
+                            {relatedPosts.length > 0 && (
+                                <div className="blog-nav-links">
+                                    <h4 className="title">Related Posts </h4>
+                                    <div className="nav-list">
+                                        {relatedPosts.map((post, i) => {
+                                            const category = (post.categories ?? "").split(",")[0]?.trim();
+                                            const image = post.image || post.largeImage || "/images/pagination/blog-pagination.jpg";
+                                            return (
+                                                <div className={`nav-item ${i === 0 ? "prev" : "next"}`} key={post.id}>
+                                                    <div className="inner">
+                                                        <Link href={`/blog-details/${post.slug}`}>
+                                                            <div className="hover-bg has-thumbnail" style={{backgroundImage: `url(${image})`}}></div>
+                                                            {category && <span className="cate">{category}</span>}
+                                                            <h6>{post.title}</h6>
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
                                     </div>
                                 </div>
-                            </div>
-
-
-                            <div className="comment-form-wrap">
-                                <div className="comment-respond">
-                                    <h3 className="title">Leave a Reply</h3>
-                                    <Comment
-                                        url=""
-                                        id={data.id}
-                                        title={data.title}
-                                    />
-                                </div>
-                            </div>
+                            )}
 
                         </div>
                     </div>
@@ -85,18 +69,14 @@ const BlogDetailsContainer = ({data}) => {
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarTitle title="Categories" />
-                                <SidebarCategories />
+                                <SidebarCategories categories={categories} />
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarTitle classOption="mb-2" title="Popular Posts" />
-                                <SidebarPost />
+                                <SidebarPost posts={popularPosts} />
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarBanner />
-                            </SidebarWidget>
-                            <SidebarWidget>
-                                <SidebarTitle title="Popular tags" />
-                                <SidebarTag />
                             </SidebarWidget>
                         </SidebarWrap>
                     </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Mulish } from "next/font/google";
 import AosInit from "@/src/components/AosInit";
 import NavScrollTop from "@/src/components/NavScrollTop";
 import { getSiteSettings, siteUrl } from "@/lib/seo";
@@ -7,6 +8,13 @@ import "swiper/css";
 import "aos/dist/aos.css";
 import "react-modal-video/scss/modal-video.scss";
 import "@/src/assets/scss/style.scss";
+
+const mulish = Mulish({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700", "800", "900"],
+    variable: "--font-mulish",
+    display: "swap",
+});
 
 // Every route reads SEO fields from the database (see lib/seo.ts), so the whole
 // app renders per-request rather than being statically generated at build time.
@@ -41,7 +49,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className={mulish.variable}>
             <body>
                 <NavScrollTop>
                     {children}

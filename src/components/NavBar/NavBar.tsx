@@ -29,14 +29,8 @@ const NavBar = () => {
                         <li><ActiveLink href={`/work-details/1`}><span className="menu-text">Work Details</span></ActiveLink></li>
                     </ul>
                 </li>
-                <li className="has-children">
+                <li>
                     <ActiveLink href={"/blog-grid"}><span className="menu-text">Blog</span></ActiveLink>
-                    <span className="menu-toggle"><i className="far fa-angle-down"></i></span>
-                    <ul className="sub-menu">
-                        <li><ActiveLink href={"/blog-grid"}><span className="menu-text">Blog Grid</span></ActiveLink></li>
-                        <li><ActiveLink href={"/blog-classic"}><span className="menu-text">Blog classic</span></ActiveLink></li>
-                        <li><ActiveLink href={`/blog-details/1`}><span className="menu-text">Blog Details</span></ActiveLink></li>
-                    </ul>
                 </li>
                 <li>
                     <ActiveLink href={"/contact"}><span className="menu-text">Contact Us</span></ActiveLink>

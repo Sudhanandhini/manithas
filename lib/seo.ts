@@ -88,6 +88,7 @@ export async function buildDynamicMetadata(options: {
     title?: string | null;
     description?: string | null;
     image?: string | null;
+    noindex?: boolean;
 }): Promise<Metadata> {
     const settings = await getSiteSettings();
     const title = options.title ?? settings.siteName;
@@ -99,6 +100,10 @@ export async function buildDynamicMetadata(options: {
         description,
         alternates: {
             canonical: absoluteUrl(options.path),
+        },
+        robots: {
+            index: !options.noindex,
+            follow: !options.noindex,
         },
         openGraph: {
             title,

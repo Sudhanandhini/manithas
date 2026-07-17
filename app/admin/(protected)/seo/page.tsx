@@ -9,6 +9,8 @@ export default async function AdminSeoListPage() {
 
     return (
         <>
+            <p className="admin-title" style={{ marginBottom: 20 }}>SEO Pages</p>
+
             <div className="admin-card">
                 <table className="admin-table">
                     <thead>
@@ -30,7 +32,9 @@ export default async function AdminSeoListPage() {
                                 <td>{page.title || <em>not set</em>}</td>
                                 <td>{page.noindex ? "noindex" : "indexed"}</td>
                                 <td>
-                                    <Link href={`/admin/seo/${page.id}`}>Edit</Link>
+                                    <Link href={`/admin/seo/${page.id}`} className="admin-btn-sm">
+                                        Edit
+                                    </Link>
                                 </td>
                             </tr>
                         ))}

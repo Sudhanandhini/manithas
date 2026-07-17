@@ -38,7 +38,7 @@
 
 
     // Font Family
-    --ff-mulish: 'Mulish', sans-serif;
+    --ff-mulish: var(--font-mulish), 'Mulish', sans-serif;
     --ff-body: var(--ff-mulish);
     --ff-heading: var(--ff-mulish);
     --ff-link: 'Rubik', sans-serif;

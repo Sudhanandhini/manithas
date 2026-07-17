@@ -63,7 +63,7 @@ const BlogClassicContainer = () => {
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarTitle classOption="mb-2" title="Popular Posts" />
-                                <SidebarPost />
+                                <SidebarPost posts={BlogClassicData.slice(0, 4)} />
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarBanner />

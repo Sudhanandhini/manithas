@@ -18,7 +18,7 @@ export default function Contact() {
             <Header />
             <Breadcrumb
                 image="images/bg/breadcrumb-bg-five.jpg"
-                title="We are an agency located in New York"
+                title="Creating Future-Ready Websites & Business Applications"
                 content="Home"
                 contentTwo="Contact Us"
             />

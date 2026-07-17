@@ -33,6 +33,28 @@ model SeoPage {
   updatedAt      DateTime @updatedAt
 }
 
+// A blog post, authored in the admin panel and rendered on /blog-grid and
+// /blog-details/[slug]. `slug` is the SEO-friendly URL segment.
+model BlogPost {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  excerpt         String?  @db.Text
+  content         String   @db.Text
+  image           String?
+  largeImage      String?
+  author          String   @default("Admin")
+  categories      String?
+  tags            String?
+  metaTitle       String?
+  metaDescription String?  @db.Text
+  noindex         Boolean  @default(false)
+  published       Boolean  @default(true)
+  publishedAt     DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
 // Singleton row (id = 1) holding site-wide SEO defaults.
 model SiteSettings {
   id                     Int      @id @default(1)

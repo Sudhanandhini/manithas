@@ -1,39 +1,22 @@
-"use client"
-import React from 'react';
-import Link from "next/link";
-import BlogClassicData from '../../data/blog/BlogClassic.json';
 import BlogItem from '../../components/Blog/BlogItem';
+import type { BlogPost } from "@prisma/client";
 
-const PageBlog = () => {
+const PageBlog = ({ posts, emptyMessage }: { posts: BlogPost[]; emptyMessage?: string }) => {
     return (
         <div className="section section-padding fix">
             <div className="container">
 
-                <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 mb-n6">
-                    {BlogClassicData && BlogClassicData.map((single, key) => {
-                            return(
-                                <div key={key} className="col mb-6" data-aos="fade-up">
-                                    <BlogItem data={single} key={key} />
-                                </div>
-                            );
-                    })}
-                </div>
-
-                <div className="row mt-10">
-                    <div className="col">
-
-                        <ul className="pagination center">
-                            <li><Link href={"/"} className="prev"><i className="fa fa-angle-left"></i></Link></li>
-                            <li><Link href={"/"} className="active">1</Link></li>
-                            <li><Link href={"/"}>2</Link></li>
-                            <li><Link href={"/"}>3</Link></li>
-                            <li><span className="page-numbers dots"><i className="fa fa-ellipsis-h"></i></span></li>
-                            <li><Link href={"/"}>5</Link></li>
-                            <li><Link href={"/"} className="next"><i className="fa fa-angle-right"></i></Link></li>
-                        </ul>
-
+                {posts.length === 0 ? (
+                    <p>{emptyMessage ?? "No blog posts yet. Check back soon."}</p>
+                ) : (
+                    <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 mb-n6">
+                        {posts.map((post) => (
+                            <div key={post.id} className="col mb-6" data-aos="fade-up">
+                                <BlogItem data={post} />
+                            </div>
+                        ))}
                     </div>
-                </div>
+                )}
 
             </div>
         </div>

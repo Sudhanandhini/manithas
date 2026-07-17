@@ -1,17 +1,28 @@
-"use client";
-import React from 'react';
 import Link from "next/link";
-import BlogClassicData from '../../data/blog/BlogClassic.json';
 
-const SidebarPost = () => {
+type PopularPost = {
+    id: string | number;
+    slug?: string;
+    title: string;
+    categories?: string | string[] | null;
+};
+
+const SidebarPost = ({ posts = [] }: { posts?: PopularPost[] }) => {
+    if (posts.length === 0) {
+        return null;
+    }
+
     return (
         <div className="sidebar-widget-content">
             <ul className="sidebar-widget-list-post">
-                {BlogClassicData.slice(0, 4).map((value) => {
+                {posts.map((post) => {
+                    const category = Array.isArray(post.categories)
+                        ? post.categories[0]
+                        : (post.categories ?? "").split(",")[0]?.trim();
                     return(
-                        <li key={value.id}>
-                            <span className="cate">{value.categories.slice(0, 1)}</span>
-                            <Link href={`/blog-details/${value.id}`}>{value.title}</Link>
+                        <li key={post.id}>
+                            {category && <span className="cate">{category}</span>}
+                            <Link href={`/blog-details/${post.slug ?? post.id}`}>{post.title}</Link>
                         </li>
                     )
                 })}

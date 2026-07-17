@@ -76,16 +76,16 @@ const AboutFour = () => {
                         <div className="about-image-area about-shape-animation right-0 me-0">
                             <div className="about-image js-tilt">
                                 <Tilt scale={scale} transitionSpeed={4000}>
-                                    <img src={"images/about/about-1.jpg"} alt="" />
+                                    <img src={"/images/about/about-1.jpg"} alt="" />
                                 </Tilt>
                             </div>
                             <div className="about-image js-tilt">
                                 <Tilt scale={scale} transitionSpeed={4000}>
-                                    <img src={"images/about/about-2.jpg"} alt="" />
+                                    <img src={"/images/about/about-2.jpg"} alt="" />
                                 </Tilt>
                             </div>
                             <div className="shape shape-1" id="scene" ref={sceneEl}>
-                                <span data-depth="1"><img src={"images/shape-animation/video-shape-1.png"} alt="" /></span>
+                                <span data-depth="1"><img src={"/images/shape-animation/video-shape-1.png"} alt="" /></span>
                             </div>
                         </div>
                     </div>

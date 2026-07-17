@@ -30,16 +30,16 @@ const AboutSix = () => {
                         <div className="about-image-area">
                             <div className="about-image">
                                 <Tilt scale={scale} transitionSpeed={4000}>
-                                    <img src={"images/about/about-5.jpg"} alt="" />
+                                    <img src={"/images/about/about-5.jpg"} alt="" />
                                 </Tilt>
                             </div>
                             <div className="about-image">
                                 <Tilt scale={scale} transitionSpeed={4000}>
-                                    <img src={"images/about/about-6.jpg"} alt="" />
+                                    <img src={"/images/about/about-6.jpg"} alt="" />
                                 </Tilt>
                             </div>
                             <div className="shape shape-1" id="scene" ref={sceneEl}>
-                                <span data-depth="1"><img src={"images/shape-animation/about-shape-1.png"} alt="" /></span>
+                                <span data-depth="1"><img src={"/images/shape-animation/about-shape-1.png"} alt="" /></span>
                             </div>
                         </div>
                     </div>

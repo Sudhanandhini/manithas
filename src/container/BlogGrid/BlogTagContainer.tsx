@@ -2,6 +2,7 @@
 import PropTypes from "prop-types";
 import React from 'react';
 import Link from "next/link";
+import BlogClassicData from '../../data/blog/BlogClassic.json';
 import BlogClassic from '../../components/Blog/BlogClassic';
 import SidebarWrap from '../../components/Sidebar/SidebarWrap';
 import SidebarWidget from '../../components/Sidebar/SidebarWidget';
@@ -62,7 +63,7 @@ const BlogTagContainer = ({data}) => {
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarTitle classOption="mb-2" title="Popular Posts" />
-                                <SidebarPost />
+                                <SidebarPost posts={BlogClassicData.slice(0, 4)} />
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarBanner />

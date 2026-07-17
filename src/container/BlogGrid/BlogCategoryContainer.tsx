@@ -1,7 +1,7 @@
 "use client"
 import PropTypes from "prop-types";
 import React from 'react';
-import Link from "next/link";
+import BlogClassicData from '../../data/blog/BlogClassic.json';
 import BlogClassic from '../../components/Blog/BlogClassic';
 import SidebarWrap from '../../components/Sidebar/SidebarWrap';
 import SidebarWidget from '../../components/Sidebar/SidebarWidget';
@@ -12,7 +12,7 @@ import SidebarCategories from '../../components/Sidebar/SidebarCategories';
 import SidebarPost from '../../components/Sidebar/SidebarPost';
 import SidebarTag from '../../components/Sidebar/SidebarTag';
 
-const BlogCategoryContainer = ({data}) => {
+const BlogCategoryContainer = ({data, categories = null, popularPosts = null}) => {
 
     return (
         <div className="section section-padding fix">
@@ -33,22 +33,6 @@ const BlogCategoryContainer = ({data}) => {
 
 
                         </div>
-
-                        <div className="row">
-                            <div className="col">
-
-                                <ul className="pagination center">
-                                    <li><Link href={"/"} className="prev"><i className="fa fa-angle-left"></i></Link></li>
-                                    <li><Link href={"/"} className="active">1</Link></li>
-                                    <li><Link href={"/"}>2</Link></li>
-                                    <li><Link href={"/"}>3</Link></li>
-                                    <li><span className="page-numbers dots"><i className="fa fa-ellipsis-h"></i></span></li>
-                                    <li><Link href={"/"}>5</Link></li>
-                                    <li><Link href={"/"} className="next"><i className="fa fa-angle-right"></i></Link></li>
-                                </ul>
-
-                            </div>
-                        </div>
                     </div>
 
                     <div className="col-lg-4 col-12 order-lg-2 mb-10">
@@ -58,11 +42,11 @@ const BlogCategoryContainer = ({data}) => {
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarTitle title="Categories" />
-                                <SidebarCategories />
+                                <SidebarCategories categories={categories} />
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarTitle classOption="mb-2" title="Popular Posts" />
-                                <SidebarPost />
+                                <SidebarPost posts={popularPosts ?? BlogClassicData.slice(0, 4)} />
                             </SidebarWidget>
                             <SidebarWidget>
                                 <SidebarBanner />
