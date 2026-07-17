@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildDynamicMetadata } from "@/lib/seo";
 import Header from "@/src/partials/header/Header";
 import { slugify } from "@/src/utils";
 import Breadcrumb from "@/src/container/Breadcrumb/Breadcrumb";
@@ -8,9 +9,16 @@ import CallToAction from "@/src/container/CallToAction/CallToAction";
 import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
-export const metadata: Metadata = {
-    title: "Exomac || Blog",
-};
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const matchingTag = BlogClassicData.flatMap((blog) => blog.tags).find(
+        (tag) => slugify(tag) === params.slug,
+    );
+
+    return buildDynamicMetadata({
+        path: `/tag/${params.slug}`,
+        title: matchingTag ? `Posts tagged "${matchingTag}"` : undefined,
+    });
+}
 
 export default function BlogTag({ params }: { params: { slug: string } }) {
     const data = BlogClassicData.map((blog) => {

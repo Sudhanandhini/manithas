@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/src/partials/header/Header";
 import Breadcrumb from "@/src/container/Breadcrumb/Breadcrumb";
 import AboutFour from "@/src/container/About/AboutFour";
@@ -9,9 +10,9 @@ import CallToActionTwo from "@/src/container/CallToAction/CallToActionTwo";
 import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
-export const metadata: Metadata = {
-    title: "Exomac || About",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    return buildMetadata("/about");
+}
 
 export default function AboutUs() {
     return (

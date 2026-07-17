@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/src/partials/header/Header";
 import IntroSlider from "@/src/container/IntroSlider/IntroSlider";
 import HomeAbout from "@/src/components/About/HomeAbout";
@@ -11,9 +12,9 @@ import ContactInformation from "@/src/container/ContactInformation/ContactInform
 import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
-export const metadata: Metadata = {
-    title: "Exomac – Business React JS Template",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    return buildMetadata("/home-one");
+}
 
 export default function HomeOne() {
     return (

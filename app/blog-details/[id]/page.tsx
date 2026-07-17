@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildDynamicMetadata } from "@/lib/seo";
 import Header from "@/src/partials/header/Header";
 import Breadcrumb from "@/src/container/Breadcrumb/Breadcrumb";
 import BlogClassicData from "@/src/data/blog/BlogClassic.json";
@@ -7,9 +8,17 @@ import CallToAction from "@/src/container/CallToAction/CallToAction";
 import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
-export const metadata: Metadata = {
-    title: "Exomac || Blog Details",
-};
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+    const blogId = parseInt(params.id, 10);
+    const blog = BlogClassicData.find((item) => item.id === blogId);
+
+    return buildDynamicMetadata({
+        path: `/blog-details/${params.id}`,
+        title: blog?.title,
+        description: blog?.excerpt,
+        image: blog?.largeImage ?? blog?.image,
+    });
+}
 
 export default function BlogDetails({ params }: { params: { id: string } }) {
     const blogId = parseInt(params.id, 10);

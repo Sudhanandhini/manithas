@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// One row per site route. `slug` is the site-relative path, e.g. "/", "/about".
+model SeoPage {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  label          String
+  title          String?
+  description    String?  @db.Text
+  keywords       String?
+  ogTitle        String?
+  ogDescription  String?  @db.Text
+  ogImage        String?
+  canonicalUrl   String?
+  noindex        Boolean  @default(false)
+  nofollow       Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// Singleton row (id = 1) holding site-wide SEO defaults.
+model SiteSettings {
+  id                     Int      @id @default(1)
+  siteName               String   @default("Exomac")
+  titleTemplate          String   @default("%s | Exomac")
+  defaultDescription     String?  @db.Text
+  defaultOgImage         String?
+  robotsTxt              String   @db.Text
+  googleSiteVerification String?
+  bingSiteVerification   String?
+  updatedAt              DateTime @updatedAt
+}

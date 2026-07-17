@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import Header from "@/src/partials/header/Header";
 import Breadcrumb from "@/src/container/Breadcrumb/Breadcrumb";
 import ServiceIconBoxTwo from "@/src/container/service/ServiceIconBoxTwo";
@@ -9,9 +10,9 @@ import ContactInformationThree from "@/src/container/ContactInformation/ContactI
 import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
-export const metadata: Metadata = {
-    title: "Exomac || Service",
-};
+export async function generateMetadata(): Promise<Metadata> {
+    return buildMetadata("/service");
+}
 
 export default function Service() {
     return (

@@ -1,0 +1,30 @@
+import type { MetadataRoute } from "next";
+import { prisma } from "@/lib/prisma";
+import { siteUrl } from "@/lib/seo";
+import BlogClassicData from "@/src/data/blog/BlogClassic.json";
+import WorkData from "@/src/data/work/workDetails.json";
+
+export const dynamic = "force-dynamic";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const base = siteUrl();
+    const pages = await prisma.seoPage.findMany({
+        where: { noindex: false },
+        select: { slug: true, updatedAt: true },
+    });
+
+    const pageEntries: MetadataRoute.Sitemap = pages.map((page) => ({
+        url: page.slug === "/" ? `${base}/` : `${base}${page.slug}`,
+        lastModified: page.updatedAt,
+    }));
+
+    const blogEntries: MetadataRoute.Sitemap = BlogClassicData.map((blog) => ({
+        url: `${base}/blog-details/${blog.id}`,
+    }));
+
+    const workEntries: MetadataRoute.Sitemap = WorkData.map((work) => ({
+        url: `${base}/work-details/${work.id}`,
+    }));
+
+    return [...pageEntries, ...blogEntries, ...workEntries];
+}
