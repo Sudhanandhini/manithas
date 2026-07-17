@@ -81,7 +81,7 @@ export default function SettingsForm({ settings }: { settings: Settings }) {
                     value={form.titleTemplate}
                     onChange={(e) => update("titleTemplate", e.target.value)}
                 />
-                <small>Use %s as a placeholder for the page&apos;s own title, e.g. &quot;%s | Exomac&quot;.</small>
+                <small>Use %s as a placeholder for the page&apos;s own title, e.g. &quot;%s | Manithas&quot;.</small>
             </div>
 
             <div className="admin-field">

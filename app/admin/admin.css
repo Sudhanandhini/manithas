@@ -326,6 +326,15 @@
     font-size: 13px;
 }
 
+.admin-category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+    max-height: 160px;
+    overflow-y: auto;
+    padding: 4px 0;
+}
+
 .admin-checkbox-row {
     display: flex;
     align-items: center;

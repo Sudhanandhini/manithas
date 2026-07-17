@@ -10,7 +10,7 @@ const MobileMenu = ({show, onClose}) => {
         <div className="site-main-mobile-menu-inner">
             <div className="mobile-menu-header">
                 <div className="mobile-menu-logo">
-                    <Logo image={"/images/logo/logo.png"}/>
+                    <Logo image={"/images/logo/logo.svg"}/>
                 </div>
                 <div className="mobile-menu-close">
                     <button className="toggle" onClick={onClose}>

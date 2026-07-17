@@ -2,13 +2,16 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import type { Category } from "@prisma/client";
 import ImageField from "../../ImageField";
+import CategoryPicker from "../CategoryPicker";
 
-export default function NewBlogForm() {
+export default function NewBlogForm({ categories }: { categories: Category[] }) {
     const router = useRouter();
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
     const [content, setContent] = useState("");
+    const [postCategories, setPostCategories] = useState("");
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
@@ -20,7 +23,7 @@ export default function NewBlogForm() {
         const res = await fetch("/api/admin/blog", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ title, image, content }),
+            body: JSON.stringify({ title, image, content, categories: postCategories }),
         });
 
         setLoading(false);
@@ -57,6 +60,7 @@ export default function NewBlogForm() {
                 onChange={setImage}
                 hint="You can add a larger hero image and the rest of the SEO fields after creating the post."
             />
+            <CategoryPicker categories={categories} value={postCategories} onChange={setPostCategories} />
             <div className="admin-field">
                 <label htmlFor="content">Content (paste HTML or plain text)</label>
                 <textarea

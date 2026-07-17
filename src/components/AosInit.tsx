@@ -8,17 +8,17 @@ const AosInit = () => {
     const pathname = usePathname();
 
     useEffect(() => {
+        // The homepage's fade-in was getting caught mid-animation on reload,
+        // reading as blank/half-rendered content, so it appears instantly there.
+        // Every other page keeps the normal fade-up.
         AOS.init({
             offset: 80,
-            duration: 1000,
+            duration: pathname === "/" ? 0 : 1000,
             once: true,
             easing: 'ease',
         });
-    }, [])
-
-    useEffect(() => {
-        // Client-side navigations mount new [data-aos] elements that the
-        // initial AOS.init() scan never saw, leaving them stuck at opacity:0.
+        // Re-running init() also re-scans for [data-aos] elements mounted by
+        // this navigation, which the very first scan never saw.
         AOS.refreshHard();
     }, [pathname])
 

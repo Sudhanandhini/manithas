@@ -2,10 +2,11 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import type { BlogPost } from "@prisma/client";
+import type { BlogPost, Category } from "@prisma/client";
 import ImageField from "../../ImageField";
+import CategoryPicker from "../CategoryPicker";
 
-export default function BlogEditForm({ post }: { post: BlogPost }) {
+export default function BlogEditForm({ post, categories }: { post: BlogPost; categories: Category[] }) {
     const router = useRouter();
     const [form, setForm] = useState({
         title: post.title,
@@ -23,6 +24,7 @@ export default function BlogEditForm({ post }: { post: BlogPost }) {
         publishedAt: post.publishedAt.toISOString().slice(0, 10),
         noindex: post.noindex,
     });
+    const originalPublishedAt = post.publishedAt;
     const [saving, setSaving] = useState(false);
     const [deleting, setDeleting] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -39,10 +41,17 @@ export default function BlogEditForm({ post }: { post: BlogPost }) {
         setError(null);
         setSaved(false);
 
+        // The date input only edits the calendar day - carry over the original
+        // time-of-day (in UTC) so saving doesn't silently reset it to midnight,
+        // which would otherwise scramble the newest-first ordering on /blog-grid.
+        const [year, month, day] = form.publishedAt.split("-").map(Number);
+        const publishedAt = new Date(originalPublishedAt);
+        publishedAt.setUTCFullYear(year, month - 1, day);
+
         const res = await fetch(`/api/admin/blog/${post.id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(form),
+            body: JSON.stringify({ ...form, publishedAt: publishedAt.toISOString() }),
         });
 
         setSaving(false);
@@ -101,6 +110,7 @@ export default function BlogEditForm({ post }: { post: BlogPost }) {
                         value={form.publishedAt}
                         onChange={(e) => update("publishedAt", e.target.value)}
                     />
+                    <small>Newest publish date shows first on /blog-grid.</small>
                 </div>
             </div>
 
@@ -144,16 +154,11 @@ export default function BlogEditForm({ post }: { post: BlogPost }) {
                 <input id="author" type="text" value={form.author} onChange={(e) => update("author", e.target.value)} />
             </div>
 
-            <div className="admin-field">
-                <label htmlFor="categories">Categories</label>
-                <input
-                    id="categories"
-                    type="text"
-                    placeholder="comma, separated, categories"
-                    value={form.categories}
-                    onChange={(e) => update("categories", e.target.value)}
-                />
-            </div>
+            <CategoryPicker
+                categories={categories}
+                value={form.categories}
+                onChange={(value) => update("categories", value)}
+            />
 
             <div className="admin-field">
                 <label htmlFor="tags">Tags</label>

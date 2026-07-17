@@ -6,7 +6,10 @@ import BlogEditForm from "./BlogEditForm";
 export const dynamic = "force-dynamic";
 
 export default async function AdminBlogEditPage({ params }: { params: { id: string } }) {
-    const post = await prisma.blogPost.findUnique({ where: { id: params.id } });
+    const [post, categories] = await Promise.all([
+        prisma.blogPost.findUnique({ where: { id: params.id } }),
+        prisma.category.findMany({ orderBy: { name: "asc" } }),
+    ]);
     if (!post) {
         notFound();
     }
@@ -18,7 +21,7 @@ export default async function AdminBlogEditPage({ params }: { params: { id: stri
                 <h2 style={{ marginTop: 0 }}>
                     {post.title} <code style={{ fontWeight: 400 }}>/blog-details/{post.slug}</code>
                 </h2>
-                <BlogEditForm post={post} />
+                <BlogEditForm post={post} categories={categories} />
             </div>
         </>
     );

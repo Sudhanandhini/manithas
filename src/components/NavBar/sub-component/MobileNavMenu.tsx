@@ -40,14 +40,8 @@ const MobileNavMenu = () => {
     return (
         <nav className="site-mobile-menu">
             <ul>
-                <li className="has-children">
+                <li>
                     <ActiveLink href={"/"}><span className="menu-text">Homepage</span></ActiveLink>
-                    <span className="menu-toggle" onClick={onClickHandler}><i className="icon fa fa-angle-down"></i></span>
-                    <ul className="sub-menu">
-                        <li><ActiveLink href={"/home-one"}><span className="menu-text">Home One</span></ActiveLink></li>
-                        <li><ActiveLink href={"/home-two"}><span className="menu-text">Home Two</span></ActiveLink></li>
-                        <li><ActiveLink href={"/home-three"}><span className="menu-text">Home Three</span></ActiveLink></li>
-                    </ul>
                 </li>
                 <li>
                     <ActiveLink href={"/about"}><span className="menu-text">About Us</span></ActiveLink>

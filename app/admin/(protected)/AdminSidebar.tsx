@@ -16,7 +16,7 @@ export default function AdminSidebar() {
                 <span className="admin-sidebar-dot" />
                 <div>
                     <p className="admin-sidebar-eyebrow">Admin</p>
-                    <p className="admin-sidebar-name">Exomac Admin</p>
+                    <p className="admin-sidebar-name">Manithas Admin</p>
                 </div>
             </div>
 

@@ -33,6 +33,16 @@ model SeoPage {
   updatedAt      DateTime @updatedAt
 }
 
+// A managed list of blog category names the admin can pick from when writing a
+// post. `BlogPost.categories` still stores the assigned names as a comma-separated
+// string, so this table only drives the picker UI - it isn't a foreign key.
+model Category {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  slug      String   @unique
+  createdAt DateTime @default(now())
+}
+
 // A blog post, authored in the admin panel and rendered on /blog-grid and
 // /blog-details/[slug]. `slug` is the SEO-friendly URL segment.
 model BlogPost {

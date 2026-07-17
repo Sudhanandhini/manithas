@@ -12,8 +12,8 @@ export async function getSiteSettings() {
     return (
         settings ?? {
             id: 1,
-            siteName: "Exomac",
-            titleTemplate: "%s | Exomac",
+            siteName: "Manithas",
+            titleTemplate: "%s | Manithas",
             defaultDescription: null,
             defaultOgImage: null,
             robotsTxt: "User-agent: *\nAllow: /\n",

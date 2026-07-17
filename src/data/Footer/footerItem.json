@@ -75,6 +75,11 @@
             "id": 4,
             "text": "Pricing",
             "url": "/"
+            },
+            {
+            "id": 5,
+            "text": "Careers",
+            "url": "/career"
             }
         ]
     },
