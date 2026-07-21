@@ -20,10 +20,10 @@ const ContactInformationThree = () => {
 
     }, [])
     return (
-        <div className="section section-padding contact-section overlay-two" style={{backgroundImage: `url(/images/bg/contact-bg.jpg)`}}>
+        <div className="section section-padding contact-section overlay-two" style={{backgroundImage: `url(/images/bg/contact-bg.jpg)`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat"}}>
 
             <div className="container">
-                <div className="row row-cols-lg-2 row-cols-1 align-items-center">
+                <div className="row row-cols-lg-1 row-cols-1 align-items-center">
                     <div className="col" data-aos="fade-up">
                         <div className="contact-Information me-xl-7">
                             <SectionTitleTwo
@@ -32,13 +32,13 @@ const ContactInformationThree = () => {
                                 title="Are you looking for website development for your business?"
                             />
 
-                            {contactDataTwo && contactDataTwo.map((single, key) => {
+                            {/* {contactDataTwo && contactDataTwo.map((single, key) => {
                                 return(
                                     <React.Fragment key={key}>
                                         <ContactInfoItem classOption="info-light" data={single} key={key} />
                                     </React.Fragment>
                                 );
-                            })}
+                            })} */}
                         </div>
                     </div>
                     <div className="col mt-lg-0 mt-md-10 mt-8" data-aos="fade-up" data-aos-delay="300">

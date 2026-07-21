@@ -3,7 +3,7 @@
         "id": "1",
         "icon": "images/svg/linea/linea-basic-server.svg",
         "title": "Linux Hosting",
-        "desc": "We create custom WordPress websites with responsive designs and seamless functionality.",
+        "desc": "Fast and secure Linux hosting built for reliability and performance.",
         "pageLink": "Learn more",
         "link": "/contact"
     },
@@ -11,7 +11,7 @@
         "id": "2",
         "icon": "images/svg/linea/linea-basic-server2.svg",
         "title": "Web Hosting",
-        "desc": "Empower your business with dynamic online stores for seamless shopping.",
+        "desc": "Dependable web hosting with the uptime and support your website needs.",
         "pageLink": "Learn more",
         "link": "/contact"
     },
@@ -19,7 +19,15 @@
         "id": "3",
         "icon": "images/svg/linea/linea-basic-mail.svg",
         "title": "Email Hosting",
-        "desc": "Tailored web solutions that address your unique business challenges effectively.",
+        "desc": "Professional business email hosting with spam protection and reliable delivery.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "4",
+        "icon": "images/svg/linea/linea-basic-cloud.svg",
+        "title": "Cloud & VPS Hosting",
+        "desc": "Fast, secure, and scalable hosting powered by modern cloud infrastructure.",
         "pageLink": "Learn more",
         "link": "/contact"
     }

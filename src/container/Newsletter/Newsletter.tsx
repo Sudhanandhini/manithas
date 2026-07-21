@@ -1,7 +1,7 @@
 "use client"
 import {useEffect, useRef} from "react";
 import SectionTitle from '../../components/SectionTitles/SectionTitle';
-import NewsletterForm from '../../components/Newsletter/NewsletterForm';
+import ProjectForm from '../../components/ProjectForm/ProjectForm';
 import Parallax from 'parallax-js';
 
 const Newsletter = () => {
@@ -28,7 +28,16 @@ const Newsletter = () => {
                                 subTitle="Ready to start your project? The contact information collected through
                                 this form will only be used to send a response to your inquiry."
                             />
-                            <NewsletterForm mailchimpUrl="//devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" />
+                            <div className="contact-form-area mt-8">
+                                <SectionTitle
+                                    titleOption="section-title text-center mb-7"
+                                    headingOption="title fz-28"
+                                    title="Let’s talk about your project"
+                                    subTitle="We have made it easy for clients to reach us
+                                        and get their solutions weaved"
+                                />
+                                <ProjectForm />
+                            </div>
                         </div>
                     </div>
                 </div>

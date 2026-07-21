@@ -20,7 +20,7 @@ const ServiceSkill = () => {
 
     }, [])
     return (
-        <div className="section section-padding-top skill-section-padding-bottom bg-primary-blue" data-bg-color="#f8faff">
+        <div className="section section-padding-top skill-section-padding-bottom " data-bg-color="#f8faff">
             <div className="container">
                 <div className="row">
 
@@ -35,30 +35,30 @@ const ServiceSkill = () => {
 
                             <div className="progress-bar--one">
                                 <div className="progress-charts">
-                                    <h6 className="heading ">UX Design</h6>
+                                    <h6 className="heading ">Web Application</h6>
                                     <div className="single-progress">
-                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-1" now={81} label={<span>81%</span>} />
+                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-1" now={100} label={<span>100%</span>} />
                                     </div>
                                 </div>
 
                                 <div className="progress-charts ">
                                     <h6 className="heading ">Marketing</h6>
                                     <div className="single-progress">
-                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-2" now={72} label={<span>72%</span>} />
+                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-2" now={100} label={<span>100%</span>} />
                                     </div>
                                 </div>
 
                                 <div className="progress-charts ">
                                     <h6 className="heading ">Web Design</h6>
                                     <div className="single-progress">
-                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-3" now={81} label={<span>81%</span>} />
+                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-3" now={100} label={<span>100%</span>} />
                                     </div>
                                 </div>
 
                                 <div className="progress-charts ">
                                     <h6 className="heading ">Development</h6>
                                     <div className="single-progress">
-                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-4" now={81} label={<span>81%</span>} />
+                                        <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-4" now={100} label={<span>100%</span>} />
                                     </div>
                                 </div>
                             </div>

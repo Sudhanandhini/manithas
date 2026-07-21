@@ -6,7 +6,8 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 input[type="number"],
-input[type="tel"] {
+input[type="tel"],
+select {
     width: 100%;
     min-height: 56px;
     padding: 3px 20px;
@@ -24,6 +25,22 @@ input[type="tel"] {
     &:focus {
         border-color: var(--clr-primary);
         background-color: var(--clr-white);
+    }
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%239F9F9F' d='M4 6l4 4 4-4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 12px 12px;
+    padding-right: 45px;
+    cursor: pointer;
+
+    &:invalid {
+        color: #9F9F9F;
     }
 }
 

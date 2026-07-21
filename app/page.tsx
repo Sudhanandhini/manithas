@@ -8,7 +8,6 @@ import HomeSuccess from "@/src/components/Success/HomeSuccess";
 import Portfolio from "@/src/container/Portfolio/Portfolio";
 import HomeBlog from "@/src/container/BlogGrid/HomeBlog";
 import Newsletter from "@/src/container/Newsletter/Newsletter";
-import ContactInformation from "@/src/container/ContactInformation/ContactInformation";
 import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
@@ -27,7 +26,6 @@ export default function Home() {
             <Portfolio />
             <HomeBlog />
             <Newsletter />
-            <ContactInformation />
             <Footer />
             <ScrollToTop />
         </>

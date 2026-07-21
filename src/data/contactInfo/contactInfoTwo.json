@@ -3,18 +3,13 @@
     "id": "1",
     "icon": "images/svg/linea/linea-basic-map.svg",
     "title": "Our Locations",
-    "info": " 110 W 34th St, NYC. / 67 Madison Avenue."
+    "info": " #4, 2nd Floor, 8th Main Road, CHBS Layout, Vijayanagar,Bangalore-560040, India"
     },
-    {
-    "id": "2",
-    "icon": "images/svg/linea/linea-basic-message-txt.svg",
-    "title": "Give Us A Call",
-    "info": "(+1) 012-345-6789 / (+1) 012-345-6789"
-    },
+  
     {
     "id": "3",
     "icon": "images/svg/linea/linea-basic-mail-open-text.svg",
     "title": "Help Desk",
-    "info": "demo@yourmail.com , demo@yourmail.com"
+    "info": "support@sunsys.in"
     }
 ]

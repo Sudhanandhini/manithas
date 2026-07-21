@@ -1,27 +1,27 @@
 [
     {
         "id": "1",
-        "icon": "images/svg/linea/linea-basic-target.svg",
-        "title": "Branding",
-        "desc": "First impressions count! Make sure your brand works for you. We offer digital marketing.",
+        "icon": "images/svg/linea/linea-basic-display.svg",
+        "title": "Web Application",
+        "desc": "Build scalable, secure web applications with rich functionality tailored to your business workflows.",
         "pageLink": "Learn More",
-        "link": "service"
+        "link": "/what-we-do/application"
     },
     {
         "id": "2",
-        "icon": "images/svg/linea/linea-basic-picture-multiple.svg",
-        "title": "UX Design",
-        "desc": "First impressions count! Make sure your brand works for you. We offer digital marketing.",
+        "icon": "images/svg/linea/linea-basic-webpage-txt.svg",
+        "title": "Web Development",
+        "desc": "From WordPress to fully custom builds, we deliver fast, secure, and responsive websites tailored to your brand.",
         "pageLink": "Learn More",
-        "link": "service"
+        "link": "/what-we-do/web-development"
     },
     {
         "id": "3",
-        "icon": "images/svg/linea/linea-basic-picture.svg",
-        "title": "Strategy",
-        "desc": "First impressions count! Make sure your brand works for you. We offer digital marketing.",
+        "icon": "images/svg/linea/linea-basic-server.svg",
+        "title": "Hosting",
+        "desc": "Reliable Linux and web hosting with the performance, security, and uptime your business depends on.",
         "pageLink": "Learn More",
-        "link": "service"
+        "link": "/what-we-do/web-hosting"
     },
     {
         "id": "4",

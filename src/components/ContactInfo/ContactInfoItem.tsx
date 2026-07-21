@@ -1,21 +1,13 @@
 "use client";
 import PropTypes from "prop-types";
 import React from 'react';
-import ReactVivus from 'react-vivus';
+import ContactIcon from './ContactIcon';
 
 const ContactInfoItem = ({data}) => {
     return (
         <div className="contact-info">
             <div className="icon">
-                <ReactVivus
-                    id={`contactsvg-${data.id}`}
-                    option={{
-                        file: data.icon,
-                        animTimingFunction: 'EASE',
-                            type: 'oneByOne',
-                            delay: 80
-                    }}
-                />
+                <ContactIcon id={`contactsvg-${data.id}`} file={data.icon} />
             </div>
             <div className="info">
                 <h4 className="title">{data.title}</h4>

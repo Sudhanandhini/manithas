@@ -20,7 +20,7 @@ const ServiceIconBoxTwo = ({ classOption, data, eyebrow, title, ctaLabel, ctaLin
 
     }, [])
     return (
-        <div className={`section section-padding-t90 section-padding-bottom ${classOption}`}>
+        <div className={`section bg-[#F8FAFF] section-padding-t90 section-padding-bottom ${classOption}`}>
             <div className="container">
 
                 <div className="d-flex justify-content-between align-items-end flex-wrap mb-8">

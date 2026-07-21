@@ -257,6 +257,7 @@
         --bs-progress-font-size: 14px;
         --bs-progress-bg: #748494;
         --bs-progress-border-radius: 0;
+        max-width: calc(100% - 60px);
         overflow: visible;
         .progress-bar{
             overflow: visible;

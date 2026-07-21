@@ -1,19 +1,19 @@
 "use client"
 import React from 'react';
+import PropTypes from "prop-types";
 import SectionTitle from '../../components/SectionTitles/SectionTitle';
 import Link from "next/link";
 
-const CallToActionTwo = () => {
+const CallToActionTwo = ({ title, subTitle, ctaLabel, ctaLink }) => {
     return (
         <div className="cta-section section section-padding-250">
             <div className="container text-center icon-up-down-animation">
                 <SectionTitle
                     headingOption="fz-34"
-                    title="Let's talk about your project and see how we can work together"
-                    subTitle="Our team of designers, developers and creatives are perfectionists
-                    who love what they do and love where they work"
+                    title={title}
+                    subTitle={subTitle}
                 />
-                <Link className="btn btn-primary btn-hover-secondary" href={"/contact"} data-aos="fade-up" data-aos-delay="300">Contact Us</Link>
+                <Link className="btn btn-primary btn-hover-secondary" href={ctaLink} data-aos="fade-up" data-aos-delay="300">{ctaLabel}</Link>
 
                 <div className="shape shape-1">
                     <span>
@@ -64,5 +64,18 @@ const CallToActionTwo = () => {
         </div>
     )
 }
+
+CallToActionTwo.propTypes = {
+    title: PropTypes.string,
+    subTitle: PropTypes.string,
+    ctaLabel: PropTypes.string,
+    ctaLink: PropTypes.string
+};
+CallToActionTwo.defaultProps = {
+    title: "Let's talk about your project and see how we can work together",
+    subTitle: "Our team of designers, developers and creatives are perfectionists who love what they do and love where they work",
+    ctaLabel: "Contact Us",
+    ctaLink: "/contact"
+};
 
 export default CallToActionTwo;

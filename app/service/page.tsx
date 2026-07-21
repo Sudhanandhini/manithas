@@ -35,6 +35,7 @@ export default function Service() {
                 ctaLink="/contact"
                 sectionKey="web-dev"
             />
+              
             <ServiceIconBoxTwo
                 classOption="bg-color-1"
                 data={HostingServices}
@@ -44,7 +45,7 @@ export default function Service() {
                 ctaLink="/contact"
                 sectionKey="hosting"
             />
-            <AboutSix />
+          <AboutSix />
             <TechStack />
             <ServiceSkill />
             <FunfactTwo />

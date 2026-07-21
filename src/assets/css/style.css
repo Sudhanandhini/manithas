@@ -28524,7 +28524,10 @@ textarea {
 .progress-bar--one .progress-charts {
   margin-bottom: 20px;
   padding-bottom: 20px;
-  overflow: hidden; }
+ 
+
+}
+
 
 .progress-charts .heading {
   font-size: 16px;

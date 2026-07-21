@@ -12,7 +12,7 @@ const ProjectForm = () => {
         <Fragment>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row mb-n4">
-                    <div className="col-md-12 col-12 mb-4">
+                    <div className="col-md-6 col-12 mb-4">
                         <input
                             type="text"
                             placeholder="Your Name *"
@@ -23,7 +23,7 @@ const ProjectForm = () => {
                         />
                         {errors?.name && <p>{errors.name?.message as string}</p>}
                     </div>
-                    <div className="col-md-12 col-12 mb-4">
+                    <div className="col-md-6 col-12 mb-4">
                         <input
                             type="email"
                             placeholder="Email *"
@@ -37,6 +37,37 @@ const ProjectForm = () => {
                             })}
                         />
                         {errors?.email && <p>{errors.email?.message as string}</p>}
+                    </div>
+                    <div className="col-md-6 col-12 mb-4">
+                        <input
+                            type="tel"
+                            placeholder="Mobile Number *"
+                            name="mobile"
+                            {...register("mobile", {
+                                required: "Mobile number is required",
+                                pattern: {
+                                    value: /^[0-9+\-\s]{7,15}$/,
+                                    message: "invalid mobile number",
+                                },
+                            })}
+                        />
+                        {errors?.mobile && <p>{errors.mobile?.message as string}</p>}
+                    </div>
+                    <div className="col-md-6 col-12 mb-4">
+                        <select
+                            name="subject"
+                            defaultValue=""
+                            {...register("subject", {
+                                required: "Subject is required",
+                            })}
+                        >
+                            <option value="" disabled>Subject *</option>
+                            <option value="Web Application">Web Application</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Sale">Sale</option>
+                            <option value="Billing">Billing</option>
+                        </select>
+                        {errors?.subject && <p>{errors.subject?.message as string}</p>}
                     </div>
                     <div className="col-12 mb-6">
                         <textarea

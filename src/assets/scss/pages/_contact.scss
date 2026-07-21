@@ -51,7 +51,7 @@
         }
         .icon{
             svg{
-                & path{
+                & path, & line, & polyline, & polygon, & circle, & rect{
                     stroke: var(--clr-white);
                 }
             }
@@ -91,7 +91,7 @@
         }
         .icon{
             svg{
-                & path{
+                & path, & line, & polyline, & polygon, & circle, & rect{
                     stroke: var(--clr-primary);
                 }
             }

@@ -41,17 +41,17 @@ const Header = () => {
                         <div className="row justify-content-between align-items-center">
                             <div className="col-xl-2 col-auto order-0">
                                 <Logo
-                                    image={`/images/logo/logo.svg`}
+                                    image={`/images/logo/logo.png`}
                                 />
                             </div>
                             <div className="col-auto col-xl d-flex align-items-center justify-content-xl-center justify-content-end order-2 order-xl-1">
                                 <div className="menu-column-area d-none d-xl-block position-static">
                                     <NavBar />
                                 </div>
-                                <div className="header-search-area ms-xl-7 ms-0">
+                                {/* <div className="header-search-area ms-xl-7 ms-0">
 
                                     <HeaderSearch onClick={onSearchHandler}/>
-                                </div>
+                                </div> */}
 
                                 <div className="header-mobile-menu-toggle d-xl-none ms-sm-2">
                                     <button type="button" className="toggle" onClick={onCanvasHandler}>
@@ -69,8 +69,8 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <MobileMenu show={ofcanvasShow} onClose={onCanvasHandler}/>
-            <MainSearch show={searchbarShow} onClose={onSearchHandler}/>
+            {/* <MobileMenu show={ofcanvasShow} onClose={onCanvasHandler}/>
+            <MainSearch show={searchbarShow} onClose={onSearchHandler}/> */}
         </Fragment>
     )
 }
