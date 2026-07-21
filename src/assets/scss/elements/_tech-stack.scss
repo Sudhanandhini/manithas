@@ -1,0 +1,98 @@
+/* 04.12 Tech Stack CSS */
+
+.tech-stack-marquee {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+
+    & .tech-stack-track {
+        display: flex;
+        align-items: flex-start;
+        width: max-content;
+        animation: tech-stack-scroll 30s linear infinite;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+}
+
+@keyframes tech-stack-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.tech-stack-item {
+    flex: 0 0 auto;
+    width: 180px;
+    text-align: center;
+
+    // Responsive
+    @media #{$large-mobile}{
+        width: 130px;
+    }
+
+    & .tech-stack-icon {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 22px;
+        border-radius: 50%;
+        background-color: var(--clr-white);
+        box-shadow: 0 10px 30px rgba(17, 19, 43, 0.08);
+        transition: var(--transition);
+
+        // Responsive
+        @media #{$large-mobile}{
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        & i, & svg {
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+            transition: var(--transition);
+
+            // Responsive
+            @media #{$large-mobile}{
+                width: 32px;
+                height: 32px;
+                font-size: 32px;
+            }
+        }
+    }
+
+    & .tech-stack-label {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--clr-heading);
+        transition: var(--transition);
+    }
+
+    &:hover {
+        & .tech-stack-icon {
+            transform: translateY(-8px) scale(1.06);
+            box-shadow: 0 20px 40px rgba(17, 19, 43, 0.16);
+
+            & i, & svg {
+                transform: rotate(-8deg) scale(1.1);
+            }
+        }
+
+        & .tech-stack-label {
+            color: var(--clr-primary);
+        }
+    }
+}

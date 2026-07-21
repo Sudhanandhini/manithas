@@ -28,8 +28,8 @@ const ContactInformationThree = () => {
                         <div className="contact-Information me-xl-7">
                             <SectionTitleTwo
                                 classOption="color-light"
-                                subTitle="Innovative & cutting-edge technology"
-                                title="We use latest technologies that are proven and practical"
+                                subTitle="Get free quote and consultation in one hour"
+                                title="Are you looking for website development for your business?"
                             />
 
                             {contactDataTwo && contactDataTwo.map((single, key) => {

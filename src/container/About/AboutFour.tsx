@@ -33,9 +33,11 @@ const AboutFour = () => {
                     <div className="col-xl-6 col-lg-6 col-12" data-aos="fade-up">
                         <div className="about-content-area mt-0 mb-md-10 mb-10">
                             <SectionTitleTwo
-                                subTitle="Web design and digital marketing"
-                                title="We think strategy, UX design, and web development"
+                                subTitle="Welcome to our company"
+                                title="Quality &amp; Experience Web Design Company"
                             />
+
+                            <p>Sunsys Technologies, the Bangalore-based company founded by Mr. Manjunatha Narasimhaiah, has emerged as a leading player in the web services and solutions industry. Since its inception in May 2006, our company has prioritized quality and affordability, earning us a stellar reputation. Initially operating as a web services company, Sunsys Technologies (India) Pvt. Ltd. officially registered its name in May 2009.</p>
 
                             <div className="row row-cols-sm-2 row-cols-auto mb-n6">
                                 <div className="col mb-6">
@@ -46,10 +48,10 @@ const AboutFour = () => {
                                                     offset={{ top: 10 }}
                                                     delayedCall
                                                     >
-                                                    <CountUp end={didViewCountUp ? 110 : 0} />
+                                                    <CountUp end={didViewCountUp ? 1300 : 0} />
                                             </VisibilitySensor>+
                                         </div>
-                                        <h6 className="text">Happy Clients</h6>
+                                        <h6 className="text">Completed Project</h6>
                                         <p>We help our clients increase profits by increasing their visibility online.</p>
                                     </div>
                                 </div>
@@ -61,10 +63,10 @@ const AboutFour = () => {
                                                 offset={{ top: 10 }}
                                                 delayedCall
                                                 >
-                                                <CountUp end={didViewCountUp ? 130 : 0} />
+                                                <CountUp end={didViewCountUp ? 1000 : 0} />
                                             </VisibilitySensor>+
                                         </div>
-                                        <h6 className="text">Completed projects</h6>
+                                        <h6 className="text">Clients</h6>
                                         <p>We help our clients increase profits by increasing their visibility online.</p>
                                     </div>
                                 </div>

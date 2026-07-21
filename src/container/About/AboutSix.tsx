@@ -47,13 +47,48 @@ const AboutSix = () => {
                     <div className="col-xl-5 col-lg-6 col-12" data-aos="fade-up" data-aos-delay="300">
                         <div className="about-content-area">
                             <SectionTitleTwo
-                                subTitle="Innovative &amp; cutting-edge technology"
-                                title="We use latest technologies that are proven and practical"
+                                subTitle="Industry Development"
+                                title="Tailored Industry Solutions"
                             />
 
-                            <p>Our goal is to make the process easier for you. We provide our clients with the right tools for web development, hosting, e-commerce, security, content and marketing.</p>
+                            <p>Customized web solutions for various industries, enhancing engagement and growth.</p>
 
-                            <Link className="btn btn-primary btn-hover-secondary mt-xl-12 mt-lg-8 mt-md-6 mt-4" href={"/"}>Get Started</Link>
+                            <div className="row row-cols-sm-2 row-cols-1">
+                                <div className="col">
+                                    <ul className="agency-list">
+                                        <li className="item">
+                                            <div className="icon"><i className="fas fa-plane"></i></div>
+                                            <div className="text">Tours and Travels</div>
+                                        </li>
+                                        <li className="item">
+                                            <div className="icon"><i className="fas fa-hotel"></i></div>
+                                            <div className="text">Hotel &amp; Resort</div>
+                                        </li>
+                                        <li className="item">
+                                            <div className="icon"><i className="fas fa-heartbeat"></i></div>
+                                            <div className="text">Healthcare</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="col">
+                                    <ul className="agency-list">
+                                        <li className="item">
+                                            <div className="icon"><i className="fas fa-building"></i></div>
+                                            <div className="text">Corporate</div>
+                                        </li>
+                                        <li className="item">
+                                            <div className="icon"><i className="fas fa-graduation-cap"></i></div>
+                                            <div className="text">Education</div>
+                                        </li>
+                                        <li className="item">
+                                            <div className="icon"><i className="fas fa-home"></i></div>
+                                            <div className="text">Real Estate &amp; Construction</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <Link className="btn btn-primary btn-hover-secondary mt-xl-12 mt-lg-8 mt-md-6 mt-4" href={"/contact"}>Start Today</Link>
                         </div>
                     </div>
 

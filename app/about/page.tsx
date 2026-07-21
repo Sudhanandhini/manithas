@@ -20,7 +20,7 @@ export default function AboutUs() {
             <Header />
             <Breadcrumb
                 image="images/bg/breadcrumb-bg.jpg"
-                title="We are an agency located in New York"
+                title="Your Trusted Partner in Digital Growth"
                 content="Home"
                 contentTwo="About Us"
             />

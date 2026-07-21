@@ -48,13 +48,15 @@ const AboutFive = () => {
                     <div className="col-xl-5 col-lg-6 col-12" data-aos="fade-up" data-aos-delay="300">
                         <div className="about-content-area">
                             <SectionTitleTwo
-                                subTitle="Our solutions begin with brand research"
-                                title="We’ve worked alongside plenty of brands &amp; startups"
+                                subTitle="Our Vision"
+                                title="Our Vision &amp; Mission"
                             />
 
-                            <p>Our team of designers and developers are perfectionists who love what they do – we thrive off pushing the boundaries of our clients’ expectations and our own capabilities.</p>
+                            <p>At Sunsys Technologies, our vision goes beyond customer satisfaction. We strive to exceed expectations by delivering professional services that inspire trust on a global scale. Through building enduring client relationships, we consistently achieve exceptional results, ensuring utmost satisfaction in every interaction.</p>
 
-                            <Link className="btn btn-primary btn-hover-secondary mt-xl-12 mt-lg-8 mt-md-6 mt-4" href={"/"}>Get Started</Link>
+                            <p>Our mission is crystal clear: we diligently grasp our clients&rsquo; needs, provide highly effective solutions, and celebrate their success. By deeply understanding their requirements, we tailor our services to exceed expectations. Together, we achieve remarkable milestones and share in the joy of accomplishment.</p>
+
+                            <Link className="btn btn-primary btn-hover-secondary mt-xl-12 mt-lg-8 mt-md-6 mt-4" href={"/contact"}>Contact Now</Link>
                         </div>
                     </div>
 

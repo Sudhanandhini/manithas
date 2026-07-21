@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "icon": "images/svg/linea/linea-basic-server.svg",
+        "title": "Linux Hosting",
+        "desc": "We create custom WordPress websites with responsive designs and seamless functionality.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "2",
+        "icon": "images/svg/linea/linea-basic-server2.svg",
+        "title": "Web Hosting",
+        "desc": "Empower your business with dynamic online stores for seamless shopping.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "3",
+        "icon": "images/svg/linea/linea-basic-mail.svg",
+        "title": "Email Hosting",
+        "desc": "Tailored web solutions that address your unique business challenges effectively.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    }
+]

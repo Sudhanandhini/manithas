@@ -1,0 +1,75 @@
+[
+      {
+        "id": "1",
+        "icon": "images/svg/linea/linea-basic-display.svg",
+        "title": "Web Application",
+        "desc": "Build scalable, secure web applications with rich functionality tailored to your business workflows.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "9",
+        "icon": "images/svg/linea/linea-basic-webpage-txt.svg",
+        "title": "WordPress Development",
+        "desc": "Custom WordPress websites with responsive design and seamless functionality.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "2",
+        "icon": "images/svg/linea/linea-ecommerce-cart-plus.svg",
+        "title": "E-Commerce Development",
+        "desc": "Empower your business with dynamic online stores for seamless shopping.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "3",
+        "icon": "images/svg/linea/linea-basic-gear.svg",
+        "title": "Custom Web Development",
+        "desc": "Tailored web solutions that address your unique business challenges effectively.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "4",
+        "icon": "images/svg/linea/linea-ecommerce-bag.svg",
+        "title": "WooCommerce Development",
+        "desc": "Enhance your online store with seamless WooCommerce solutions and integrations.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "5",
+        "icon": "images/svg/linea/linea-basic-webpage-img-txt.svg",
+        "title": "Landing Page",
+        "desc": "Create engaging landing pages designed to boost conversions and drive sales.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "6",
+        "icon": "images/svg/linea/linea-basic-folder-multiple.svg",
+        "title": "CMS Web Development",
+        "desc": "Build user-friendly CMS websites for easy content management and updates.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "7",
+        "icon": "images/svg/linea/linea-basic-mixer2.svg",
+        "title": "Website Maintenance",
+        "desc": "Ensure website security and performance with regular updates and backups.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    },
+    {
+        "id": "8",
+        "icon": "images/svg/linea/linea-basic-clockwise.svg",
+        "title": "Website Redesign",
+        "desc": "Revamp your site for modern aesthetics, improved functionality, and performance.",
+        "pageLink": "Learn more",
+        "link": "/contact"
+    }
+  
+]
