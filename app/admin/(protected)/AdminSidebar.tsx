@@ -26,12 +26,17 @@ export default function AdminSidebar() {
                     Blog Posts
                 </Link>
 
-                <p className="admin-sidebar-section">SEO</p>
-                <Link href="/admin/seo" className={linkClass(pathname?.startsWith("/admin/seo") ?? false)}>
-                    Pages
+                <p className="admin-sidebar-section">Solution</p>
+                <Link href="/admin/solution" className={linkClass(pathname?.startsWith("/admin/solution") ?? false)}>
+                    Solutions
                 </Link>
-                <Link href="/admin/settings" className={linkClass(pathname === "/admin/settings")}>
-                    Site Settings
+
+                <p className="admin-sidebar-section">SEO</p>
+                <Link
+                    href="/admin/seo"
+                    className={linkClass((pathname?.startsWith("/admin/seo") || pathname === "/admin/settings") ?? false)}
+                >
+                    SEO
                 </Link>
             </nav>
 

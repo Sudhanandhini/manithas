@@ -65,6 +65,35 @@ model BlogPost {
   updatedAt       DateTime @updatedAt
 }
 
+// A solution/service offering, authored in the admin panel and rendered on
+// /solution and /solution-details/[slug]. `slug` is the SEO-friendly URL segment.
+model Solution {
+  id                String   @id @default(cuid())
+  slug              String   @unique
+  title             String
+  excerpt           String?  @db.Text
+  content           String   @db.Text
+  image             String?
+  largeImage        String?
+  client            String?
+  categories        String?
+  awards            String?
+  ctaText           String?
+  ctaLink           String?
+  subContentTitle   String?
+  subContentText    String?  @db.Text
+  galleryImageOne   String?
+  galleryImageTwo   String?
+  galleryImageThree String?
+  metaTitle         String?
+  metaDescription   String?  @db.Text
+  noindex           Boolean  @default(false)
+  published         Boolean  @default(true)
+  publishedAt       DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
 // Singleton row (id = 1) holding site-wide SEO defaults.
 model SiteSettings {
   id                     Int      @id @default(1)

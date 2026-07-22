@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import SeoTabs from "../SeoTabs";
 import NewPageForm from "./NewPageForm";
 
 export const dynamic = "force-dynamic";
@@ -9,7 +10,7 @@ export default async function AdminSeoListPage() {
 
     return (
         <>
-            <p className="admin-title" style={{ marginBottom: 20 }}>SEO Pages</p>
+            <SeoTabs />
 
             <div className="admin-card">
                 <table className="admin-table">
