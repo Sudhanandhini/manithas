@@ -26,6 +26,7 @@
     "isotope-layout": "^3.0.6",
     "next": "^14.2.15",
     "next-auth": "^4.24.14",
+    "nodemailer": "^9.0.3",
     "parallax-js": "^3.1.0",
     "prisma": "^6.19.3",
     "prop-types": "^15.8.1",
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "eslint": "^8.57.0",

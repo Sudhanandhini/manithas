@@ -94,6 +94,73 @@ model Solution {
   updatedAt         DateTime @updatedAt
 }
 
+// A customer account, created by an admin, used to log in separately from
+// the admin panel to raise and track support tickets.
+model Customer {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  name         String
+  email        String?
+  mobile       String?
+  website      String?
+  domain       String?
+  address      String?  @db.Text
+  companyName  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  tickets      Ticket[]
+}
+
+// A support ticket raised by a customer.
+model Ticket {
+  id             String          @id @default(cuid())
+  customerId     String
+  customer       Customer        @relation(fields: [customerId], references: [id])
+  subject        String
+  category       String
+  status         String          @default("New")
+  priority       String          @default("Medium")
+  link           String?
+  lastActivityAt DateTime        @default(now())
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  messages       TicketMessage[]
+
+  @@index([customerId])
+}
+
+// One message in a ticket's thread - the first message is the customer's
+// original report, followed by replies from either side.
+model TicketMessage {
+  id               String             @id @default(cuid())
+  ticketId         String
+  ticket           Ticket             @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  senderType       String
+  senderName       String
+  message          String             @db.Text
+  isReadByCustomer Boolean            @default(false)
+  isReadByAdmin    Boolean            @default(false)
+  createdAt        DateTime           @default(now())
+  attachments      TicketAttachment[]
+
+  @@index([ticketId])
+}
+
+// A file attached to a ticket message.
+model TicketAttachment {
+  id        String        @id @default(cuid())
+  messageId String
+  message   TicketMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  fileName  String
+  fileUrl   String
+  fileType  String
+  fileSize  Int
+  createdAt DateTime      @default(now())
+
+  @@index([messageId])
+}
+
 // Singleton row (id = 1) holding site-wide SEO defaults.
 model SiteSettings {
   id                     Int      @id @default(1)

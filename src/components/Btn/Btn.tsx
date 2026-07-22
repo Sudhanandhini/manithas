@@ -7,7 +7,7 @@ import Link from "next/link";
 const Btn = (props) => {
     return (
         <React.Fragment>
-            <Link href={"/"} className="btn btn-light btn-hover-primary">{props.name}</Link>
+            <Link href={"/login"} className="btn btn-light btn-hover-primary">{props.name}</Link>
         </React.Fragment>
     )
 }
