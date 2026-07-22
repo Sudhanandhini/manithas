@@ -4,6 +4,34 @@
     background-color: #F8FAFF;
 }
 
+/* Animated icon used inside .icon-box grids (RelatedApplications) */
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.icon-box .icon.icon-animated {
+    animation: iconFloat 3s ease-in-out infinite;
+
+    & i {
+        display: inline-block;
+        transition: transform 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+}
+
+.icon-box:hover .icon.icon-animated {
+    animation-play-state: paused;
+
+    & i {
+        transform: rotate(-12deg) scale(1.18);
+    }
+}
+
 .service-list-grid {
     & .service-list-item {
         position: relative;
@@ -134,6 +162,91 @@
 
             &::before {
                 transform: scaleX(1);
+            }
+        }
+    }
+}
+
+/* Why choose us - icon grid with header CTA + dashed divider */
+
+.why-choose-icon-header {
+    & .sub-title-plain {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .5px;
+        color: var(--clr-primary);
+    }
+
+    & .title {
+        margin: 0;
+        max-width: 640px;
+    }
+
+    & p {
+        max-width: 640px;
+        color: var(--clr-body);
+    }
+}
+
+.section-divider-dashed {
+    width: 100%;
+    height: 0;
+    margin: 34px 0 40px;
+    border-top: 1px dashed var(--clr-border);
+}
+
+.why-choose-icon-grid {
+    & .why-choose-icon-item {
+        height: 100%;
+        text-align: center;
+        transition: var(--transition);
+
+        & .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 74px;
+            height: 74px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 1px solid rgba(var(--clr-primary-rgb), 0.25);
+            transition: var(--transition);
+
+            & i {
+                font-size: 28px;
+                color: var(--clr-primary);
+                transition: var(--transition);
+            }
+        }
+
+        & .title {
+            margin: 0 0 10px;
+            font-size: 17px;
+            line-height: 1.4;
+            color: var(--clr-heading);
+        }
+
+        & p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--clr-body);
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+
+            & .icon {
+                background-color: var(--clr-primary);
+                border-color: var(--clr-primary);
+                transform: scale(1.06);
+
+                & i {
+                    color: var(--clr-white);
+                }
             }
         }
     }

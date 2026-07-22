@@ -79,10 +79,12 @@ AboutImageSplit.propTypes = {
     paragraphs: PropTypes.array,
     ctaLabel: PropTypes.string,
     ctaLink: PropTypes.string,
-    classOption: PropTypes.string
+    classOption: PropTypes.string,
+    reverse: PropTypes.bool
 };
 AboutImageSplit.defaultProps = {
-    classOption: ""
+    classOption: "",
+    reverse: false
 };
 
 export default AboutImageSplit;

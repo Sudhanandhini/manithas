@@ -109,7 +109,7 @@ const NavBar = () => {
                 <li className="has-children">
                     <ActiveLink href={"/solution"}><span className="menu-text">Solution</span></ActiveLink>
                     <span className="menu-toggle"><i className="far fa-angle-down"></i></span>
-                    <ul className="sub-menu">
+                    <ul className="sub-menu sub-menu-wrap">
                         {solutions.length > 0 ? (
                             solutions.map((s) => (
                                 <li key={s.slug}>

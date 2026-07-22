@@ -16,7 +16,7 @@ const RelatedApplications = ({ eyebrow, title, description, apps, classOption })
                     {apps && apps.map((app, key) => (
                         <div key={key} className="col mb-6" data-aos="fade-up" data-aos-delay={100 * (key % 3)}>
                             <div className="icon-box box-border text-center">
-                                <div className="icon">
+                                <div className="icon icon-animated">
                                     <i className={app.icon} style={{ fontSize: 40, color: "var(--clr-primary)" }}></i>
                                 </div>
                                 <div className="content">

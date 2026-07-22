@@ -166,6 +166,17 @@
         }
     }
 
+    // Admin-entered content (e.g. Solution titles) can run longer than the
+    // static menu labels this dropdown was designed for - let it wrap and
+    // grow instead of overflowing the white background box.
+    & .sub-menu-wrap {
+        width: 280px;
+
+        & li > a {
+            white-space: normal;
+        }
+    }
+
     & .mega-menu{
         left: 50%;
         transform: translateX(-50%);
