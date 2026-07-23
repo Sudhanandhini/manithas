@@ -8,7 +8,7 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
     if (!session?.user) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
-    const customerId = (session.user as { id: string }).id;
+    const accountId = (session.user as { accountId: string }).accountId;
 
     const ticket = await prisma.ticket.findUnique({
         where: { id: params.id },
@@ -20,7 +20,7 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
         },
     });
 
-    if (!ticket || ticket.customerId !== customerId) {
+    if (!ticket || ticket.customerId !== accountId) {
         return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 

@@ -182,6 +182,7 @@ export default function WebsiteMaintenance() {
                 ctaLabel="Start Today"
                 ctaLink="/contact"
                 classOption="section-bg-light"
+                layout="card"
             />
             <PageFaq
                 eyebrow="Frequently Asked Questions"

@@ -24,7 +24,9 @@ const HostingHero = ({ pageTitle, bgImage, headlineBefore, headlineHighlight, su
                     <p className="sub-title" data-aos="fade-up" data-aos-delay="100">
                         {subtitle}
                     </p>
-                    <Link className="btn btn-primary btn-hover-secondary" href={ctaLink} data-aos="fade-up" data-aos-delay="200">{ctaLabel}</Link>
+                    {ctaLabel && ctaLink && (
+                        <Link className="btn btn-primary btn-hover-secondary" href={ctaLink} data-aos="fade-up" data-aos-delay="200">{ctaLabel}</Link>
+                    )}
 
                     {heroIcon && (
                         <div className="hero-image" data-aos="fade-up" data-aos-delay="300">

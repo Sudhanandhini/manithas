@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-const WhyChooseIconGrid = ({ eyebrow, title, description, items, ctaLabel, ctaLink, classOption }) => {
+const WhyChooseIconGrid = ({ eyebrow, title, description, items, ctaLabel, ctaLink, classOption, layout }) => {
+    const isCard = layout === "card";
+
     return (
         <div className={`section section-padding-t90-b100 ${classOption}`}>
             <div className="container">
@@ -18,19 +20,42 @@ const WhyChooseIconGrid = ({ eyebrow, title, description, items, ctaLabel, ctaLi
 
                 <div className="section-divider-dashed" data-aos="fade-up" data-aos-delay="100"></div>
 
-                <div className="row row-cols-lg-4 row-cols-md-2 row-cols-1 mb-n8 why-choose-icon-grid">
-                    {items && items.map((item, key) => (
-                        <div key={key} className="col mb-8" data-aos="fade-up" data-aos-delay={80 * (key % 4)}>
-                            <div className="why-choose-icon-item">
-                                <div className="icon">
-                                    <i className={item.icon}></i>
+                {isCard ? (
+                    <div className="row row-cols-lg-2 row-cols-1 mb-n6 service-list-grid">
+                        {items && items.map((item, key) => (
+                            <div
+                                key={key}
+                                className="col mb-6"
+                                data-aos={key % 2 === 0 ? "fade-right" : "fade-left"}
+                                data-aos-delay={100 * (Math.floor(key / 2) % 4)}
+                            >
+                                <div className="service-list-item">
+                                    <div className="service-list-icon">
+                                        <i className={item.icon}></i>
+                                    </div>
+                                    <div className="service-list-content">
+                                        <h3 className="title">{item.title}</h3>
+                                        <p>{item.description}</p>
+                                    </div>
                                 </div>
-                                <h3 className="title">{item.title}</h3>
-                                <p>{item.description}</p>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="row row-cols-lg-4 row-cols-md-2 row-cols-1 mb-n8 why-choose-icon-grid">
+                        {items && items.map((item, key) => (
+                            <div key={key} className="col mb-8" data-aos="fade-up" data-aos-delay={80 * (key % 4)}>
+                                <div className="why-choose-icon-item">
+                                    <div className="icon">
+                                        <i className={item.icon}></i>
+                                    </div>
+                                    <h3 className="title">{item.title}</h3>
+                                    <p>{item.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     )
@@ -43,10 +68,12 @@ WhyChooseIconGrid.propTypes = {
     items: PropTypes.array,
     ctaLabel: PropTypes.string,
     ctaLink: PropTypes.string,
-    classOption: PropTypes.string
+    classOption: PropTypes.string,
+    layout: PropTypes.oneOf(["icon", "card"])
 };
 WhyChooseIconGrid.defaultProps = {
-    classOption: ""
+    classOption: "",
+    layout: "icon"
 };
 
 export default WhyChooseIconGrid;

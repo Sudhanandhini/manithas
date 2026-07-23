@@ -131,6 +131,7 @@ export default function WordpressDevelopment() {
                 ctaLabel="Start Today"
                 ctaLink="/contact"
                 classOption="section-bg-light"
+                layout="card"
             />
             <CallToAction />
             <Footer />

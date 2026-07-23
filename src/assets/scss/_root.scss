@@ -42,7 +42,7 @@
     --ff-mulish: var(--font-mulish), 'Mulish', sans-serif;
     --ff-body: var(--ff-mulish);
     --ff-heading: var(--ff-mulish);
-    --ff-link: 'Rubik', sans-serif;
+    --ff-link: var(--ff-mulish);
 
     // Icon Font
     --fontAwesome5Brands: "Font Awesome 5 Brands";

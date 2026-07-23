@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo";
 import Header from "@/src/partials/header/Header";
 import HostingHero from "@/src/container/Hosting/HostingHero";
 import LogoBadgeStrip from "@/src/components/LogoBadgeStrip/LogoBadgeStrip";
-import HostingAbout from "@/src/container/Hosting/HostingAbout";
+import AboutImageSplit from "@/src/components/PageContent/AboutImageSplit";
 import HostingFeatures from "@/src/container/Hosting/HostingFeatures";
 import HostingTech from "@/src/container/Hosting/HostingTech";
 import CallToActionTwo from "@/src/container/CallToAction/CallToActionTwo";
@@ -61,15 +61,18 @@ export default function WebHosting() {
                 title="Trusted By Global Giants"
                 items={["Google Partner", "Microsoft Partner", "ICANN Accredited", "ResellerClub"]}
             />
-            <HostingAbout
+            <AboutImageSplit
+                imageOne="/images/about/about-1.jpg"
+                imageTwo="/images/about/about-6.jpg"
                 eyebrow="Why Sunsys"
                 title="Reliable Web Hosting For Your Business Needs"
-                icon="fas fa-server"
                 paragraphs={[
                     "At Sunsys Technologies India Pvt. Ltd., we are a leading web hosting company based in Bengaluru, India, offering affordable and high-quality hosting services. With dedicated servers in the USA and India, we provide shared and individual web hosting options without compromising quality or security. Our user-friendly control panel allows easy management of all hosting activities.",
                     "We support various technologies, including ASP, ASP.NET, PHP, MS SQL, AJAX, Perl, MySQL, and Python.",
                     "Our web hosting solutions are essential for making your website visible and navigable on the internet. Choose from our range of affordable hosting plans designed to meet your business needs and help you achieve your goals quickly. Key features include uncompromised security and speed."
                 ]}
+                ctaLabel="Talk To Us"
+                ctaLink="/contact"
             />
             <HostingFeatures
                 title="Key Features Of Sunsys Web Hosting"

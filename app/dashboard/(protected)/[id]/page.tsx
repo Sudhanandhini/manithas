@@ -11,7 +11,7 @@ export default async function CustomerTicketDetailPage({ params }: { params: { i
     if (!session?.user) {
         redirect("/login");
     }
-    const customerId = (session.user as { id: string }).id;
+    const accountId = (session.user as { accountId: string }).accountId;
 
     const ticket = await prisma.ticket.findUnique({
         where: { id: params.id },
@@ -23,7 +23,7 @@ export default async function CustomerTicketDetailPage({ params }: { params: { i
         },
     });
 
-    if (!ticket || ticket.customerId !== customerId) {
+    if (!ticket || ticket.customerId !== accountId) {
         notFound();
     }
 

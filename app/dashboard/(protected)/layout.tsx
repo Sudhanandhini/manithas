@@ -16,12 +16,13 @@ export default async function DashboardProtectedLayout({ children }: { children:
     if (!customer) {
         redirect("/login");
     }
+    const isOwner = !customer.teamOwnerId;
 
     return (
         <CustomerAuthProvider>
             <div className="admin-panel">
                 <div className="admin-shell">
-                    <DashboardSidebar customerName={customer.name} />
+                    <DashboardSidebar customerName={customer.name} isOwner={isOwner} />
                     <main className="admin-content">
                         <div className="admin-content-inner">{children}</div>
                     </main>

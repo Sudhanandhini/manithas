@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES } from "@/lib/tickets";
+import TicketTabs from "./TicketTabs";
 
 export const dynamic = "force-dynamic";
 
@@ -40,6 +41,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                           { subject: { contains: q } },
                           { customer: { name: { contains: q } } },
                           { customer: { email: { contains: q } } },
+                          { assignedTo: { contains: q } },
                       ],
                   }
                 : {}),
@@ -53,6 +55,8 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
 
     return (
         <>
+            <TicketTabs />
+
             <p className="admin-title" style={{ marginBottom: 20 }}>
                 Support Tickets
             </p>
@@ -61,7 +65,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                 <form method="get" style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "flex-end" }}>
                     <div className="admin-field" style={{ marginBottom: 0 }}>
                         <label>Search</label>
-                        <input type="text" name="q" defaultValue={q} placeholder="Ticket ID, subject, customer, email" />
+                        <input type="text" name="q" defaultValue={q} placeholder="Ticket ID, subject, customer, email, assignee" />
                     </div>
                     <div className="admin-field" style={{ marginBottom: 0 }}>
                         <label>Status</label>
@@ -123,6 +127,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                             <th>Category</th>
                             <th>Status</th>
                             <th>Priority</th>
+                            <th>Assigned To</th>
                             <th>Last Activity</th>
                             <th />
                         </tr>
@@ -155,6 +160,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                                 <td>{ticket.category}</td>
                                 <td>{ticket.status}</td>
                                 <td>{ticket.priority}</td>
+                                <td>{ticket.assignedTo || <em>&mdash;</em>}</td>
                                 <td>{ticket.lastActivityAt.toISOString().slice(0, 16).replace("T", " ")}</td>
                                 <td>
                                     <Link href={`/admin/tickets/${ticket.id}`} className="admin-btn-sm">
@@ -165,7 +171,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                         ))}
                         {tickets.length === 0 && (
                             <tr>
-                                <td colSpan={7}>No tickets match these filters.</td>
+                                <td colSpan={8}>No tickets match these filters.</td>
                             </tr>
                         )}
                     </tbody>

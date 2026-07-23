@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import CustomerTabs from "./CustomerTabs";
 
 export const dynamic = "force-dynamic";
 
@@ -8,12 +9,7 @@ export default async function AdminCustomersPage() {
 
     return (
         <>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-                <p className="admin-title">Customers</p>
-                <Link href="/admin/customers/new" className="admin-btn">
-                    + Add Customer
-                </Link>
-            </div>
+            <CustomerTabs />
 
             <div className="admin-card">
                 <table className="admin-table">

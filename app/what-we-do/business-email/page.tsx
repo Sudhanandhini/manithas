@@ -208,6 +208,7 @@ export default function BusinessEmail() {
                 items={whyChooseBusinessEmail}
                 ctaLabel="Start Today"
                 ctaLink="/contact"
+                layout="card"
             />
             <PageFaq
                 eyebrow="Frequently Asked Questions"

@@ -11,9 +11,10 @@ export async function POST(_req: Request, { params }: { params: { id: string } }
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
     const customerId = (session.user as { id: string }).id;
+    const accountId = (session.user as { accountId: string }).accountId;
 
     const ticket = await prisma.ticket.findUnique({ where: { id: params.id } });
-    if (!ticket || ticket.customerId !== customerId) {
+    if (!ticket || ticket.customerId !== accountId) {
         return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
     if (!CLOSED_STATUSES.includes(ticket.status as (typeof CLOSED_STATUSES)[number])) {

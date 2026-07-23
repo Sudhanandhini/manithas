@@ -57,6 +57,9 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
         }
         data.category = body.category;
     }
+    if ("assignedTo" in body) {
+        data.assignedTo = typeof body.assignedTo === "string" && body.assignedTo.trim() ? body.assignedTo.trim() : null;
+    }
 
     const existing = await prisma.ticket.findUnique({ where: { id: params.id }, include: { customer: true } });
     if (!existing) {

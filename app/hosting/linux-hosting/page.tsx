@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo";
 import Header from "@/src/partials/header/Header";
 import HostingHero from "@/src/container/Hosting/HostingHero";
 import LogoBadgeStrip from "@/src/components/LogoBadgeStrip/LogoBadgeStrip";
-import HostingAbout from "@/src/container/Hosting/HostingAbout";
+import AboutImageSplit from "@/src/components/PageContent/AboutImageSplit";
 import HostingFeatures from "@/src/container/Hosting/HostingFeatures";
 import HostingTech from "@/src/container/Hosting/HostingTech";
 import CallToActionTwo from "@/src/container/CallToAction/CallToActionTwo";
@@ -64,15 +64,18 @@ export default function LinuxHosting() {
                 eyebrow="We Are Partners Of"
                 items={["Google Partner", "Microsoft Partner", "ICANN Accredited", "ResellerClub"]}
             />
-            <HostingAbout
+            <AboutImageSplit
+                imageOne="/images/about/about-4.jpg"
+                imageTwo="/images/about/about-8.jpg"
                 eyebrow="Why Sunsys"
                 title="Powerful Linux Hosting For Your Business"
-                icon="fas fa-network-wired"
                 paragraphs={[
                     "In today's world, with countless devices of varying resolutions and screen sizes, managing a separate website for each device isn't practical. The solution is responsive web design, which adjusts content to fit any screen size. With 72% of users searching the web on mobile, a non-responsive website means losing potential visitors.",
                     "Sunsys, a top web design company in Bengaluru, brings over nine years of experience in human-centric, responsive designs. Our innovative solutions, including parallax scrolling, animations, and mobile designs, help businesses thrive in their target markets.",
                     "Our Linux hosting offers reliable service management with strong compatibility for open-source technologies like PHP, Perl, and MySQL, making it ideal for business operations over the web."
                 ]}
+                ctaLabel="Talk To Us"
+                ctaLink="/contact"
             />
             <HostingFeatures
                 title="Key Features Of Linux Hosting"

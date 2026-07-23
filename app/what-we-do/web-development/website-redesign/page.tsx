@@ -171,6 +171,7 @@ export default function WebsiteRedesign() {
                 description="Website redesigning services enhance user experience, improve functionality, and update aesthetics, boosting search rankings and conversion rates."
                 items={redesignBenefits}
                 classOption="section-bg-light"
+                layout="card"
             />
             <RelatedApplications
                 title="What Our Website Redesign Services Offer"
@@ -184,6 +185,7 @@ export default function WebsiteRedesign() {
                 ctaLabel="Start Today"
                 ctaLink="/contact"
                 classOption="section-bg-light"
+                layout="card"
             />
             <PageFaq
                 eyebrow="Frequently Asked Questions"

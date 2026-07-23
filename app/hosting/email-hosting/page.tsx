@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo";
 import Header from "@/src/partials/header/Header";
 import HostingHero from "@/src/container/Hosting/HostingHero";
 import LogoBadgeStrip from "@/src/components/LogoBadgeStrip/LogoBadgeStrip";
-import HostingAbout from "@/src/container/Hosting/HostingAbout";
+import AboutImageSplit from "@/src/components/PageContent/AboutImageSplit";
 import HostingFeatures from "@/src/container/Hosting/HostingFeatures";
 import HostingTech from "@/src/container/Hosting/HostingTech";
 import CallToActionTwo from "@/src/container/CallToAction/CallToActionTwo";
@@ -76,13 +76,16 @@ export default function EmailHosting() {
                 title="Trusted By Global Giants"
                 items={["Google Partner", "Microsoft Partner", "ICANN Accredited", "ResellerClub"]}
             />
-            <HostingAbout
+            <AboutImageSplit
+                imageOne="/images/about/about-3.jpg"
+                imageTwo="/images/about/about-9.jpg"
                 eyebrow="Why Sunsys"
                 title="Why Professional Email Hosting Matters"
-                icon="fas fa-envelope-open-text"
                 paragraphs={[
                     "A professional email is crucial for small businesses and startups, offering a cost-effective communication solution. It enhances your brand's credibility, builds trust with clients, and boosts customer attraction. Unlike generic email addresses, a company email fosters brand recognition and protects against spam and malware. Sunsys, a leading email hosting provider in Bengaluru, ensures secure and memorable communication for your business, making it easier for clients to connect with you."
                 ]}
+                ctaLabel="Talk To Us"
+                ctaLink="/contact"
             />
             <HostingFeatures
                 title="Our Best Email Hosting Plans"

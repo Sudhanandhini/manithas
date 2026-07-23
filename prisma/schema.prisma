@@ -95,21 +95,38 @@ model Solution {
 }
 
 // A customer account, created by an admin, used to log in separately from
-// the admin panel to raise and track support tickets.
+// the admin panel to raise and track support tickets. A customer with
+// `teamOwnerId` set is a teammate login added by the top-level account
+// (`teamOwnerId == null`) - teammates share the owner's tickets, but log in
+// with their own username/password and keep their own name/email.
 model Customer {
-  id           String   @id @default(cuid())
-  username     String   @unique
+  id           String     @id @default(cuid())
+  username     String     @unique
   passwordHash String
   name         String
   email        String?
   mobile       String?
   website      String?
   domain       String?
-  address      String?  @db.Text
+  address      String?    @db.Text
   companyName  String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  disabled     Boolean    @default(false)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
   tickets      Ticket[]
+  teamOwnerId  String?
+  teamOwner    Customer?  @relation("TeamMembers", fields: [teamOwnerId], references: [id], onDelete: Cascade)
+  teamMembers  Customer[] @relation("TeamMembers")
+
+  @@index([teamOwnerId])
+}
+
+// A person tickets can be assigned to, managed by the admin from the
+// Tickets > Assignees tab. Drives the "Assigned To" dropdown on a ticket.
+model TicketAssignee {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
 }
 
 // A support ticket raised by a customer.
@@ -121,6 +138,7 @@ model Ticket {
   category       String
   status         String          @default("New")
   priority       String          @default("Medium")
+  assignedTo     String?
   link           String?
   lastActivityAt DateTime        @default(now())
   createdAt      DateTime        @default(now())

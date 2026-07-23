@@ -62,8 +62,16 @@ export const customerAuthOptions: AuthOptions = {
                 if (!isValid) {
                     return null;
                 }
+                if (customer.disabled) {
+                    return null;
+                }
 
-                return { id: customer.id, name: customer.name, email: customer.email ?? undefined };
+                return {
+                    id: customer.id,
+                    name: customer.name,
+                    email: customer.email ?? undefined,
+                    accountId: customer.teamOwnerId ?? customer.id,
+                };
             },
         }),
     ],
@@ -71,12 +79,24 @@ export const customerAuthOptions: AuthOptions = {
         async jwt({ token, user }) {
             if (user) {
                 token.id = user.id;
+                token.accountId = (user as { accountId: string }).accountId;
+            }
+            // Tokens issued before `accountId` existed (or before a customer's
+            // team assignment changed) won't have it - resolve it fresh from
+            // the DB instead of forcing everyone to log out and back in.
+            if (token.id && !token.accountId) {
+                const customer = await prisma.customer.findUnique({
+                    where: { id: token.id as string },
+                    select: { teamOwnerId: true },
+                });
+                token.accountId = customer?.teamOwnerId ?? (token.id as string);
             }
             return token;
         },
         async session({ session, token }) {
             if (session.user) {
-                (session.user as { id?: string }).id = token.id as string;
+                (session.user as { id?: string; accountId?: string }).id = token.id as string;
+                (session.user as { id?: string; accountId?: string }).accountId = token.accountId as string;
             }
             return session;
         },

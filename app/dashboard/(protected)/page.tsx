@@ -11,10 +11,10 @@ export default async function DashboardTicketsPage() {
     if (!session?.user) {
         redirect("/login");
     }
-    const customerId = (session.user as { id: string }).id;
+    const accountId = (session.user as { accountId: string }).accountId;
 
     const tickets = await prisma.ticket.findMany({
-        where: { customerId },
+        where: { customerId: accountId },
         orderBy: { lastActivityAt: "desc" },
         include: {
             messages: {

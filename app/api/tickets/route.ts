@@ -12,10 +12,10 @@ export async function GET() {
     if (!session?.user) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
-    const customerId = (session.user as { id: string }).id;
+    const accountId = (session.user as { accountId: string }).accountId;
 
     const tickets = await prisma.ticket.findMany({
-        where: { customerId },
+        where: { customerId: accountId },
         orderBy: { lastActivityAt: "desc" },
         include: {
             messages: {
@@ -36,6 +36,7 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
     const customerId = (session.user as { id: string }).id;
+    const accountId = (session.user as { accountId: string }).accountId;
 
     const body = await req.json();
     const subject = typeof body.subject === "string" ? body.subject.trim() : "";
@@ -61,7 +62,7 @@ export async function POST(req: Request) {
 
     const ticket = await prisma.ticket.create({
         data: {
-            customerId,
+            customerId: accountId,
             subject,
             category,
             link,
