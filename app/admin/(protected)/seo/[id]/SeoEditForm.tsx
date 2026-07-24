@@ -4,9 +4,12 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import type { SeoPage } from "@prisma/client";
 
+const PAGE_TYPES = ["Page", "Blog", "Solution", "Landing"];
+
 export default function SeoEditForm({ page }: { page: SeoPage }) {
     const router = useRouter();
     const [form, setForm] = useState({
+        type: page.type ?? "Page",
         title: page.title ?? "",
         description: page.description ?? "",
         keywords: page.keywords ?? "",
@@ -53,6 +56,17 @@ export default function SeoEditForm({ page }: { page: SeoPage }) {
         <form onSubmit={handleSubmit}>
             {error && <div className="admin-error">{error}</div>}
             {saved && <div className="admin-success">Saved.</div>}
+
+            <div className="admin-field">
+                <label htmlFor="type">Type</label>
+                <select id="type" value={form.type} onChange={(e) => update("type", e.target.value)}>
+                    {PAGE_TYPES.map((option) => (
+                        <option key={option} value={option}>
+                            {option}
+                        </option>
+                    ))}
+                </select>
+            </div>
 
             <div className="admin-field">
                 <label htmlFor="title">Title tag</label>

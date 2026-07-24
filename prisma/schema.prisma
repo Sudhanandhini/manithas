@@ -20,6 +20,7 @@ model SeoPage {
   id             String   @id @default(cuid())
   slug           String   @unique
   label          String
+  type           String   @default("Page")
   title          String?
   description    String?  @db.Text
   keywords       String?

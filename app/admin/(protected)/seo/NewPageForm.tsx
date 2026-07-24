@@ -3,10 +3,13 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
+const PAGE_TYPES = ["Page", "Blog", "Solution", "Landing"];
+
 export default function NewPageForm() {
     const router = useRouter();
     const [slug, setSlug] = useState("");
     const [label, setLabel] = useState("");
+    const [type, setType] = useState(PAGE_TYPES[0]);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
@@ -18,7 +21,7 @@ export default function NewPageForm() {
         const res = await fetch("/api/admin/seo", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ slug, label }),
+            body: JSON.stringify({ slug, label, type }),
         });
 
         setLoading(false);
@@ -59,6 +62,16 @@ export default function NewPageForm() {
                         onChange={(e) => setLabel(e.target.value)}
                     />
                 </div>
+            </div>
+            <div className="admin-field">
+                <label htmlFor="type">Type</label>
+                <select id="type" value={type} onChange={(e) => setType(e.target.value)}>
+                    {PAGE_TYPES.map((option) => (
+                        <option key={option} value={option}>
+                            {option}
+                        </option>
+                    ))}
+                </select>
             </div>
             <button className="admin-btn" type="submit" disabled={loading}>
                 {loading ? "Adding..." : "Add page"}

@@ -5,50 +5,59 @@
         "list": [
             {
             "id": 1,
-            "text": "Marketing",
-            "url": "/"
+            "text": "Alumni",
+            "url": "/what-we-do/application/alumni"
             },
             {
             "id": 2,
-            "text": "SEO/SEM",
-            "url": "/"
+            "text": "eLibrary",
+            "url": "/what-we-do/application/elibrary"
             },
             {
             "id": 3,
-            "text": "Development",
-            "url": "/"
+            "text": "Subscription Module",
+            "url": "/what-we-do/application/subscription"
             },
             {
             "id": 4,
-            "text": "UX Design",
-            "url": "/"
+            "text": "Employee Records",
+            "url": "/what-we-do/application/employee-records"
+            },
+             {
+            "id": 5,
+            "text": "Online Assessment Test",
+            "url": "/what-we-do/application/online-assessment-test"
+            },
+             {
+            "id": 6,
+            "text": "Custom Web Application",
+            "url": "/what-we-do/application"
             }
         ]
     },
     {
         "id": 2,
-        "title": "Products",
+        "title": "Other Links",
         "list": [
             {
             "id": 1,
-            "text": "Elementor Guru",
-            "url": "/"
+            "text": "Domain Registration",
+            "url": "https://sunsys.supersite2.myorderbox.com/"
             },
             {
             "id": 2,
-            "text": "WooLentor Pro",
-            "url": "/"
+            "text": "Whoise Lookup",
+            "url": "https://sunsys.supersite2.myorderbox.com/domain-registration/domain-whois-lookup.php"
             },
             {
             "id": 3,
-            "text": "Plugins",
-            "badge": "New",
-            "url": "/"
+            "text": "Customer login",
+            "url": "https://sunsys.myorderbox.com/servlet/LoginServlet?role=customer&currenturl=https://sunsys.myorderbox.com"
             },
             {
             "id": 4,
-            "text": "Page Builder",
-            "url": "/"
+            "text": "Reseller Login",
+            "url": "https://sunsys.myorderbox.com/servlet/AuthServlet?validatenow=false&role=reseller&currenturl=https://sunsys.myorderbox.com"
             }
         ]
     },
@@ -56,26 +65,8 @@
         "id": 3,
         "title": "About",
         "list": [
-            {
-            "id": 1,
-            "text": "Features",
-            "url": "/"
-            },
-            {
-            "id": 2,
-            "text": "Our Partners",
-            "url": "/"
-            },
-            {
-            "id": 3,
-            "text": "Affiliate Program",
-            "url": "/"
-            },
-            {
-            "id": 4,
-            "text": "Pricing",
-            "url": "/"
-            },
+          
+           
             {
             "id": 5,
             "text": "Careers",
@@ -105,22 +96,18 @@
             {
             "id": 1,
             "text": "Support Ticket",
-            "url": "/"
+            "url": "/login"
             },
             {
             "id": 2,
             "text": "Help Desk",
             "url": "/"
             },
-            {
-            "id": 3,
-            "text": "Live Chat",
-            "url": "/"
-            },
+          
             {
             "id": 4,
             "text": "FAQs",
-            "url": "/"
+            "url": "/faq"
             }
         ]
     }

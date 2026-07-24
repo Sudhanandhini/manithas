@@ -22,6 +22,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const slug = typeof body.slug === "string" ? body.slug.trim() : "";
     const label = typeof body.label === "string" ? body.label.trim() : "";
+    const type = typeof body.type === "string" && body.type.trim() ? body.type.trim() : "Page";
 
     if (!slug.startsWith("/")) {
         return NextResponse.json({ error: "slug must start with /" }, { status: 400 });
@@ -34,6 +35,7 @@ export async function POST(req: Request) {
         data: {
             slug,
             label,
+            type,
             title: body.title ?? null,
             description: body.description ?? null,
             keywords: body.keywords ?? null,

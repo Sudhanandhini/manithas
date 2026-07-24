@@ -19,16 +19,17 @@ const Footer = () => {
                                 />
                             </div>
                             <div className="footer-widget-content">
-                                <div className="content">
+                              <div className="content">
+<p>Delivering creative website development and custom web application solutions that help businesses succeed in the digital world.</p>
 
-
-                                    <p><Link href={"/"}>(+1) 212-946-2701</Link></p>
-                                    <p><Link href={"/"}>hello@hasagency.com</Link> </p>
-                                </div>
+                                    {/* <p><Link href={"/"}>(+1) 212-946-2701</Link></p>
+                                    <p><Link href={"/"}>hello@hasagency.com</Link> </p> */}
+                                </div> 
                                 <div className="footer-social-inline">
                                     <a href="#"><i className="fab fa-twitter-square"></i></a>
                                     <a href="#"><i className="fab fa-facebook-square"></i></a>
                                     <a href="#"><i className="fab fa-instagram"></i></a>
+                                      <a href="#"><i className="fab fa-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -45,11 +46,23 @@ const Footer = () => {
 
                 </div>
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col">
-                        <p className="copyright">&copy; {new Date().getFullYear()} <strong>Manithas</strong> Made with <i className="fas fa-heart text-danger"></i> by <a href="#"><strong>HasThemes</strong></a>.</p>
+                        <p className="copyright">&copy; {new Date().getFullYear()}  Made with <i className="fas fa-heart text-danger"></i> by <a href="#"><strong>Manithas</strong></a>.</p>
                     </div>
-                </div>
+                </div> */}
+
+                <div className="row">
+    <div className="col">
+        <p className="copyright">
+            &copy; {new Date().getFullYear()} Made with{" "}
+            <i className="fas fa-heart text-danger"></i> by{" "}
+            <a href="/" className="text-white text-decoration-none">
+                <strong>Manithas</strong>
+            </a>. All Rights Reserved.
+        </p>
+    </div>
+</div>
 
             </div>
         </div>

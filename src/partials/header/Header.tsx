@@ -3,12 +3,13 @@ import {Fragment, useState, useEffect} from "react";
 import Logo from '../../components/logo/Logo';
 import NavBar from '../../components/NavBar/NavBar';
 import HeaderSearch from '../../components/HeaderSearch/HeaderSearch';
-import Btn from '../../components/Btn/Btn';
+import QuoteModal from '../../components/QuoteModal/QuoteModal';
 import MobileMenu from "../../components/NavBar/MobileMenu"
 import MainSearch from "../../components/NavBar/MainSearch"
 
 const Header = () => {
     const [ofcanvasShow, setOffcanvasShow] = useState(false);
+    const [quoteModalShow, setQuoteModalShow] = useState(false);
     const onCanvasHandler = () => {
         setOffcanvasShow(prev => !prev);
     }
@@ -63,12 +64,19 @@ const Header = () => {
                             </div>
 
                             <div className="col-xl-2 col d-none d-sm-flex justify-content-end order-1 order-xl-2">
-                                <Btn name='Login' />
+                                <button
+                                    type="button"
+                                    className="btn btn-light btn-hover-primary"
+                                    onClick={() => setQuoteModalShow(true)}
+                                >
+                                    Get A Quote
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <QuoteModal show={quoteModalShow} onClose={() => setQuoteModalShow(false)} />
             {/* <MobileMenu show={ofcanvasShow} onClose={onCanvasHandler}/>
             <MainSearch show={searchbarShow} onClose={onSearchHandler}/> */}
         </Fragment>

@@ -8,7 +8,7 @@ type MegaMenuCategory = { label: string; columns: MegaMenuLink[][] };
 const APPLICATION_LINKS: MegaMenuLink[] = [
     { label: "Alumni", href: "/what-we-do/application/alumni" },
     { label: "eLibrary", href: "/what-we-do/application/elibrary" },
-    { label: "Subscription", href: "/what-we-do/application/subscription" },
+    { label: "Subscription Module", href: "/what-we-do/application/subscription" },
     { label: "Employee Records", href: "/what-we-do/application/employee-records" },
     { label: "Online Assessment Test", href: "/what-we-do/application/online-assessment-test" },
     { label: "Custom Web Application", href: "/what-we-do/application" },

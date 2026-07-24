@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 const EDITABLE_FIELDS = [
+    "type",
     "title",
     "description",
     "keywords",
@@ -38,7 +39,13 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     const data: Record<string, unknown> = {};
     for (const field of EDITABLE_FIELDS) {
         if (field in body) {
-            data[field] = field === "noindex" || field === "nofollow" ? Boolean(body[field]) : body[field] || null;
+            if (field === "noindex" || field === "nofollow") {
+                data[field] = Boolean(body[field]);
+            } else if (field === "type") {
+                data[field] = body[field] || "Page";
+            } else {
+                data[field] = body[field] || null;
+            }
         }
     }
 

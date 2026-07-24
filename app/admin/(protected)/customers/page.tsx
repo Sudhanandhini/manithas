@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import CustomerTabs from "./CustomerTabs";
+import CustomersTable from "./CustomersTable";
 
 export const dynamic = "force-dynamic";
 
@@ -10,44 +10,7 @@ export default async function AdminCustomersPage() {
     return (
         <>
             <CustomerTabs />
-
-            <div className="admin-card">
-                <table className="admin-table">
-                    <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Company</th>
-                            <th>Created</th>
-                            <th />
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {customers.map((customer) => (
-                            <tr key={customer.id}>
-                                <td>
-                                    <code>{customer.username}</code>
-                                </td>
-                                <td>{customer.name}</td>
-                                <td>{customer.email || <em>&mdash;</em>}</td>
-                                <td>{customer.companyName || <em>&mdash;</em>}</td>
-                                <td>{customer.createdAt.toISOString().slice(0, 10)}</td>
-                                <td>
-                                    <Link href={`/admin/customers/${customer.id}`} className="admin-btn-sm">
-                                        Edit
-                                    </Link>
-                                </td>
-                            </tr>
-                        ))}
-                        {customers.length === 0 && (
-                            <tr>
-                                <td colSpan={6}>No customers yet.</td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
-            </div>
+            <CustomersTable customers={customers} />
         </>
     );
 }
