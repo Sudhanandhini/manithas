@@ -1,37 +1,41 @@
 "use client";
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ActiveLink from "@/src/components/ActiveLink";
 
-type SolutionLink = { title: string; slug: string };
 type MegaMenuLink = { label: string; href: string };
 type MegaMenuCategory = { label: string; columns: MegaMenuLink[][] };
+
+const APPLICATION_LINKS: MegaMenuLink[] = [
+    { label: "Alumni", href: "/what-we-do/application/alumni" },
+    { label: "eLibrary", href: "/what-we-do/application/elibrary" },
+    { label: "Subscription", href: "/what-we-do/application/subscription" },
+    { label: "Employee Records", href: "/what-we-do/application/employee-records" },
+    { label: "Online Assessment Test", href: "/what-we-do/application/online-assessment-test" },
+    { label: "Custom Web Application", href: "/what-we-do/application" },
+];
 
 const WHAT_WE_DO: MegaMenuCategory[] = [
     {
         label: "Application",
-        columns: [
-            [
-                { label: "Alumni", href: "/what-we-do/application/alumni" },
-                { label: "eLibrary", href: "/what-we-do/application/elibrary" },
-                { label: "Subscription", href: "/what-we-do/application/subscription" },
-                { label: "Employee Records", href: "/what-we-do/application/employee-records" },
-                { label: "Online Assessment Test", href: "/what-we-do/application/online-assessment-test" },
-                { label: "Custom Web Application", href: "/what-we-do/application" },
-            ],
-        ],
+        columns: [APPLICATION_LINKS],
     },
     {
         label: "Web Development",
         columns: [
-            [
-                { label: "WordPress Development", href: "/what-we-do/web-development/wordpress-development" },
+            [  { label: "React Development", href: "/what-we-do/web-development/react-development" },
+                   { label: "HTML & CSS Development", href: "/what-we-do/web-development/html-css-development" },
+                
                 { label: "E-Commerce Development", href: "/what-we-do/web-development/e-commerce-development" },
                 { label: "Custom Web Development", href: "/what-we-do/web-development/custom-web-development" },
+              
+             
                 { label: "WooCommerce Development", href: "/what-we-do/web-development/woocommerce-development" },
+                { label: "Shopify Development", href: "/what-we-do/web-development/shopify-development" },
+                { label: "WordPress Development", href: "/what-we-do/web-development/wordpress-development" },
                 { label: "Landing Page", href: "/what-we-do/web-development/landing-page" },
             ],
             [
-                { label: "CMS Web Development", href: "/what-we-do/web-development/cms-web-development" },
+              
                 { label: "Website Maintenance", href: "/what-we-do/web-development/website-maintenance" },
                 { label: "Website Redesign", href: "/what-we-do/web-development/website-redesign" },
                 { label: "Responsive Web Design", href: "/what-we-do/web-development/responsive-web-design" },
@@ -51,7 +55,13 @@ const WHAT_WE_DO: MegaMenuCategory[] = [
     },
     {
         label: "Business E-Mail",
-        columns: [[{ label: "Business E-Mail", href: "/what-we-do/business-email" }]],
+        columns: [
+            [
+                { label: "Microsoft 365", href: "/what-we-do/business-email/microsoft-365" },
+                { label: "Google Workspace", href: "/what-we-do/business-email/google-workspace" },
+                { label: "Web Email", href: "/what-we-do/business-email/web-email" },
+            ],
+        ],
     },
     {
         label: "Industry Solutions",
@@ -69,15 +79,7 @@ const WHAT_WE_DO: MegaMenuCategory[] = [
 ];
 
 const NavBar = () => {
-    const [solutions, setSolutions] = useState<SolutionLink[]>([]);
     const [activeTab, setActiveTab] = useState(0);
-
-    useEffect(() => {
-        fetch("/api/solutions")
-            .then((res) => (res.ok ? res.json() : { solutions: [] }))
-            .then((data) => setSolutions(data.solutions ?? []))
-            .catch(() => {});
-    }, []);
 
     return (
         <nav className="site-main-menu">
@@ -116,18 +118,14 @@ const NavBar = () => {
                     </ul>
                 </li>
                 <li className="has-children">
-                    <ActiveLink href={"/solution"}><span className="menu-text">Solution</span></ActiveLink>
+                    <ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Solution</span></ActiveLink>
                     <span className="menu-toggle"><i className="far fa-angle-down"></i></span>
                     <ul className="sub-menu sub-menu-wrap">
-                        {solutions.length > 0 ? (
-                            solutions.map((s) => (
-                                <li key={s.slug}>
-                                    <ActiveLink href={`/solution-details/${s.slug}`}><span className="menu-text">{s.title}</span></ActiveLink>
-                                </li>
-                            ))
-                        ) : (
-                            <li><ActiveLink href={"/solution"}><span className="menu-text">View all</span></ActiveLink></li>
-                        )}
+                        {APPLICATION_LINKS.map((link) => (
+                            <li key={link.href}>
+                                <ActiveLink href={link.href}><span className="menu-text">{link.label}</span></ActiveLink>
+                            </li>
+                        ))}
                     </ul>
                 </li>
                 <li>
@@ -136,13 +134,8 @@ const NavBar = () => {
                 <li>
                     <ActiveLink href={"/contact"}><span className="menu-text">Reach Us</span></ActiveLink>
                 </li>
-                <li className="has-children">
-                    <ActiveLink href={"/work"}><span className="menu-text">Work</span></ActiveLink>
-                    <span className="menu-toggle"><i className="far fa-angle-down"></i></span>
-                    <ul className="sub-menu">
-                        <li><ActiveLink href={"/work"}><span className="menu-text">Work</span></ActiveLink></li>
-                        <li><ActiveLink href={`/work-details/1`}><span className="menu-text">Work Details</span></ActiveLink></li>
-                    </ul>
+                <li>
+                    <ActiveLink href={"/login"}><span className="menu-text">Ticket</span></ActiveLink>
                 </li>
             </ul>
         </nav>

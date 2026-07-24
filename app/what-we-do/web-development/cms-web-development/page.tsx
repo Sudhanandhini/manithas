@@ -130,7 +130,7 @@ export default function CmsWebDevelopment() {
                 content="Home"
                 contentTwo="CMS Web Development"
             />
-            <ContentSection
+            {/* <ContentSection
                 eyebrow="Web Development"
                 title="CMS Web Development"
                 description="We build content-managed websites on the CMS that fits your team, so you can update pages and content without touching code."
@@ -142,7 +142,7 @@ export default function CmsWebDevelopment() {
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
-            />
+            /> */}
             <AboutImageSplit
                 imageOne="/images/about/about-7.jpg"
                 imageTwo="/images/about/about-8.jpg"

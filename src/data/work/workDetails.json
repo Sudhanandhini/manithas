@@ -3,21 +3,22 @@
         "id": 1,
         "homeImage": "./images/portfolio/portfolio-1.jpg",
         "image": "images/project/project-1.jpg",
-        "title": "HasThemes Development: An outstanding payment app",
-        "date": "28 Sep 2007",
-        "client": "HighGrove Partners",
-        "categories": ["app", "development"],
-        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
-        "excerpt": "Quickly analyzing the digital business landscape, we create effective action plans and design optimal strategies.",
-        "body": ["<p>Digital marketing encompasses all marketing efforts that use an electronic device or the internet. Businesses leverage digital channels such as search engines, social media, email, and their websites to connect with current and prospective customers.</p>", "<p>It is. In fact, “constant” internet usage among adults increased by 5% in just the last three years, according to Pew Research. And although we say it a lot, the way people shop and buy really has changed along with it — meaning offline marketing isn’t as effective as it used to be.</p>", "<p>Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. (Source: blog.hubspot.com)</p>"],
+        "title": "Alumni Management Web Application",
+        "date": "2026",
+        "client": "Colleges & Universities",
+        "categories": ["Application"],
+        "awards": ["Role-based portals for students, alumni, admin & super admin"],
+        "excerpt": "A role-based alumni platform connecting colleges with their graduates through directories, career updates, and dedicated logins.",
+        "pageLink": "/what-we-do/application/alumni",
+        "body": ["<p>Our alumni web applications give colleges and universities a single system to track graduates, share opportunities, and keep their community engaged long after graduation.</p>", "<p>With dedicated logins for students, alumni, admin, and super admin, every user sees exactly the information relevant to them, from personal profile details to institution-wide alumni directories.</p>"],
         "btn": {
-            "text": "Go to link",
-            "link": "/"
+            "text": "Visit Alumni Page",
+            "link": "/what-we-do/application/alumni"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {
-            "title": "Digital Marketing.",
-            "text": "Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. A seasoned inbound marketer might say inbound marketing and digital marketing are virtually the same thing, but there are some minor differences. And conversations with marketers and business owners in the U.S., U.K., Asia, Australia, and New Zealand, I've learned a lot about how those small differences are being observed across the world."
+            "title": "Built For Colleges And Their Graduates.",
+            "text": "From student and alumni login portals to admin dashboards and career update sharing, the platform is designed around how colleges actually manage their alumni community, keeping records organized and graduates engaged for the long term."
         },
         "gallery": {
             "imageOne": "images/project/work-details-2.jpg",
@@ -29,21 +30,22 @@
         "id": 2,
         "homeImage": "./images/portfolio/portfolio-2.jpg",
         "image": "images/project/project-2.jpg",
-        "title": "Dashboards UI Kit open-source set of ready-to-use templates",
-        "date": "28 Sep 2007",
-        "client": "HighGrove Partners",
-        "categories": ["marketing", "software"],
-        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
-        "excerpt": "Quickly analyzing the digital business landscape, we create effective action plans and design optimal strategies.",
-        "body": ["<p>Digital marketing encompasses all marketing efforts that use an electronic device or the internet. Businesses leverage digital channels such as search engines, social media, email, and their websites to connect with current and prospective customers.</p>", "<p>It is. In fact, “constant” internet usage among adults increased by 5% in just the last three years, according to Pew Research. And although we say it a lot, the way people shop and buy really has changed along with it — meaning offline marketing isn’t as effective as it used to be.</p>", "<p>Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. (Source: blog.hubspot.com)</p>"],
+        "title": "React Development",
+        "date": "2026",
+        "client": "Product & Startup Teams",
+        "categories": ["Web Development"],
+        "awards": ["Component-driven, Next.js-ready builds"],
+        "excerpt": "Fast, component-driven web applications built with React and Next.js for performance, scalability, and SEO.",
+        "pageLink": "/what-we-do/web-development/react-development",
+        "body": ["<p>React has become the standard for building fast, interactive web interfaces, and we use it to build applications that feel instant, scale cleanly, and stay easy to maintain as your product grows.</p>", "<p>From single-page applications to full Next.js-powered websites, we structure every project around reusable components and clean state management.</p>"],
         "btn": {
-            "text": "Go to link",
-            "link": "/"
+            "text": "Visit React Development Page",
+            "link": "/what-we-do/web-development/react-development"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {
-            "title": "Digital Marketing.",
-            "text": "Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. A seasoned inbound marketer might say inbound marketing and digital marketing are virtually the same thing, but there are some minor differences. And conversations with marketers and business owners in the U.S., U.K., Asia, Australia, and New Zealand, I've learned a lot about how those small differences are being observed across the world."
+            "title": "Modern, Component-Driven Applications.",
+            "text": "We build custom React applications, reusable component libraries, and Next.js-powered sites, with API integrations and ongoing maintenance so your application keeps performing as it scales."
         },
         "gallery": {
             "imageOne": "images/project/work-details-2.jpg",
@@ -55,21 +57,22 @@
         "id": 3,
         "homeImage": "./images/portfolio/portfolio-3.jpg",
         "image": "images/project/project-3.jpg",
-        "title": "Project You X Ventures Studio. Toronto, Canada",
-        "date": "28 Sep 2007",
-        "client": "HighGrove Partners",
-        "categories": ["app", "software", "marketing"],
-        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
-        "excerpt": "Quickly analyzing the digital business landscape, we create effective action plans and design optimal strategies.",
-        "body": ["<p>Digital marketing encompasses all marketing efforts that use an electronic device or the internet. Businesses leverage digital channels such as search engines, social media, email, and their websites to connect with current and prospective customers.</p>", "<p>It is. In fact, “constant” internet usage among adults increased by 5% in just the last three years, according to Pew Research. And although we say it a lot, the way people shop and buy really has changed along with it — meaning offline marketing isn’t as effective as it used to be.</p>", "<p>Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. (Source: blog.hubspot.com)</p>"],
+        "title": "Cloud & VPS Hosting",
+        "date": "2026",
+        "client": "Growing Businesses",
+        "categories": ["Hosting & Maintenance"],
+        "awards": ["Dedicated resources with 24/7 monitoring"],
+        "excerpt": "Scalable cloud and VPS hosting with dedicated resources, full root access, and round-the-clock monitoring.",
+        "pageLink": "/hosting/cloud-vps-hosting",
+        "body": ["<p>As businesses grow, shared hosting can quickly become a bottleneck. Our Cloud & VPS hosting gives you dedicated resources, full root access, and the flexibility to scale up or down as traffic changes.</p>", "<p>Built on high-availability infrastructure with SSD storage and proactive monitoring, so applications stay fast, secure, and online.</p>"],
         "btn": {
-            "text": "Go to link",
-            "link": "/"
+            "text": "Visit Cloud & VPS Hosting Page",
+            "link": "/hosting/cloud-vps-hosting"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {
-            "title": "Digital Marketing.",
-            "text": "Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. A seasoned inbound marketer might say inbound marketing and digital marketing are virtually the same thing, but there are some minor differences. And conversations with marketers and business owners in the U.S., U.K., Asia, Australia, and New Zealand, I've learned a lot about how those small differences are being observed across the world."
+            "title": "Scalable Infrastructure, Managed For You.",
+            "text": "From scalable cloud resources and SSD storage to snapshot backups and 24/7 security monitoring, every hosting plan is set up and managed so your applications stay online and performant."
         },
         "gallery": {
             "imageOne": "images/project/work-details-2.jpg",
@@ -81,21 +84,22 @@
         "id": 4,
         "homeImage": "./images/portfolio/portfolio-4.jpg",
         "image": "images/project/project-4.jpg",
-        "title": "Launching a new campaign this month, Nike by you",
-        "date": "28 Sep 2007",
-        "client": "HighGrove Partners",
-        "categories": ["development", "ux design", "marketing"],
-        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
-        "excerpt": "Quickly analyzing the digital business landscape, we create effective action plans and design optimal strategies.",
-        "body": ["<p>Digital marketing encompasses all marketing efforts that use an electronic device or the internet. Businesses leverage digital channels such as search engines, social media, email, and their websites to connect with current and prospective customers.</p>", "<p>It is. In fact, “constant” internet usage among adults increased by 5% in just the last three years, according to Pew Research. And although we say it a lot, the way people shop and buy really has changed along with it — meaning offline marketing isn’t as effective as it used to be.</p>", "<p>Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. (Source: blog.hubspot.com)</p>"],
+        "title": "Microsoft 365 Email Setup",
+        "date": "2026",
+        "client": "Growing Teams & Enterprises",
+        "categories": ["Business E-Mail"],
+        "awards": ["Outlook, Teams & OneDrive on your domain"],
+        "excerpt": "Outlook, Teams, and OneDrive configured on your business domain for a professional, secure email setup.",
+        "pageLink": "/what-we-do/business-email/microsoft-365",
+        "body": ["<p>Microsoft 365 brings Outlook, Teams, Word, Excel, PowerPoint, and OneDrive together in one subscription, and we handle the setup so your team gets a professional inbox on your own domain from day one.</p>", "<p>We configure Exchange Online mailboxes, security policies, and device sync, so email, chat, and files stay connected everywhere.</p>"],
         "btn": {
-            "text": "Go to link",
-            "link": "/"
+            "text": "Visit Microsoft 365 Page",
+            "link": "/what-we-do/business-email/microsoft-365"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {
-            "title": "Digital Marketing.",
-            "text": "Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. A seasoned inbound marketer might say inbound marketing and digital marketing are virtually the same thing, but there are some minor differences. And conversations with marketers and business owners in the U.S., U.K., Asia, Australia, and New Zealand, I've learned a lot about how those small differences are being observed across the world."
+            "title": "The Full Microsoft Suite, Set Up For You.",
+            "text": "From tenant setup and email migration to Teams collaboration and security policies, we configure Microsoft 365 around how your team actually works, with ongoing support as you grow."
         },
         "gallery": {
             "imageOne": "images/project/work-details-2.jpg",
@@ -107,21 +111,22 @@
         "id": 5,
         "homeImage": "./images/portfolio/portfolio-5.jpg",
         "image": "images/project/project-5.jpg",
-        "title": "Branding and photography. Mother Nature: Summer",
-        "date": "28 Sep 2007",
-        "client": "HighGrove Partners",
-        "categories": ["app", "ux design"],
-        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
-        "excerpt": "Quickly analyzing the digital business landscape, we create effective action plans and design optimal strategies.",
-        "body": ["<p>Digital marketing encompasses all marketing efforts that use an electronic device or the internet. Businesses leverage digital channels such as search engines, social media, email, and their websites to connect with current and prospective customers.</p>", "<p>It is. In fact, “constant” internet usage among adults increased by 5% in just the last three years, according to Pew Research. And although we say it a lot, the way people shop and buy really has changed along with it — meaning offline marketing isn’t as effective as it used to be.</p>", "<p>Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. (Source: blog.hubspot.com)</p>"],
+        "title": "Corporate Website Design",
+        "date": "2026",
+        "client": "Corporate & Enterprise Businesses",
+        "categories": ["Industry Solutions"],
+        "awards": ["Brand-led design for enterprise credibility"],
+        "excerpt": "Brand-aligned corporate websites built to communicate business credibility to clients, partners, and investors.",
+        "pageLink": "/industry-solutions/corporate",
+        "body": ["<p>A corporate website is often the first serious impression a prospective client, partner, or investor forms of a business. We design sites that translate brand authority into a clear, confident digital experience.</p>", "<p>From structured content for multiple departments to secure areas for reports and documentation, we build corporate platforms that scale with the organization.</p>"],
         "btn": {
-            "text": "Go to link",
-            "link": "/"
+            "text": "Visit Corporate Solutions Page",
+            "link": "/industry-solutions/corporate"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {
-            "title": "Digital Marketing.",
-            "text": "Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. A seasoned inbound marketer might say inbound marketing and digital marketing are virtually the same thing, but there are some minor differences. And conversations with marketers and business owners in the U.S., U.K., Asia, Australia, and New Zealand, I've learned a lot about how those small differences are being observed across the world."
+            "title": "A Digital Presence That Reflects Credibility.",
+            "text": "Investor relations pages, careers microsites, and multi-department content structures are built into every corporate website, backed by secure content management that scales with the business."
         },
         "gallery": {
             "imageOne": "images/project/work-details-2.jpg",
@@ -133,21 +138,22 @@
         "id": 6,
         "homeImage": "./images/portfolio/portfolio-6.jpg",
         "image": "images/project/project-6.jpg",
-        "title": "Modern and unique design for a furniture application",
-        "date": "28 Sep 2007",
-        "client": "HighGrove Partners",
-        "categories": ["app", "ux design", "software"],
-        "awards": ["2015 Digital World Awards 2016 Finale Awards"],
-        "excerpt": "Quickly analyzing the digital business landscape, we create effective action plans and design optimal strategies.",
-        "body": ["<p>Digital marketing encompasses all marketing efforts that use an electronic device or the internet. Businesses leverage digital channels such as search engines, social media, email, and their websites to connect with current and prospective customers.</p>", "<p>It is. In fact, “constant” internet usage among adults increased by 5% in just the last three years, according to Pew Research. And although we say it a lot, the way people shop and buy really has changed along with it — meaning offline marketing isn’t as effective as it used to be.</p>", "<p>Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. (Source: blog.hubspot.com)</p>"],
+        "title": "Online Assessment Test Web Application",
+        "date": "2026",
+        "client": "Schools & Training Institutes",
+        "categories": ["Application"],
+        "awards": ["Instant certificate generation on completion"],
+        "excerpt": "Self-registration, online testing, and instant certificate generation for students, with an admin results dashboard.",
+        "pageLink": "/what-we-do/application/online-assessment-test",
+        "body": ["<p>Students register with just their name, class, place, and school, then take the assessment online without needing an admin-created account, making it easy to open the test to a wide audience.</p>", "<p>As soon as a student completes the test, a certificate is generated automatically for them to download, while admins get a live view of completion and results.</p>"],
         "btn": {
-            "text": "Go to link",
-            "link": "/"
+            "text": "Visit Online Assessment Page",
+            "link": "/what-we-do/application/online-assessment-test"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {
-            "title": "Digital Marketing.",
-            "text": "Marketing has always been about connecting with your audience in the right place and at the right time. Today, that means you need to meet them where they are already spending time: on the internet. A seasoned inbound marketer might say inbound marketing and digital marketing are virtually the same thing, but there are some minor differences. And conversations with marketers and business owners in the U.S., U.K., Asia, Australia, and New Zealand, I've learned a lot about how those small differences are being observed across the world."
+            "title": "From Registration To Certificate, Fully Online.",
+            "text": "Quick self-registration, a distraction-free test interface, instant certificate downloads, and an admin dashboard with Excel export make the entire assessment process self-serve and easy to scale."
         },
         "gallery": {
             "imageOne": "images/project/work-details-2.jpg",
@@ -155,7 +161,4 @@
             "imageThree": "images/project/work-details-4.jpg"
         }
     }
-    
 ]
-
-

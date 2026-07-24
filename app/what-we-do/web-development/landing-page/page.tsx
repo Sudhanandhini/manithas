@@ -130,7 +130,7 @@ export default function LandingPage() {
                 content="Home"
                 contentTwo="Landing Page"
             />
-            <ContentSection
+            {/* <ContentSection
                 eyebrow="Web Development"
                 title="Landing Page"
                 description="High-converting landing pages designed and built to turn visitors into leads and customers for your campaigns."
@@ -142,7 +142,7 @@ export default function LandingPage() {
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
-            />
+            /> */}
             <AboutImageSplit
                 imageOne="/images/about/about-5.jpg"
                 imageTwo="/images/about/about-6.jpg"

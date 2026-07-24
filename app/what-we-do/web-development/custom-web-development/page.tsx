@@ -116,7 +116,7 @@ export default function CustomWebDevelopment() {
                 content="Home"
                 contentTwo="Custom Web Development"
             />
-            <ContentSection
+            {/* <ContentSection
                 eyebrow="Web Development"
                 title="Custom Web Development"
                 description="When off-the-shelf platforms won't cut it, we build fully custom websites and web apps engineered around your exact requirements."
@@ -128,7 +128,7 @@ export default function CustomWebDevelopment() {
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
-            />
+            /> */}
             <AboutImageSplit
                 imageOne="/images/about/about-8.jpg"
                 imageTwo="/images/about/about-9.jpg"

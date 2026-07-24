@@ -138,7 +138,7 @@ export default function ResponsiveWebDesign() {
                 content="Home"
                 contentTwo="Responsive Web Design"
             />
-            <ContentSection
+            {/* <ContentSection
                 eyebrow="Web Development"
                 title="Responsive Web Design"
                 description="Websites designed to look and work great on every screen size, from desktop to mobile, with no compromise on experience."
@@ -150,7 +150,7 @@ export default function ResponsiveWebDesign() {
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
-            />
+            /> */}
             <AboutImageSplit
                 imageOne="/images/about/about-4.jpg"
                 imageTwo="/images/about/about-5.jpg"

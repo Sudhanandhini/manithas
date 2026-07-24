@@ -85,6 +85,16 @@
             "id": 6,
             "text": "Blog",
             "url": "/blog-grid"
+            },
+            {
+            "id": 7,
+            "text": "Case Studies",
+            "url": "/solution"
+            },
+            {
+            "id": 8,
+            "text": "Work",
+            "url": "/work"
             }
         ]
     },

@@ -71,12 +71,15 @@ const MobileNavMenu = () => {
                     </ul>
                 </li>
                 <li className="has-children">
-                    <ActiveLink href={"/solutions/alumni"}><span className="menu-text">Solution</span></ActiveLink>
+                    <ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Solution</span></ActiveLink>
                     <span className="menu-toggle" onClick={onClickHandler}><i className="far fa-angle-down"></i></span>
                     <ul className="sub-menu">
-                        <li><ActiveLink href={"/solutions/alumni"}><span className="menu-text">Alumni</span></ActiveLink></li>
-                        <li><ActiveLink href={"/solutions/library"}><span className="menu-text">Library</span></ActiveLink></li>
-                        <li><ActiveLink href={"/solutions/membership"}><span className="menu-text">Membership</span></ActiveLink></li>
+                        <li><ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Alumni</span></ActiveLink></li>
+                        <li><ActiveLink href={"/what-we-do/application/elibrary"}><span className="menu-text">eLibrary</span></ActiveLink></li>
+                        <li><ActiveLink href={"/what-we-do/application/subscription"}><span className="menu-text">Subscription</span></ActiveLink></li>
+                        <li><ActiveLink href={"/what-we-do/application/employee-records"}><span className="menu-text">Employee Records</span></ActiveLink></li>
+                        <li><ActiveLink href={"/what-we-do/application/online-assessment-test"}><span className="menu-text">Online Assessment Test</span></ActiveLink></li>
+                        <li><ActiveLink href={"/what-we-do/application"}><span className="menu-text">Custom Web Application</span></ActiveLink></li>
                     </ul>
                 </li>
                 <li>
@@ -85,13 +88,8 @@ const MobileNavMenu = () => {
                 <li>
                     <ActiveLink href={"/contact"}><span className="menu-text">Reach Us</span></ActiveLink>
                 </li>
-                <li className="has-children">
-                    <ActiveLink href={"/work"}><span className="menu-text">Work</span></ActiveLink>
-                    <span className="menu-toggle" onClick={onClickHandler}><i className="far fa-angle-down"></i></span>
-                    <ul className="sub-menu">
-                        <li><ActiveLink href={"/work"}><span className="menu-text">Work</span></ActiveLink></li>
-                        <li><ActiveLink href={`/work-details/1`}><span className="menu-text">Work Details</span></ActiveLink></li>
-                    </ul>
+                <li>
+                    <ActiveLink href={"/login"}><span className="menu-text">Ticket</span></ActiveLink>
                 </li>
             </ul>
         </nav>

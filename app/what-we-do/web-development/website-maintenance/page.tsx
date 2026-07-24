@@ -138,7 +138,7 @@ export default function WebsiteMaintenance() {
                 content="Home"
                 contentTwo="Website Maintenance"
             />
-            <ContentSection
+            {/* <ContentSection
                 eyebrow="Web Development"
                 title="Website Maintenance"
                 description="Ongoing care to keep your website fast, secure, and up to date, so you can focus on your business instead of your website."
@@ -150,7 +150,7 @@ export default function WebsiteMaintenance() {
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
-            />
+            /> */}
             <AboutImageSplit
                 imageOne="/images/about/about-9.jpg"
                 imageTwo="/images/about/about-1.jpg"

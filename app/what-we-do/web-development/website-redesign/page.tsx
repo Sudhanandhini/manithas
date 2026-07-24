@@ -139,7 +139,7 @@ export default function WebsiteRedesign() {
                 content="Home"
                 contentTwo="Website Redesign"
             />
-            <ContentSection
+            {/* <ContentSection
                 eyebrow="Web Development"
                 title="Website Redesign"
                 description="We refresh outdated websites with modern design, better performance, and a clearer path to conversion, without losing your SEO equity."
@@ -151,7 +151,7 @@ export default function WebsiteRedesign() {
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
-            />
+            /> */}
             <AboutImageSplit
                 imageOne="/images/about/about-2.jpg"
                 imageTwo="/images/about/about-3.jpg"

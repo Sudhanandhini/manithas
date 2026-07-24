@@ -120,7 +120,7 @@ export default function WooCommerceDevelopment() {
                 content="Home"
                 contentTwo="WooCommerce Development"
             />
-            <ContentSection
+            {/* <ContentSection
                 eyebrow="Web Development"
                 title="WooCommerce Development"
                 description="We build and customize WooCommerce stores on WordPress, from theme design to plugin configuration and payment setup."
@@ -132,7 +132,7 @@ export default function WooCommerceDevelopment() {
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
-            />
+            /> */}
             <AboutImageSplit
                 imageOne="/images/about/about-6.jpg"
                 imageTwo="/images/about/about-7.jpg"
