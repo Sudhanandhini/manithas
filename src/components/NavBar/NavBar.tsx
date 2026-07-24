@@ -9,7 +9,16 @@ type MegaMenuCategory = { label: string; columns: MegaMenuLink[][] };
 const WHAT_WE_DO: MegaMenuCategory[] = [
     {
         label: "Application",
-        columns: [[{ label: "Application Development", href: "/what-we-do/application" }]],
+        columns: [
+            [
+                { label: "Alumni", href: "/what-we-do/application/alumni" },
+                { label: "eLibrary", href: "/what-we-do/application/elibrary" },
+                { label: "Subscription", href: "/what-we-do/application/subscription" },
+                { label: "Employee Records", href: "/what-we-do/application/employee-records" },
+                { label: "Online Assessment Test", href: "/what-we-do/application/online-assessment-test" },
+                { label: "Custom Web Application", href: "/what-we-do/application" },
+            ],
+        ],
     },
     {
         label: "Web Development",
@@ -36,7 +45,7 @@ const WHAT_WE_DO: MegaMenuCategory[] = [
                 { label: "Linux Hosting", href: "/hosting/linux-hosting" },
                 { label: "Web Hosting", href: "/hosting/web-hosting" },
                 { label: "Email Hosting", href: "/hosting/email-hosting" },
-                { label: "Cloud & VPS Hosting", href: "/what-we-do/web-hosting" },
+                { label: "Cloud & VPS Hosting", href: "/hosting/cloud-vps-hosting" },
             ],
         ],
     },

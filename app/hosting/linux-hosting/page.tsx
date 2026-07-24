@@ -51,27 +51,32 @@ export default function LinuxHosting() {
     return (
         <>
             <Header />
-            <HostingHero
+            <div    className="no-padding-sec">
+   <HostingHero
+          
                 pageTitle="Linux Hosting"
                 bgImage="/images/bg/breadcrumb-bg-three.jpg"
-                headlineBefore="Unleash Your Website's Potential with"
-                headlineHighlight="Linux Hosting"
-                subtitle="Unlock your website's potential with our reliable Linux hosting. Experience superior performance, enhanced security, and expert support for seamless scalability."
-                ctaLabel="Request A Callback"
+                headlineBefore=""
+                headlineHighlight=""
+                subtitle=""
+                ctaLabel=""
                 ctaLink="/contact"
+               
             />
-            <LogoBadgeStrip
+            </div>
+         
+            {/* <LogoBadgeStrip
                 eyebrow="We Are Partners Of"
                 items={["Google Partner", "Microsoft Partner", "ICANN Accredited", "ResellerClub"]}
-            />
+            /> */}
             <AboutImageSplit
                 imageOne="/images/about/about-4.jpg"
                 imageTwo="/images/about/about-8.jpg"
-                eyebrow="Why Sunsys"
+                eyebrow="Why Manithas"
                 title="Powerful Linux Hosting For Your Business"
                 paragraphs={[
                     "In today's world, with countless devices of varying resolutions and screen sizes, managing a separate website for each device isn't practical. The solution is responsive web design, which adjusts content to fit any screen size. With 72% of users searching the web on mobile, a non-responsive website means losing potential visitors.",
-                    "Sunsys, a top web design company in Bengaluru, brings over nine years of experience in human-centric, responsive designs. Our innovative solutions, including parallax scrolling, animations, and mobile designs, help businesses thrive in their target markets.",
+                   
                     "Our Linux hosting offers reliable service management with strong compatibility for open-source technologies like PHP, Perl, and MySQL, making it ideal for business operations over the web."
                 ]}
                 ctaLabel="Talk To Us"
@@ -82,12 +87,12 @@ export default function LinuxHosting() {
                 subtitle="Linux hosting delivers robust performance, security, and flexibility. Key features include multi-language support, easy scalability, and cost-effectiveness. Its compatibility with open-source applications and strong community support make it ideal for businesses of all sizes."
                 features={featuresData}
             />
-            <HostingTech />
-            <LogoBadgeStrip
+            {/* <HostingTech /> */}
+            {/* <LogoBadgeStrip
                 eyebrow="Clients We Served"
                 classOption="clients-strip"
                 items={["Bharat Electronics", "Indian Institute of Science", "Supreme", "ChildFund", "KLE Society's"]}
-            />
+            /> */}
             <CallToActionTwo
                 title="Are You Looking For Website Development For Your Business?"
                 subTitle="Get free quote and consultation in one hour"

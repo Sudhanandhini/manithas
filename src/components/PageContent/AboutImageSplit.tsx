@@ -22,7 +22,7 @@ const AboutImageSplit = ({ imageOne, imageTwo, eyebrow, title, paragraphs, ctaLa
     }, [])
 
     return (
-        <div className={`section section-padding-top section-padding-bottom-180 ${classOption}`}>
+        <div className={`section section-padding-top ${classOption}`} style={{ paddingBottom: 100 }}>
             <div className="container">
 
                 <div className="row">

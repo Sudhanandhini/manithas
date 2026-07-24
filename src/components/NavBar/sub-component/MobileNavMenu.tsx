@@ -44,7 +44,18 @@ const MobileNavMenu = () => {
                     <ActiveLink href={"/what-we-do/application"}><span className="menu-text">What We Do</span></ActiveLink>
                     <span className="menu-toggle" onClick={onClickHandler}><i className="far fa-angle-down"></i></span>
                     <ul className="sub-menu">
-                        <li><ActiveLink href={"/what-we-do/application"}><span className="menu-text">Application</span></ActiveLink></li>
+                        <li className="has-children">
+                            <ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Application</span></ActiveLink>
+                            <span className="menu-toggle" onClick={onClickHandler}><i className="far fa-angle-down"></i></span>
+                            <ul className="sub-menu">
+                                <li><ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Alumni</span></ActiveLink></li>
+                                <li><ActiveLink href={"/what-we-do/application/elibrary"}><span className="menu-text">eLibrary</span></ActiveLink></li>
+                                <li><ActiveLink href={"/what-we-do/application/subscription"}><span className="menu-text">Subscription</span></ActiveLink></li>
+                                <li><ActiveLink href={"/what-we-do/application/employee-records"}><span className="menu-text">Employee Records</span></ActiveLink></li>
+                                <li><ActiveLink href={"/what-we-do/application/online-assessment-test"}><span className="menu-text">Online Assessment Test</span></ActiveLink></li>
+                                <li><ActiveLink href={"/what-we-do/application"}><span className="menu-text">Custom Web Application</span></ActiveLink></li>
+                            </ul>
+                        </li>
                         <li><ActiveLink href={"/what-we-do/web-development"}><span className="menu-text">Web Development</span></ActiveLink></li>
                         <li><ActiveLink href={"/what-we-do/business-email"}><span className="menu-text">Business E-Mail</span></ActiveLink></li>
                         <li className="has-children">
@@ -54,7 +65,7 @@ const MobileNavMenu = () => {
                                 <li><ActiveLink href={"/hosting/linux-hosting"}><span className="menu-text">Linux Hosting</span></ActiveLink></li>
                                 <li><ActiveLink href={"/hosting/web-hosting"}><span className="menu-text">Web Hosting</span></ActiveLink></li>
                                 <li><ActiveLink href={"/hosting/email-hosting"}><span className="menu-text">Email Hosting</span></ActiveLink></li>
-                                <li><ActiveLink href={"/what-we-do/web-hosting"}><span className="menu-text">Cloud &amp; VPS Hosting</span></ActiveLink></li>
+                                <li><ActiveLink href={"/hosting/cloud-vps-hosting"}><span className="menu-text">Cloud &amp; VPS Hosting</span></ActiveLink></li>
                             </ul>
                         </li>
                     </ul>

@@ -61,28 +61,28 @@ export default function EmailHosting() {
     return (
         <>
             <Header />
-            <HostingHero
+          <div    className="no-padding-sec">  <HostingHero
                 pageTitle="Email Hosting"
                 bgImage="/images/bg/breadcrumb-bg-three.jpg"
-                headlineBefore="Professional"
-                headlineHighlight="Email Hosting Solutions"
-                subtitle="Our professional email hosting solutions offer secure, reliable services with ample storage and 24/7 support. Enhance your brand's credibility with a customized email address tailored for your business."
-                ctaLabel="Request A Callback"
+                headlineBefore=""
+                headlineHighlight=""
+                subtitle=" "
+                ctaLabel=""
                 ctaLink="/contact"
-                heroIcon="fas fa-envelope-open-text"
-            />
-            <LogoBadgeStrip
+                heroIcon=""
+            /></div>  
+            {/* <LogoBadgeStrip
                 eyebrow="We Are Partners Of"
                 title="Trusted By Global Giants"
                 items={["Google Partner", "Microsoft Partner", "ICANN Accredited", "ResellerClub"]}
-            />
+            /> */}
             <AboutImageSplit
                 imageOne="/images/about/about-3.jpg"
                 imageTwo="/images/about/about-9.jpg"
-                eyebrow="Why Sunsys"
+                eyebrow="Why Manithas"
                 title="Why Professional Email Hosting Matters"
                 paragraphs={[
-                    "A professional email is crucial for small businesses and startups, offering a cost-effective communication solution. It enhances your brand's credibility, builds trust with clients, and boosts customer attraction. Unlike generic email addresses, a company email fosters brand recognition and protects against spam and malware. Sunsys, a leading email hosting provider in Bengaluru, ensures secure and memorable communication for your business, making it easier for clients to connect with you."
+                    "A professional email is crucial for small businesses and startups, offering a cost-effective communication solution. It enhances your brand's credibility, builds trust with clients, and boosts customer attraction. Unlike generic email addresses, a company email fosters brand recognition and protects against spam and malware. Manithas, a leading email hosting provider in Bengaluru, ensures secure and memorable communication for your business, making it easier for clients to connect with you."
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
@@ -93,12 +93,12 @@ export default function EmailHosting() {
                 features={featuresData}
                 columns={4}
             />
-            <HostingTech />
+            {/* <HostingTech />
             <LogoBadgeStrip
                 eyebrow="Clients We Served"
                 classOption="clients-strip"
                 items={["Apollo", "DynaFusion", "ICA", "Bharat Electronics", "Alcon"]}
-            />
+            /> */}
             <CallToActionTwo
                 title="Are You Looking For Website Development For Your Business?"
                 subTitle="Get free quote and consultation in one hour"

@@ -132,9 +132,9 @@ export default function Application() {
             <Header />
             <Breadcrumb
                 image="images/bg/breadcrumb-bg-three.jpg"
-                title="Application Development"
+                title="Custom Web Application"
                 content="Home"
-                contentTwo="Application"
+                contentTwo="Custom Web Application"
             />
             {/* <ContentSection
                 eyebrow="What We Do"

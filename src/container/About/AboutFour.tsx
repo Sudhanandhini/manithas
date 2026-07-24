@@ -37,7 +37,7 @@ const AboutFour = () => {
                                 title="Quality &amp; Experience Web Design Company"
                             />
 
-                            <p>Sunsys Technologies, the Bangalore-based company founded by Mr. Manjunatha Narasimhaiah, has emerged as a leading player in the web services and solutions industry. Since its inception in May 2006, our company has prioritized quality and affordability, earning us a stellar reputation. Initially operating as a web services company, Sunsys Technologies (India) Pvt. Ltd. officially registered its name in May 2009.</p>
+                            <p>Manithas Technologies, the Bangalore-based company founded by Mr. Manjunatha Narasimhaiah, has emerged as a leading player in the web services and solutions industry. Since its inception in May 2006, our company has prioritized quality and affordability, earning us a stellar reputation. Initially operating as a web services company, Manithas Technologies (India) Pvt. Ltd. officially registered its name in May 2009.</p>
 
                             <div className="row row-cols-sm-2 row-cols-auto mb-n6">
                                 <div className="col mb-6">

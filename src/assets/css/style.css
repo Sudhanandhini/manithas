@@ -26955,7 +26955,7 @@ textarea {
     line-height: 24px;
     font-weight: 500;
     display: block;
-    max-width: 530px;
+    max-width:fit-content;
     margin: 0 auto;
     margin-top: 20px;
     color: #8C89A2; }
@@ -29721,3 +29721,12 @@ textarea {
   border-top: 1px solid #3f5054;
   color: #fff;
   margin-bottom: 0; }
+
+  .no-padding-sec{
+    padding: 0px !important;
+  }
+
+
+ /* .section-title .sub-title {
+    max-width: 100% !important;
+} */

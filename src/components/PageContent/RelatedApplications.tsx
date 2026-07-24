@@ -5,8 +5,8 @@ const RelatedApplications = ({ eyebrow, title, description, apps, classOption })
     return (
         <div className={`section section-padding-t90-b100 ${classOption}`}>
             <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-xl-8 col-lg-10 text-center">
+                <div className="row ">
+                    <div className="col-xl-8 col-lg-10 ">
                         <SectionTitleTwo subTitle={eyebrow} title={title} />
                         {description && <p data-aos="fade-up" data-aos-delay="100">{description}</p>}
                     </div>
