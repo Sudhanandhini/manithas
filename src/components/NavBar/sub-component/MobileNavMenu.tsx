@@ -7,6 +7,7 @@ import {
     slideToggle,
     slideUp,
 } from "../../../utils";
+import { APPLICATION_LINKS, WHAT_WE_DO } from "../navData";
 
 const MobileNavMenu = () => {
     const onClickHandler = (e) => {
@@ -41,49 +42,36 @@ const MobileNavMenu = () => {
         <nav className="site-mobile-menu">
             <ul>
                 <li className="has-children">
-                    <ActiveLink href={"/what-we-do/application"}><span className="menu-text">What We Do</span></ActiveLink>
-                    <span className="menu-toggle" onClick={onClickHandler}><i className="far fa-angle-down"></i></span>
+                    <ActiveLink href={"/service"}><span className="menu-text">What We Do</span></ActiveLink>
+                    <span className="menu-toggle" onClick={onClickHandler}><i className="fas fa-angle-down"></i></span>
                     <ul className="sub-menu">
-                        <li className="has-children">
-                            <ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Application</span></ActiveLink>
-                            <span className="menu-toggle" onClick={onClickHandler}><i className="far fa-angle-down"></i></span>
-                            <ul className="sub-menu">
-                                <li><ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Alumni</span></ActiveLink></li>
-                                <li><ActiveLink href={"/what-we-do/application/elibrary"}><span className="menu-text">eLibrary</span></ActiveLink></li>
-                                <li><ActiveLink href={"/what-we-do/application/subscription"}><span className="menu-text">Subscription</span></ActiveLink></li>
-                                <li><ActiveLink href={"/what-we-do/application/employee-records"}><span className="menu-text">Employee Records</span></ActiveLink></li>
-                                <li><ActiveLink href={"/what-we-do/application/online-assessment-test"}><span className="menu-text">Online Assessment Test</span></ActiveLink></li>
-                                <li><ActiveLink href={"/what-we-do/application"}><span className="menu-text">Custom Web Application</span></ActiveLink></li>
-                            </ul>
-                        </li>
-                        <li><ActiveLink href={"/what-we-do/web-development"}><span className="menu-text">Web Development</span></ActiveLink></li>
-                        <li><ActiveLink href={"/what-we-do/business-email"}><span className="menu-text">Business E-Mail</span></ActiveLink></li>
-                        <li className="has-children">
-                            <ActiveLink href={"/hosting/linux-hosting"}><span className="menu-text">Hosting</span></ActiveLink>
-                            <span className="menu-toggle" onClick={onClickHandler}><i className="far fa-angle-down"></i></span>
-                            <ul className="sub-menu">
-                                <li><ActiveLink href={"/hosting/linux-hosting"}><span className="menu-text">Linux Hosting</span></ActiveLink></li>
-                                <li><ActiveLink href={"/hosting/web-hosting"}><span className="menu-text">Web Hosting</span></ActiveLink></li>
-                                <li><ActiveLink href={"/hosting/email-hosting"}><span className="menu-text">Email Hosting</span></ActiveLink></li>
-                                <li><ActiveLink href={"/hosting/cloud-vps-hosting"}><span className="menu-text">Cloud &amp; VPS Hosting</span></ActiveLink></li>
-                            </ul>
-                        </li>
+                        {WHAT_WE_DO.map((category) => {
+                            const links = category.columns.flat();
+                            return (
+                                <li className="has-children" key={category.label}>
+                                    <ActiveLink href={links[0]?.href ?? "#"}><span className="menu-text">{category.label}</span></ActiveLink>
+                                    <span className="menu-toggle" onClick={onClickHandler}><i className="fas fa-angle-down"></i></span>
+                                    <ul className="sub-menu">
+                                        {links.map((link) => (
+                                            <li key={link.href}><ActiveLink href={link.href}><span className="menu-text">{link.label}</span></ActiveLink></li>
+                                        ))}
+                                    </ul>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </li>
                 <li className="has-children">
                     <ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Solution</span></ActiveLink>
-                    <span className="menu-toggle" onClick={onClickHandler}><i className="far fa-angle-down"></i></span>
+                    <span className="menu-toggle" onClick={onClickHandler}><i className="fas fa-angle-down"></i></span>
                     <ul className="sub-menu">
-                        <li><ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Alumni</span></ActiveLink></li>
-                        <li><ActiveLink href={"/what-we-do/application/elibrary"}><span className="menu-text">eLibrary</span></ActiveLink></li>
-                        <li><ActiveLink href={"/what-we-do/application/subscription"}><span className="menu-text">Subscription</span></ActiveLink></li>
-                        <li><ActiveLink href={"/what-we-do/application/employee-records"}><span className="menu-text">Employee Records</span></ActiveLink></li>
-                        <li><ActiveLink href={"/what-we-do/application/online-assessment-test"}><span className="menu-text">Online Assessment Test</span></ActiveLink></li>
-                        <li><ActiveLink href={"/what-we-do/application"}><span className="menu-text">Custom Web Application</span></ActiveLink></li>
+                        {APPLICATION_LINKS.map((link) => (
+                            <li key={link.href}><ActiveLink href={link.href}><span className="menu-text">{link.label}</span></ActiveLink></li>
+                        ))}
                     </ul>
                 </li>
                 <li>
-                    <ActiveLink href={"/about"}><span className="menu-text">What We Are</span></ActiveLink>
+                    <ActiveLink href={"/about"}><span className="menu-text">Who We Are</span></ActiveLink>
                 </li>
                 <li>
                     <ActiveLink href={"/contact"}><span className="menu-text">Reach Us</span></ActiveLink>

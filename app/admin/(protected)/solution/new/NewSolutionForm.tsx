@@ -27,7 +27,7 @@ export default function NewSolutionForm() {
 
         if (!res.ok) {
             const data = await res.json().catch(() => ({}));
-            setError(data.error || "Could not create solution.");
+            setError(data.error || "Could not create case study.");
             return;
         }
 
@@ -55,7 +55,7 @@ export default function NewSolutionForm() {
                 label="Thumbnail image"
                 value={image}
                 onChange={setImage}
-                hint="You can add a larger hero image and the rest of the SEO fields after creating the solution."
+                hint="You can add a larger hero image and the rest of the SEO fields after creating the case study."
             />
             <div className="admin-field">
                 <label htmlFor="content">Content (paste HTML or plain text)</label>
@@ -68,7 +68,7 @@ export default function NewSolutionForm() {
                 />
             </div>
             <button className="admin-btn" type="submit" disabled={loading}>
-                {loading ? "Adding..." : "Add solution"}
+                {loading ? "Adding..." : "Add case study"}
             </button>
         </form>
     );

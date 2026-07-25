@@ -11,10 +11,10 @@ export default function SolutionTabs() {
     return (
         <div className="admin-tabs">
             <Link href="/admin/solution" className={`admin-tab${isAllSolutions ? " is-active" : ""}`}>
-                All Solutions
+                All Case Studies
             </Link>
             <Link href="/admin/solution/new" className={`admin-tab${isNew ? " is-active" : ""}`}>
-                + Add Solution
+                + Add Case Study
             </Link>
         </div>
     );

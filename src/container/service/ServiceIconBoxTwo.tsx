@@ -7,7 +7,7 @@ import IconBox from '../../components/IconBox/IconBox';
 import SectionTitleTwo from '../../components/SectionTitles/SectionTitleTwo';
 import Parallax from 'parallax-js';
 
-const ServiceIconBoxTwo = ({ classOption, data, eyebrow, title, ctaLabel, ctaLink, sectionKey }) => {
+const ServiceIconBoxTwo = ({ classOption, data, eyebrow, title, ctaLabel, ctaLink, sectionKey, columns }) => {
     const sceneEl = useRef(null);
     useEffect(() => {
         const parallaxInstance = new Parallax(sceneEl.current, {
@@ -33,7 +33,7 @@ const ServiceIconBoxTwo = ({ classOption, data, eyebrow, title, ctaLabel, ctaLin
                     )}
                 </div>
 
-                <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 mb-n6 icon-box-shape-animation">
+                <div className={`row row-cols-lg-${columns} row-cols-md-2 row-cols-sm-2 row-cols-1 mb-n6 icon-box-shape-animation`}>
 
                     {data && data.map((single, key) => {
                         const itemData = { ...single, id: `${sectionKey}-${single.id}` };
@@ -62,14 +62,16 @@ ServiceIconBoxTwo.propTypes = {
     title: PropTypes.string,
     ctaLabel: PropTypes.string,
     ctaLink: PropTypes.string,
-    sectionKey: PropTypes.string
+    sectionKey: PropTypes.string,
+    columns: PropTypes.number
 };
 ServiceIconBoxTwo.defaultProps = {
     classOption: "section section-padding-t90 section-padding-bottom",
     data: IconBoxData,
     eyebrow: "Grow your business with",
     title: "Services that create identities, build brands, and get results",
-    sectionKey: "service"
+    sectionKey: "service",
+    columns: 3
 };
 
 export default ServiceIconBoxTwo

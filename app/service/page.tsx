@@ -44,6 +44,7 @@ export default function Service() {
                 ctaLabel="Start Today"
                 ctaLink="/contact"
                 sectionKey="hosting"
+                columns={4}
             />
           <AboutSix />
             <TechStack />

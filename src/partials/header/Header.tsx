@@ -77,8 +77,8 @@ const Header = () => {
                 </div>
             </div>
             <QuoteModal show={quoteModalShow} onClose={() => setQuoteModalShow(false)} />
-            {/* <MobileMenu show={ofcanvasShow} onClose={onCanvasHandler}/>
-            <MainSearch show={searchbarShow} onClose={onSearchHandler}/> */}
+            <MobileMenu show={ofcanvasShow} onClose={onCanvasHandler}/>
+            {/* <MainSearch show={searchbarShow} onClose={onSearchHandler}/> */}
         </Fragment>
     )
 }

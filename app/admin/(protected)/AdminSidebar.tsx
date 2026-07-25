@@ -25,7 +25,7 @@ export default function AdminSidebar() {
                     Blog Posts
                 </Link>
                 <Link href="/admin/solution" className={linkClass(pathname?.startsWith("/admin/solution") ?? false)}>
-                    Solutions
+                    Case Studies
                 </Link>
                 <Link href="/admin/tickets" className={linkClass(pathname?.startsWith("/admin/tickets") ?? false)}>
                     Tickets

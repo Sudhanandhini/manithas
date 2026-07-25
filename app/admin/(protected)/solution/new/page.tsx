@@ -8,7 +8,7 @@ export default function AdminNewSolutionPage() {
         <>
             <SolutionTabs />
             <div className="admin-card">
-                <h2 style={{ fontSize: 16, marginTop: 0 }}>Add a solution</h2>
+                <h2 style={{ fontSize: 16, marginTop: 0 }}>Add a case study</h2>
                 <NewSolutionForm />
             </div>
         </>

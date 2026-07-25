@@ -144,7 +144,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 16px;
+        gap: 5px;
     }
 
     & .logo-badge {
@@ -162,6 +162,25 @@
             background-color: var(--clr-primary);
             color: var(--clr-white);
             transform: translateY(-3px);
+        }
+
+        // Real partner logo marks read as clutter inside a colored pill, so
+        // once an item carries an image this variant drops the pill in favor
+        // of the logo's own colors on plain white.
+        &.logo-badge-image {
+            padding: 8px 6px;
+            background-color: transparent;
+
+            & img {
+                height: 65px;
+                max-width: 170px;
+                object-fit: contain;
+            }
+
+            &:hover {
+                background-color: transparent;
+                transform: translateY(-3px);
+            }
         }
     }
 

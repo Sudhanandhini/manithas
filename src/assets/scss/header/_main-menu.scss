@@ -15,6 +15,14 @@
         & > li {
             position: relative;
 
+            // This item's dropdown is full-width (see .mega-menu-tabbed) and needs
+            // to anchor to the full-bleed header bar, not to this narrow, off-center
+            // <li> - letting position:relative here would make the dropdown's 100%
+            // width relative to the <li> itself instead of the header.
+            &.has-mega-menu-full {
+                position: static;
+            }
+
             & > a {
                 font-size: 16px;
                 font-weight: 500;
@@ -243,10 +251,30 @@
     }
 
     & .mega-menu-tabbed{
+        // Match the header's own .container width/breakpoints (same
+        // $container-max-widths used by Bootstrap) so this content block lines up
+        // with the logo on the left and the quote button on the right, instead of
+        // floating as a smaller centered island inside the full-bleed white
+        // background. (Can't just @extend .container here: Bootstrap's container
+        // rules live earlier in the compiled stylesheet than this file, so at
+        // equal specificity our own later width/max-width below still wins - the
+        // @each loop reproduces the same breakpoints directly in this rule.)
         flex-wrap: nowrap;
         align-items: stretch;
-        width: 720px;
+        left: 0;
+        right: 0;
+        transform: none;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0;
         padding: 0;
+
+        @each $breakpoint, $max-width in $container-max-widths {
+            @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+                max-width: $max-width;
+            }
+        }
 
         & > li.mega-menu-tabs-col{
             flex: 0 0 260px;
@@ -298,10 +326,14 @@
     & .mega-menu-panel{
         display: flex;
         flex-wrap: wrap;
-        gap: 0 40px;
+        gap: 0 30px;
     }
 
     & .mega-menu-panel-column{
+        // Sized so 3 columns + 2 gaps fit inside the panel's available width
+        // (the tabbed panel column, minus the fixed tabs column and its own
+        // padding) without wrapping to a second row.
+        width: 260px;
         padding-left: 0;
         list-style: none;
         margin: 0;
@@ -312,7 +344,21 @@
                 font-size: 15px;
                 line-height: 1.78;
                 font-weight: 500;
-                padding: 8px 0px;
+                padding: 10px 0;
+
+                // The shared .mega-menu li a rule sets white-space: nowrap so
+                // static single-word labels never wrap - that inherits into
+                // .menu-desc too and would keep the sentence on one long line,
+                // so it needs to opt back into normal wrapping here.
+                & .menu-desc{
+                    display: block;
+                    margin-top: 2px;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    white-space: normal;
+                    color: rgba(var(--clr-black-rgb), 0.5);
+                }
             }
         }
     }

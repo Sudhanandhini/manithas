@@ -30,6 +30,14 @@
         @media #{$large-mobile}{
             min-height: 80px;
         }
+
+        // Bootstrap's .position-relative on this container would otherwise become
+        // the containing block for the full-width mega menu (.has-mega-menu-full),
+        // capping it to the container's centered max-width instead of the true
+        // edge-to-edge header bar.
+        & > .container {
+            position: static !important;
+        }
     }
     &.is-sticky {
         & .header-inner {

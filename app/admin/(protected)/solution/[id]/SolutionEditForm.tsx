@@ -73,7 +73,7 @@ export default function SolutionEditForm({ solution }: { solution: Solution }) {
     }
 
     async function handleDelete() {
-        if (!window.confirm("Delete this solution? This cannot be undone.")) {
+        if (!window.confirm("Delete this case study? This cannot be undone.")) {
             return;
         }
         setDeleting(true);
@@ -81,7 +81,7 @@ export default function SolutionEditForm({ solution }: { solution: Solution }) {
         setDeleting(false);
 
         if (!res.ok) {
-            setError("Could not delete solution.");
+            setError("Could not delete case study.");
             return;
         }
 
@@ -104,7 +104,7 @@ export default function SolutionEditForm({ solution }: { solution: Solution }) {
                         <option value="published">Published</option>
                         <option value="draft">Draft</option>
                     </select>
-                    <small>Draft solutions are hidden from /solution and won&apos;t be findable at their URL.</small>
+                    <small>Draft case studies are hidden from /solution and won&apos;t be findable at their URL.</small>
                 </div>
 
                 <div className="admin-field" style={{ flex: 1 }}>
@@ -132,7 +132,7 @@ export default function SolutionEditForm({ solution }: { solution: Solution }) {
             </div>
 
             <div className="admin-field">
-                <label htmlFor="excerpt">Excerpt (summary shown on the solution grid)</label>
+                <label htmlFor="excerpt">Excerpt (summary shown on the case study grid)</label>
                 <textarea id="excerpt" rows={2} value={form.excerpt} onChange={(e) => update("excerpt", e.target.value)} />
             </div>
 
@@ -295,7 +295,7 @@ export default function SolutionEditForm({ solution }: { solution: Solution }) {
                     onClick={handleDelete}
                     style={{ padding: "10px 18px", borderRadius: 6 }}
                 >
-                    {deleting ? "Deleting..." : "Delete solution"}
+                    {deleting ? "Deleting..." : "Delete case study"}
                 </button>
             </div>
         </form>

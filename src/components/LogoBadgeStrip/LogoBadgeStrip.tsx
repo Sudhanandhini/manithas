@@ -13,11 +13,14 @@ const LogoBadgeStrip = ({ eyebrow, title, items, classOption }) => {
                     )}
                     <div className={(eyebrow || title) ? "col-lg-9" : "col-lg-12"}>
                         <div className="badges">
-                            {items.map((item, key) => (
-                                <span className="logo-badge" key={key} data-aos="fade-up" data-aos-delay={key * 80}>
-                                    {item}
-                                </span>
-                            ))}
+                            {items.map((item, key) => {
+                                const isImage = typeof item === "object" && item !== null;
+                                return (
+                                    <span className={`logo-badge${isImage ? " logo-badge-image" : ""}`} key={key} data-aos="fade-up" data-aos-delay={key * 80}>
+                                        {isImage ? <img src={item.logo} alt={item.label} /> : item}
+                                    </span>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>

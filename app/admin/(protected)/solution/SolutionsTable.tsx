@@ -85,7 +85,7 @@ export default function SolutionsTable({ solutions }: { solutions: Solution[] })
                     ))}
                     {filteredSolutions.length === 0 && (
                         <tr>
-                            <td colSpan={9}>{solutions.length === 0 ? "No solutions yet." : "No solutions match your filter."}</td>
+                            <td colSpan={9}>{solutions.length === 0 ? "No case studies yet." : "No case studies match your filter."}</td>
                         </tr>
                     )}
                 </tbody>
