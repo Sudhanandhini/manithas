@@ -79,7 +79,7 @@ export const customerAuthOptions: AuthOptions = {
         async jwt({ token, user }) {
             if (user) {
                 token.id = user.id;
-                token.accountId = (user as { accountId: string }).accountId;
+                token.accountId = (user as unknown as { accountId: string }).accountId;
             }
             // Tokens issued before `accountId` existed (or before a customer's
             // team assignment changed) won't have it - resolve it fresh from
