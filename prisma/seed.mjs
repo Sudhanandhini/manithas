@@ -10,12 +10,12 @@ Sitemap: ${process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3008"}/sitemap.
 `;
 
 const PAGES = [
-    { slug: "/", label: "Home", title: "Business React JS Template", description: "Manithas - Corporate Business React JS Template." },
+    { slug: "/", label: "Home", title: "Manithas", description: "Manithas" },
     {
         slug: "/home-one",
         label: "Home One (duplicate demo)",
-        title: "Business React JS Template",
-        description: "Manithas - Corporate Business React JS Template.",
+        title: "Manithas",
+        description: "Manithas ",
         canonicalUrl: `${process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3008"}/`,
         noindex: true,
     },
