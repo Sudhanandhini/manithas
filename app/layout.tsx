@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import AosInit from "@/src/components/AosInit";
 import NavScrollTop from "@/src/components/NavScrollTop";
+import FloatingChat from "@/src/components/FloatingChat/FloatingChat";
 import { getSiteSettings, siteUrl } from "@/lib/seo";
 
 import "swiper/css";
@@ -55,6 +56,7 @@ export default function RootLayout({
                     {children}
                 </NavScrollTop>
                 <AosInit />
+                <FloatingChat />
             </body>
         </html>
     );

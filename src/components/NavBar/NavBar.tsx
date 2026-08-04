@@ -10,7 +10,7 @@ const NavBar = () => {
         <nav className="site-main-menu">
             <ul>
                 <li className="has-children has-mega-menu-full" onMouseLeave={() => setActiveTab(0)}>
-                    <ActiveLink href={"/service"}><span className="menu-text">What We Do</span></ActiveLink>
+                    <ActiveLink style={{ color: 'white' }} href={"/service"}><span className="menu-text">What We Do</span></ActiveLink>
                     <span className="menu-toggle"><i className="fas fa-angle-down"></i></span>
                     <ul className="mega-menu mega-menu-tabbed">
                         <li className="mega-menu-tabs-col">
@@ -33,7 +33,7 @@ const NavBar = () => {
                                     <ul className="mega-menu-panel-column" key={ci}>
                                         {column.map((link) => (
                                             <li key={link.href}>
-                                                <ActiveLink href={link.href}>
+                                                <ActiveLink  href={link.href}>
                                                     <span className="menu-text">{link.label}</span>
                                                     <span className="menu-desc">{link.description}</span>
                                                 </ActiveLink>
@@ -46,24 +46,24 @@ const NavBar = () => {
                     </ul>
                 </li>
                 <li className="has-children">
-                    <ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Solution</span></ActiveLink>
+                    <ActiveLink  style={{ color: 'white' }} href={"/what-we-do/application/alumni"}><span className="menu-text">Solution</span></ActiveLink>
                     <span className="menu-toggle"><i className="fas fa-angle-down"></i></span>
                     <ul className="sub-menu sub-menu-wrap">
                         {APPLICATION_LINKS.map((link) => (
                             <li key={link.href}>
-                                <ActiveLink href={link.href}><span className="menu-text">{link.label}</span></ActiveLink>
+                                <ActiveLink  href={link.href}><span className="menu-text">{link.label}</span></ActiveLink>
                             </li>
                         ))}
                     </ul>
                 </li>
                 <li>
-                    <ActiveLink href={"/about"}><span className="menu-text">Who We Are</span></ActiveLink>
+                    <ActiveLink style={{ color: 'white' }} href={"/about"}><span className="menu-text">Who We Are</span></ActiveLink>
                 </li>
                 <li>
-                    <ActiveLink href={"/contact"}><span className="menu-text">Reach Us</span></ActiveLink>
+                    <ActiveLink style={{ color: 'white' }} href={"/contact"}><span className="menu-text">Reach Us</span></ActiveLink>
                 </li>
                 <li>
-                    <ActiveLink href={"/login"}><span className="menu-text">Ticket</span></ActiveLink>
+                    <ActiveLink style={{ color: 'white' }} href={"/login"}><span className="menu-text">Ticket</span></ActiveLink>
                 </li>
             </ul>
         </nav>

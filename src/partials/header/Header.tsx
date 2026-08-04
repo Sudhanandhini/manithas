@@ -67,6 +67,7 @@ const Header = () => {
                                 <button
                                     type="button"
                                     className="btn btn-light btn-hover-primary"
+                                    style={{ color: '#015089',  fontWeight: 'bold', fontSize: '16px', padding: '10px 20px', borderRadius: '5px', }}
                                     onClick={() => setQuoteModalShow(true)}
                                 >
                                     Get A Quote
