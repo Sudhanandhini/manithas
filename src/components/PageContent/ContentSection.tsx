@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Link from "next/link";
+import TalkToUsCta from "../TalkToUsCta/TalkToUsCta";
 
 const ContentSection = ({ eyebrow, title, description, bullets, ctaLabel, ctaLink }) => {
     return (
@@ -26,7 +26,7 @@ const ContentSection = ({ eyebrow, title, description, bullets, ctaLabel, ctaLin
                         )}
 
                         <div data-aos="fade-up" data-aos-delay="300">
-                            <Link className="btn btn-primary btn-hover-secondary mt-6" href={ctaLink}>{ctaLabel}</Link>
+                            <TalkToUsCta className="btn btn-primary btn-hover-secondary mt-6" label={ctaLabel} link={ctaLink} />
                         </div>
                     </div>
                 </div>

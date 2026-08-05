@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import Tilt from 'react-parallax-tilt';
+import TalkToUsCta from "../../components/TalkToUsCta/TalkToUsCta";
 
 const HostingHero = ({ pageTitle, bgImage, headlineBefore, headlineHighlight, subtitle, ctaLabel, ctaLink, heroIcon = null }) => {
     const hasIntroContent = headlineBefore || headlineHighlight || subtitle || (ctaLabel && ctaLink) || heroIcon;
@@ -28,7 +29,7 @@ const HostingHero = ({ pageTitle, bgImage, headlineBefore, headlineHighlight, su
                             {subtitle}
                         </p>
                         {ctaLabel && ctaLink && (
-                            <Link className="btn btn-primary btn-hover-secondary" href={ctaLink} data-aos="fade-up" data-aos-delay="200">{ctaLabel}</Link>
+                            <TalkToUsCta className="btn btn-primary btn-hover-secondary" label={ctaLabel} link={ctaLink} dataAos="fade-up" dataAosDelay="200" />
                         )}
 
                         {heroIcon && (

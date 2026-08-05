@@ -2,8 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import SectionTitleTwo from "../SectionTitles/SectionTitleTwo";
-import Link from "next/link";
 import Tilt from "react-parallax-tilt";
+import TalkToUsCta from "../TalkToUsCta/TalkToUsCta";
 import Parallax from "parallax-js";
 
 const AboutImageSplit = ({ imageOne, imageTwo, eyebrow, title, paragraphs, ctaLabel, ctaLink, classOption, reverse }) => {
@@ -59,7 +59,7 @@ const AboutImageSplit = ({ imageOne, imageTwo, eyebrow, title, paragraphs, ctaLa
                             ))}
 
                             {ctaLabel && ctaLink && (
-                                <Link className="btn btn-primary btn-hover-secondary mt-xl-12 mt-lg-8 mt-md-6 mt-4" href={ctaLink}>{ctaLabel}</Link>
+                                <TalkToUsCta className="btn btn-primary btn-hover-secondary mt-xl-12 mt-lg-8 mt-md-6 mt-4" label={ctaLabel} link={ctaLink} />
                             )}
                         </div>
                     </div>

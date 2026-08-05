@@ -3,6 +3,7 @@ import { Mulish } from "next/font/google";
 import AosInit from "@/src/components/AosInit";
 import NavScrollTop from "@/src/components/NavScrollTop";
 import FloatingChat from "@/src/components/FloatingChat/FloatingChat";
+import { TalkToUsProvider } from "@/src/context/TalkToUsContext";
 import { getSiteSettings, siteUrl } from "@/lib/seo";
 
 import "swiper/css";
@@ -52,11 +53,13 @@ export default function RootLayout({
     return (
         <html lang="en" className={mulish.variable}>
             <body>
-                <NavScrollTop>
-                    {children}
-                </NavScrollTop>
-                <AosInit />
-                <FloatingChat />
+                <TalkToUsProvider>
+                    <NavScrollTop>
+                        {children}
+                    </NavScrollTop>
+                    <AosInit />
+                    <FloatingChat />
+                </TalkToUsProvider>
             </body>
         </html>
     );

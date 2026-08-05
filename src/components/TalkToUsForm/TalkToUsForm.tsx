@@ -1,0 +1,75 @@
+"use client";
+import React, { Fragment } from "react";
+import { useForm } from "react-hook-form";
+
+const TalkToUsForm = ({ onSubmitted }: { onSubmitted?: () => void }) => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+        mode: "onBlur"
+    });
+    const onSubmit = (data: unknown) => {
+        console.log(data);
+        reset();
+        onSubmitted?.();
+    };
+
+    return (
+        <Fragment>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="row mb-n4">
+                    <div className="col-12 mb-4">
+                        <input
+                            type="text"
+                            placeholder="Your Name *"
+                            {...register("name", {
+                                required: "Name is required",
+                            })}
+                        />
+                        {errors?.name && <p>{errors.name?.message as string}</p>}
+                    </div>
+                    <div className="col-12 mb-4">
+                        <input
+                            type="email"
+                            placeholder="Email *"
+                            {...register("email", {
+                                required: "Email is required",
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                    message: "invalid email address",
+                                },
+                            })}
+                        />
+                        {errors?.email && <p>{errors.email?.message as string}</p>}
+                    </div>
+                    <div className="col-12 mb-4">
+                        <input
+                            type="tel"
+                            placeholder="Phone Number *"
+                            {...register("phone", {
+                                required: "Phone number is required",
+                                pattern: {
+                                    value: /^[0-9+\-\s]{7,15}$/,
+                                    message: "invalid phone number",
+                                },
+                            })}
+                        />
+                        {errors?.phone && <p>{errors.phone?.message as string}</p>}
+                    </div>
+                    <div className="col-12 mb-6">
+                        <textarea
+                            placeholder="Message *"
+                            {...register("message", {
+                                required: "Message is required",
+                            })}
+                        ></textarea>
+                        {errors?.message && <p>{errors.message?.message as string}</p>}
+                    </div>
+                    <div className="col-12 text-center mb-4">
+                        <button type="submit" className="btn btn-primary btn-hover-secondary">Talk To Us</button>
+                    </div>
+                </div>
+            </form>
+        </Fragment>
+    );
+};
+
+export default TalkToUsForm;

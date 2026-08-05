@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import SectionTitle from '../../components/SectionTitles/SectionTitle';
-import Link from "next/link";
+import TalkToUsCta from "../../components/TalkToUsCta/TalkToUsCta";
 
 const CallToActionTwo = ({ title, subTitle, ctaLabel, ctaLink }) => {
     return (
@@ -13,7 +13,7 @@ const CallToActionTwo = ({ title, subTitle, ctaLabel, ctaLink }) => {
                     title={title}
                     subTitle={subTitle}
                 />
-                <Link className="btn btn-primary btn-hover-secondary" href={ctaLink} data-aos="fade-up" data-aos-delay="300">{ctaLabel}</Link>
+                <TalkToUsCta className="btn btn-primary btn-hover-secondary" label={ctaLabel} link={ctaLink} dataAos="fade-up" dataAosDelay="300" />
 
                 <div className="shape shape-1">
                     <span>

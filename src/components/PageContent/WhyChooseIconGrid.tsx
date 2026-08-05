@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Link from "next/link";
+import TalkToUsCta from "../TalkToUsCta/TalkToUsCta";
 
 const WhyChooseIconGrid = ({ eyebrow, title, description, items, ctaLabel, ctaLink, classOption, layout }) => {
     const isCard = layout === "card";
@@ -14,7 +14,7 @@ const WhyChooseIconGrid = ({ eyebrow, title, description, items, ctaLabel, ctaLi
                         {description && <p className="mt-4">{description}</p>}
                     </div>
                     {ctaLabel && ctaLink && (
-                        <Link className="btn btn-primary btn-hover-secondary mb-2" href={ctaLink} data-aos="fade-up" data-aos-delay="150">{ctaLabel}</Link>
+                        <TalkToUsCta className="btn btn-primary btn-hover-secondary mb-2" label={ctaLabel} link={ctaLink} dataAos="fade-up" dataAosDelay="150" />
                     )}
                 </div>
 

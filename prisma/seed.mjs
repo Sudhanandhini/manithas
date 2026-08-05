@@ -26,8 +26,8 @@ const PAGES = [
     { slug: "/career", label: "Careers", title: "Careers", description: "Join the Manithas team - see how you can contribute." },
     { slug: "/blog-classic", label: "Blog (Classic)", title: "Blog", description: "Read our latest articles and updates." },
     { slug: "/blog-grid", label: "Blog (Grid)", title: "Blog", description: "Read our latest articles and updates." },
-    { slug: "/home-two", label: "Home Two", title: "Home Two", description: "Manithas - Corporate Business React JS Template." },
-    { slug: "/home-three", label: "Home Three", title: "Home Three", description: "Manithas - Corporate Business React JS Template." },
+    { slug: "/home-two", label: "Home Two", title: "Home Two", description: "Manithas" },
+    { slug: "/home-three", label: "Home Three", title: "Home Three", description: "Manithas" },
 
     // Application
     { slug: "/what-we-do/application/alumni", label: "Alumni", title: "Alumni", description: "A dedicated alumni web application that keeps colleges and their graduates connected for life." },
@@ -81,7 +81,7 @@ async function main() {
             id: 1,
             siteName: "Manithas",
             titleTemplate: "%s | Manithas",
-            defaultDescription: "Manithas - Corporate Business React JS Template.",
+            defaultDescription: "Manithas",
             robotsTxt: DEFAULT_ROBOTS_TXT,
         },
     });

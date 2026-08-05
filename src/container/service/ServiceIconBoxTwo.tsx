@@ -1,8 +1,8 @@
 "use client"
 import PropTypes from "prop-types";
 import {useEffect, useRef} from "react";
-import Link from "next/link";
 import IconBoxData from '../../data/iconBox/icon-box.json';
+import TalkToUsCta from "../../components/TalkToUsCta/TalkToUsCta";
 import IconBox from '../../components/IconBox/IconBox';
 import SectionTitleTwo from '../../components/SectionTitles/SectionTitleTwo';
 import Parallax from 'parallax-js';
@@ -29,7 +29,7 @@ const ServiceIconBoxTwo = ({ classOption, data, eyebrow, title, ctaLabel, ctaLin
                         title={title}
                     />
                     {ctaLabel && ctaLink && (
-                        <Link className="btn btn-primary btn-hover-secondary mb-8" href={ctaLink}>{ctaLabel}</Link>
+                        <TalkToUsCta className="btn btn-primary btn-hover-secondary mb-8" label={ctaLabel} link={ctaLink} />
                     )}
                 </div>
 
