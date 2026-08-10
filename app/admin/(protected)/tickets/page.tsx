@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES } from "@/lib/tickets";
 import TicketTabs from "./TicketTabs";
+import PaginationLinks, { PAGE_SIZE } from "@/src/components/Pagination/PaginationLinks";
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +12,7 @@ type SearchParams = {
     category?: string;
     q?: string;
     sort?: string;
+    page?: string;
 };
 
 function buildOrderBy(sort?: string) {
@@ -28,30 +30,40 @@ function buildOrderBy(sort?: string) {
 
 export default async function AdminTicketsPage({ searchParams }: { searchParams: SearchParams }) {
     const { status, priority, category, q, sort } = searchParams;
+    const page = Math.max(1, Number(searchParams.page) || 1);
 
-    const tickets = await prisma.ticket.findMany({
-        where: {
-            ...(status ? { status } : {}),
-            ...(priority ? { priority } : {}),
-            ...(category ? { category } : {}),
-            ...(q
-                ? {
-                      OR: [
-                          { id: { contains: q } },
-                          { subject: { contains: q } },
-                          { customer: { name: { contains: q } } },
-                          { customer: { email: { contains: q } } },
-                          { assignedTo: { contains: q } },
-                      ],
-                  }
-                : {}),
-        },
-        orderBy: buildOrderBy(sort),
-        include: {
-            customer: true,
-            messages: { where: { senderType: "customer", isReadByAdmin: false }, select: { id: true } },
-        },
-    });
+    const where = {
+        ...(status ? { status } : {}),
+        ...(priority ? { priority } : {}),
+        ...(category ? { category } : {}),
+        ...(q
+            ? {
+                  OR: [
+                      { id: { contains: q } },
+                      { subject: { contains: q } },
+                      { customer: { name: { contains: q } } },
+                      { customer: { email: { contains: q } } },
+                      { assignedTo: { contains: q } },
+                  ],
+              }
+            : {}),
+    };
+
+    const [totalCount, tickets] = await Promise.all([
+        prisma.ticket.count({ where }),
+        prisma.ticket.findMany({
+            where,
+            orderBy: buildOrderBy(sort),
+            skip: (page - 1) * PAGE_SIZE,
+            take: PAGE_SIZE,
+            include: {
+                customer: true,
+                messages: { where: { senderType: "customer", isReadByAdmin: false }, select: { id: true } },
+            },
+        }),
+    ]);
+
+    const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
 
     return (
         <>
@@ -176,6 +188,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                         )}
                     </tbody>
                 </table>
+                <PaginationLinks page={page} totalPages={totalPages} basePath="/admin/tickets" searchParams={searchParams} />
             </div>
         </>
     );

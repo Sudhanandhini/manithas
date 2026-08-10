@@ -25706,7 +25706,7 @@ textarea {
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
-  border-radius: 2px;
+  border-radius: 20px;
   outline: none;
   font-family: "Rubik", sans-serif; }
   @media only screen and (max-width: 767px) {

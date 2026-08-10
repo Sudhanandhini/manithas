@@ -1,14 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { BlogPost } from "@prisma/client";
+import Pagination, { PAGE_SIZE } from "@/src/components/Pagination/Pagination";
 
 const STATUS_OPTIONS = ["All", "Published", "Draft"];
 
 export default function BlogPostsTable({ posts }: { posts: BlogPost[] }) {
     const [search, setSearch] = useState("");
     const [status, setStatus] = useState("All");
+    const [page, setPage] = useState(1);
 
     const filteredPosts = useMemo(() => {
         const query = search.trim().toLowerCase();
@@ -20,6 +22,13 @@ export default function BlogPostsTable({ posts }: { posts: BlogPost[] }) {
             return matchesStatus && matchesSearch;
         });
     }, [posts, search, status]);
+
+    useEffect(() => {
+        setPage(1);
+    }, [search, status]);
+
+    const totalPages = Math.max(1, Math.ceil(filteredPosts.length / PAGE_SIZE));
+    const pagedPosts = filteredPosts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
     return (
         <div className="admin-card">
@@ -53,7 +62,7 @@ export default function BlogPostsTable({ posts }: { posts: BlogPost[] }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredPosts.map((post) => (
+                    {pagedPosts.map((post) => (
                         <tr key={post.id}>
                             <td>
                                 {post.image ? (
@@ -83,6 +92,7 @@ export default function BlogPostsTable({ posts }: { posts: BlogPost[] }) {
                     )}
                 </tbody>
             </table>
+            <Pagination page={page} totalPages={totalPages} onChange={setPage} />
         </div>
     );
 }

@@ -1,27 +1,36 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { SeoPage } from "@prisma/client";
+import Pagination, { PAGE_SIZE } from "@/src/components/Pagination/Pagination";
 
 const TYPE_OPTIONS = ["All", "Page", "Blog", "Solution", "Landing"];
 
 export default function SeoPagesTable({ pages }: { pages: SeoPage[] }) {
     const [search, setSearch] = useState("");
     const [type, setType] = useState("All");
+    const [page, setPage] = useState(1);
 
     const filteredPages = useMemo(() => {
         const query = search.trim().toLowerCase();
-        return pages.filter((page) => {
-            const matchesType = type === "All" || page.type === type;
+        return pages.filter((p) => {
+            const matchesType = type === "All" || p.type === type;
             const matchesSearch =
                 !query ||
-                page.label.toLowerCase().includes(query) ||
-                page.slug.toLowerCase().includes(query) ||
-                (page.title ?? "").toLowerCase().includes(query);
+                p.label.toLowerCase().includes(query) ||
+                p.slug.toLowerCase().includes(query) ||
+                (p.title ?? "").toLowerCase().includes(query);
             return matchesType && matchesSearch;
         });
     }, [pages, search, type]);
+
+    useEffect(() => {
+        setPage(1);
+    }, [search, type]);
+
+    const totalPages = Math.max(1, Math.ceil(filteredPages.length / PAGE_SIZE));
+    const pagedPages = filteredPages.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
     return (
         <div className="admin-card">
@@ -54,17 +63,17 @@ export default function SeoPagesTable({ pages }: { pages: SeoPage[] }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredPages.map((page) => (
-                        <tr key={page.id}>
-                            <td>{page.label}</td>
+                    {pagedPages.map((p) => (
+                        <tr key={p.id}>
+                            <td>{p.label}</td>
                             <td>
-                                <code>{page.slug}</code>
+                                <code>{p.slug}</code>
                             </td>
-                            <td>{page.type}</td>
-                            <td>{page.title || <em>not set</em>}</td>
-                            <td>{page.noindex ? "noindex" : "indexed"}</td>
+                            <td>{p.type}</td>
+                            <td>{p.title || <em>not set</em>}</td>
+                            <td>{p.noindex ? "noindex" : "indexed"}</td>
                             <td>
-                                <Link href={`/admin/seo/${page.id}`} className="admin-btn-sm">
+                                <Link href={`/admin/seo/${p.id}`} className="admin-btn-sm">
                                     Edit
                                 </Link>
                             </td>
@@ -77,6 +86,7 @@ export default function SeoPagesTable({ pages }: { pages: SeoPage[] }) {
                     )}
                 </tbody>
             </table>
+            <Pagination page={page} totalPages={totalPages} onChange={setPage} />
         </div>
     );
 }

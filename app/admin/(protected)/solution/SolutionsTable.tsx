@@ -1,14 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { Solution } from "@prisma/client";
+import Pagination, { PAGE_SIZE } from "@/src/components/Pagination/Pagination";
 
 const STATUS_OPTIONS = ["All", "Published", "Draft"];
 
 export default function SolutionsTable({ solutions }: { solutions: Solution[] }) {
     const [search, setSearch] = useState("");
     const [status, setStatus] = useState("All");
+    const [page, setPage] = useState(1);
 
     const filteredSolutions = useMemo(() => {
         const query = search.trim().toLowerCase();
@@ -23,6 +25,13 @@ export default function SolutionsTable({ solutions }: { solutions: Solution[] })
             return matchesStatus && matchesSearch;
         });
     }, [solutions, search, status]);
+
+    useEffect(() => {
+        setPage(1);
+    }, [search, status]);
+
+    const totalPages = Math.max(1, Math.ceil(filteredSolutions.length / PAGE_SIZE));
+    const pagedSolutions = filteredSolutions.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
     return (
         <div className="admin-card">
@@ -58,7 +67,7 @@ export default function SolutionsTable({ solutions }: { solutions: Solution[] })
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredSolutions.map((solution) => (
+                    {pagedSolutions.map((solution) => (
                         <tr key={solution.id}>
                             <td>
                                 {solution.image ? (
@@ -90,6 +99,7 @@ export default function SolutionsTable({ solutions }: { solutions: Solution[] })
                     )}
                 </tbody>
             </table>
+            <Pagination page={page} totalPages={totalPages} onChange={setPage} />
         </div>
     );
 }

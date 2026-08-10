@@ -60,7 +60,8 @@ export default function TicketDetailClient({ ticket }: { ticket: any }) {
                         {ticket.subject}
                     </p>
                     <small>
-                        {ticket.category} &middot; Status: {ticket.status} &middot; Priority: {ticket.priority}
+                        {ticket.category} &middot; Status: {ticket.status} &middot; Priority: {ticket.priority} &middot; Assigned To:{" "}
+                        {ticket.assignedTo || "Unassigned"}
                         {ticket.link && (
                             <>
                                 {" "}

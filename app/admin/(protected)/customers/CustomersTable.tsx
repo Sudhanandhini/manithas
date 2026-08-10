@@ -1,11 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { Customer } from "@prisma/client";
+import Pagination, { PAGE_SIZE } from "@/src/components/Pagination/Pagination";
 
 export default function CustomersTable({ customers }: { customers: Customer[] }) {
+    const router = useRouter();
     const [search, setSearch] = useState("");
+    const [deletingId, setDeletingId] = useState<string | null>(null);
+    const [page, setPage] = useState(1);
 
     const filteredCustomers = useMemo(() => {
         const query = search.trim().toLowerCase();
@@ -16,6 +21,27 @@ export default function CustomersTable({ customers }: { customers: Customer[] })
                 .some((value) => (value as string).toLowerCase().includes(query))
         );
     }, [customers, search]);
+
+    useEffect(() => {
+        setPage(1);
+    }, [search]);
+
+    const totalPages = Math.max(1, Math.ceil(filteredCustomers.length / PAGE_SIZE));
+    const pagedCustomers = filteredCustomers.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+    async function handleDelete(customer: Customer) {
+        if (!window.confirm(`Delete customer "${customer.username}"? This cannot be undone.`)) return;
+        setDeletingId(customer.id);
+        const res = await fetch(`/api/admin/customers/${customer.id}`, { method: "DELETE" });
+        setDeletingId(null);
+
+        if (!res.ok) {
+            window.alert("Could not delete customer. They may still have open tickets.");
+            return;
+        }
+
+        router.refresh();
+    }
 
     return (
         <div className="admin-card">
@@ -41,7 +67,7 @@ export default function CustomersTable({ customers }: { customers: Customer[] })
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredCustomers.map((customer) => (
+                    {pagedCustomers.map((customer) => (
                         <tr key={customer.id}>
                             <td>
                                 <code>{customer.username}</code>
@@ -50,10 +76,18 @@ export default function CustomersTable({ customers }: { customers: Customer[] })
                             <td>{customer.email || <em>&mdash;</em>}</td>
                             <td>{customer.companyName || <em>&mdash;</em>}</td>
                             <td>{customer.createdAt.toISOString().slice(0, 10)}</td>
-                            <td>
+                            <td style={{ display: "flex", gap: 8 }}>
                                 <Link href={`/admin/customers/${customer.id}`} className="admin-btn-sm">
                                     Edit
                                 </Link>
+                                <button
+                                    type="button"
+                                    className="admin-btn-sm"
+                                    disabled={deletingId === customer.id}
+                                    onClick={() => handleDelete(customer)}
+                                >
+                                    {deletingId === customer.id ? "Deleting..." : "Delete"}
+                                </button>
                             </td>
                         </tr>
                     ))}
@@ -64,6 +98,7 @@ export default function CustomersTable({ customers }: { customers: Customer[] })
                     )}
                 </tbody>
             </table>
+            <Pagination page={page} totalPages={totalPages} onChange={setPage} />
         </div>
     );
 }

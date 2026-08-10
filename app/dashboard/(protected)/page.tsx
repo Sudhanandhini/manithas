@@ -3,26 +3,35 @@ import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { customerAuthOptions } from "@/lib/customerAuth";
 import { prisma } from "@/lib/prisma";
+import PaginationLinks, { PAGE_SIZE } from "@/src/components/Pagination/PaginationLinks";
 
 export const dynamic = "force-dynamic";
 
-export default async function DashboardTicketsPage() {
+export default async function DashboardTicketsPage({ searchParams }: { searchParams: { page?: string } }) {
     const session = await getServerSession(customerAuthOptions);
     if (!session?.user) {
         redirect("/login");
     }
     const accountId = (session.user as { accountId: string }).accountId;
+    const page = Math.max(1, Number(searchParams.page) || 1);
 
-    const tickets = await prisma.ticket.findMany({
-        where: { customerId: accountId },
-        orderBy: { lastActivityAt: "desc" },
-        include: {
-            messages: {
-                where: { senderType: "admin", isReadByCustomer: false },
-                select: { id: true },
+    const where = { customerId: accountId };
+    const [totalCount, tickets] = await Promise.all([
+        prisma.ticket.count({ where }),
+        prisma.ticket.findMany({
+            where,
+            orderBy: { lastActivityAt: "desc" },
+            skip: (page - 1) * PAGE_SIZE,
+            take: PAGE_SIZE,
+            include: {
+                messages: {
+                    where: { senderType: "admin", isReadByCustomer: false },
+                    select: { id: true },
+                },
             },
-        },
-    });
+        }),
+    ]);
+    const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
 
     return (
         <>
@@ -83,6 +92,7 @@ export default async function DashboardTicketsPage() {
                         )}
                     </tbody>
                 </table>
+                <PaginationLinks page={page} totalPages={totalPages} basePath="/dashboard" searchParams={searchParams} />
             </div>
         </>
     );
