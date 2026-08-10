@@ -117,7 +117,7 @@
 .admin-sidebar-footer .admin-btn-secondary {
     width: 100%;
     background: transparent;
-    color: #dfe3ea;
+    color: #dfe3ea !important;
     border-color: #2c3854;
     box-sizing: border-box;
 }
