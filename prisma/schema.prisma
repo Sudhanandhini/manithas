@@ -108,7 +108,7 @@ model Customer {
   email        String?
   mobile       String?
   website      String?
-  domain       String?
+  driveLink    String?
   address      String?    @db.Text
   companyName  String?
   disabled     Boolean    @default(false)

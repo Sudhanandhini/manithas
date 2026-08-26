@@ -12,7 +12,7 @@ export default function NewCustomerForm() {
         email: "",
         mobile: "",
         website: "",
-        domain: "",
+        driveLink: "",
         address: "",
         companyName: "",
     });
@@ -84,8 +84,14 @@ export default function NewCustomerForm() {
                     <input id="website" type="text" value={form.website} onChange={(e) => update("website", e.target.value)} />
                 </div>
                 <div className="admin-field" style={{ flex: 1 }}>
-                    <label htmlFor="domain">Domain</label>
-                    <input id="domain" type="text" value={form.domain} onChange={(e) => update("domain", e.target.value)} />
+                    <label htmlFor="driveLink">Drive Link</label>
+                    <input
+                        id="driveLink"
+                        type="url"
+                        placeholder="https://drive.google.com/..."
+                        value={form.driveLink}
+                        onChange={(e) => update("driveLink", e.target.value)}
+                    />
                 </div>
             </div>
 

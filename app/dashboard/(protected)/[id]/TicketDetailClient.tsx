@@ -3,13 +3,12 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import TicketThread from "@/src/components/Tickets/TicketThread";
-import AttachmentPicker, { type PendingAttachment } from "@/src/components/Tickets/AttachmentPicker";
+import DriveAttachmentNote from "@/src/components/Tickets/DriveAttachmentNote";
 import { CLOSED_STATUSES } from "@/lib/tickets";
 
-export default function TicketDetailClient({ ticket }: { ticket: any }) {
+export default function TicketDetailClient({ ticket, driveLink }: { ticket: any; driveLink: string | null }) {
     const router = useRouter();
     const [message, setMessage] = useState("");
-    const [attachments, setAttachments] = useState<PendingAttachment[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [reopening, setReopening] = useState(false);
@@ -24,7 +23,7 @@ export default function TicketDetailClient({ ticket }: { ticket: any }) {
         const res = await fetch(`/api/tickets/${ticket.id}/messages`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message, attachments }),
+            body: JSON.stringify({ message, attachments: [] }),
         });
 
         setLoading(false);
@@ -36,7 +35,6 @@ export default function TicketDetailClient({ ticket }: { ticket: any }) {
         }
 
         setMessage("");
-        setAttachments([]);
         router.refresh();
     }
 
@@ -62,12 +60,12 @@ export default function TicketDetailClient({ ticket }: { ticket: any }) {
                     <small>
                         {ticket.category} &middot; Status: {ticket.status} &middot; Priority: {ticket.priority} &middot; Assigned To:{" "}
                         {ticket.assignedTo || "Unassigned"}
-                        {ticket.link && (
+                        {driveLink && (
                             <>
                                 {" "}
                                 &middot;{" "}
-                                <a href={ticket.link} target="_blank" rel="noreferrer">
-                                    Reference link
+                                <a href={driveLink} target="_blank" rel="noreferrer">
+                                    Google Drive Folder
                                 </a>
                             </>
                         )}
@@ -91,7 +89,7 @@ export default function TicketDetailClient({ ticket }: { ticket: any }) {
                     <div className="admin-field">
                         <textarea rows={4} required value={message} onChange={(e) => setMessage(e.target.value)} />
                     </div>
-                    <AttachmentPicker uploadUrl="/api/tickets/upload" attachments={attachments} onChange={setAttachments} />
+                    <DriveAttachmentNote driveLink={driveLink} />
                     <button className="admin-btn" type="submit" disabled={loading}>
                         {loading ? "Sending..." : "Send Reply"}
                     </button>

@@ -3,9 +3,7 @@ import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import CustomerAuthProvider from "@/src/components/CustomerAuthProvider";
 import LoginForm from "./LoginForm";
-import Header from "@/src/partials/header/Header";
 import Breadcrumb from "@/src/container/Breadcrumb/Breadcrumb";
-import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 import "../admin/admin.css";
 
@@ -16,7 +14,6 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function CustomerLoginPage() {
     return (
         <>
-            <Header />
             <Breadcrumb
                 image="images/bg/breadcrumb-bg-three.jpg"
                 title="Customer Login"
@@ -30,7 +27,6 @@ export default function CustomerLoginPage() {
                     </Suspense>
                 </CustomerAuthProvider>
             </div>
-            <Footer />
             <ScrollToTop />
         </>
     );

@@ -13,7 +13,7 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
         email: customer.email ?? "",
         mobile: customer.mobile ?? "",
         website: customer.website ?? "",
-        domain: customer.domain ?? "",
+        driveLink: customer.driveLink ?? "",
         address: customer.address ?? "",
         companyName: customer.companyName ?? "",
     });
@@ -104,8 +104,14 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
                     <input id="website" type="text" value={form.website} onChange={(e) => update("website", e.target.value)} />
                 </div>
                 <div className="admin-field" style={{ flex: 1 }}>
-                    <label htmlFor="domain">Domain</label>
-                    <input id="domain" type="text" value={form.domain} onChange={(e) => update("domain", e.target.value)} />
+                    <label htmlFor="driveLink">Drive Link</label>
+                    <input
+                        id="driveLink"
+                        type="url"
+                        placeholder="https://drive.google.com/..."
+                        value={form.driveLink}
+                        onChange={(e) => update("driveLink", e.target.value)}
+                    />
                 </div>
             </div>
 

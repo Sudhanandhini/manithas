@@ -52,9 +52,9 @@ const AboutFive = () => {
                                 title="Our Vision &amp; Mission"
                             />
 
-                            <p>At Manithas Technologies, our vision goes beyond customer satisfaction. We strive to exceed expectations by delivering professional services that inspire trust on a global scale. Through building enduring client relationships, we consistently achieve exceptional results, ensuring utmost satisfaction in every interaction.</p>
+                            <p>At Manithas, our vision is not limited to customer satisfaction. We aim to exceed expectations through premium IT services that translate to global trust and growth. Our goal is to create meaningful outcomes that help our clients move forward with confidence in an ever-evolving digital landscape.</p>
 
-                            <p>Our mission is crystal clear: we diligently grasp our clients&rsquo; needs, provide highly effective solutions, and celebrate their success. By deeply understanding their requirements, we tailor our services to exceed expectations. Together, we achieve remarkable milestones and share in the joy of accomplishment.</p>
+                            <p>We move with the mission to make digital services accessible and easy to navigate. We tailor every solution to our clients’ unique needs, ensuring a seamless process from start to finish. Working hand in hand, we turn ideas into remarkable milestones, and share in the joy of every achievement.</p>
 
                             <Link className="btn btn-primary btn-hover-secondary mt-xl-12 mt-lg-8 mt-md-6 mt-4" href={"/contact"}>Contact Now</Link>
                         </div>

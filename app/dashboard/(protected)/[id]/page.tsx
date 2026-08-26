@@ -13,15 +13,18 @@ export default async function CustomerTicketDetailPage({ params }: { params: { i
     }
     const accountId = (session.user as { accountId: string }).accountId;
 
-    const ticket = await prisma.ticket.findUnique({
-        where: { id: params.id },
-        include: {
-            messages: {
-                orderBy: { createdAt: "asc" },
-                include: { attachments: true },
+    const [ticket, account] = await Promise.all([
+        prisma.ticket.findUnique({
+            where: { id: params.id },
+            include: {
+                messages: {
+                    orderBy: { createdAt: "asc" },
+                    include: { attachments: true },
+                },
             },
-        },
-    });
+        }),
+        prisma.customer.findUnique({ where: { id: accountId }, select: { driveLink: true } }),
+    ]);
 
     if (!ticket || ticket.customerId !== accountId) {
         notFound();
@@ -32,5 +35,5 @@ export default async function CustomerTicketDetailPage({ params }: { params: { i
         data: { isReadByCustomer: true },
     });
 
-    return <TicketDetailClient ticket={JSON.parse(JSON.stringify(ticket))} />;
+    return <TicketDetailClient ticket={JSON.parse(JSON.stringify(ticket))} driveLink={account?.driveLink ?? null} />;
 }

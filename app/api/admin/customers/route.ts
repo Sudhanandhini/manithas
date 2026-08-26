@@ -50,7 +50,7 @@ export async function POST(req: Request) {
             email: body.email || null,
             mobile: body.mobile || null,
             website: body.website || null,
-            domain: body.domain || null,
+            driveLink: body.driveLink || null,
             address: body.address || null,
             companyName: body.companyName || null,
         },

@@ -37,7 +37,10 @@ const AboutFour = () => {
                                 title="Quality &amp; Experience Web Design Company"
                             />
 
-                            <p>Manithas Technologies, the Bangalore-based company founded by Mr. Manjunatha Narasimhaiah, has emerged as a leading player in the web services and solutions industry. Since its inception in May 2006, our company has prioritized quality and affordability, earning us a stellar reputation. Initially operating as a web services company, Manithas Technologies (India) Pvt. Ltd. officially registered its name in May 2009.</p>
+                            <p>Operating since 2006, we began as Sunsys Technologies and later evolved into Manithas Technologies Pvt. Ltd., officially registered in 2009. Over two decades, we have explored diverse technology verticals and grown into a trusted IT solutions partner. Today, we specialize in web application development, custom software development, and end-to-end web solutions, with experience, precision, and quality to deliver what creates a lasting value for businesses and brands worldwide.
+1,300+ Projects Completed: Increasing profits through online visibility 
+1000+ Clients: Running smoother operations though our curated online presence 
+</p>
 
                             <div className="row row-cols-sm-2 row-cols-auto mb-n6">
                                 <div className="col mb-6">

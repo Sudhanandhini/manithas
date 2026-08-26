@@ -3,15 +3,13 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { TICKET_CATEGORIES } from "@/lib/tickets";
-import AttachmentPicker, { type PendingAttachment } from "@/src/components/Tickets/AttachmentPicker";
+import DriveAttachmentNote from "@/src/components/Tickets/DriveAttachmentNote";
 
-export default function NewTicketForm() {
+export default function NewTicketForm({ driveLink }: { driveLink: string | null }) {
     const router = useRouter();
     const [subject, setSubject] = useState("");
     const [category, setCategory] = useState<string>(TICKET_CATEGORIES[0]);
-    const [link, setLink] = useState("");
     const [message, setMessage] = useState("");
-    const [attachments, setAttachments] = useState<PendingAttachment[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
@@ -23,7 +21,7 @@ export default function NewTicketForm() {
         const res = await fetch("/api/tickets", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ subject, category, link, message, attachments }),
+            body: JSON.stringify({ subject, category, message, attachments: [] }),
         });
 
         setLoading(false);
@@ -47,21 +45,15 @@ export default function NewTicketForm() {
                 <input id="subject" type="text" required value={subject} onChange={(e) => setSubject(e.target.value)} />
             </div>
 
-            <div style={{ display: "flex", gap: 12 }}>
-                <div className="admin-field" style={{ flex: 1 }}>
-                    <label htmlFor="category">Category</label>
-                    <select id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
-                        {TICKET_CATEGORIES.map((c) => (
-                            <option key={c} value={c}>
-                                {c}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className="admin-field" style={{ flex: 1 }}>
-                    <label htmlFor="link">Link (optional)</label>
-                    <input id="link" type="url" placeholder="https://..." value={link} onChange={(e) => setLink(e.target.value)} />
-                </div>
+            <div className="admin-field">
+                <label htmlFor="category">Category</label>
+                <select id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
+                    {TICKET_CATEGORIES.map((c) => (
+                        <option key={c} value={c}>
+                            {c}
+                        </option>
+                    ))}
+                </select>
             </div>
 
             <div className="admin-field">
@@ -69,7 +61,7 @@ export default function NewTicketForm() {
                 <textarea id="message" rows={6} required value={message} onChange={(e) => setMessage(e.target.value)} />
             </div>
 
-            <AttachmentPicker uploadUrl="/api/tickets/upload" attachments={attachments} onChange={setAttachments} />
+            <DriveAttachmentNote driveLink={driveLink} />
 
             <button className="admin-btn" type="submit" disabled={loading} style={{ marginTop: 8 }}>
                 {loading ? "Submitting..." : "Submit Ticket"}

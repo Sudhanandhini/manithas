@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
-const EDITABLE_FIELDS = ["name", "email", "mobile", "website", "domain", "address", "companyName"] as const;
+const EDITABLE_FIELDS = ["name", "email", "mobile", "website", "driveLink", "address", "companyName"] as const;
 
 export async function GET(_req: Request, { params }: { params: { id: string } }) {
     const session = await getServerSession(authOptions);
