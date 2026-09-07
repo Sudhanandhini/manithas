@@ -14,78 +14,78 @@ import ScrollToTop from "@/src/components/ScrollToTop";
 const developmentServices = [
     {
         icon: "fas fa-laptop-code",
-        title: "Custom Web Application Development",
-        description: "Build fully customized web applications designed specifically for your business needs and workflows."
+        title: "Custom Web Application Engineering",
+        description: "Turn unique business ideas into purpose-built applications that fit your processes, people, and goals—not the other way around."
     },
     {
         icon: "fas fa-building",
         title: "Enterprise Web Applications",
-        description: "Develop enterprise-grade solutions that improve productivity, automate operations, and manage complex business processes."
+        description: "Bring complex operations under one digital roof with powerful applications built to connect teams, simplify workflows, and support business growth."
     },
     {
         icon: "fas fa-cloud",
-        title: "SaaS Application Development",
-        description: "Launch cloud-based Software-as-a-Service (SaaS) platforms with secure architecture and subscription management."
+        title: "SaaS Application Engineering",
+        description: "Transform your software idea into a cloud-ready product with the technology, architecture, and subscription capabilities needed to serve users at scale."
     },
     {
         icon: "fas fa-sitemap",
         title: "CRM & ERP Development",
-        description: "Develop customized CRM and ERP solutions to manage customers, inventory, sales, finance, and operations efficiently."
+        description: "Create a centralized business ecosystem where customer relationships, sales, inventory, finance, and operations work together seamlessly."
     },
     {
         icon: "fas fa-mobile-alt",
         title: "Progressive Web Applications (PWA)",
-        description: "Create installable, lightning-fast web applications that provide an app-like experience across all devices."
+        description: "Give users the speed and convenience of an app with the accessibility of the web through fast, responsive, and installable digital experiences."
     },
     {
         icon: "fas fa-plug",
         title: "API Development & Integration",
-        description: "Connect third-party services, payment gateways, CRM systems, ERP software, and external APIs seamlessly."
+        description: "Make your digital ecosystem work as one by connecting applications, services, payment systems, and business platforms through reliable API integrations."
     },
     {
         icon: "fas fa-door-open",
         title: "Web Portal Development",
-        description: "Build customer portals, employee portals, vendor portals, student portals, and membership platforms."
+        description: "Create dedicated digital spaces that give customers, employees, vendors, students, or members the right tools, information, and access in one place."
     },
     {
         icon: "fas fa-tools",
         title: "Maintenance & Support",
-        description: "Ensure your application remains secure, updated, and optimized with continuous monitoring and maintenance."
+        description: "Keep your digital investment running smoothly with proactive maintenance, performance optimization, security updates, and dependable technical support."
     }
 ];
 
 const whyChooseUs = [
     {
         title: "Custom-Built Solutions",
-        description: "Every project is designed according to your business goals."
+        description: "Every brand is unique to us and our solution planning and design processes work accordingly that meet all business goals"
     },
     {
         title: "Modern Technologies",
-        description: "We use the latest frameworks and technologies for future-ready applications."
+        description: "Our solutions leverage latest tech and frameworks to build adaptable and scalable application ready to take on future demands"
     },
     {
         title: "Responsive Design",
-        description: "Applications that work perfectly across desktop, tablet, and mobile devices."
+        description: "Our applications run on creative designs and responsive UX that work seamlessly across desktop, tablet and mobile devices"
     },
     {
         title: "High Security",
-        description: "Strong authentication, encrypted data, and secure coding practices."
+        description: "Our solutions are developed under strong authentication, encrypted data and with secure coding practices"
     },
     {
         title: "Scalable Architecture",
-        description: "Applications built to handle growing users and business expansion."
+        description: "We build solutions that can handle growing businesses and user-bases to support long-term expansion."
     },
     {
         title: "Fast Performance",
-        description: "Optimized for speed, reliability, and smooth user experience."
+        description: "Our custom solutions are optimized to support a fast, reliable and smooth user experience."
     },
     {
         title: "SEO-Friendly Structure",
-        description: "Search engine optimized architecture for improved online visibility."
+        description: "We build solutions that are search engine optimized ensuring increased online visibility"
     },
     {
         title: "Dedicated Support",
-        description: "Post-launch maintenance, updates, and technical support."
+        description: "Our services don’t end once the applications are launched but also extend to post-launch maintenance, updates and other technical support."
     }
 ];
 
@@ -93,32 +93,32 @@ const relatedApps = [
     {
         icon: "fas fa-user-graduate",
         title: "Alumni Web Application",
-        description: "A React & Node.js alumni platform connecting graduates through directories, event updates, and networking tools that keep the community engaged long after graduation."
+        description: "Keeping alumni connected beyond the campus. Built with React & Node.js, this platform brings graduates together through searchable directories, events, career opportunities, and meaningful community interactions."
     },
     {
         icon: "fas fa-calendar-check",
         title: "HR Attendance & Payroll Application",
-        description: "A React & Node.js HR system handling daily login/logout tracking, Earned Leave (EL) and Casual Leave (CL) management, with leave-linked salary calculations."
+        description: "Turning everyday attendance into smarter workforce management. This React & Node.js solution automates login/logout tracking, EL and CL management, and attendance-based salary calculations, reducing manual effort for HR teams."
     },
     {
         icon: "fas fa-id-card",
         title: "ICA Membership Payment Application",
-        description: "A React & Node.js membership platform for the Indian Cricketers Association (ICA), handling secure payments and renewals for 1,000+ members."
+        description: "Making membership renewals simpler for a growing community. Developed for the Indian Cricketers Association (ICA), this React & Node.js platform securely manages online payments and renewals for 1,000+ members."
     },
     {
         icon: "fas fa-certificate",
         title: "ChildFund Online Assessment Application",
-        description: "A React & Node.js assessment platform for ChildFund that delivers online tests and automatically issues certificates on successful completion."
+        description: "Taking assessments from registration to certification entirely online. Built with React & Node.js, the ChildFund platform delivers digital assessments and automatically generates certificates upon successful completion."
     },
     {
         icon: "fas fa-briefcase-medical",
         title: "GeneiLab Medical Product Application",
-        description: "A React & Node.js product catalog for GeneiLab, managing 1,000+ medical products across several categories with fast search and easy updates."
+        description: "Making a large medical product catalogue easier to navigate. This React & Node.js application helps GeneiLab organize, search, and manage 1,000+ medical products across multiple categories with ease."
     },
     {
         icon: "fas fa-briefcase",
         title: "Career Portal Application",
-        description: "A React & Node.js careers portal where candidates apply online and HR teams review and manage every application from a central dashboard."
+        description: "Bringing candidates and recruiters onto one streamlined platform. Built with React & Node.js, the portal simplifies online applications while giving HR teams a centralized dashboard to review, organize, and manage candidates."
     }
 ];
 
@@ -138,7 +138,7 @@ export default function Application() {
             />
             {/* <ContentSection
                 eyebrow="What We Do"
-                title="Application Development"
+                title="Application Engineering"
                 description="We design and build custom web and business applications that streamline your operations, automate workflows, and scale with your business."
                 bullets={[
                     "Custom business applications",
@@ -153,23 +153,25 @@ export default function Application() {
                 imageOne="/images/about/about-3.jpg"
                 imageTwo="/images/about/about-4.jpg"
                 eyebrow="How We Work"
-                title="A Team That Understands Application Development"
+                title="A Team That Understands Application Engineering"
                 paragraphs={[
-                    "From requirement discovery to deployment, our application development team works closely with you at every stage, translating business needs into software your teams actually use.",
-                    "We combine modern engineering practices with clear communication and data-driven decisions, so every application we build is reliable, scalable, and easy to maintain long after launch."
+                    "Our custom web applications are designed to help businesses turn unique requirements into purposeful digital solutions. From streamlining everyday processes to managing business operations, everything is brought together in a flexible system designed around the way your teams work.",
+
+               "Built with modern technologies and tailored functionality, the applications are developed to meet specific business needs while remaining secure, scalable, and easy to manage. From initial requirements to deployment, every solution is developed with clear communication and a focus on long-term usability and performance."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
             />
             <ServiceListGrid
                 eyebrow="What We Offer"
-                title="Our Web Application Development Services"
+                title="Our Web Application Engineering Services"
                 items={developmentServices}
                 classOption="section-bg-light"
             />
             <WhyChooseUs
                 eyebrow="Why Manithas"
-                title="Why Choose Our Web Application Development Company?"
+                title="Why Choose Our Web Application Engineering Company?"
                 items={whyChooseUs}
             />
             <RelatedApplications

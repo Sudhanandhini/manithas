@@ -12,21 +12,21 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const employeeProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We understand your attendance rules, leave policy, and salary structure to define the right system for your team." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We plan employee ID creation, login flows, and leave-to-salary calculations before any design work begins." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers create a simple login and dashboard layout for employees and a clear reporting view for admins." },
-    { icon: "fas fa-code", title: "Application Development", description: "We build automatic login/logout capture, leave tracking, and salary calculation logic built in." },
-    { icon: "fas fa-vial", title: "Testing", description: "We test attendance capture, leave balances, and salary calculations thoroughly to ensure accurate payroll." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We launch your employee records application and provide ongoing support through every payroll cycle." }
+     { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We begin by understanding your organization’s attendance, payroll and leave policies to establish a definite workable system." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "Here, we plan the flow of the web application with ID creation, login flows, and leave-to-salary calculation features for an easier design process." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "At this stage we focus on creating a clean login and dashboard layouts for employees to access and a ‘Report’ view for admins." },
+    { icon: "fas fa-code", title: "Application Engineering", description: "Once the design is finalised, we develop a secure system with automatic login-logout  features." },
+    { icon: "fas fa-vial", title: "Quality Assurance", description: "We ensure the quality of our deliverable at this stage by testing attendance capture, leave balances updates, and salary calculations to ensure accurate functioning." },
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "Finally, we help launch the Employee Records Web Application and ensure consistent support is provided on demand through any payroll cycle. " }
 ];
 
 const employeeApps = [
-    { icon: "fas fa-id-card", title: "Admin-Created Employee IDs", description: "Admins create a unique employee ID for every staff member, keeping records organized from day one." },
-    { icon: "fas fa-clock", title: "Login/Logout Time Capture", description: "The system automatically captures each employee's first login and last logout time every day." },
-    { icon: "fas fa-calendar-minus", title: "Casual Leave Tracking", description: "Casual leave is tracked against each employee, with balances updated automatically as leave is taken." },
-    { icon: "fas fa-calendar-plus", title: "Earned Leave Tracking", description: "Earned leave accrues and is tracked separately, giving employees and admins a clear running balance." },
-    { icon: "fas fa-money-check-alt", title: "Automated Salary Calculation", description: "Salary calculations factor in attendance and leave data automatically, cutting down manual payroll work." },
-    { icon: "fas fa-file-excel", title: "Excel Data Export", description: "Admins can export attendance, leave, and salary records to Excel anytime for reporting and audits." }
+   { icon: "fas fa-book", title: "Admin-Created Employee IDs", description: "Individual employee database creation access for an assigned admin to create employee IDs" },
+    { icon: "fas fa-search", title: "Login/Logout Time Capture ", description: "Automatic login-logout capturing feature for every working day removing possible manual manipulation" },
+    { icon: "fas fa-user", title: "Casual Leave Tracking", description: "Casual leave tracking feature for every employee with the leave balance updated automatically" },
+    { icon: "fas fa-exchange-alt", title: "Earned Leave Tracking", description: "Earned leave tracking as a separate feature to ensure a clear visual of actual running leave balances" },
+    { icon: "fas fa-bell", title: "Automated Salary Calculation", description: "Automatic salary calculation feature that considers attendance and leave details for each payroll, reducing manual review" },
+    { icon: "fas fa-file-excel", title: "Excel Data Export", description: "Enables admins to securely export attendance, leave and payroll records to Excel for reporting, data analysis and other audits" }
 ];
 
 const employeeFaqs = [
@@ -68,8 +68,11 @@ export default function EmployeeRecords() {
                 eyebrow="How We Build It"
                 title="Attendance And Payroll, Tracked Automatically"
                 paragraphs={[
-                    "Every employee gets a unique ID created by the admin, then logs in and out through the application, which automatically captures their first login and last logout time each day.",
-                    "Casual leave and earned leave are tracked against each employee, and salary calculations factor in attendance and leave data automatically, cutting down manual payroll work."
+                        "Our Employee Records web application is designed to help organizations manage employee information, attendance, leave, and payroll through one unified platform. From assigning unique employee IDs to tracking daily login and logout times, everything is brought together in a seamless system. ",
+
+                           "Built with automated attendance and leave tracking, the platform records first login and last logout times each day, while casual and earned leave can be maintained against individual employee records. Additional features like attendance and leave data factored into salary calculations, reducing manual payroll work and making employee management more efficient are included."
+
+                   
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
@@ -77,7 +80,7 @@ export default function EmployeeRecords() {
             />
             <ProcessSteps
                 eyebrow="How We Work"
-                title="Our Employee Records Application Development Process"
+                title="Our Employee Records Application Engineering Process"
                 description="Our development process involves thorough planning, design, and testing, ensuring an accurate, automated attendance and payroll system tailored to your team."
                 steps={employeeProcess}
                 classOption="section-bg-light"

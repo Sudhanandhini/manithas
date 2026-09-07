@@ -12,12 +12,12 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const hotelProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We understand your property, room types, and booking goals to define exactly what your website needs to deliver." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We plan room showcases, booking flows, and gallery structure to turn browsing guests into direct bookings." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers create visually rich layouts that showcase your property and amenities at their absolute best." },
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We understand your property, room types, and booking goals to define exactly what your website needs to deliver." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We plan room showcases, booking flows, and gallery structure to turn browsing guests into direct bookings." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create visually rich layouts that showcase your property and amenities at their absolute best." },
     { icon: "fas fa-code", title: "Website Development", description: "We build a fast, mobile-ready platform with direct booking engine integration built in from the start." },
     { icon: "fas fa-vial", title: "Testing", description: "We test the booking flow, galleries, and responsiveness across devices to ensure a flawless guest experience." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We launch your hotel or resort website and provide ongoing support through every season." }
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We launch your hotel or resort website and provide ongoing support through every season." }
 ];
 
 const hotelApps = [

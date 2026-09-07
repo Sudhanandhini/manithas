@@ -12,12 +12,12 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const realEstateProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We understand your projects, properties, and buyer journey to define the right structure for your website." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We plan listing pages, lead capture forms, and project structure to turn visitors into qualified leads." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers create a layout that highlights floor plans, galleries, and project details clearly and attractively." },
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We understand your projects, properties, and buyer journey to define the right structure for your website." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We plan listing pages, lead capture forms, and project structure to turn visitors into qualified leads." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create a layout that highlights floor plans, galleries, and project details clearly and attractively." },
     { icon: "fas fa-code", title: "Website Development", description: "We build a fast, map-integrated platform with lead capture and project progress updates built in." },
     { icon: "fas fa-vial", title: "Testing", description: "We test listing pages, forms, and map integrations thoroughly to ensure a smooth experience for buyers." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We launch your real estate or construction website and provide ongoing support as your projects progress." }
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We launch your real estate or construction website and provide ongoing support as your projects progress." }
 ];
 
 const realEstateApps = [

@@ -12,12 +12,12 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const healthcareProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We understand your departments, services, and patient journey to define the right structure for your healthcare website." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We plan appointment flows, service pages, and compliance requirements before any design work begins." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers create an accessible, patient-friendly layout that builds trust and makes finding care simple." },
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We understand your departments, services, and patient journey to define the right structure for your healthcare website." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We plan appointment flows, service pages, and compliance requirements before any design work begins." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create an accessible, patient-friendly layout that builds trust and makes finding care simple." },
     { icon: "fas fa-code", title: "Website Development", description: "We build a secure, compliance-aware platform with booking, doctor profiles, and service listings built in." },
     { icon: "fas fa-vial", title: "Testing", description: "We test booking flows, forms, and accessibility thoroughly to ensure a smooth experience for every patient." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We launch your healthcare website and provide ongoing support to keep it secure and up to date." }
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We launch your healthcare website and provide ongoing support to keep it secure and up to date." }
 ];
 
 const healthcareApps = [

@@ -37,7 +37,7 @@ const AboutFour = () => {
                                 title="Quality &amp; Experience Web Design Company"
                             />
 
-                            <p>Operating since 2006, we began as Sunsys Technologies and later evolved into Manithas Technologies Pvt. Ltd., officially registered in 2009. Over two decades, we have explored diverse technology verticals and grown into a trusted IT solutions partner. Today, we specialize in web application development, custom software development, and end-to-end web solutions, with experience, precision, and quality to deliver what creates a lasting value for businesses and brands worldwide.
+                            <p>Operating since 2006, we began as Sunsys Technologies and later evolved into Manithas Technologies Pvt. Ltd., officially registered in 2009. Over two decades, we have explored diverse technology verticals and grown into a trusted IT solutions partner. Today, we specialize in web Application Engineering, custom software development, and end-to-end web solutions, with experience, precision, and quality to deliver what creates a lasting value for businesses and brands worldwide.
 1,300+ Projects Completed: Increasing profits through online visibility 
 1000+ Clients: Running smoother operations though our curated online presence 
 </p>

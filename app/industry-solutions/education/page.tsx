@@ -12,12 +12,12 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const educationProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We learn about your admissions process, courses, and the needs of students, parents, and staff before we design anything." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We plan the site structure around admissions, courses, and notices so every visitor finds information fast." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers create a clean, welcoming layout that works for prospective students, parents, and current staff alike." },
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We learn about your admissions process, courses, and the needs of students, parents, and staff before we design anything." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We plan the site structure around admissions, courses, and notices so every visitor finds information fast." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create a clean, welcoming layout that works for prospective students, parents, and current staff alike." },
     { icon: "fas fa-code", title: "Website Development", description: "We build a responsive platform with easy content updates, so your team can manage notices and courses independently." },
     { icon: "fas fa-vial", title: "Testing", description: "We test admissions flows, portals, and mobile responsiveness thoroughly to ensure a smooth experience for every user." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We launch your education website and offer ongoing support for updates through every academic term." }
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We launch your education website and offer ongoing support for updates through every academic term." }
 ];
 
 const educationApps = [

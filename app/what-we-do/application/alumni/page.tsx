@@ -12,27 +12,28 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const alumniProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We map your college's alumni base, departments, and the roles admin, super admin, and students each need." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We plan the directory structure, login flows, and permissions for every role before any design work begins." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers create clean student, alumni, and admin interfaces that are easy to navigate for every user type." },
-    { icon: "fas fa-code", title: "Application Development", description: "We build secure, role-based logins with directory, profile, and career update features built in." },
-    { icon: "fas fa-vial", title: "Testing", description: "We test every login role, profile update, and directory search thoroughly before handing it over." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We launch your alumni application and provide ongoing support as your graduate base keeps growing." }
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We begin by mapping your institute’s and students’ needs, and collect necessary data like the alumni base, departments involved, and roles admin and super admin accesses. " },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "This stage is to plan the flow of the web application including the directory structure, login flows, and permissions for every role to ensure a smoother design process."},                    
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our design process aims to clearly visualise the strategy set in place with clean and creative student, alumni and admin interfaces." },
+    { icon: "fas fa-code", title: "Application Engineering", description: " With a set design in place, we develop secure, role-based access systems with integrated directories, profiles, and career management features." },
+    { icon: "fas fa-vial", title: "Quality Assurance", description: "We test every feature of the developed web application from login roles, profile updates to directory search under every possible contingency before delivering." },
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "The final stage is to launch the alumni web application. We also ensure to provide consistent support during and post-launch, updating your alumni base as it grows. " }
 ];
 
 const alumniApps = [
-    { icon: "fas fa-user-graduate", title: "Student & Alumni Login", description: "Secure individual logins so every student and graduate can manage their own profile and details." },
-    { icon: "fas fa-user-shield", title: "Admin & Super Admin Roles", description: "Layered admin access so college staff and super admins manage records, approvals, and permissions separately." },
-    { icon: "fas fa-address-book", title: "Alumni Directory", description: "A searchable directory of graduates by batch, department, and location to help alumni reconnect." },
-    { icon: "fas fa-briefcase", title: "Career & Job Updates", description: "A dedicated space for alumni to share and browse career opportunities within the community." },
-    { icon: "fas fa-id-badge", title: "Detailed Alumni Profiles", description: "Education history, achievements, and contact details maintained in one place for every graduate." },
-    { icon: "fas fa-file-excel", title: "Excel Data Export", description: "Admins can export student and alumni records to Excel anytime for reporting and offline use." }
+    { icon: "fas fa-user-graduate", title: "Student & Alumni Login", description: "Specific user logins for every user to create and manage profiles easily." },
+   { icon: "fas fa-id-badge", title: "Alumni Profiles", description: "A unified profile system for students and alumni to create individual profiles with education, achievements and contact details" },
+    { icon: "fas fa-user-shield", title: "Admin & Super Admin Roles", description: "Role-based admin and super admin access for an assignee to manage records, approvals and permissions in the back-end" },
+    { icon: "fas fa-address-book", title: "Alumni Directory", description: "An updated and searchable directory for students to access categorised by batch, department and location " },
+    { icon: "fas fa-briefcase", title: "Broadcast Events ", description: "A centralised career hub for alumni to find and share opportunities across the community" },
+    
+    { icon: "fas fa-file-excel", title: "Excel Data Export", description: "Enables admins to securely export student and alumni records to Excel for reporting and data analysis" }
 ];
 
 const alumniFaqs = [
     { question: "Can the application support multiple colleges or departments?", answer: "Yes, the directory and admin structure can be organized by college, department, and graduation batch." },
     { question: "Who can access student and alumni data?", answer: "Access is role-based - students and alumni see their own profile, while admins and super admins see records relevant to their permission level." },
-    { question: "Can alumni post career updates and job openings?", answer: "Yes, alumni can share career updates and job opportunities that other members of the community can browse." }
+    { question: "Can alumni post event updates and upcoming events?", answer: "Yes, alumni can share event updates, reunions, meetups, and other community events that fellow members can browse and participate in." }
 ];
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -76,7 +77,7 @@ export default function Alumni() {
             />
             <ProcessSteps
                 eyebrow="How We Work"
-                title="Our Alumni Application Development Process"
+                title="Our Alumni Application Engineering Process"
                 description="Our development process involves thorough planning, design, and testing, ensuring a secure, role-based platform tailored to your college and its alumni."
                 steps={alumniProcess}
                 classOption="section-bg-light"

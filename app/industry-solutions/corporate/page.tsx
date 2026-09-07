@@ -12,12 +12,12 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const corporateProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We understand your departments, brand guidelines, and business goals to define exactly what your corporate website needs to achieve." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We map out site structure, content hierarchy, and integrations so every stakeholder finds what they need quickly." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers craft a brand-aligned layout that presents your business with clarity, professionalism, and confidence." },
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We understand your departments, brand guidelines, and business goals to define exactly what your corporate website needs to achieve." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We map out site structure, content hierarchy, and integrations so every stakeholder finds what they need quickly." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers craft a brand-aligned layout that presents your business with clarity, professionalism, and confidence." },
     { icon: "fas fa-code", title: "Website Development", description: "Our developers build a secure, scalable platform with clean code and smooth content management for your team." },
     { icon: "fas fa-vial", title: "Testing", description: "We test every page, form, and integration across devices to ensure a polished, error-free experience before launch." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We deploy your corporate website to production and provide ongoing support to keep it running smoothly." }
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We deploy your corporate website to production and provide ongoing support to keep it running smoothly." }
 ];
 
 const corporateApps = [

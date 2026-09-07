@@ -12,21 +12,21 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const assessmentProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We understand your test format, registration fields, and certificate requirements to define the right platform." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We plan the registration form, test flow, and certificate generation before any design work begins." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers create a simple, distraction-free test interface that works well for students of every age." },
-    { icon: "fas fa-code", title: "Application Development", description: "We build self-registration, online test delivery, and automatic certificate generation built in." },
-    { icon: "fas fa-vial", title: "Testing", description: "We test registration, test-taking, and certificate generation thoroughly to ensure a smooth experience for every student." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We launch your online assessment application and provide ongoing support through every test cycle." }
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We begin by understanding your required registration fields, test formats, evaluation criteria and certification needs to design an accurate platform." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "Here, we plan the registration form, test flow, and certificate generation for an easy design process." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "At this stage we focus on creating a simple, distraction-free registration and test interface that is accessible to users of all demographics." },
+    { icon: "fas fa-code", title: "Application Engineering", description: "Once the design is finalised, we develop a self-registration section, online test interface, and an automatic certificate generation toolkit." },
+    { icon: "fas fa-vial", title: "Quality Assurance", description: "We ensure the quality of our deliverable at this stage by testing the registration process, test-taking activity, and the certificate generation ensuring a smooth overall user-experience." },
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "Finally, we help launch the Online Assessment Web Application and ensure consistent support is provided through every test cycle." }
 ];
 
 const assessmentApps = [
-    { icon: "fas fa-user-edit", title: "Quick Self-Registration", description: "Students register with just their name, class, place, and school, without needing an admin-created account." },
-    { icon: "fas fa-laptop", title: "Online Test Delivery", description: "A simple, guided test interface that works smoothly across desktops, tablets, and mobile devices." },
-    { icon: "fas fa-certificate", title: "Instant Certificate Generation", description: "A certificate is generated automatically the moment a student completes the assessment successfully." },
-    { icon: "fas fa-download", title: "Student Certificate Download", description: "Students can download their certificate immediately after finishing the test, with no extra steps." },
-    { icon: "fas fa-chart-bar", title: "Admin Results Dashboard", description: "Admins can see how many students have taken the test and track completion in real time." },
-    { icon: "fas fa-file-excel", title: "Excel Data Export", description: "Admins can download student registration and results data as an Excel sheet anytime." }
+    { icon: "fas fa-user-edit", title: "Quick Self-Registration", description: "Fast and simple registration interface for user registration without the need for separate admin management" },
+    { icon: "fas fa-laptop", title: "Online Test Delivery", description: "Adaptable online test interface that is compatible with desktops, tablets and mobile devices" },
+    { icon: "fas fa-certificate", title: "Instant Certificate Generation", description: "Automatic certificate generation tool that provides a certificate with accurate details as and when the assessment is marked complete and successful" },
+    { icon: "fas fa-download", title: "Student Certificate Download", description: "Easy certification download option for users to access immediately after completion without any extra steps" },
+    { icon: "fas fa-chart-bar", title: "Admin Results Dashboard", description: "Accurate data driven dashboard updated with user details, type of test attempted, and completed, tracked in real-time" },
+    { icon: "fas fa-file-excel", title: "Excel Data Export", description: "Enables admins to securely export students’ and results data to Excel for reporting and other analyses" }
 ];
 
 const assessmentFaqs = [
@@ -45,9 +45,9 @@ export default function OnlineAssessmentTest() {
             <Header />
             <Breadcrumb
                 image="images/bg/breadcrumb-bg-three.jpg"
-                title="Online Assessment Test"
+                title="Online Assessment "
                 content="Home"
-                contentTwo="Online Assessment Test"
+                contentTwo="Online Assessment "
             />
             {/* <ContentSection
                 eyebrow="Application"
@@ -68,15 +68,17 @@ export default function OnlineAssessmentTest() {
                 eyebrow="How We Build It"
                 title="From Registration To Certificate, Fully Online"
                 paragraphs={[
-                    "Students register with just their name, class, place, and school, then take the assessment online without needing an admin-created account, making it easy to open the test to a wide audience.",
-                    "As soon as a student completes the test, a certificate is generated automatically for them to download, while admins get a live view of how many students have taken the test."
+                    "Our online assessment web application is designed to make assessments accessible through a simple, self-registration process. Students can register using basic details such as their name, class, school, and location, then take the assessment online without requiring an admin-created account, making it easy to reach a wider audience.",
+
+"Built with automated certificate generation, the platform instantly creates a downloadable certificate upon test completion. Administrators get a live view of participation, enabling them to monitor test activity and track the number of students who have completed the assessment."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
             />
             <ProcessSteps
                 eyebrow="How We Work"
-                title="Our Online Assessment Application Development Process"
+                title="Our Online Assessment Application Engineering Process"
                 description="Our development process involves thorough planning, design, and testing, ensuring a smooth registration-to-certificate experience for every student."
                 steps={assessmentProcess}
                 classOption="section-bg-light"

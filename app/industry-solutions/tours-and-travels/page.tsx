@@ -12,12 +12,12 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const travelProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We understand your packages, destinations, and booking goals to define exactly what your travel website needs." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We plan itinerary pages, booking flows, and destination galleries to turn browsers into confirmed bookings." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers create vivid, destination-led layouts that bring your tours and packages to life." },
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We understand your packages, destinations, and booking goals to define exactly what your travel website needs." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We plan itinerary pages, booking flows, and destination galleries to turn browsers into confirmed bookings." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create vivid, destination-led layouts that bring your tours and packages to life." },
     { icon: "fas fa-code", title: "Website Development", description: "We build a fast, mobile-ready platform with secure online booking and payments built in." },
     { icon: "fas fa-vial", title: "Testing", description: "We test booking flows, payments, and itinerary pages thoroughly to ensure a smooth experience for every traveler." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We launch your travel website and provide ongoing support through every season of bookings." }
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We launch your travel website and provide ongoing support through every season of bookings." }
 ];
 
 const travelApps = [

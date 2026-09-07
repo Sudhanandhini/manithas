@@ -12,21 +12,21 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const subscriptionProcess = [
-    { icon: "fas fa-clipboard-list", title: "Requirements Gathering", description: "We understand your membership base, fee structure, and renewal cycle to define the right platform for you." },
-    { icon: "fas fa-lightbulb", title: "Planning & Strategy Making", description: "We plan account creation, payment flows, and renewal tracking before any design work begins." },
-    { icon: "fas fa-pencil-ruler", title: "Website Designing", description: "Our designers create a simple, trustworthy login and payment layout that puts members at ease." },
-    { icon: "fas fa-code", title: "Application Development", description: "We build secure account creation, online payments, and renewal tracking built for large member bases." },
-    { icon: "fas fa-vial", title: "Testing", description: "We test account creation, payment flows, and renewal logic thoroughly to ensure accuracy at scale." },
-    { icon: "fas fa-rocket", title: "Launching", description: "We launch your subscription application and provide ongoing support through every renewal cycle." }
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We begin by understanding your membership base, payment structure and renewal cycle options to design an accurate platform." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "Here, we plan the account creation, payment flows, and renewal tracking for an easy design process." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "At this stage we focus on creating an innovative and trustworthy login and payment layout that helps members navigate the platform easily." },
+    { icon: "fas fa-code", title: "Application Engineering", description: "Once the design is finalised, we develop a secure account creation, online payments, and renewal tracking." },
+    { icon: "fas fa-vial", title: "Testing", description: "We ensure the quality of our deliverable at this stage by testing the account creation, online payments processes, and renewal tracking to ensure a smooth user-experience." },
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "Finally, we help launch the Subscription Module Web Application and ensure consistent support is provided throughout." }
 ];
 
 const subscriptionApps = [
-    { icon: "fas fa-user-plus", title: "Admin-Created Accounts", description: "Admins create individual member accounts, so every subscriber has a secure login from day one." },
-    { icon: "fas fa-sign-in-alt", title: "Member Login Portal", description: "Members log in to view their subscription status, details, and payment history at any time." },
-    { icon: "fas fa-credit-card", title: "Online Fee Payment", description: "Secure online payment flows let members pay their yearly subscription without manual follow-up." },
-    { icon: "fas fa-history", title: "Renewal & Payment History", description: "Every renewal and payment is logged, giving members and admins a clear history at a glance." },
-    { icon: "fas fa-users", title: "Built To Scale", description: "Architected to comfortably handle large member bases of 1,900 members and more." },
-    { icon: "fas fa-file-excel", title: "Excel Data Export", description: "Admins can export member and payment records to Excel anytime for reporting and reconciliation." }
+    { icon: "fas fa-user-plus", title: "Admin-Created Accounts", description: "Member accounts created by an assigned admin to ensure secure login for every member" },
+    { icon: "fas fa-sign-in-alt", title: "Member Login Portal", description: "Separate member login with subscription status and payment history details accessible" },
+    { icon: "fas fa-credit-card", title: "Online Fee Payment", description: "Secure payment portals making annual subscription payouts trackable and securely completed without manual intervention" },
+    { icon: "fas fa-history", title: "Renewal & Payment History", description: "Accurate and organised data of every renewal and payment logged for member and admin access" },
+    { icon: "fas fa-users", title: "Built To Scale", description: "Platform structured to hold a large number of 1900+ subscribers comfortably" },
+    { icon: "fas fa-file-excel", title: "Excel Data Export", description: "Enables admins to securely export members’ details and payment records data to Excel for reporting and reconciliation" }
 ];
 
 const subscriptionFaqs = [
@@ -68,15 +68,17 @@ export default function Subscription() {
                 eyebrow="How We Build It"
                 title="Yearly Subscriptions, Handled Without The Manual Follow-Up"
                 paragraphs={[
-                    "Instead of chasing members for renewal payments every year, our subscription applications let admins create individual member accounts, while members log in and pay their annual subscription securely online.",
-                    "We've built subscription platforms that comfortably handle large member bases of 1,900 users and more, with clear renewal status and payment history for every member."
+                   "Our subscription web applications are designed to simplify membership renewals through a secure and convenient digital platform. Admins can create and manage individual member accounts, while members can log in, renew their subscriptions, and make annual payments securely online, reducing manual follow-ups and making the renewal process more efficient.",
+
+"Built to support large member bases of 1,900+ users, the platform provides clear visibility into renewal status and payment history, helping admins manage memberships with greater ease and accuracy."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
             />
             <ProcessSteps
                 eyebrow="How We Work"
-                title="Our Subscription Application Development Process"
+                title="Our Subscription Application Engineering Process"
                 description="Our development process involves thorough planning, design, and testing, ensuring a secure, scalable subscription platform tailored to your organization."
                 steps={subscriptionProcess}
                 classOption="section-bg-light"
