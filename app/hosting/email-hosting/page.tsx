@@ -18,12 +18,12 @@ const featuresData = [
     {
         icon: "fas fa-shield-alt",
         title: "Security",
-        desc: "Ensure your emails are protected with advanced security features and encryption protocols."
+        desc: "Keep your business emails protected with reliable security features, encryption, and spam protection."
     },
     {
         icon: "fas fa-wallet",
         title: "Budget",
-        desc: "Choose a plan that aligns with your financial goals without sacrificing quality."
+        desc: "Choose an email hosting plan that fits your budget while giving you the features your business needs."
     },
     {
         icon: "fas fa-user",
@@ -82,14 +82,17 @@ export default function EmailHosting() {
                 eyebrow="Why Manithas"
                 title="Why Professional Email Hosting Matters"
                 paragraphs={[
-                    "A professional email is crucial for small businesses and startups, offering a cost-effective communication solution. It enhances your brand's credibility, builds trust with clients, and boosts customer attraction. Unlike generic email addresses, a company email fosters brand recognition and protects against spam and malware. Manithas, a leading email hosting provider in Bengaluru, ensures secure and memorable communication for your business, making it easier for clients to connect with you."
+                   "Your email address says more about your business than you might think. A professional email using your own domain instantly looks more credible, makes your brand easier to remember, and gives customers a trusted way to reach you.",
+
+"Beyond looking professional, business email helps keep communication organized and secure. With the right email hosting, you can protect your conversations, reduce spam and security risks, and stay connected with your customers and team without relying on generic email accounts."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
             />
             <HostingFeatures
                 title="Our Best Email Hosting Plans"
-                subtitle="Discover our customized email hosting plans offering secure communication, ample storage, and spam protection. Enhance your brand with professional domain addresses. Choose a plan that fits your needs!"
+                subtitle="Our email hosting plans give your business the tools to communicate with confidence, from branded domain addresses and generous storage to spam protection and flexible account options. Choose a plan that fits your business and keep your communication running smoothly."
                 features={featuresData}
                 columns={4}
             />

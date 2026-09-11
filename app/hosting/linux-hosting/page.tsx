@@ -18,32 +18,32 @@ const featuresData = [
     {
         icon: "fas fa-puzzle-piece",
         title: "Compatibility",
-        desc: "Broad compatibility with open-source platforms and frameworks, so your applications run smoothly without extra configuration."
+        desc: "Works seamlessly with popular open-source platforms, frameworks, databases, and development technologies, giving your applications a flexible environment to run efficiently"
     },
     {
         icon: "fas fa-wallet",
         title: "Affordability",
-        desc: "Enterprise-grade hosting infrastructure at a price that fits growing businesses, with no hidden costs."
+        desc: "Get reliable hosting infrastructure without the high cost, making Linux hosting a practical choice for startups, growing businesses, and established organizations"
     },
     {
         icon: "fas fa-chart-line",
         title: "Consistency In Performance",
-        desc: "Optimized servers ensure fast load times and seamless functionality across all devices, improving user experience and SEO."
+        desc: "Optimized server resources help deliver stable performance, faster loading, and reliable website availability, creating a smoother experience for your visitors"
     },
     {
         icon: "fas fa-expand-arrows-alt",
         title: "Adaptability",
-        desc: "Easily scale resources up or down as your traffic and storage needs grow, without downtime."
+        desc: "Scale your hosting resources as your website grows, making it easier to handle changing traffic, storage, and application requirements"
     },
     {
         icon: "fas fa-desktop",
         title: "Economical",
-        desc: "Cost-effective plans with efficient resource allocation, so you only pay for what your business actually needs."
+        desc: "Make the most of your hosting investment with efficient resource usage and flexible plans designed around your actual business requirements"
     },
     {
         icon: "fas fa-server",
         title: "Server Access",
-        desc: "Full server access with regular security audits, updates, and optimizations to keep your website running smoothly."
+        desc: "Access and manage your hosting environment with greater control, supported by regular updates, security checks, and server-level optimizations"
     }
 ];
 
@@ -75,16 +75,17 @@ export default function LinuxHosting() {
                 eyebrow="Why Manithas"
                 title="Powerful Linux Hosting For Your Business"
                 paragraphs={[
-                    "In today's world, with countless devices of varying resolutions and screen sizes, managing a separate website for each device isn't practical. The solution is responsive web design, which adjusts content to fit any screen size. With 72% of users searching the web on mobile, a non-responsive website means losing potential visitors.",
-                   
-                    "Our Linux hosting offers reliable service management with strong compatibility for open-source technologies like PHP, Perl, and MySQL, making it ideal for business operations over the web."
+                 "Behind every smooth digital experience is dependable hosting that keeps your website running consistently. With more than 72% of users accessing the web through mobile devices, businesses need websites that stay available, responsive, and reliable across every screen. Linux hosting provides a flexible, and cost-effective environment to support modern websites and applications.",
+
+"Our Linux hosting solutions work seamlessly with PHP, MySQL, Perl, and other widely used technologies, giving your website a dependable foundation to perform smoothly. With secure hosting, reliable server performance, and ongoing technical support, we help keep your website online, responsive, and ready for whatever comes next."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
             />
             <HostingFeatures
                 title="Key Features Of Linux Hosting"
-                subtitle="Linux hosting delivers robust performance, security, and flexibility. Key features include multi-language support, easy scalability, and cost-effectiveness. Its compatibility with open-source applications and strong community support make it ideal for businesses of all sizes."
+                subtitle="Good hosting aims at making things easier with reliable performance, strong security and optimal flexibility. With broad technology compatibility, and cost-effective infrastructure, it provides a dependable foundation for websites and web applications to grow and build online. "
                 features={featuresData}
             />
             {/* <HostingTech /> */}

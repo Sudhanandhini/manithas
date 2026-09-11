@@ -18,27 +18,27 @@ const featuresData = [
     {
         icon: "fas fa-server",
         title: "Premium Web Hosting",
-        desc: "Manithas Technologies provides reliable web hosting services at competitive prices with dedicated cloud servers."
+        desc: "Reliable hosting backed by high-performance cloud infrastructure for demanding websites and applications"
     },
     {
         icon: "fas fa-infinity",
         title: "Unlimited Web Hosting",
-        desc: "We offer unlimited shared and individual hosting plans with ample cloud space for business growth."
+        desc: "Flexible hosting plans with generous resources to support websites as your business grows"
     },
     {
         icon: "fas fa-wallet",
         title: "Budget-Friendly Web Hosting",
-        desc: "Manithas Technologies offers affordable web hosting in Bangalore, ensuring savings and customer satisfaction with quality service."
+        desc: "Cost-effective hosting plans that deliver the performance and reliability your business needs"
     },
     {
         icon: "fas fa-shopping-cart",
         title: "Attractive Offers and Discounts",
-        desc: "Launch your website affordably with free domain hosting. We provide high-quality services for Indian businesses."
+        desc: "Launch your website with value-driven plans, special offers, and options designed to keep initial costs low"
     },
     {
         icon: "fab fa-wordpress",
         title: "WordPress-Optimized Hosting",
-        desc: "We provide fast, high-quality WordPress hosting with custom plugins and unlimited SSD storage."
+        desc: "WordPress-ready hosting optimized for speed, stability, security, and smooth website management"
     }
 ];
 
@@ -68,15 +68,17 @@ export default function WebHosting() {
                 title="Reliable Web Hosting For Your Business Needs"
                 paragraphs={[
                    
-                    "We support various technologies, including ASP, ASP.NET, PHP, MS SQL, AJAX, Perl, MySQL, and Python.",
-                    "Our web hosting solutions are essential for making your website visible and navigable on the internet. Choose from our range of affordable hosting plans designed to meet your business needs and help you achieve your goals quickly. Key features include uncompromised security and speed."
+                  "Our web hosting solutions support a wide range of technologies, including ASP, ASP.NET, PHP, MS SQL, AJAX, Perl, MySQL, and Python, giving businesses the flexibility to host different types of websites and applications.",
+
+"We provide affordable and reliable hosting plans designed around your business needs, helping your website stay accessible, secure, and fast. With dependable infrastructure and performance-focused hosting, we give your digital presence the strong foundation it needs to stay online and perform smoothly."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
             />
             <HostingFeatures
                 title="Key Features Of Manithas Web Hosting"
-                subtitle="Experience the best-in-class web hosting services with Manithas Technologies India Pvt. Ltd. With our limitless hosting services you can always think about growing your business. Also, you don't need to extend your budget to purchase high-end web hosting services. We are one of the best website hosting companies in Bangalore and offer affordable hosting services with the following features."
+                subtitle="Great hosting shouldn't have to come with a complicated setup or a high price tag. We provide reliable, secure, and performance-focused hosting that gives your website the space it needs to grow, without stretching your budget."
                 features={featuresData}
             />
             {/* <HostingTech /> */}

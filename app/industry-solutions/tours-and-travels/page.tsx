@@ -12,12 +12,12 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const travelProcess = [
-    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We understand your packages, destinations, and booking goals to define exactly what your travel website needs." },
-    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We plan itinerary pages, booking flows, and destination galleries to turn browsers into confirmed bookings." },
-    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create vivid, destination-led layouts that bring your tours and packages to life." },
-    { icon: "fas fa-code", title: "Website Development", description: "We build a fast, mobile-ready platform with secure online booking and payments built in." },
-    { icon: "fas fa-vial", title: "Testing", description: "We test booking flows, payments, and itinerary pages thoroughly to ensure a smooth experience for every traveler." },
-    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We launch your travel website and provide ongoing support through every season of bookings." }
+     { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We begin by understanding your destinations, travel packages, target audience, and booking goals to define the right website requirements." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "Next, we map out destination pages, itineraries, booking journeys, and key features to create a smooth path from discovery to booking." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Then, we create engaging, destination-focused designs that showcase your packages and make every trip look worth exploring." },
+    { icon: "fas fa-code", title: "Website Development", description: "At this stage, we  turn the approved designs into a fast, responsive website with seamless booking functionality and secure online payments." },
+    { icon: "fas fa-vial", title: "Testing", description: "Here, we thoroughly test booking flows, payment processes, forms, and website performance to ensure everything works smoothly across devices." },
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "Once everything is ready, we launch your travel website and provide ongoing support to keep it performing smoothly throughout your booking seasons." }
 ];
 
 const travelApps = [
@@ -68,8 +68,10 @@ export default function ToursAndTravels() {
                 eyebrow="Tours & Travels Web Solutions"
                 title="Travel Websites Designed To Turn Browsing Into Booked Trips"
                 paragraphs={[
-                    "Travelers explore dozens of options before booking. We design tour and travel websites with vivid itinerary storytelling and frictionless booking flows, so your packages stand out and convert.",
-                    "From destination galleries to secure online payments, every element is built to move a curious visitor toward a confirmed booking."
+                     "A great travel website should make visitors want to pack their bags and book the journey. We create engaging tour and travel websites that bring destinations, experiences, and packages to life while making the path from discovery to booking simple.",
+
+"With immersive destination galleries, detailed itineraries, easy enquiry processes and secure online payments, every element should be designed to inspire confidence, capture interest, and turn travel dreams into confirmed bookings."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

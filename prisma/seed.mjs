@@ -34,7 +34,7 @@ const PAGES = [
     { slug: "/what-we-do/application/elibrary", label: "eLibrary", title: "eLibrary", description: "A digital library web application that lets students and members browse and borrow books online." },
     { slug: "/what-we-do/application/subscription", label: "Subscription", title: "Subscription", description: "A subscription management web application where admins create accounts and members pay online." },
     { slug: "/what-we-do/application/employee-records", label: "Employee Records", title: "Employee Records", description: "An employee records web application for attendance, leave tracking, and payroll." },
-    { slug: "/what-we-do/application/online-assessment-test", label: "Online Assessment Test", title: "Online Assessment Test", description: "An online assessment web application with self-registration and instant certificate generation." },
+    { slug: "/what-we-do/application/online-assessment-test", label: "Online Assessment ", title: "Online Assessment Test", description: "An online assessment web application with self-registration and instant certificate generation." },
     { slug: "/what-we-do/application", label: "Custom Web Application", title: "Custom Web Application", description: "Custom web and business applications that streamline your operations and scale with your business." },
 
     // Web Development

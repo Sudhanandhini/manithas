@@ -27,7 +27,7 @@ const AboutImageSplit = ({ imageOne, imageTwo, eyebrow, title, paragraphs, ctaLa
 
                 <div className="row">
 
-                    <div className={`col-xl-7 col-lg-6 col-12 ${reverse ? "order-lg-2" : ""}`} data-aos="fade-up">
+                    <div className={`col-xl-5 col-lg-6 col-12 ${reverse ? "order-lg-2" : ""}`} data-aos="fade-up">
                         <div className="about-image-area">
                             <div className="about-image">
                                 <Tilt scale={scale} transitionSpeed={4000}>
@@ -47,7 +47,7 @@ const AboutImageSplit = ({ imageOne, imageTwo, eyebrow, title, paragraphs, ctaLa
                         </div>
                     </div>
 
-                    <div className={`col-xl-5 col-lg-6 col-12 ${reverse ? "order-lg-1" : ""}`} data-aos="fade-up" data-aos-delay="300">
+                    <div className={`col-xl-7 col-lg-6 col-12 ${reverse ? "order-lg-1" : ""}`} data-aos="fade-up" data-aos-delay="300">
                         <div className="about-content-area">
                             <SectionTitleTwo
                                 subTitle={eyebrow}

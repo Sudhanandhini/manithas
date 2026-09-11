@@ -13,44 +13,44 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const customWebsiteBenefits = [
-    "Exclusive Features As Per The Business",
-    "Rapid Loading Time",
-    "Enhanced Website Security",
-    "Improved Flexibility And Scalability",
-    "Better System Integration",
-    "Full Ownership Of Your Codebase"
+    "Tailored Business Functionality",
+    "Faster, Smoother Performance",
+    "Built-In Security",
+    "Flexible & Scalable Growth",
+    "Seamless System Integration",
+    "Complete Code Ownership"
 ];
 
 const customDevServices = [
     {
         icon: "fas fa-laptop-code",
-        title: "Website Development",
-        description: "Custom development covering both back-end and front-end for enterprise applications."
+        title: "Custom Website Development",
+        description: "Tailored front-end and back-end solutions that align with your business workflows, functionality, and long-term objectives."
     },
     {
         icon: "fas fa-handshake",
         title: "Responsive Design",
-        description: "Websites responsive across all devices, so clients never miss a potential customer."
+        description: "Seamless, device-friendly experiences that adapt effortlessly across desktops, tablets, and smartphones."
     },
     {
         icon: "fas fa-mobile-alt",
         title: "Progressive Web Applications",
-        description: "Custom web applications that respond faster than native apps, even on poor connections."
+        description: "Fast, app-like web experiences that offer reliable performance, even in low-connectivity environments."
     },
     {
         icon: "fas fa-plug",
         title: "Third-Party Integration",
-        description: "Real-time integrations with third-party systems to track performance."
+        description: "Connected websites with essential third-party platforms and services to streamline workflows and keep your systems working together."
     },
     {
         icon: "fas fa-vial",
         title: "Quality Analysis And Testing",
-        description: "Continuous monitoring of security threats to prevent long-term issues."
+        description: "Functionality, performance, compatibility, and security rigorously tested to ensure your website delivers a reliable experience."
     },
     {
         icon: "fas fa-tools",
         title: "Maintenance And Support",
-        description: "Ongoing web maintenance and support to review pages and enhance organic reach."
+        description: "Ongoing technical support, updates, optimization, and enhancements to keep your website secure, stable, and performing at its best."
     }
 ];
 
@@ -58,32 +58,32 @@ const whyChooseCustomDev = [
     {
         icon: "fas fa-cogs",
         title: "Operational Excellence",
-        description: "A leading web development company with skilled UI/UX designers on every project."
+        description: "Skilled developers and UI/UX experts delivering structured, efficient solutions"
     },
     {
         icon: "fas fa-handshake",
         title: "Client-Centric Approach",
-        description: "We help clients achieve their goals from planning through implementation, ensuring a competitive edge."
+        description: "We align every solution with your goals, priorities, and business needs."
     },
     {
         icon: "fas fa-users",
         title: "World-Class Team",
-        description: "Our greatest asset is our dedicated team, focused on teamwork and collaboration for successful projects."
+        description: "A dedicated team combining expertise, collaboration, and creative problem-solving."
     },
     {
         icon: "fas fa-shield-alt",
         title: "Secure By Design",
-        description: "Security built into the architecture from day one, not bolted on afterward."
+        description: "Security integrated from the start to protect your website and data."
     },
     {
         icon: "fas fa-rocket",
         title: "Scalable Architecture",
-        description: "Systems built to handle your growth without needing a rebuild."
+        description: "Flexible systems built to adapt as your business grows."
     },
     {
         icon: "fas fa-comments",
         title: "Transparent Communication",
-        description: "Clear updates at every stage, so you always know where the project stands."
+        description: "Clear updates and open communication throughout every project stage."
     }
 ];
 
@@ -135,8 +135,10 @@ export default function CustomWebDevelopment() {
                 eyebrow="Custom Website Development Services"
                 title="Software Built Around Your Business, Not A Template"
                 paragraphs={[
-                    "Custom website development gives you a solution that surpasses generic software, tailored to your exact workflows and user experience goals.",
-                    "We collaborate closely with clients at every stage, from planning through launch, to create websites and applications that meet specific needs and deliver optimal results within budget and timelines."
+                    "Custom website development provides businesses with digital solutions built around their unique requirements, workflows, and user experience goals. Unlike generic software, custom development gives you greater flexibility to shape features, functionality, and interfaces around the way your business operates.",
+
+"Our custom website development focuses on purposeful functionality, intuitive experiences, scalable architecture, and seamless performance, creating digital solutions that are flexible, maintainable, and aligned with your business goals, budget, and long-term growth."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

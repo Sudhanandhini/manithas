@@ -68,8 +68,10 @@ export default function Education() {
                 eyebrow="Education Web Solutions"
                 title="Websites That Support Students, Parents, And Staff Alike"
                 paragraphs={[
-                    "An education website needs to serve very different audiences at once - prospective students researching courses, parents checking notices, and staff managing updates. We design information architecture that keeps every audience oriented.",
-                    "From admissions funnels to event calendars and downloadable prospectuses, we build education platforms that stay easy to update long after launch."
+                  "An education website has to speak to many audiences at once, such as prospective students exploring courses and parents looking for updates to staff managing everyday content. We create clear information structures that help everyone find what they need without getting lost.",
+
+"From admissions and course information to event calendars, notices, and downloadable prospectuses, we build education websites that make information easy to access and simple for your team to manage long after launch."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

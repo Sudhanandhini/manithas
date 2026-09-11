@@ -14,90 +14,87 @@ import ScrollToTop from "@/src/components/ScrollToTop";
 
 const landingPageBenefits = [
     {
-        title: "Higher Conversion Rates",
-        description: "A focused page with a single call to action converts far better than sending campaign traffic to a general website."
+        title: "Higher Conversion Potential",
+        description: "Focused content and clear calls to action guide visitors toward a specific goal"
     },
     {
-        title: "Better Campaign Tracking",
-        description: "Dedicated landing pages make it easy to measure exactly how each campaign is performing."
+        title: "Smarter Campaign Insights",
+        description: "Dedicated pages make it easier to track and measure campaign performance"
     },
     {
-        title: "Stronger First Impressions",
-        description: "A landing page tailored to your offer creates a welcoming, on-message first impression for new visitors."
+        title: "Stronger Brand Impact",
+        description: "Purpose-built designs create relevant and engaging first impressions"
     },
     {
-        title: "Improved Ad Quality Scores",
-        description: "Relevant, focused landing pages improve ad relevance, often lowering your cost per click."
+        title: "Better Ad Performance",
+        description: "Relevant landing pages improve user experience, ad relevance, and campaign efficiency"
     },
-    {
-        title: "Flexible A/B Testing",
-        description: "Standalone pages make it simple to test headlines, offers, and layouts without touching your main site."
-    }
+  
 ];
 
 const landingPageServices = [
     {
         icon: "fas fa-magnet",
-        title: "Lead Capture Forms",
-        description: "Forms designed to collect the details you need without adding friction for visitors."
+        title: "High-Converting Lead Forms",
+        description: "We create friction-free forms designed to capture valuable visitor information."
     },
     {
         icon: "fas fa-vial",
-        title: "A/B Testing Ready",
-        description: "Layouts built to support testing different headlines, offers, and CTAs."
+        title: "Conversion-Focused A/B Testing",
+        description: "We build flexible layouts that make testing headlines, offers, and CTAs simple."
     },
     {
         icon: "fas fa-tachometer-alt",
-        title: "Fast Load Times",
-        description: "Lightweight, optimized pages that load quickly on every device."
+        title: "Performance Optimization",
+        description: "We develop lightweight pages designed for fast, smooth loading across devices."
     },
     {
         icon: "fas fa-chart-line",
         title: "Analytics Integration",
-        description: "Conversion tracking wired in from day one so you can measure results."
+        description: "We integrate tracking tools to measure visitors, conversions, and campaign performance."
     },
     {
         icon: "fas fa-mobile-alt",
-        title: "Mobile-Optimized Layouts",
-        description: "Pages that look and convert just as well on mobile as on desktop."
+        title: "Mobile-First Design",
+        description: "We create responsive layouts that deliver seamless experiences across every screen."
     },
     {
         icon: "fas fa-palette",
-        title: "On-Brand Design",
-        description: "Every page matches your brand identity while staying focused on the offer."
+        title: "Brand-Aligned Design",
+        description: "We blend your brand identity with focused visuals that keep attention on your offer."
     }
 ];
 
 const whyChooseLandingPage = [
     {
         icon: "fas fa-bullseye",
-        title: "Conversion-Focused",
-        description: "Every design decision is made with your conversion goal in mind."
+        title: "Conversion-Driven Design",
+        description: "Every element is crafted to support your campaign and conversion goals."
     },
     {
         icon: "fas fa-bolt",
-        title: "Fast Turnaround",
-        description: "We move quickly so your campaigns don't wait on page development."
+        title: "Quick & Efficient Delivery",
+        description: "We develop landing pages quickly to keep your campaigns moving."
     },
     {
         icon: "fas fa-users",
-        title: "Audience-First Design",
-        description: "We design around your audience's intent, not generic templates."
+        title: "Audience-Centric Approach",
+        description: "We design around your audience, intent, and expected user journey."
     },
     {
         icon: "fas fa-shield-alt",
         title: "Secure & Reliable",
-        description: "Built on secure, well-tested foundations that stay online when it matters."
+        description: "We build stable, well-tested pages that deliver consistent performance."
     },
     {
         icon: "fas fa-search",
-        title: "SEO-Friendly",
-        description: "Pages built with clean markup that search engines can read easily."
+        title: "SEO-Ready Structure",
+        description: "Clean, optimized foundations help search engines understand your pages."
     },
     {
         icon: "fas fa-headset",
         title: "Dedicated Support",
-        description: "Direct access to your development team throughout the project."
+        description: "Our team remains available to assist throughout development and beyond."
     }
 ];
 
@@ -149,8 +146,10 @@ export default function LandingPage() {
                 eyebrow="What Is A Landing Page"
                 title="Purpose-Built Pages That Convert"
                 paragraphs={[
-                    "A landing page is a focused, single-purpose page built to drive one specific action, whether that's a signup, a purchase, or a callback request from a campaign.",
-                    "We design every landing page around your offer and audience, pairing clear messaging with a strong call to action so visitors know exactly what to do next."
+                  "A landing page is a focused digital experience designed around a specific business goal, such as generating leads, encouraging sign-ups, promoting an offer, or driving purchases. By keeping content and interactions centered on one objective, landing pages help businesses create clear and purposeful customer journeys.",
+
+"Our landing page development focuses on combining compelling messaging, intuitive layouts, and strategic calls to action that guide visitors toward the desired outcome. We create responsive, fast-loading, and conversion-focused landing pages tailored to your audience, campaign, and business objectives."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

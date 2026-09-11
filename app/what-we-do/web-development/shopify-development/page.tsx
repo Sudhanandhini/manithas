@@ -22,12 +22,12 @@ const shopifyBenefits = [
 ];
 
 const shopifyServices = [
-    { icon: "fas fa-store", title: "Custom Shopify Themes", description: "Brand-aligned Shopify themes designed and coded to match your store's identity." },
-    { icon: "fas fa-shopping-cart", title: "Shopify Store Setup", description: "End-to-end store setup, from product catalog to collections, taxes, and shipping rules." },
-    { icon: "fas fa-plug", title: "App & API Integration", description: "Integration of Shopify apps, ERPs, and third-party APIs to fit your existing workflow." },
-    { icon: "fas fa-credit-card", title: "Payment Gateway Setup", description: "Secure payment gateway configuration for smooth, trustworthy checkout experiences." },
-    { icon: "fas fa-exchange-alt", title: "Platform Migration", description: "Migrate your existing store to Shopify with products, orders, and customers intact." },
-    { icon: "fas fa-tools", title: "Maintenance & Support", description: "Ongoing theme updates, app troubleshooting, and store performance monitoring." }
+    { icon: "fas fa-store", title: "Custom Shopify Themes", description: "Designing and developing distinctive Shopify themes that reflect your brand and engage your customers." },
+    { icon: "fas fa-shopping-cart", title: "Shopify Store Setup", description: "Configuring your store, products, collections, taxes, shipping, and essential settings for a smooth launch." },
+    { icon: "fas fa-plug", title: "App & API Integration", description: "Connecting Shopify with apps, ERPs, APIs, and business tools to streamline your existing workflows." },
+    { icon: "fas fa-credit-card", title: "Payment Gateway Setup", description: "Configuring secure payment solutions to deliver a smooth and reliable checkout experience." },
+    { icon: "fas fa-exchange-alt", title: "Platform Migration", description: "Moving your products, orders, customers, and essential data to Shopify with minimal disruption" },
+    { icon: "fas fa-tools", title: "Maintenance & Support", description: "Ongoing updates, troubleshooting, optimization, and support to keep your store running smoothly" }
 ];
 
 const whyChooseShopify = [
@@ -76,8 +76,10 @@ export default function ShopifyDevelopment() {
                 eyebrow="Shopify Development Services"
                 title="Online Stores Built To Sell, Not Just Look Good"
                 paragraphs={[
-                    "Shopify gives you a reliable, secure foundation for ecommerce, and we build on top of it with custom themes, streamlined checkout flows, and app integrations tailored to how you actually sell.",
-                    "From product catalog structure to payment gateways and shipping rules, we set up every part of your store to convert visitors into customers and stay easy for your team to manage."
+                   "Shopify provides a secure and reliable foundation for building eCommerce stores, giving businesses the flexibility to manage inventory, orders, payments, and customer experiences through an accessible platform. Its extensive ecosystem makes it suitable for businesses looking to launch and scale their online presence.",
+
+"Our Shopify development focuses on creating custom storefronts that combine intuitive design, seamless functionality, and effortless management. From custom theme development and product catalog structuring to checkout optimization, payment gateways, shipping configurations, and app integrations, we build Shopify stores that are designed to perform and grow with your business."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

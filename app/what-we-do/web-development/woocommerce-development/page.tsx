@@ -13,44 +13,44 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const woocommerceAdvantages = [
-    "Custom Functionality",
-    "Create Varieties Of Stores",
-    "Easy To Design",
-    "SEO Friendly",
-    "Vast Integration Ability",
-    "Highly Secured"
+    "Flexible Customization",
+    "Versatile Store Creation",
+    "Easy Store Management",
+    "SEO-Ready Architecture",
+    "Extensive Integration Options",
+    "Built-In Security"
 ];
 
 const woocommerceServices = [
     {
         icon: "fas fa-cogs",
         title: "Custom WooCommerce Stores",
-        description: "Stores built around your specific business needs and goals."
+        description: "Tailored WooCommerce stores built around your products, customers, workflows, and growth goals"
     },
     {
         icon: "fas fa-paint-brush",
         title: "Theme And Template Design",
-        description: "Custom themes and templates that boost sales and ROI for your store."
+        description: "Distinctive, responsive themes that strengthen your brand and create engaging shopping experiences"
     },
     {
         icon: "fas fa-exchange-alt",
         title: "WooCommerce Migration",
-        description: "Migrating your store to WooCommerce with a smooth, careful transition."
+        description: "Smooth transition to WooCommerce while preserving your data, functionality, and store performance"
     },
     {
         icon: "fas fa-plug",
         title: "WooCommerce Integration",
-        description: "Shopping carts, APIs, and third-party tools integrated seamlessly."
+        description: "Connected payment gateways, APIs, shopping carts, and third-party tools for a seamless commerce ecosystem"
     },
     {
         icon: "fas fa-file-import",
         title: "PSD To WooCommerce Conversion",
-        description: "PSD designs converted into functioning WooCommerce stores, pixel by pixel."
+        description: "Transformed approved designs into pixel-precise, responsive WooCommerce storefronts with accurate functionality"
     },
     {
         icon: "fas fa-tools",
         title: "Maintenance And Support",
-        description: "Ongoing support to keep your store running smoothly, day to day."
+        description: "Ongoing updates, optimization, troubleshooting, and technical support to keep your store performing reliably."
     }
 ];
 
@@ -58,32 +58,32 @@ const whyChooseWoocommerce = [
     {
         icon: "fas fa-globe",
         title: "Vast Domain Expertise",
-        description: "Long experience developing WooCommerce stores across industries."
+        description: "Extensive experience delivering WooCommerce stores across industries"
     },
     {
         icon: "fas fa-lightbulb",
         title: "Innovative Approach",
-        description: "We bring fresh ideas that give your store a real competitive advantage."
+        description: "Creative solutions designed to give your store a competitive edge"
     },
     {
         icon: "fas fa-search",
         title: "SEO Friendly Store",
-        description: "We leverage the features that matter most for eCommerce visibility."
+        description: "Search-friendly structures built to strengthen online visibility"
     },
     {
         icon: "fas fa-award",
         title: "Guaranteed Quality",
-        description: "We follow the latest practices and guidelines for store quality."
+        description: "Proven practices and standards for dependable store performance"
     },
     {
         icon: "fas fa-smile",
         title: "Guaranteed Satisfaction",
-        description: "Client satisfaction is a priority, not an afterthought."
+        description: "Solutions shaped around your goals, feedback, and expectations"
     },
     {
         icon: "fas fa-clock",
         title: "On-Time Delivery",
-        description: "Delivering tailored solutions based on your timeline and expectations."
+        description: "Efficient development aligned with your timelines and priorities"
     }
 ];
 
@@ -139,8 +139,10 @@ export default function WooCommerceDevelopment() {
                 eyebrow="Best WooCommerce Development Company"
                 title="Full-Featured Online Stores On WordPress"
                 paragraphs={[
-                    "WooCommerce is one of the most flexible ways to launch an eCommerce store on WordPress, and it's a strong choice for both new and growing online businesses.",
-                    "Our team builds custom WooCommerce stores that work seamlessly across devices, handling everything from theme design to payment gateway setup."
+                   " WooCommerce provides a flexible foundation for building eCommerce stores on WordPress, giving businesses the freedom to manage products, orders, payments, and customer experiences through a powerful and adaptable platform. Its extensive customization options make it suitable for businesses at different stages of their online journey." ,
+
+"Our WooCommerce development focuses on creating tailored storefronts with responsive designs, intuitive shopping experiences, and seamless functionality. From custom theme development and product configuration to payment gateway integration and performance optimization, we build WooCommerce stores that are secure, scalable, and ready to support business growth."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

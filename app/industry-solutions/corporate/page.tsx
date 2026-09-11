@@ -12,12 +12,12 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const corporateProcess = [
-    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We understand your departments, brand guidelines, and business goals to define exactly what your corporate website needs to achieve." },
-    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We map out site structure, content hierarchy, and integrations so every stakeholder finds what they need quickly." },
-    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers craft a brand-aligned layout that presents your business with clarity, professionalism, and confidence." },
-    { icon: "fas fa-code", title: "Website Development", description: "Our developers build a secure, scalable platform with clean code and smooth content management for your team." },
-    { icon: "fas fa-vial", title: "Testing", description: "We test every page, form, and integration across devices to ensure a polished, error-free experience before launch." },
-    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We deploy your corporate website to production and provide ongoing support to keep it running smoothly." }
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We begin by understanding your departments, brand guidelines, audience, and business goals to define what your corporate website needs to achieve." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We structure your website, content hierarchy, and integrations so information is easy to find and every stakeholder can navigate with ease." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "At this stage, our designers create polished, brand-aligned layouts that present your business with clarity, professionalism, and confidence." },
+    { icon: "fas fa-code", title: "Website Development", description: "Here, our developers build a secure, scalable platform with clean code, smooth functionality, and easy content management for your team." },
+    { icon: "fas fa-vial", title: "Testing", description: "We thoroughly test pages, forms, integrations, responsiveness, and functionality across devices to ensure everything works as expected." },
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "Once everything is approved, we deploy your corporate website and provide ongoing support to keep it secure, stable, and performing smoothly." }
 ];
 
 const corporateApps = [
@@ -56,8 +56,10 @@ export default function Corporate() {
                 eyebrow="Corporate Web Solutions"
                 title="A Digital Presence That Reflects Enterprise Credibility"
                 paragraphs={[
-                    "Your corporate website is often the first serious impression a prospective client, partner, or investor forms of your company. We design and build sites that translate your brand's authority into a clear, confident digital experience.",
-                    "From structured content for multiple departments to secure areas for reports and documentation, we build corporate platforms that scale with your organization rather than needing to be rebuilt as it grows."
+                    "A corporate website is often the first impression clients, partners, and investors have of a business. We design and build professional digital experiences that reflect your brand, communicate your strengths, and create confidence from the very first visit.",
+
+                    "From structured content for multiple departments to secure spaces for reports, documents, and internal resources, we build scalable corporate websites that grow alongside your organization, without needing to start over as your business evolves."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

@@ -52,9 +52,9 @@ const AboutFive = () => {
                                 title="Our Vision &amp; Mission"
                             />
 
-                            <p>At Manithas, our vision is not limited to customer satisfaction. We aim to exceed expectations through premium IT services that translate to global trust and growth. Our goal is to create meaningful outcomes that help our clients move forward with confidence in an ever-evolving digital landscape.</p>
+                            <p>We are committed to delivering innovative web applications and IT solutions that turn ideas into meaningful digital experiences. By combining technology, creativity, and expertise, we build secure, scalable, and future-ready solutions that simplify business, enhance efficiency, and create lasting value for our clients.</p>
 
-                            <p>We move with the mission to make digital services accessible and easy to navigate. We tailor every solution to our clients’ unique needs, ensuring a seamless process from start to finish. Working hand in hand, we turn ideas into remarkable milestones, and share in the joy of every achievement.</p>
+                            <p>We envision a digital future where technology is simple, intelligent, and accessible. Through innovative web applications, modern IT solutions, and future-ready digital experiences, we help businesses transform their ideas into powerful solutions, embrace change, and achieve sustainable growth.</p>
 
                             <Link className="btn btn-primary btn-hover-secondary mt-xl-12 mt-lg-8 mt-md-6 mt-4" href={"/contact"}>Contact Now</Link>
                         </div>

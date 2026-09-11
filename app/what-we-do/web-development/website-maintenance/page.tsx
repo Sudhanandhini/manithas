@@ -14,57 +14,54 @@ import ScrollToTop from "@/src/components/ScrollToTop";
 
 const maintenanceBenefits = [
     {
-        title: "Security Against Threats",
-        description: "Regular updates and monitoring close the vulnerabilities attackers look for."
+        title: "Stronger Website Security",
+        description: "Regular updates and monitoring help protect your website from emerging threats and vulnerabilities."
     },
     {
-        title: "Consistent Performance",
-        description: "Routine checks catch slow pages and broken links before they affect visitors."
+        title: "Reliable Performance",
+        description: "Routine maintenance helps identify slow pages, broken links, and technical issues before they impact visitors."
     },
     {
-        title: "Improved User Experience",
-        description: "A well-maintained site stays fast, functional, and easy to use."
+        title: "Better User Experience",
+        description: "A well-maintained website stays fast, functional, accessible, and easy to navigate."
     },
     {
-        title: "Better Search Ranking",
-        description: "Search engines favor sites that stay updated, secure, and fast."
+        title: "Improved Search Visibility",
+        description: "Keeping your website updated, secure, and optimized supports better search engine performance."
     },
-    {
-        title: "Data Backup & Recovery",
-        description: "Regular backups mean you're never far from a full recovery if something goes wrong."
-    }
+   
 ];
 
 const maintenanceServices = [
     {
         icon: "fas fa-sync-alt",
         title: "Regular Updates & Enhancements",
-        description: "Core, theme, and plugin updates applied on a regular, tested schedule."
+        description: "Keeping your core, themes, and plugins updated, tested, and running smoothly"
     },
     {
         icon: "fas fa-shield-alt",
         title: "Security & Protection",
-        description: "Firewalls, malware scanning, and vulnerability patching to keep threats out."
+        description: "Proactively monitoring vulnerabilities, scanning for threats, and strengthening website security"
     },
     {
         icon: "fas fa-user-friends",
         title: "User Experience Optimization",
-        description: "Ongoing tweaks to keep navigation and usability sharp for visitors."
+        description: "Refining navigation, usability, and key interactions for a smoother visitor experience"
     },
     {
         icon: "fas fa-tachometer-alt",
         title: "Performance Optimization",
-        description: "Regular tuning to keep pages loading quickly as your site grows."
+        description: "Optimizing your website regularly to maintain speed, stability, and responsiveness"
     },
     {
         icon: "fas fa-edit",
         title: "Content Management",
-        description: "Support updating pages, images, and copy whenever you need changes made."
+        description: "Constant help in keeping your pages, images, and content fresh, accurate, and updated"
     },
     {
         icon: "fas fa-database",
         title: "Backup & Restoration",
-        description: "Automated backups with fast restoration if something ever goes wrong."
+        description: "Maintaining reliable backups and enabling quick restoration when unexpected issues occur"
     }
 ];
 
@@ -72,32 +69,32 @@ const whyChooseMaintenance = [
     {
         icon: "fas fa-user-tie",
         title: "Expert Team",
-        description: "Engineers experienced across WordPress, Laravel, Shopify, and more."
+        description: "Experienced professionals skilled across WordPress, Laravel, Shopify, and more."
     },
     {
         icon: "fas fa-eye",
         title: "Proactive Monitoring",
-        description: "We catch issues before they cause visible downtime or impact."
+        description: "We identify and address potential issues before they affect your website."
     },
     {
         icon: "fas fa-headset",
         title: "End-to-End Support",
-        description: "One team for content updates, software updates, and hosting support."
+        description: "One dedicated team for updates, content, performance, and technical support."
     },
     {
         icon: "fas fa-file-contract",
         title: "Customized AMC Services",
-        description: "Flexible maintenance plans that match how your site is actually used."
+        description: "Flexible maintenance plans tailored to your website and business requirements."
     },
     {
         icon: "fas fa-lock",
         title: "Data Security",
-        description: "We take backups and access controls seriously, every time."
+        description: "We protect your website with reliable backups, secure access, and proactive monitoring."
     },
     {
         icon: "fas fa-chart-bar",
         title: "Transparent Reporting",
-        description: "You'll always know exactly what's been checked, updated, and fixed."
+        description: "Clear and accurate reports to keep you informed about updates, checks, fixes, and improvements."
     }
 ];
 
@@ -157,8 +154,10 @@ export default function WebsiteMaintenance() {
                 eyebrow="Why Maintenance Matters"
                 title="Keep Your Website Secure, Fast, And Reliable"
                 paragraphs={[
-                    "A website isn't a one-time project - regular updates, monitoring, and backups are what keep it secure and running smoothly long after launch.",
-                    "Our maintenance plans cover the routine work your site needs behind the scenes, so you can focus on your business instead of worrying about downtime or outdated plugins."
+                   "A great website keeps working, evolving, and supporting your business consistently. Regular maintenance ensures your website stays secure, and remains ready for changing technology and user expectations.",
+
+"Our website maintenance plans everything happening behind the scenes, including updates, security checks, performance monitoring, backups, and technical fixes. With the routine work handled, you can focus on growing your business while your website keeps running at its best."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

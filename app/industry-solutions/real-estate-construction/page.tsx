@@ -68,8 +68,10 @@ export default function RealEstateConstruction() {
                 eyebrow="Real Estate & Construction Web Solutions"
                 title="Property Showcases Built To Turn Visitors Into Qualified Leads"
                 paragraphs={[
-                    "Buyers and investors decide fast when a property listing is easy to browse and rich in detail. We build real estate and construction websites around clear listings, strong visuals, and lead capture that doesn't get in the way.",
-                    "From floor plans to project timelines, every page is structured to answer a buyer's questions before they need to pick up the phone."
+                  "Property buyers and investors make decisions quickly when listings are easy to explore and provide the right information upfront. We design real estate and construction websites around clear property listings, compelling visuals, and seamless lead capture that keeps potential buyers engaged.",
+
+"From floor plans and project details to pricing, amenities, and construction timelines, we structure every page to answer key questions early, helping visitors make informed decisions and take the next step with confidence."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

@@ -67,7 +67,7 @@ export default function Alumni() {
                 imageOne="/images/about/about-3.jpg"
                 imageTwo="/images/about/about-9.jpg"
                 eyebrow="How We Build It"
-                title="A Platform Built Around Your College And Its Alumni"
+                title="Connect. Engage. Grow Together."
                 paragraphs={[
                     "Our alumni web applications are built with colleges and universities as the primary stakeholder, giving institutions a single system to track graduates, share opportunities, and keep their alumni community engaged long after graduation.",
                     "With dedicated logins for students, alumni, admin, and super admin, every user sees exactly the information relevant to them, from personal profile details to institution-wide alumni directories."

@@ -14,33 +14,33 @@ import ScrollToTop from "@/src/components/ScrollToTop";
 const redesignBenefits = [
     {
         icon: "fas fa-tachometer-alt",
-        title: "Boost Loading Speed",
-        description: "Outdated designs slow loading speed and harm performance. We use advanced techniques for improvement."
+        title: "Faster Loading Speed",
+        description: "Optimizes your website structure, assets, and code to deliver faster, smoother performance"
     },
     {
         icon: "fas fa-user-friends",
-        title: "Enhance User Experience",
-        description: "A redesign improves friendliness, navigation, and overall experience for your visitors."
+        title: "Better User Experience",
+        description: "Simplifies navigation and refine interactions and makes your website easier and more engaging to use"
     },
     {
         icon: "fas fa-mobile-alt",
-        title: "Improve Responsiveness",
-        description: "We ensure responsive design so your site displays well on every device."
+        title: "Seamless Responsiveness",
+        description: "Creates flexible layouts that deliver consistent experiences across desktops, tablets, and smartphones"
     },
     {
         icon: "fas fa-shield-alt",
         title: "Strengthen Security",
-        description: "We add features and enhance functionality while securing confidential data with current technologies."
+        description: "Modernizes your website with updated technologies and security practices to protect your data and users."
     },
     {
         icon: "fas fa-chart-line",
-        title: "Optimize For Sales",
-        description: "We analyze your website to identify engaging elements and focus the redesign on increasing sales."
+        title: "Conversion-Focused Design",
+        description: "Redesigns key pages and user journeys to guide visitors toward meaningful actions and business goals"
     },
     {
         icon: "fas fa-search",
-        title: "Enhance SEO",
-        description: "We follow SEO guidelines while redesigning, updating content to improve search rankings."
+        title: "SEO-Friendly Structure",
+        description: "Preserves valuable SEO elements while improving content, structure, and technical foundations for better visibility"
     }
 ];
 
@@ -48,32 +48,32 @@ const redesignOffers = [
     {
         icon: "fas fa-shopping-cart",
         title: "eCommerce Website Redesign",
-        description: "Refreshed storefronts that keep your catalog and checkout converting."
+        description: "We reestablish your online store with better usability, modern design, and conversion-focused experiences."
     },
     {
         icon: "fab fa-wordpress",
         title: "WordPress Redesign Services",
-        description: "Modernized WordPress sites without losing your existing content or SEO."
+        description: "We modernize your WordPress website while preserving valuable content, functionality, and SEO equity."
     },
     {
         icon: "fas fa-file-alt",
         title: "Landing Page Redesign",
-        description: "Campaign pages rebuilt around clearer messaging and stronger CTAs."
+        description: "We transform campaign pages with clearer messaging, engaging layouts, and stronger calls to action."
     },
     {
         icon: "fas fa-building",
         title: "Corporate Website Redesign",
-        description: "A more credible, on-brand presence for corporate and enterprise sites."
+        description: "We create polished, professional websites that strengthen your brand and build credibility with your audience."
     },
     {
         icon: "fas fa-th",
         title: "CMS Website Redesign",
-        description: "Redesigns that keep your content management workflow intact."
+        description: "We recreate your website while keeping your existing content management workflow simple and efficient."
     },
     {
         icon: "fab fa-html5",
         title: "HTML5 Website Redesign",
-        description: "Modern, standards-based markup for lightweight, fast-loading pages."
+        description: "We rebuild outdated websites with clean, modern markup for faster performance and responsive experiences."
     }
 ];
 
@@ -81,32 +81,32 @@ const whyChooseRedesign = [
     {
         icon: "fas fa-user-graduate",
         title: "Highly Experienced",
-        description: "Our team brings extensive experience delivering exceptional redesign solutions."
+        description: "Our experienced team delivers thoughtful redesigns tailored to diverse business requirements."
     },
     {
         icon: "fas fa-th-large",
         title: "Versatile Designers",
-        description: "Designers who adapt across platforms, ensuring your site reflects your unique identity."
+        description: "We create adaptable designs that reflect your brand across platforms and devices."
     },
     {
         icon: "fas fa-rocket",
-        title: "Boost Your Brand",
-        description: "A redesign that positions you as a leader in your industry."
+        title: "Stronger Brand Presence",
+        description: "We give your website a modern edge that strengthens credibility and brand perception."
     },
     {
         icon: "fas fa-laptop-code",
-        title: "Use Modern Technologies",
-        description: "We use current, reliable technologies to create visually strong, functional websites."
+        title: "Modern Technology",
+        description: "We use reliable, up-to-date technologies to build functional and future-ready websites."
     },
     {
         icon: "fas fa-chart-line",
-        title: "Increase Lead & Conversion",
-        description: "Redesign strategies aimed at improving user experience and driving more leads."
+        title: "More Leads & Conversions",
+        description: "We optimize user journeys and key pages to encourage engagement and drive conversions."
     },
     {
         icon: "fas fa-exchange-alt",
-        title: "Migrate Content Hassle-Free",
-        description: "A seamless content migration process that protects your existing site."
+        title: "Hassle-Free Content Migration",
+        description: "We carefully migrate your content while preserving essential data, functionality, and SEO value."
     }
 ];
 
@@ -158,8 +158,10 @@ export default function WebsiteRedesign() {
                 eyebrow="Time For A Refresh"
                 title="Best Website Redesign Services"
                 paragraphs={[
-                    "If your website looks outdated or isn't converting the way it should, a redesign can bring it up to modern standards without losing the SEO equity you've already built.",
-                    "We focus on the components of your site that matter most - layout, messaging, and user experience - to make it more engaging and conversion-oriented."
+                   "Your website is often the first impression of your business and an outdated experience can turn visitors away. A thoughtful redesign can give your website a fresh look while preserving the SEO value and visibility you’ve already built.",
+
+"We rethink the elements that make the biggest difference, from layout and content to navigation and user experience. The result is a more engaging, intuitive, and conversion-focused website built to connect better with your audience and support your business goals." 
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
@@ -168,7 +170,7 @@ export default function WebsiteRedesign() {
             <WhyChooseIconGrid
                 eyebrow="Why It Matters"
                 title="Benefits Of Website Redesigning"
-                description="Website redesigning services enhance user experience, improve functionality, and update aesthetics, boosting search rankings and conversion rates."
+                description="A strategic website redesign refreshes your digital presence, improves usability, strengthens performance, and creates a stronger foundation for growth and conversions."
                 items={redesignBenefits}
                 classOption="section-bg-light"
                 layout="card"

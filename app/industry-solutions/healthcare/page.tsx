@@ -12,21 +12,21 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const healthcareProcess = [
-    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We understand your departments, services, and patient journey to define the right structure for your healthcare website." },
-    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We plan appointment flows, service pages, and compliance requirements before any design work begins." },
-    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create an accessible, patient-friendly layout that builds trust and makes finding care simple." },
-    { icon: "fas fa-code", title: "Website Development", description: "We build a secure, compliance-aware platform with booking, doctor profiles, and service listings built in." },
-    { icon: "fas fa-vial", title: "Testing", description: "We test booking flows, forms, and accessibility thoroughly to ensure a smooth experience for every patient." },
-    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We launch your healthcare website and provide ongoing support to keep it secure and up to date." }
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We begin by understanding your departments, services, specialties, and patient journeys to define the right structure for your healthcare website." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "Next, we plan appointment journeys, service pages, doctor profiles, and essential requirements to create a clear and accessible patient experience." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create clean, accessible layouts that build trust and make it easier for patients to find the information and care they need." },
+    { icon: "fas fa-code", title: "Website Development", description: "At this stage, we build secure, responsive websites with appointment booking, doctor profiles, service listings, and other essential healthcare features." },
+    { icon: "fas fa-vial", title: "Testing", description: "Here, we thoroughly test booking flows, forms, responsiveness, usability, and accessibility to ensure a smooth experience across devices." },
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "Once everything is ready, we launch your healthcare website and provide ongoing support to help keep it secure, updated, and performing reliably." }
 ];
 
 const healthcareApps = [
-    { icon: "fas fa-calendar-check", title: "Appointment Booking", description: "Simple, guided booking flows that reduce phone-in scheduling for your front desk." },
-    { icon: "fas fa-user-md", title: "Doctor & Specialist Profiles", description: "Searchable profiles with qualifications, specialties, and availability." },
-    { icon: "fas fa-hospital", title: "Department & Service Pages", description: "Clear descriptions of every service line, so patients find the right care faster." },
-    { icon: "fas fa-notes-medical", title: "Patient Resources", description: "Health information, FAQs, and pre/post-visit guidance for patients." },
-    { icon: "fas fa-heartbeat", title: "Emergency & Contact Info", description: "Prominent emergency contact details and location info across every page." },
-    { icon: "fas fa-shield-alt", title: "Compliance-Aware Build", description: "Development practices that respect patient data privacy and handling requirements." }
+    { icon: "fas fa-calendar-check", title: "Appointment Booking", description: "We create simple, guided booking journeys that make it easier for patients to find a service, choose a doctor, and schedule appointments online." },
+    { icon: "fas fa-user-md", title: "Doctor & Specialist Profiles", description: "We build searchable profiles that highlight doctors’ qualifications, specialties, experience, and availability." },
+    { icon: "fas fa-hospital", title: "Department & Service Pages", description: "We organize healthcare services into clear, informative pages so patients can quickly find the right department or care option." },
+    { icon: "fas fa-notes-medical", title: "Patient Resources", description: "We provide dedicated spaces for health information, FAQs, and pre- and post-visit guidance to help patients feel better informed." },
+    { icon: "fas fa-heartbeat", title: "Emergency & Contact Info", description: "We keep essential emergency contacts, locations, and communication details easy to find across the website." },
+    { icon: "fas fa-shield-alt", title: "Compliance-Aware Build", description: "We follow privacy-conscious development practices to support the secure handling of sensitive patient and healthcare information." }
 ];
 
 const healthcareFaqs = [
@@ -68,8 +68,10 @@ export default function Healthcare() {
                 eyebrow="Healthcare Web Solutions"
                 title="Digital Care Experiences Built On Trust And Accessibility"
                 paragraphs={[
-                    "Patients researching care want clarity fast - the right doctor, the right service, and a simple way to book. We design healthcare websites around that urgency, without compromising on accessibility or compliance.",
-                    "From appointment scheduling to service directories, every element is built to reduce friction for patients while giving your staff simple tools to manage content."
+                   "Healthcare websites are browsed for quick answers and responses without any confusion, whether it’s finding the right doctor, understanding a service, or booking an appointment. A well-designed healthcare website puts the information they need within easy reach.",
+
+"We create healthcare websites with clear service directories, doctor profiles, appointment scheduling, and accessible layouts that make every step easier for patients. Behind the scenes, simple content management tools help your team keep information accurate, updated, and easy to manage."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"

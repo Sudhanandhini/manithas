@@ -12,21 +12,21 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const hotelProcess = [
-    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We understand your property, room types, and booking goals to define exactly what your website needs to deliver." },
-    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "We plan room showcases, booking flows, and gallery structure to turn browsing guests into direct bookings." },
-    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create visually rich layouts that showcase your property and amenities at their absolute best." },
-    { icon: "fas fa-code", title: "Website Development", description: "We build a fast, mobile-ready platform with direct booking engine integration built in from the start." },
-    { icon: "fas fa-vial", title: "Testing", description: "We test the booking flow, galleries, and responsiveness across devices to ensure a flawless guest experience." },
-    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "We launch your hotel or resort website and provide ongoing support through every season." }
+    { icon: "fas fa-clipboard-list", title: "Need Analysis", description: "We begin by understanding your property, room types, amenities, audience, and booking goals to define what your website needs to deliver." },
+    { icon: "fas fa-lightbulb", title: "Solution Planning", description: "Next, we plan room showcases, booking journeys, galleries, and key content to turn property browsers into direct-booking guests." },
+    { icon: "fas fa-pencil-ruler", title: "Design & Prototyping", description: "Our designers create visually rich layouts that bring your rooms, amenities, and overall property experience to life" },
+    { icon: "fas fa-code", title: "Website Development", description: "We build a fast, mobile-ready website with a seamless direct booking engine and payment integrations from the start." },
+    { icon: "fas fa-vial", title: "Testing", description: "We thoroughly test booking flows, galleries, forms, responsiveness, and performance to ensure a smooth experience across devices." },
+    { icon: "fas fa-rocket", title: "Deployment/Launching", description: "Once everything is ready, we launch your hotel or resort website and provide ongoing support to keep it performing smoothly year-round." }
 ];
 
 const hotelApps = [
-    { icon: "fas fa-bed", title: "Room & Suite Showcases", description: "Rich, image-led pages for every room type, complete with amenities and pricing." },
-    { icon: "fas fa-calendar-check", title: "Direct Booking Engine", description: "Integrated booking flows that reduce reliance on third-party travel platforms." },
-    { icon: "fas fa-concierge-bell", title: "Amenity & Facility Pages", description: "Dedicated pages for spa, dining, events, and other on-property experiences." },
-    { icon: "fas fa-images", title: "Gallery & Virtual Tours", description: "Immersive visuals that let guests explore the property before they arrive." },
-    { icon: "fas fa-map-marked-alt", title: "Location & Attractions", description: "Guidance on nearby attractions to help guests plan their stay." },
-    { icon: "fas fa-hotel", title: "Multi-Property Support", description: "A single platform structured to manage multiple hotels or resort locations." }
+    { icon: "fas fa-bed", title: "Room & Suite Showcases", description: "We create engaging, image-rich pages that highlight every room and suite, along with amenities, features, and pricing." },
+    { icon: "fas fa-calendar-check", title: "Direct Booking Engine", description: "We integrate seamless booking journeys that make it easy for guests to reserve directly through your website." },
+    { icon: "fas fa-concierge-bell", title: "Amenity & Facility Pages", description: "We showcase your spa, restaurants, events, activities, and other property experiences through dedicated, engaging pages." },
+    { icon: "fas fa-images", title: "Gallery & Virtual Tours", description: "We use immersive galleries and virtual tours to give potential guests a closer look at your property before they arrive." },
+    { icon: "fas fa-map-marked-alt", title: "Location & Attractions", description: "We highlight nearby attractions, landmarks, and experiences to help guests discover more and plan their stay." },
+    { icon: "fas fa-hotel", title: "Multi-Property Support", description: "We build structured platforms that make it easier to showcase and manage multiple hotels or resort locations in one place." }
 ];
 
 const hotelFaqs = [
@@ -68,8 +68,10 @@ export default function HotelResort() {
                 eyebrow="Hotel & Resort Web Solutions"
                 title="Booking Experiences That Keep Guests Off Third-Party Platforms"
                 paragraphs={[
-                    "Every booking made through an OTA is a commission paid away from your business. We design hotel and resort websites with direct booking front and center, backed by visuals that do justice to your property.",
-                    "From room-by-room showcases to gallery-driven storytelling, we build experiences that turn browsing guests into confirmed direct bookings."
+               "A well-designed website in the Hospitality Industry gives you the opportunity to showcase your property, build trust with potential guests, and encourage them to book directly with you.",
+
+"We create immersive hotel and resort websites with beautiful property showcases, room details, galleries, amenities, and seamless booking experiences. From the first impression to the final reservation, every element is designed to inspire guests and make direct booking simple"
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
@@ -78,7 +80,7 @@ export default function HotelResort() {
             <ProcessSteps
                 eyebrow="How We Work"
                 title="Our Hotel & Resort Website Development Process"
-                description="Our development process involves thorough planning, design, and testing, ensuring a user-friendly, responsive, and high-converting site tailored to your property."
+                description="We take your travel website from idea to launch through a clear, structured process. From understanding your packages and audience to designing engaging experiences and testing every booking flow, we build websites that are easy to explore, simple to book, and ready to support your business."
                 steps={hotelProcess}
                 classOption="section-bg-light"
             />

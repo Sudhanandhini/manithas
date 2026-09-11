@@ -18,17 +18,17 @@ const featuresData = [
     {
         icon: "fas fa-cloud",
         title: "Scalable Cloud Resources",
-        desc: "Scale CPU, RAM, and storage on demand as your traffic grows, without migrating servers or facing downtime."
+        desc: "Scale CPU, RAM, and storage as your business grows, giving your applications the resources they need without unnecessary downtime."
     },
     {
         icon: "fas fa-terminal",
         title: "Full Root Access",
-        desc: "Complete root and admin access to configure your VPS exactly the way your application needs."
+        desc: "Get complete root and administrative access to configure and manage your VPS based on your application requirements."
     },
     {
         icon: "fas fa-bolt",
         title: "High-Speed SSD Storage",
-        desc: "NVMe/SSD-backed storage for faster read-write speeds, quicker page loads, and better application performance."
+        desc: "SSD and NVMe storage delivers faster data access, quicker page loads, and improved application performance."
     },
     {
         icon: "fas fa-layer-group",
@@ -38,12 +38,12 @@ const featuresData = [
     {
         icon: "fas fa-camera-retro",
         title: "Snapshot Backups",
-        desc: "On-demand and scheduled snapshots so you can restore your server to a known good state in minutes."
+        desc: "Create scheduled or on-demand server snapshots to protect your data and restore your environment quickly when needed."
     },
     {
         icon: "fas fa-shield-alt",
         title: "24/7 Monitoring & Security",
-        desc: "Round-the-clock infrastructure monitoring, firewalls, and security patching to keep your server protected."
+        desc: "Round-the-clock monitoring, firewalls, and security updates help keep your server protected, stable, and available."
     }
 ];
 
@@ -66,15 +66,17 @@ export default function CloudVpsHosting() {
                 eyebrow="Why Manithas"
                 title="Powerful Cloud & VPS Hosting For Your Business"
                 paragraphs={[
-                    "As your business grows, shared hosting can quickly become a bottleneck. Cloud and VPS hosting give you dedicated resources, full root access, and the flexibility to scale up or down as your traffic and workloads change.",
-                    "Our Cloud & VPS hosting is built on high-availability infrastructure with SSD storage, proactive monitoring, and 24/7 support, so your applications stay fast, secure, and online."
+                    "More visitors, bigger workloads, and growing applications call for hosting that can keep up. Cloud and VPS hosting give your business the extra power and flexibility to handle growth without compromising on speed or reliability.",
+
+"Enjoy dedicated resources, greater control, and the freedom to scale when your needs change. With SSD-powered infrastructure, proactive monitoring, strong security, and 24/7 support, your websites and applications stay responsive, stable, and ready for whatever comes next."
+
                 ]}
                 ctaLabel="Talk To Us"
                 ctaLink="/contact"
             />
             <HostingFeatures
                 title="Key Features Of Cloud & VPS Hosting"
-                subtitle="Cloud and VPS hosting deliver dedicated performance, root-level control, and the flexibility to scale on demand. Built on secure, high-availability infrastructure, it's ideal for growing businesses and resource-intensive applications."
+                subtitle="Cloud and VPS hosting give you the speed, control, and flexibility to handle more traffic and demanding applications without the hassle. With dedicated resources, fast storage, and reliable security, you get a hosting setup that keeps your website and applications running smoothly."
                 features={featuresData}
             />
             {/* <HostingTech />
