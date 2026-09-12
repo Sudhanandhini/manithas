@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import ProjectForm from "../ProjectForm/ProjectForm";
+import ChatBot from "./ChatBot";
 
 const GREETING_DELAY_MS = 2000;
 
@@ -103,18 +103,20 @@ const FloatingChat = () => {
                         bottom: 76,
                         width: 400,
                         maxWidth: "calc(100vw - 48px)",
+                        height: 520,
                         maxHeight: "calc(100vh - 140px)",
-                        overflowY: "auto",
+                        overflow: "hidden",
                         background: "#fff",
                         borderRadius: 12,
                         boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
-                        animation: "floatingChatFadeIn 0.3s ease"
+                        animation: "floatingChatFadeIn 0.3s ease",
+                        display: "flex",
+                        flexDirection: "column"
                     }}
                 >
                     <div
                         style={{
-                            position: "sticky",
-                            top: 0,
+                            flexShrink: 0,
                             background: "var(--clr-primary)",
                             color: "#fff",
                             borderRadius: "12px 12px 0 0",
@@ -125,9 +127,9 @@ const FloatingChat = () => {
                         }}
                     >
                         <div>
-                            <h6 style={{ margin: 0, color: "#fff" }}>Get a free consultation</h6>
+                            <h6 style={{ margin: 0, color: "#fff" }}>Manithas Assistant</h6>
                             <p style={{ margin: 0, fontSize: 13, opacity: 0.9, color: "#fff" }}>
-                                We&apos;ll get back to you shortly.
+                                Ask us about our services, anytime.
                             </p>
                         </div>
                         <button
@@ -146,8 +148,8 @@ const FloatingChat = () => {
                             <i className="fas fa-times"></i>
                         </button>
                     </div>
-                    <div style={{ padding: "20px" }}>
-                        <ProjectForm />
+                    <div style={{ flex: 1, minHeight: 0 }}>
+                        <ChatBot />
                     </div>
                 </div>
             )}

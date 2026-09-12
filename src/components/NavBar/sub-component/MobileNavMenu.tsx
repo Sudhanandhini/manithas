@@ -7,7 +7,7 @@ import {
     slideToggle,
     slideUp,
 } from "../../../utils";
-import { APPLICATION_LINKS, WHAT_WE_DO } from "../navData";
+import { APPLICATION_LINKS, SOLUTION_LINKS, WHAT_WE_DO } from "../navData";
 
 const MobileNavMenu = () => {
     const onClickHandler = (e) => {
@@ -62,10 +62,10 @@ const MobileNavMenu = () => {
                     </ul>
                 </li>
                 <li className="has-children">
-                    <ActiveLink href={"/what-we-do/application/alumni"}><span className="menu-text">Solution</span></ActiveLink>
+                    <ActiveLink href={"/solutions/alumni"}><span className="menu-text">Solution</span></ActiveLink>
                     <span className="menu-toggle" onClick={onClickHandler}><i className="fas fa-angle-down"></i></span>
                     <ul className="sub-menu">
-                        {APPLICATION_LINKS.map((link) => (
+                        {SOLUTION_LINKS.map((link) => (
                             <li key={link.href}><ActiveLink href={link.href}><span className="menu-text">{link.label}</span></ActiveLink></li>
                         ))}
                     </ul>

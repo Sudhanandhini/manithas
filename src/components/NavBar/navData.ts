@@ -10,6 +10,15 @@ export const APPLICATION_LINKS: MegaMenuLink[] = [
     { label: "Custom Web Application", href: "/what-we-do/application", description: "A tailored application built around your exact workflow." },
 ];
 
+export const SOLUTION_LINKS: MegaMenuLink[] = [
+    { label: "Alumni", href: "/solutions/alumni", description: "Keep alumni connected with directories, events, and updates in one place." },
+    { label: "eLibrary", href: "/solutions/library", description: "A digital library your members can browse and borrow from anywhere." },
+    { label: "Subscription Module", href: "/solutions/membership", description: "Manage recurring memberships, billing, and renewals automatically." },
+    { label: "Employee Records", href: "/solutions/employee-records", description: "Centralize staff records, documents, and history securely." },
+    { label: "Online Assessment", href: "/solutions/online-assessment-test", description: "Run tests and quizzes online with instant, auto-graded results." },
+    { label: "Custom Web Application", href: "/solutions/custom-web-application", description: "A tailored application built around your exact workflow." },
+];
+
 export const WHAT_WE_DO: MegaMenuCategory[] = [
     {
         label: "Application",
