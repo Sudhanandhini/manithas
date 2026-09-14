@@ -22,9 +22,11 @@ export default function Contact() {
                 content="Home"
                 contentTwo="Contact Us"
             />
-            <ContactInformation />
-            <GoogleMap />
-            <ContactFromContainer />
+
+              <ContactFromContainer />
+           <ContactInformation />
+            {/* <GoogleMap /> */}
+          
             <Footer />
             <ScrollToTop />
         </>

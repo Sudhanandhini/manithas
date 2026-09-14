@@ -77,8 +77,8 @@ const ProjectForm = ({ source = "project-form" }: { source?: string }) => {
                             {...register("mobile", {
                                 required: "Mobile number is required",
                                 pattern: {
-                                    value: /^[0-9+\-\s]{7,15}$/,
-                                    message: "invalid mobile number",
+                                    value: /^[0-9]{10}$/,
+                                    message: "Enter a valid 10-digit mobile number",
                                 },
                             })}
                         />

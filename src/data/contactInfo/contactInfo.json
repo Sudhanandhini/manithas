@@ -3,14 +3,8 @@
     "id": "1",
     "icon": "images/svg/linea/linea-basic-map.svg",
     "title": "Our Locations",
-    "info": " #4, 2nd Floor, 8th Main Road, <br/> CHBS Layout, Vijayanagar, <br/> Bangalore-560040 India "
-    },
-  
-    {
-    "id": "3",
-    "icon": "images/svg/linea/linea-basic-mail-open-text.svg",
-    "title": "Help Desk",
-    "info": "<a href=\"/login\">Login to raise a support ticket</a>"
+    "info": "Manithas Technologies Private Limited <br/> #4, 2nd Floor, 8th Main Road,  CHBS Layout, Vijayanagar,  Bengaluru-560040 India "
     }
-]
 
+   
+]

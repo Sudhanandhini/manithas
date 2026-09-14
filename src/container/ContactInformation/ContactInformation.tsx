@@ -24,12 +24,11 @@ const ContactInformation = ({ classOption }) => {
             <div className="container shape-animate">
                 <SectionTitle
                     titleOption="section-title text-center mb-lg-12 mb-sm-8 mb-xs-8"
-                    title="Building Digital Solutions That Drive Business Growth"
-                    subTitle="Our team of designers, developers and creatives are perfectionists
-                    who love what they do and love where they work"
+                    title=""
+                    subTitle=""
                 />
 
-                <div className="row row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1 mb-n6">
+                <div className="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1 row-cols-1 mb-n6">
                     {contactData && contactData.map((single, key) => {
                         return(
                             <div key={key} className="col mb-6" data-aos="fade-up">
@@ -40,7 +39,10 @@ const ContactInformation = ({ classOption }) => {
                 </div>
 
                 <div className="shape shape-1" id="scene" ref={sceneEl}>
-                    <span data-depth="1"><img src={"/images/shape-animation/video-shape-1.png"} alt="shape" /></span>
+                  
+                    <span data-depth="1"><img src={"/images/shape-animation/video-shape-1.png"} alt="shape" />
+                    
+                      </span>
                 </div>
 
             </div>

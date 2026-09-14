@@ -73,8 +73,8 @@ const TalkToUsForm = ({ onSubmitted }: { onSubmitted?: () => void }) => {
                             {...register("phone", {
                                 required: "Phone number is required",
                                 pattern: {
-                                    value: /^[0-9+\-\s]{7,15}$/,
-                                    message: "invalid phone number",
+                                    value: /^[0-9]{10}$/,
+                                    message: "Enter a valid 10-digit phone number",
                                 },
                             })}
                         />

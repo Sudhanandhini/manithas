@@ -184,7 +184,7 @@ const ecommerceIndustries = [
 ];
 
 const serveLocations = [
-    "Ecommerce development company in Bangalore",
+    "Ecommerce development company in Bengaluru",
     "Ecommerce development company in Mumbai",
     "Ecommerce development company in Ahmedabad",
     "Ecommerce development company in Chennai",

@@ -2,7 +2,7 @@
     {
         "id": "1",
         "title": "Tech That Makes Everything Better",
-        "desc": "We are a Bangalore-based tech agency creating practical, meaningful digital solutions that help brands, businesses, and people work smarter and live simpler.",
+        "desc": "Since 2006, Manithas Technologies has evolved with technology to create innovative web applications, websites, and hosting solutions, successfully delivering 1,500+ projects for 1,200+ clients across India and the globe.",
         "backgroundImage": "/images/hero-image/hero-2.jpg",
         "ctaLabel": "Get A Quote",
         "ctaLink": "/contact",
@@ -11,20 +11,20 @@
     },
     {
         "id": "2",
-        "title": "Building Virtual Experiences With Purpose",
-        "desc": "We are a Bangalore-based tech agency combining technology and creativity to build useful digital experiences that solve real problems and create lasting impact.",
+        "title": "Building Technology That Drives Business Growth",
+        "desc": "We develop customized web applications and digital solutions tailored to your business needs, helping you streamline operations, improve customer experiences, and turn ideas into measurable results.",
         "backgroundImage": "/images/hero-image/hero-1.jpg",
-        "ctaLabel": "Start Your Project",
+        "ctaLabel": "Get A Quote",
         "ctaLink": "/contact",
         "ctaTwoLabel": "Explore Web Development",
-        "ctaTwoLink": "/what-we-do/web-development"
+        "ctaTwoLink": "/what-we-do/web-development/react-development"
     },
     {
         "id": "3",
-        "title": "Converting Ideas Into Digital Impact",
-        "desc": "We are a Bangalore-based tech agency turning ideas into accessible, useful technology that helps businesses grow, brands connect, and everyday experiences become simpler.",
+        "title": "Building Technology That Turns Ideas Into Impact",
+        "desc": "We are building the next generation of AI-powered applications and customized web solutions that help businesses automate, make smarter decisions, and unlock new opportunities for growth.",
         "backgroundImage": "/images/hero-image/hero-3.jpg",
-        "ctaLabel": "Get Started",
+        "ctaLabel": "Get A Quote",
         "ctaLink": "/contact",
         "ctaTwoLabel": "See Our Solutions",
         "ctaTwoLink": "/what-we-do/application"

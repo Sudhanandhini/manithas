@@ -25,9 +25,9 @@ const HomeAbout = () => {
             <div className="container">
 
                 <SectionTitle
-                    title="Web Application Engineering, Built Right"
-                    subTitle="Our team has shipped 1,500+ projects for 1,200+ clients since 2006 -
-                    real work, real results, not just a portfolio number."
+                    titleOption="text-center sub-full-width"
+                    title="Innovative Web Applications for a Smarter Business"
+                    subTitle="Since 2006, we’ve worked alongside 1,200+ clients to deliver 1,500+ projects—solving real challenges with practical technology and meaningful results."
                 />
 
                 <div className="row">
@@ -55,14 +55,14 @@ const HomeAbout = () => {
 
                     <div className="col-xl-5 col-lg-6 col-12" data-aos="fade-up" data-aos-delay="300">
                         <div className="about-content-area">
-                            <SectionTitleTwo
-                                subTitle="From Sunsys Technologies to Manithas"
-                                title="Two decades of experience, one focused team"
+                            <SectionTitleTwo  
+                                subTitle="Welcome to Manithas Technologies Pvt. Ltd."
+                                title="<em>Two decades</em> of experience, one focused team"
                             />
 
-                            <p>We started in 2006 as Sunsys Technologies and became Manithas Technologies Pvt. Ltd. in 2026.
-                                Since then, we&apos;ve stayed a small, focused team that works directly with clients - no big
-                                agency layers in between.</p>
+                            <p> Since 2006, Manithas Technologies Pvt Ltd has been turning ideas into practical technology solutions that help businesses evolve and grow. Formerly known as Sunsys Technologies, our journey has evolved alongside technology—from websites and hosting to customized web applications and next-generation AI solutions.
+
+We believe technology works best when it is built around the business, not the other way around. That’s why we work closely with our clients, understand their unique challenges, and create reliable solutions designed to simplify operations, unlock new opportunities, and drive long-term growth.</p>
 
                             <Link className="btn btn-primary btn-hover-secondary mt-xl-8 mt-lg-8 mt-md-6 mt-4" href={"/about"}>About Us</Link>
                         </div>

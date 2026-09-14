@@ -32,7 +32,7 @@
     }
 }
 .section-padding-t90-b100 {
-  padding-top: 90px;
+  padding-top: 50px;
   padding-bottom: 100px;
 
   // Responsive
@@ -47,7 +47,7 @@
   }
 }
 .section-padding-t90{
-  padding-top: 90px;
+  padding-top: 50px;
   // Responsive
   @media #{$tablet-device}{
       padding-top: 70px;

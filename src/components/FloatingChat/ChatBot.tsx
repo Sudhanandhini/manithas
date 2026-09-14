@@ -48,7 +48,7 @@ const categoryOptionsReply = (category: ChatCategory): QuickReply[] => [
 
 type LeadStep = "idle" | "name" | "email" | "phone" | "need";
 
-const PHONE_RE = /^[0-9+\-\s]{7,15}$/;
+const PHONE_RE = /^[0-9]{10}$/;
 
 const ChatBot = () => {
     const [messages, setMessages] = useState<Message[]>([]);
@@ -72,9 +72,7 @@ const ChatBot = () => {
         if (startedRef.current) return;
         startedRef.current = true;
         setMessages([{ id: nextId(), from: "bot", text: "Hi! 👋 How are you doing today?" }]);
-        pushMessages([
-            { from: "bot", text: MENU_PROMPT, options: CATEGORY_QUICK_REPLIES },
-        ], 700);
+        setTimeout(() => startLeadCapture(), 700);
     }, []);
 
     useEffect(() => {
@@ -86,7 +84,7 @@ const ChatBot = () => {
         pushMessages([
             {
                 from: "bot",
-                text: "Sure! I'd love to connect you with our team. First, what's your name?",
+                text: "Great! Let's get you connected with our team. What's your name?",
             },
         ]);
     };
@@ -138,7 +136,7 @@ const ChatBot = () => {
             }
             leadDataRef.current.name = text;
             leadStepRef.current = "email";
-            pushMessages([{ from: "bot", text: `Nice to meet you, ${text}! What's the best email to reach you at?` }]);
+            pushMessages([{ from: "bot", text: `Thanks, ${text}! What email address can we use to get in touch?` }]);
             return true;
         }
 
@@ -149,13 +147,13 @@ const ChatBot = () => {
             }
             leadDataRef.current.email = text;
             leadStepRef.current = "phone";
-            pushMessages([{ from: "bot", text: "Got it. What's the best phone number to reach you on?" }]);
+            pushMessages([{ from: "bot", text: "Got it! What's the best number to reach you on?" }]);
             return true;
         }
 
         if (step === "phone") {
             if (!PHONE_RE.test(text)) {
-                pushMessages([{ from: "bot", text: "That doesn't look like a valid phone number. Could you double-check it?" }]);
+                pushMessages([{ from: "bot", text: "Please enter a valid 10-digit phone number." }]);
                 return true;
             }
             leadDataRef.current.phone = text;
@@ -286,7 +284,7 @@ const ChatBot = () => {
         setTimeout(() => {
             startedRef.current = true;
             setMessages([{ id: nextId(), from: "bot", text: "Hi! 👋 How are you doing today?" }]);
-            pushMessages([{ from: "bot", text: MENU_PROMPT, options: CATEGORY_QUICK_REPLIES }], 700);
+            setTimeout(() => startLeadCapture(), 700);
         }, 0);
     };
 

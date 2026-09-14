@@ -71,6 +71,11 @@
             font-size: 18px;
         }
     }
+    &.sub-full-width{
+        & .sub-title {
+            max-width: 100%;
+        }
+    }
     &.color-light{
         .title{
             color: var(--clr-white);

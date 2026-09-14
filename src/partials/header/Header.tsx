@@ -3,13 +3,13 @@ import {Fragment, useState, useEffect} from "react";
 import Logo from '../../components/logo/Logo';
 import NavBar from '../../components/NavBar/NavBar';
 import HeaderSearch from '../../components/HeaderSearch/HeaderSearch';
-import QuoteModal from '../../components/QuoteModal/QuoteModal';
 import MobileMenu from "../../components/NavBar/MobileMenu"
 import MainSearch from "../../components/NavBar/MainSearch"
+import { useQuote } from "../../context/QuoteContext";
 
 const Header = () => {
+    const { openQuote } = useQuote();
     const [ofcanvasShow, setOffcanvasShow] = useState(false);
-    const [quoteModalShow, setQuoteModalShow] = useState(false);
     const onCanvasHandler = () => {
         setOffcanvasShow(prev => !prev);
     }
@@ -68,7 +68,7 @@ const Header = () => {
                                     type="button"
                                     className="btn btn-light btn-hover-primary"
                                     style={{ color: '#015089',  fontWeight: 'bold', fontSize: '16px', padding: '10px 20px', borderRadius: '5px', }}
-                                    onClick={() => setQuoteModalShow(true)}
+                                    onClick={openQuote}
                                 >
                                     Get A Quote
                                 </button>
@@ -77,7 +77,6 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <QuoteModal show={quoteModalShow} onClose={() => setQuoteModalShow(false)} />
             <MobileMenu show={ofcanvasShow} onClose={onCanvasHandler}/>
             {/* <MainSearch show={searchbarShow} onClose={onSearchHandler}/> */}
         </Fragment>
