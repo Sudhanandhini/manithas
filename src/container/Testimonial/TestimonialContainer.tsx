@@ -14,7 +14,11 @@ const TestimonialContainer = ({ classOption }) => {
         slidesPerView: 1,
         loop: true,
         centeredSlides: true,
-        autoplay: false,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
         pagination: true,
         breakpoints: {
             991:{

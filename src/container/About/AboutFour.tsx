@@ -38,8 +38,8 @@ const AboutFour = () => {
                             />
 
                             <p>Operating since 2006, we began as Sunsys Technologies and later evolved into Manithas Technologies Pvt. Ltd., officially registered in 2009. Over two decades, we have explored diverse technology verticals and grown into a trusted IT solutions partner. Today, we specialize in web Application Engineering, custom software development, and end-to-end web solutions, with experience, precision, and quality to deliver what creates a lasting value for businesses and brands worldwide.
-1,300+ Projects Completed: Increasing profits through online visibility 
-1000+ Clients: Running smoother operations though our curated online presence 
+1,500+ Projects Completed: Increasing profits through online visibility
+1,200+ Clients: Running smoother operations though our curated online presence
 </p>
 
                             <div className="row row-cols-sm-2 row-cols-auto mb-n6">
@@ -51,7 +51,7 @@ const AboutFour = () => {
                                                     offset={{ top: 10 }}
                                                     delayedCall
                                                     >
-                                                    <CountUp end={didViewCountUp ? 1300 : 0} />
+                                                    <CountUp end={didViewCountUp ? 1500 : 0} />
                                             </VisibilitySensor>+
                                         </div>
                                         <h6 className="text">Completed Project</h6>
@@ -66,7 +66,7 @@ const AboutFour = () => {
                                                 offset={{ top: 10 }}
                                                 delayedCall
                                                 >
-                                                <CountUp end={didViewCountUp ? 1000 : 0} />
+                                                <CountUp end={didViewCountUp ? 1200 : 0} />
                                             </VisibilitySensor>+
                                         </div>
                                         <h6 className="text">Clients</h6>

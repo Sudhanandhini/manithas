@@ -20,6 +20,7 @@ const KEYWORDS: Record<string, string[]> = {
     "Subscription Module": ["payment", "payment app", "billing", "renewal", "subscription", "membership", "fees", "dues", "recurring payment", "online payment"],
     "Employee Records": ["employee", "staff", "attendance", "payroll", "leave tracking", "hr", "salary", "hr software"],
     "Online Assessment Test": ["test", "exam", "quiz", "assessment", "certificate", "certification", "online exam"],
+    "Online Assessment": ["test", "exam", "quiz", "assessment", "certificate", "certification", "online exam"],
     "Custom Web Application": ["custom software", "crm", "erp", "portal", "workflow", "enterprise app", "booking app", "payment app", "custom app", "business application"],
 
     // Web Development
@@ -111,19 +112,82 @@ export const CHAT_CATEGORIES: ChatCategory[] = [
     },
 ];
 
-export const GREETING_WORDS = ["hi", "hii", "hiii", "hello", "hey", "hai", "helo", "good morning", "good afternoon", "good evening"];
+export const GREETING_WORDS = ["hi", "hii", "hiii", "hello", "hey", "hai", "helo"];
+
+// Time-of-day greetings, with common typos/short forms, mapped to the period
+// so the bot can echo it back ("Good evening!") instead of a generic reply.
+export const TIME_GREETINGS: { period: string; patterns: string[] }[] = [
+    { period: "morning", patterns: ["good morning", "gud morning", "good moring", "goodmorning", "morning"] },
+    { period: "afternoon", patterns: ["good afternoon", "gud afternoon", "goodafternoon", "afternoon"] },
+    { period: "evening", patterns: ["good evening", "good evenning", "gud evening", "goodevening", "evening", "evenning"] },
+    { period: "night", patterns: ["good night", "gud night", "goodnight"] },
+];
+
+// Small talk the bot should answer directly instead of falling through to the
+// "couldn't find a match" reply, like any greeting-style chatbot would.
+export const SMALL_TALK: { patterns: string[]; reply: string }[] = [
+    { patterns: ["how are you", "how are u", "how r u", "hows it going", "how's it going", "how you doing", "how are you doing"], reply: "I'm doing good, thanks for asking! 😊" },
+    { patterns: ["who are you", "what's your name", "whats your name"], reply: "I'm the Manithas Assistant — here to help you find the right service." },
+];
+
+// Phrases that hand the conversation off to lead capture (name, email, what
+// they need) instead of just linking to the contact page.
+export const ENQUIRY_TRIGGER_WORDS = [
+    "talk to our team", "talk to team", "contact", "contact us", "get in touch",
+    "enquiry", "enquire", "inquiry", "inquire", "get a quote", "quote", "call me", "callback",
+];
+
+export const LEAD_CANCEL_WORDS = ["cancel", "never mind", "nevermind", "stop", "skip"];
 
 export const CLOSING_WORDS = [
     "bye", "goodbye", "good bye", "thank you", "thanks", "thank u", "thankyou",
     "ok thanks", "no thanks", "that's all", "thats all", "nothing else", "no more questions"
 ];
 
-const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+// Levenshtein edit distance, used to tolerate typos ("evenning", "aplication").
+const editDistance = (a: string, b: string): number => {
+    const dp: number[][] = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+    for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+    for (let i = 1; i <= a.length; i++) {
+        for (let j = 1; j <= b.length; j++) {
+            dp[i][j] = a[i - 1] === b[j - 1]
+                ? dp[i - 1][j - 1]
+                : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+        }
+    }
+    return dp[a.length][b.length];
+};
 
-// Word-boundary match so short phrases ("hi") don't fire on unrelated words
-// that merely contain those letters ("which", "shipping", "history"...).
-export const containsPhrase = (text: string, phrase: string): boolean =>
-    new RegExp(`\\b${escapeRegExp(phrase)}\\b`, "i").test(text);
+// How many typo'd characters we tolerate, scaled to word length so short
+// words ("hi", "how") still require an exact match and stay unambiguous.
+const typoBudget = (word: string): number => {
+    if (word.length <= 3) return 0;
+    if (word.length <= 6) return 1;
+    return 2;
+};
+
+const tokenize = (text: string): string[] => text.toLowerCase().match(/[a-z0-9']+/g) ?? [];
+
+// Ignores minor spelling mistakes: matches a (possibly multi-word) phrase
+// against the user's text word-by-word within a typo budget, so "good
+// evenning" still finds "good evening" and "aplication" still finds "application".
+export const containsPhrase = (text: string, phrase: string): boolean => {
+    const phraseWords = phrase.toLowerCase().trim().split(/\s+/);
+    const tokens = tokenize(text);
+
+    for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+        if (phraseWords.every((pw, j) => editDistance(tokens[i + j], pw) <= typoBudget(pw))) {
+            return true;
+        }
+    }
+
+    if (phraseWords.length > 1) {
+        const joined = phraseWords.join("");
+        if (tokens.some((t) => editDistance(t, joined) <= typoBudget(joined))) return true;
+    }
+
+    return false;
+};
 
 export const findCategoryByText = (text: string): ChatCategory | undefined => {
     return CHAT_CATEGORIES.find((cat) => cat.aliases.some((alias) => containsPhrase(text, alias)));

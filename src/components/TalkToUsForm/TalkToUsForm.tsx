@@ -1,15 +1,41 @@
 "use client";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
 
+type FormValues = {
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+};
+
 const TalkToUsForm = ({ onSubmitted }: { onSubmitted?: () => void }) => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<FormValues>({
         mode: "onBlur"
     });
-    const onSubmit = (data: unknown) => {
-        console.log(data);
-        reset();
-        onSubmitted?.();
+    const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
+
+    const onSubmit = async (data: FormValues) => {
+        setStatus("submitting");
+        try {
+            const res = await fetch("/api/enquiries", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    phone: data.phone,
+                    need: data.message,
+                    source: "talk-to-us",
+                }),
+            });
+            if (!res.ok) throw new Error("Request failed");
+            reset();
+            setStatus("idle");
+            onSubmitted?.();
+        } catch {
+            setStatus("error");
+        }
     };
 
     return (
@@ -63,8 +89,15 @@ const TalkToUsForm = ({ onSubmitted }: { onSubmitted?: () => void }) => {
                         ></textarea>
                         {errors?.message && <p>{errors.message?.message as string}</p>}
                     </div>
+                    {status === "error" && (
+                        <div className="col-12 mb-4">
+                            <p>Something went wrong sending your request. Please try again.</p>
+                        </div>
+                    )}
                     <div className="col-12 text-center mb-4">
-                        <button type="submit" className="btn btn-primary btn-hover-secondary">Talk To Us</button>
+                        <button type="submit" className="btn btn-primary btn-hover-secondary" disabled={status === "submitting"}>
+                            {status === "submitting" ? "Sending..." : "Talk To Us"}
+                        </button>
                     </div>
                 </div>
             </form>

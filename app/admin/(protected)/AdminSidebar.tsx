@@ -33,6 +33,9 @@ export default function AdminSidebar() {
                 <Link href="/admin/customers" className={linkClass(pathname?.startsWith("/admin/customers") ?? false)}>
                     Customers
                 </Link>
+                <Link href="/admin/enquiries" className={linkClass(pathname?.startsWith("/admin/enquiries") ?? false)}>
+                    Enquiries
+                </Link>
                 <Link
                     href="/admin/seo"
                     className={linkClass((pathname?.startsWith("/admin/seo") || pathname === "/admin/settings") ?? false)}

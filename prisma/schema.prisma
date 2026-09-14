@@ -188,6 +188,24 @@ model TicketAttachment {
   @@index([messageId])
 }
 
+// A lead captured by the website chatbot - visitor's name, email, and what
+// they're looking for, plus which service/category they were viewing when
+// they asked to be contacted.
+model Enquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  need      String   @db.Text
+  interest  String?
+  status    String   @default("New")
+  source    String   @default("chatbot")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("enquiry")
+}
+
 // Singleton row (id = 1) holding site-wide SEO defaults.
 model SiteSettings {
   id                     Int      @id @default(1)

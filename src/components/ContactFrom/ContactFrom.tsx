@@ -1,12 +1,44 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
+type FormValues = {
+    name: string;
+    email: string;
+    mobile: string;
+    subject: string;
+    message: string;
+};
+
 const ContactFrom = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormValues>({
         mode: "onBlur"
     });
-    const onSubmit = data => console.log(data);
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+    const onSubmit = async (data: FormValues) => {
+        setStatus("submitting");
+        try {
+            const res = await fetch("/api/enquiries", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    phone: data.mobile,
+                    interest: data.subject,
+                    need: data.message,
+                    source: "contact-form",
+                }),
+            });
+            if (!res.ok) throw new Error("Request failed");
+            setStatus("success");
+            reset();
+        } catch {
+            setStatus("error");
+        }
+    };
+
     return (
         <div className="contact-form" data-aos="fade-up" data-aos-delay="300">
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -79,7 +111,13 @@ const ContactFrom = () => {
                         {errors?.message && <p>{errors.message?.message as string}</p>}
                     </div>
                     <div className="col-12 text-center mb-6">
-                        <button type="submit" className="btn btn-primary btn-hover-secondary">Submit</button>
+                        <button type="submit" className="btn btn-primary btn-hover-secondary" disabled={status === "submitting"}>
+                            {status === "submitting" ? "Sending..." : "Submit"}
+                        </button>
+                    </div>
+                    <div className="col-12 text-center">
+                        {status === "success" && <p>Thanks! We&apos;ve received your details and will get back to you soon.</p>}
+                        {status === "error" && <p>Something went wrong sending your request. Please try again.</p>}
                     </div>
                 </div>
             </form>

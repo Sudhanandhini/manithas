@@ -13,6 +13,7 @@ const IntroSlider =  () => {
         autoplay: {
             delay: 2500,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
         },
         navigation: true,
     }

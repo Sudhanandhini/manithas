@@ -22,6 +22,7 @@ const CounterUpItem = ({ data }) => {
                     >
                     <CountUp end={didViewCountUp ? data.number : 0} />
                 </VisibilitySensor>
+                {data.suffix}
             </div>
             <h6 className="text">{data.text}</h6>
         </div>

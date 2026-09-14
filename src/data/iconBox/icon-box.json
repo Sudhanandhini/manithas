@@ -11,7 +11,7 @@
         "id": "2",
         "icon": "images/svg/linea/linea-basic-webpage-txt.svg",
         "title": "Web Development",
-        "desc": "From WordPress to fully custom builds, we deliver fast, secure, and responsive websites tailored to your brand.",
+        "desc": "From React and Next.js to fully custom builds, we deliver fast, secure, and responsive websites tailored to your brand.",
         "pageLink": "Learn More",
         "link": "/what-we-do/web-development"
     },

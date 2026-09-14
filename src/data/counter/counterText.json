@@ -11,12 +11,14 @@
     },
     {
         "id": 3,
-        "number": 130,
+        "number": 1500,
+        "suffix": "+",
         "text": "Projects Done"
     },
     {
         "id": 4,
-        "number": 200,
+        "number": 1200,
+        "suffix": "+",
         "text": "Satisfied Clients"
     }
 ]

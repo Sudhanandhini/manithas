@@ -98,6 +98,16 @@ export function ticketStatusChangedEmail(subject: string, status: string, ticket
     );
 }
 
+export function enquiryCreatedAdminEmail(name: string, email: string, phone: string | null, need: string, sourceLabel: string) {
+    const contactLine = phone ? `${email} &middot; ${phone}` : email;
+    return wrapEmail(
+        "New enquiry from the website",
+        `<p><strong>${name}</strong> (${contactLine}) asked to be contacted via <strong>${sourceLabel}</strong>:</p><p>${need}</p>`,
+        "View Enquiry",
+        `/admin/enquiries`
+    );
+}
+
 export function ticketReopenedAdminEmail(subject: string, customerName: string, ticketId: string) {
     return wrapEmail(
         "Ticket reopened",

@@ -25,9 +25,9 @@ const HomeAbout = () => {
             <div className="container">
 
                 <SectionTitle
-                    title="We are a full-service creative agency"
-                    subTitle="Our team of designers, developers and creatives are perfectionists
-                    who love what they do and love"
+                    title="Web Application Engineering, Built Right"
+                    subTitle="Our team has shipped 1,500+ projects for 1,200+ clients since 2006 -
+                    real work, real results, not just a portfolio number."
                 />
 
                 <div className="row">
@@ -56,12 +56,13 @@ const HomeAbout = () => {
                     <div className="col-xl-5 col-lg-6 col-12" data-aos="fade-up" data-aos-delay="300">
                         <div className="about-content-area">
                             <SectionTitleTwo
-                                subTitle="Every day brings new challenges"
-                                title="Creative agency focused on vision, product and people"
+                                subTitle="From Sunsys Technologies to Manithas"
+                                title="Two decades of experience, one focused team"
                             />
 
-                            <p>We’re boldly individual, always original and refreshingly easy-going. Our vision, passion and ideas are matched
-                                with focus, expertise and flair.</p>
+                            <p>We started in 2006 as Sunsys Technologies and became Manithas Technologies Pvt. Ltd. in 2026.
+                                Since then, we&apos;ve stayed a small, focused team that works directly with clients - no big
+                                agency layers in between.</p>
 
                             <Link className="btn btn-primary btn-hover-secondary mt-xl-8 mt-lg-8 mt-md-6 mt-4" href={"/about"}>About Us</Link>
                         </div>

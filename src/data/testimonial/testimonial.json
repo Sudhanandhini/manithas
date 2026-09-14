@@ -1,30 +1,98 @@
 [
     {
         "id": 1,
-        "image": "images/testimonial/90/author-1.png",
-        "desc": "We are completely satisfied with the quality of service that we get. Workers were respectful, efficient, accommodating, cleaned up thoroughly.",
-        "name": "Thomas Smith",
-        "position": "CEO at Flow"
+        "name": "Supreme Digital Marketing",
+        "rating": 5,
+        "initial": "S",
+        "color": "#3498db",
+        "desc": "We are extremely satisfied with the services provided by SUNSYS Technologies India Pvt. Ltd. based in Bangalore. Their team, led by Mr. Manjunath, has been instrumental in delivering exceptional results. He is highly responsive, and his guidance has been invaluable to our project. The team's professionalism, and remarkable patience have made our experience truly commendable.\n\n"
     },
     {
         "id": 2,
-        "image": "images/testimonial/90/author-2.png",
-        "desc": "We are completely satisfied with the quality of service that we get. Workers were respectful, efficient, accommodating, cleaned up thoroughly.",
-        "name": "Eloise Smith",
-        "position": "CEO at Flow"
+        "name": "Basavaraju R",
+        "rating": 5,
+        "initial": "B",
+        "color": "#9b59b6",
+        "desc": "I want to thank Sunsys Technologies India Pvt. Ltd, Bangalore team for helping me out with web design. This company is amazing, they are very professional. Mr. Manjunath is extremely helpful in guiding us through the whole process. He is very knowledgeable. He pays close attention to details. He also helped in training us on how to use the new administration system. Overall, we are very pleased with Sunsys Technologies India Pvt. Ltd, Bangalore and would recommend to our friends and family."
     },
     {
         "id": 3,
-        "image": "images/testimonial/90/author-3.png",
-        "desc": "I love their flexibility. Even when my request is too complicated to handle. they could still suggest something useful for me.",
-        "name": "Florence Themes",
-        "position": "/ Multimedia Admin"
+        "name": "Prajwal Gowda",
+        "rating": 5,
+        "initial": "P",
+        "color": "#e67e22",
+        "desc": "Mr. Manjunath & Sunsys Team did a great job! They understood all our requirements of website and executed them perfectly. We are very happy with the design outcome."
     },
     {
-        "id": 1,
-        "image": "images/testimonial/90/author-1.png",
-        "desc": "I love their flexibility. Even when my request is too complicated to handle. they could still suggest something useful for me.",
-        "name": "Florence Themes",
-        "position": "/ Multimedia Admin"
+        "id": 4,
+        "name": "V T Associates",
+        "rating": 5,
+        "initial": "V",
+        "color": "#16a085",
+        "desc": "Having a professional knowledge and services from SUNSYS TECHNOLOGIES INDIA PVT. LTD. is highly recommended."
+    },
+    {
+        "id": 5,
+        "name": "Welcome Crop Science Pvt Ltd",
+        "rating": 5,
+        "initial": "W",
+        "color": "#27ae60",
+        "desc": "We are from a Delhi based company and we got our website and email service done from Sunsys Technologies Bengaluru. Since the last 7 years we have been getting very good and timely support from Sunsys Technologies."
+    },
+    {
+        "id": 6,
+        "name": "Aspire Inc",
+        "rating": 5,
+        "initial": "A",
+        "color": "#2980b9",
+        "desc": "Outstanding professionalism, exceptional responsiveness, and a truly customer-centric approach. The team is so remarkably patient and committed, ensuring every detail was handled with care. I am extremely pleased with the final outcome and highly recommend their services."
+    },
+    {
+        "id": 7,
+        "name": "Shubhada S",
+        "rating": 5,
+        "initial": "S",
+        "color": "#8e44ad",
+        "desc": "Highly professional. Extremely understanding and helpful. I am greatly impressed by the patience and consistency shown by everyone working on the project. Great support incorporating numerous feedbacks and changes. I am very much happy with the outcome of the service."
+    },
+    {
+        "id": 8,
+        "name": "Shalini Ray Mechatronics",
+        "rating": 5,
+        "initial": "S",
+        "color": "#d35400",
+        "desc": "We have been associated with Sunsys for the last 18 years and their support with the web designing and hosting is tremendous, their execution of additions and changes was next day lightning. Their customer service support is great, any time just one call away our problem is resolved. I am very happy with the results and support, and I am honored to be able to express my deep gratitude to Mr. Manjunath for his expertise. I vouch for Sunsys - they are just amazing!"
+    },
+    {
+        "id": 9,
+        "name": "Umashankar Raju",
+        "rating": 5,
+        "initial": "U",
+        "color": "#c0392b",
+        "desc": "The team's dedication to understanding our needs and translating them into a visually appealing and highly functional website has been outstanding. Their attention to detail and commitment to excellence is evident in every aspect of their work.\n\nThank you, Manjunath, for your continued excellence!"
+    },
+    {
+        "id": 10,
+        "name": "Karthik Dorairaj",
+        "rating": 5,
+        "initial": "K",
+        "color": "#1abc9c",
+        "desc": "We are availing service of Sunsys for over a decade now. Glad to be associated with them for our website, domain & email maintenance, as well as SEO. The team is highly exceptional with their competence and professionalism. Thank you team Sunsys."
+    },
+    {
+        "id": 11,
+        "name": "Siddharth Associates Bengaluru",
+        "rating": 5,
+        "initial": "S",
+        "color": "#f39c12",
+        "desc": "A well organised firm with 100% dedicated team. Sunsys Technologies delivered their work with excellence."
+    },
+    {
+        "id": 12,
+        "name": "Membership ICA",
+        "rating": 4,
+        "initial": "M",
+        "color": "#e91e63",
+        "desc": "We have been associated with Sunsys Technologies for not even a couple of months and we can see the difference (in a good way). The support staff has been super active and quite professional. Mr. Manjunath personally does care about his client's feedback. Their service cost is also quite affordable which hasn't been compromised with quality yet. Looking forward to having a stress-free association in the future as well. All the best team."
     }
 ]

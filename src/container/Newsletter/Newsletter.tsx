@@ -36,7 +36,7 @@ const Newsletter = () => {
                                     subTitle="We have made it easy for clients to reach us
                                         and get their solutions weaved"
                                 />
-                                <ProjectForm />
+                                <ProjectForm source="newsletter" />
                             </div>
                         </div>
                     </div>

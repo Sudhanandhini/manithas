@@ -1,20 +1,32 @@
 [
     {
         "id": "1",
-        "title": "Designing awesome brands & experiences",
-        "desc": "We are an agency located in New York. We think strategy, craft design, develop digital and create motion. To forward your brand and business.",
-        "backgroundImage": "/images/hero-image/hero-2.jpg"
+        "title": "Tech That Makes Everything Better",
+        "desc": "We are a Bangalore-based tech agency creating practical, meaningful digital solutions that help brands, businesses, and people work smarter and live simpler.",
+        "backgroundImage": "/images/hero-image/hero-2.jpg",
+        "ctaLabel": "Get A Quote",
+        "ctaLink": "/contact",
+        "ctaTwoLabel": "See What We Do",
+        "ctaTwoLink": "/service"
     },
     {
         "id": "2",
-        "title": "Designing awesome brands & experiences",
-        "desc": "We are an agency located in New York. We think strategy, craft design, develop digital and create motion. To forward your brand and business.",
-        "backgroundImage": "/images/hero-image/hero-1.jpg"
+        "title": "Building Virtual Experiences With Purpose",
+        "desc": "We are a Bangalore-based tech agency combining technology and creativity to build useful digital experiences that solve real problems and create lasting impact.",
+        "backgroundImage": "/images/hero-image/hero-1.jpg",
+        "ctaLabel": "Start Your Project",
+        "ctaLink": "/contact",
+        "ctaTwoLabel": "Explore Web Development",
+        "ctaTwoLink": "/what-we-do/web-development"
     },
     {
         "id": "3",
-        "title": "Designing awesome brands & experiences",
-        "desc": "We are an agency located in New York. We think strategy, craft design, develop digital and create motion. To forward your brand and business.",
-        "backgroundImage": "/images/hero-image/hero-3.jpg"
+        "title": "Converting Ideas Into Digital Impact",
+        "desc": "We are a Bangalore-based tech agency turning ideas into accessible, useful technology that helps businesses grow, brands connect, and everyday experiences become simpler.",
+        "backgroundImage": "/images/hero-image/hero-3.jpg",
+        "ctaLabel": "Get Started",
+        "ctaLink": "/contact",
+        "ctaTwoLabel": "See Our Solutions",
+        "ctaTwoLink": "/what-we-do/application"
     }
 ]

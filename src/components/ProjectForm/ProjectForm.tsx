@@ -1,12 +1,43 @@
 "use client";
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import { useForm } from "react-hook-form";
 
-const ProjectForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm({
+type FormValues = {
+    name: string;
+    email: string;
+    mobile: string;
+    subject: string;
+    message: string;
+};
+
+const ProjectForm = ({ source = "project-form" }: { source?: string }) => {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormValues>({
         mode: "onBlur"
     });
-    const onSubmit = data => console.log(data);
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+    const onSubmit = async (data: FormValues) => {
+        setStatus("submitting");
+        try {
+            const res = await fetch("/api/enquiries", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    phone: data.mobile,
+                    interest: data.subject,
+                    need: data.message,
+                    source,
+                }),
+            });
+            if (!res.ok) throw new Error("Request failed");
+            setStatus("success");
+            reset();
+        } catch {
+            setStatus("error");
+        }
+    };
 
     return (
         <Fragment>
@@ -80,11 +111,16 @@ const ProjectForm = () => {
                         {errors?.message && <p>{errors.message?.message as string}</p>}
                     </div>
                     <div className="col-12 text-center mb-4">
-                        <button type="submit" className="btn btn-primary btn-hover-secondary">Get a free consultation</button>
+                        <button type="submit" className="btn btn-primary btn-hover-secondary" disabled={status === "submitting"}>
+                            {status === "submitting" ? "Sending..." : "Get a free consultation"}
+                        </button>
                     </div>
                 </div>
             </form>
-            <p className="form-messege"></p>
+            <p className="form-messege">
+                {status === "success" && "Thanks! We've received your details and will get back to you soon."}
+                {status === "error" && "Something went wrong sending your request. Please try again."}
+            </p>
         </Fragment>
     )
 }

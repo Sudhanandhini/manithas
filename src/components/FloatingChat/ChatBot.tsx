@@ -4,12 +4,17 @@ import Link from "next/link";
 import {
     CHAT_CATEGORIES,
     CLOSING_WORDS,
+    ENQUIRY_TRIGGER_WORDS,
     GREETING_WORDS,
+    LEAD_CANCEL_WORDS,
+    SMALL_TALK,
+    TIME_GREETINGS,
     containsPhrase,
     findCategoryByText,
     findOptionByText,
     type ChatCategory,
 } from "@/src/data/chatbot/chatbotData";
+import { isValidEmail } from "@/lib/enquiries";
 
 type QuickReply = { label: string; value: string };
 type ChatLink = { label: string; href: string };
@@ -22,10 +27,12 @@ type Message = {
     link?: ChatLink;
 };
 
-const CATEGORY_QUICK_REPLIES: QuickReply[] = CHAT_CATEGORIES.map((c) => ({ label: c.label, value: c.label }));
-const MENU_PROMPT = "What would you like to know about? Pick one below, or just type your question.";
 const TALK_TO_TEAM: QuickReply = { label: "Talk to our team", value: "talk to our team" };
 const END_CHAT: QuickReply = { label: "That's all, thanks", value: "thank you" };
+// Every quick-reply menu includes "Talk to our team" so visitors can always
+// reach a human, no matter which category/option they were browsing.
+const CATEGORY_QUICK_REPLIES: QuickReply[] = [...CHAT_CATEGORIES.map((c) => ({ label: c.label, value: c.label })), TALK_TO_TEAM];
+const MENU_PROMPT = "What would you like to know about? Pick one below, or just type your question.";
 
 let idCounter = 0;
 const nextId = () => {
@@ -35,8 +42,13 @@ const nextId = () => {
 
 const categoryOptionsReply = (category: ChatCategory): QuickReply[] => [
     ...category.options.map((o) => ({ label: o.label, value: o.label })),
+    TALK_TO_TEAM,
     END_CHAT,
 ];
+
+type LeadStep = "idle" | "name" | "email" | "phone" | "need";
+
+const PHONE_RE = /^[0-9+\-\s]{7,15}$/;
 
 const ChatBot = () => {
     const [messages, setMessages] = useState<Message[]>([]);
@@ -44,6 +56,9 @@ const ChatBot = () => {
     const [ended, setEnded] = useState(false);
     const scrollRef = useRef<HTMLDivElement>(null);
     const startedRef = useRef(false);
+    const leadStepRef = useRef<LeadStep>("idle");
+    const leadDataRef = useRef<{ name?: string; email?: string; phone?: string }>({});
+    const interestRef = useRef<string | null>(null);
 
     const pushMessages = (newOnes: Omit<Message, "id">[], startDelay = 450) => {
         newOnes.forEach((m, i) => {
@@ -66,12 +81,107 @@ const ChatBot = () => {
         scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
     }, [messages]);
 
+    const startLeadCapture = () => {
+        leadStepRef.current = "name";
+        pushMessages([
+            {
+                from: "bot",
+                text: "Sure! I'd love to connect you with our team. First, what's your name?",
+            },
+        ]);
+    };
+
+    const submitEnquiry = async (need: string) => {
+        const { name, email, phone } = leadDataRef.current;
+        try {
+            const res = await fetch("/api/enquiries", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, phone, need, interest: interestRef.current, source: "chatbot" }),
+            });
+            if (!res.ok) throw new Error("failed");
+            pushMessages([
+                {
+                    from: "bot",
+                    text: `Thanks, ${name}! We've noted your details and our team will reach out to you at ${email} soon.`,
+                },
+                { from: "bot", text: MENU_PROMPT, options: CATEGORY_QUICK_REPLIES },
+            ]);
+        } catch {
+            pushMessages([
+                {
+                    from: "bot",
+                    text: "Sorry, something went wrong saving your details. Please try again in a moment, or reach us directly.",
+                    link: { label: "Get in touch with us", href: "/contact" },
+                },
+            ]);
+        }
+    };
+
+    const handleLeadAnswer = (text: string): boolean => {
+        const step = leadStepRef.current;
+        if (step === "idle") return false;
+
+        if (LEAD_CANCEL_WORDS.some((w) => containsPhrase(text, w))) {
+            leadStepRef.current = "idle";
+            leadDataRef.current = {};
+            pushMessages([
+                { from: "bot", text: "No problem, we can pick this up anytime.", options: CATEGORY_QUICK_REPLIES },
+            ]);
+            return true;
+        }
+
+        if (step === "name") {
+            if (text.length < 2) {
+                pushMessages([{ from: "bot", text: "Could you share your name, please?" }]);
+                return true;
+            }
+            leadDataRef.current.name = text;
+            leadStepRef.current = "email";
+            pushMessages([{ from: "bot", text: `Nice to meet you, ${text}! What's the best email to reach you at?` }]);
+            return true;
+        }
+
+        if (step === "email") {
+            if (!isValidEmail(text)) {
+                pushMessages([{ from: "bot", text: "That doesn't look like a valid email address. Could you double-check it?" }]);
+                return true;
+            }
+            leadDataRef.current.email = text;
+            leadStepRef.current = "phone";
+            pushMessages([{ from: "bot", text: "Got it. What's the best phone number to reach you on?" }]);
+            return true;
+        }
+
+        if (step === "phone") {
+            if (!PHONE_RE.test(text)) {
+                pushMessages([{ from: "bot", text: "That doesn't look like a valid phone number. Could you double-check it?" }]);
+                return true;
+            }
+            leadDataRef.current.phone = text;
+            leadStepRef.current = "need";
+            const hint = interestRef.current ? ` about ${interestRef.current}` : "";
+            pushMessages([{ from: "bot", text: `Great, thanks! Lastly, what are you looking for help with${hint}?` }]);
+            return true;
+        }
+
+        if (step === "need") {
+            leadStepRef.current = "idle";
+            void submitEnquiry(text);
+            return true;
+        }
+
+        return false;
+    };
+
     const handleUserText = (rawText: string) => {
         const text = rawText.trim();
         if (!text || ended) return;
 
         setMessages((prev) => [...prev, { id: nextId(), from: "user", text }]);
         setInputValue("");
+
+        if (handleLeadAnswer(text)) return;
 
         if (CLOSING_WORDS.some((w) => containsPhrase(text, w))) {
             pushMessages([
@@ -89,8 +199,33 @@ const ChatBot = () => {
             return;
         }
 
+        const timeGreeting = TIME_GREETINGS.find((g) => g.patterns.some((p) => containsPhrase(text, p)));
+        if (timeGreeting) {
+            const period = timeGreeting.period;
+            pushMessages([
+                { from: "bot", text: `Good ${period}! 😊 How can I help you today?` },
+                { from: "bot", text: MENU_PROMPT, options: CATEGORY_QUICK_REPLIES },
+            ]);
+            return;
+        }
+
+        const smallTalk = SMALL_TALK.find((s) => s.patterns.some((p) => containsPhrase(text, p)));
+        if (smallTalk) {
+            pushMessages([
+                { from: "bot", text: smallTalk.reply },
+                { from: "bot", text: MENU_PROMPT, options: CATEGORY_QUICK_REPLIES },
+            ]);
+            return;
+        }
+
+        if (ENQUIRY_TRIGGER_WORDS.some((w) => containsPhrase(text, w))) {
+            startLeadCapture();
+            return;
+        }
+
         const optionMatch = findOptionByText(text);
         if (optionMatch) {
+            interestRef.current = optionMatch.option.label;
             pushMessages([
                 {
                     from: "bot",
@@ -100,7 +235,7 @@ const ChatBot = () => {
                 {
                     from: "bot",
                     text: "Want to see something else?",
-                    options: [...categoryOptionsReply(optionMatch.category).slice(0, -1), { label: "Show all categories", value: "show categories" }, TALK_TO_TEAM, END_CHAT],
+                    options: [...categoryOptionsReply(optionMatch.category).slice(0, -1), { label: "Show all categories", value: "show categories" }, END_CHAT],
                 },
             ]);
             return;
@@ -108,6 +243,7 @@ const ChatBot = () => {
 
         const categoryMatch = findCategoryByText(text);
         if (categoryMatch) {
+            interestRef.current = categoryMatch.label;
             pushMessages([
                 { from: "bot", text: categoryMatch.intro, options: categoryOptionsReply(categoryMatch) },
             ]);
@@ -121,22 +257,11 @@ const ChatBot = () => {
             return;
         }
 
-        if (["talk to our team", "talk to team", "contact"].some((w) => containsPhrase(text, w))) {
-            pushMessages([
-                {
-                    from: "bot",
-                    text: "Sure! Our team would be happy to help you directly.",
-                    link: { label: "Get in touch with us", href: "/contact" },
-                },
-            ]);
-            return;
-        }
-
         pushMessages([
             {
                 from: "bot",
                 text: "I couldn't find an exact match for that, but here's what we can help with:",
-                options: [...CATEGORY_QUICK_REPLIES, TALK_TO_TEAM],
+                options: CATEGORY_QUICK_REPLIES,
             },
         ]);
     };
@@ -154,6 +279,9 @@ const ChatBot = () => {
         idCounter = 0;
         setEnded(false);
         setMessages([]);
+        leadStepRef.current = "idle";
+        leadDataRef.current = {};
+        interestRef.current = null;
         startedRef.current = false;
         setTimeout(() => {
             startedRef.current = true;
