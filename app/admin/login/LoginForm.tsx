@@ -38,7 +38,7 @@ export default function LoginForm() {
     return (
         <div className="admin-login-card">
             <h1 className="admin-title" style={{ marginBottom: 20 }}>
-                SEO Admin Login
+                Admin Login
             </h1>
             {error && <div className="admin-error">{error}</div>}
             <form onSubmit={handleSubmit}>
