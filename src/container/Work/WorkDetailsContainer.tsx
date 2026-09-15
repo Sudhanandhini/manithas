@@ -2,9 +2,12 @@
 import PropTypes from "prop-types";
 import React from 'react';
 import Link from "next/link";
+import { usePageLinksMap, resolvePageHref } from "../../context/PageLinksContext";
 
 
 const WorkDetailsContainer = ({ data }) => {
+    const pageLinksMap = usePageLinksMap();
+    const btnHref = resolvePageHref(pageLinksMap, data.pageLinkKey, data.btn.link);
     const cate = data.categories.map((value, i) => {
         return(
             <span className="d-inline" key={i}>{value}{i !== data.categories.length - 1 && " , "}</span>
@@ -63,7 +66,7 @@ const WorkDetailsContainer = ({ data }) => {
                                         })}
 
                                         <div className="work-btn">
-                                            <Link className="btn btn-primary btn-hover-secondary" href={data.btn.link}>{data.btn.text}</Link>
+                                            <Link className="btn btn-primary btn-hover-secondary" href={btnHref}>{data.btn.text}</Link>
                                         </div>
 
                                     </div>

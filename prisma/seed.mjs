@@ -29,17 +29,20 @@ const PAGES = [
     { slug: "/home-two", label: "Home Two", title: "Home Two", description: "Manithas" },
     { slug: "/home-three", label: "Home Three", title: "Home Three", description: "Manithas" },
 
-    // Application
-    { slug: "/what-we-do/application/alumni", label: "Alumni", title: "Alumni", description: "A dedicated alumni web application that keeps colleges and their graduates connected for life." },
-    { slug: "/what-we-do/application/elibrary", label: "eLibrary", title: "eLibrary", description: "A digital library web application that lets students and members browse and borrow books online." },
-    { slug: "/what-we-do/application/subscription", label: "Subscription", title: "Subscription", description: "A subscription management web application where admins create accounts and members pay online." },
-    { slug: "/what-we-do/application/employee-records", label: "Employee Records", title: "Employee Records", description: "An employee records web application for attendance, leave tracking, and payroll." },
-    { slug: "/what-we-do/application/online-assessment-test", label: "Online Assessment ", title: "Online Assessment Test", description: "An online assessment web application with self-registration and instant certificate generation." },
-    { slug: "/what-we-do/application", label: "Custom Web Application", title: "Custom Web Application", description: "Custom web and business applications that streamline your operations and scale with your business." },
+    // Application - these 6 are dynamically routed via SeoPage.key + src/pages-registry.tsx,
+    // so their `slug` is just the initial default; admins can rename it freely afterward and
+    // the live route (and nav/footer/related links) follow automatically.
+    { slug: "/what-we-do/application/alumni", key: "application-alumni", label: "Alumni", title: "Alumni", description: "A dedicated alumni web application that keeps colleges and their graduates connected for life." },
+    { slug: "/what-we-do/application/elibrary", key: "application-elibrary", label: "eLibrary", title: "eLibrary", description: "A digital library web application that lets students and members browse and borrow books online." },
+    { slug: "/what-we-do/application/subscription", key: "application-subscription", label: "Subscription", title: "Subscription", description: "A subscription management web application where admins create accounts and members pay online." },
+    { slug: "/what-we-do/application/employee-records", key: "application-employee-records", label: "Employee Records", title: "Employee Records", description: "An employee records web application for attendance, leave tracking, and payroll." },
+    { slug: "/what-we-do/application/online-assessment-test", key: "application-online-assessment-test", label: "Online Assessment ", title: "Online Assessment Test", description: "An online assessment web application with self-registration and instant certificate generation." },
+    { slug: "/what-we-do/application", key: "application-root", label: "Custom Web Application", title: "Custom Web Application", description: "Custom web and business applications that streamline your operations and scale with your business." },
 
     // Web Development
     { slug: "/what-we-do/web-development/react-development", label: "React Development", title: "React Development", description: "Fast, component-driven web applications built with React and Next.js." },
     { slug: "/what-we-do/web-development/html-css-development", label: "HTML & CSS Development", title: "HTML & CSS Website Development", description: "Lightweight, hand-coded websites built with HTML and CSS for speed and simplicity." },
+    { slug: "/what-we-do/web-development/php-development", label: "PHP Development", title: "PHP Website Development", description: "Fast, secure, database-driven websites and applications built with PHP." },
     { slug: "/what-we-do/web-development/e-commerce-development", label: "E-Commerce Development", title: "E-Commerce Development", description: "Online stores that convert, with secure checkouts and product management." },
     { slug: "/what-we-do/web-development/custom-web-development", label: "Custom Web Development", title: "Custom Web Development", description: "Fully custom websites and web apps engineered around your exact requirements." },
     { slug: "/what-we-do/web-development/woocommerce-development", label: "WooCommerce Development", title: "WooCommerce Development", description: "WooCommerce stores built for reliable, scalable online selling." },
@@ -87,11 +90,22 @@ async function main() {
     });
 
     for (const page of PAGES) {
-        await prisma.seoPage.upsert({
-            where: { slug: page.slug },
-            update: {},
-            create: page,
-        });
+        // Pages with a `key` are dynamically routed and admin-renameable, so their live
+        // slug may no longer match the seed default - match those by the stable key
+        // instead, and leave the slug alone once it exists (admin owns it from there).
+        if (page.key) {
+            await prisma.seoPage.upsert({
+                where: { key: page.key },
+                update: {},
+                create: page,
+            });
+        } else {
+            await prisma.seoPage.upsert({
+                where: { slug: page.slug },
+                update: {},
+                create: page,
+            });
+        }
     }
 
     const adminEmail = process.env.ADMIN_EMAIL;

@@ -52,10 +52,11 @@ const AboutFive = () => {
                                 title="Our Vision &amp; Mission"
                             />
 
-                            <p>We are committed to delivering innovative web applications and IT solutions that turn ideas into meaningful digital experiences. By combining technology, creativity, and expertise, we build secure, scalable, and future-ready solutions that simplify business, enhance efficiency, and create lasting value for our clients.</p>
+                           
 
-                            <p>We envision a digital future where technology is simple, intelligent, and accessible. Through innovative web applications, modern IT solutions, and future-ready digital experiences, we help businesses transform their ideas into powerful solutions, embrace change, and achieve sustainable growth.</p>
+                            <p>We envision a digital future where technology is simple, intelligent, and accessible. Through innovative web applications, modern IT solutions, and future-ready digital experiences, we help businesses transform their ideas into powerful solutions, embrace change, and achieve sustainable growth.</p>  <br />
 
+                             <p>We are committed to delivering innovative web applications and IT solutions that turn ideas into meaningful digital experiences. By combining technology, creativity, and expertise, we build secure, scalable, and future-ready solutions that simplify business, enhance efficiency, and create lasting value for our clients.</p>
                             <Link className="btn btn-primary btn-hover-secondary mt-xl-12 mt-lg-8 mt-md-6 mt-4" href={"/contact"}>Contact Now</Link>
                         </div>
                     </div>

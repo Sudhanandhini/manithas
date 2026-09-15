@@ -25525,10 +25525,10 @@ svg:not(:root) {
       padding-bottom: 220px; } }
 
 .section-padding-bottom-180 {
-  padding-bottom: 180px; }
+  padding-bottom: 100px; }
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .section-padding-bottom-180 {
-      padding-bottom: 200px; } }
+      padding-bottom: 100px; } }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .section-padding-bottom-180 {
       padding-bottom: 80px; } }

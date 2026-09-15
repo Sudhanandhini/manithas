@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from 'react'
 import ActiveLink from "@/src/components/ActiveLink";
-import { APPLICATION_LINKS, SOLUTION_LINKS, WHAT_WE_DO } from "./navData";
+import { SOLUTION_LINKS, WHAT_WE_DO } from "./navData";
+import { usePageLinksMap, resolvePageHref } from "@/src/context/PageLinksContext";
 
 const NavBar = () => {
     const [activeTab, setActiveTab] = useState(0);
+    const pageLinksMap = usePageLinksMap();
 
     return (
         <nav className="site-main-menu">
@@ -32,8 +34,8 @@ const NavBar = () => {
                                 {WHAT_WE_DO[activeTab].columns.map((column, ci) => (
                                     <ul className="mega-menu-panel-column" key={ci}>
                                         {column.map((link) => (
-                                            <li key={link.href}>
-                                                <ActiveLink  href={link.href}>
+                                            <li key={link.key ?? link.href}>
+                                                <ActiveLink  href={resolvePageHref(pageLinksMap, link.key, link.href)}>
                                                     <span className="menu-text">{link.label}</span>
                                                     <span className="menu-desc">{link.description}</span>
                                                 </ActiveLink>

@@ -19,6 +19,10 @@ model AdminUser {
 model SeoPage {
   id             String   @id @default(cuid())
   slug           String   @unique
+  // Stable identifier binding this row to a page component in src/pages-registry.tsx,
+  // independent of `slug` (which admins can rename freely). Null = not yet migrated to
+  // dynamic routing; the page still lives at a hardcoded app/**/page.tsx folder.
+  key            String?  @unique
   label          String
   type           String   @default("Page")
   title          String?

@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import React, { useState } from 'react';
 import Link from "next/link";
 import QuoteModal from "../QuoteModal/QuoteModal";
+import { usePageLinksMap, resolvePageHref } from "../../context/PageLinksContext";
 
 const FooterLinkItem = ({data}) => {
     const [helpDeskOpen, setHelpDeskOpen] = useState(false);
+    const pageLinksMap = usePageLinksMap();
 
     return (
         <div className="footer-widget">
@@ -19,7 +21,7 @@ const FooterLinkItem = ({data}) => {
                                     {single.text} {single?.badge && <span className="ft-badge">{single.badge}</span>}
                                 </a>
                             ) : (
-                                <Link href={single.url}>{single.text} {single?.badge && <span className="ft-badge">{single.badge}</span>} </Link>
+                                <Link href={resolvePageHref(pageLinksMap, single.key, single.url)}>{single.text} {single?.badge && <span className="ft-badge">{single.badge}</span>} </Link>
                             )}
                         </li>
                     ))}

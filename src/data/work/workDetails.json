@@ -10,6 +10,7 @@
         "awards": ["Role-based portals for students, alumni, admin & super admin"],
         "excerpt": "A role-based alumni platform connecting colleges with their graduates through directories, career updates, and dedicated logins.",
         "pageLink": "/what-we-do/application/alumni",
+        "pageLinkKey": "application-alumni",
         "body": ["<p>Our alumni web applications give colleges and universities a single system to track graduates, share opportunities, and keep their community engaged long after graduation.</p>", "<p>With dedicated logins for students, alumni, admin, and super admin, every user sees exactly the information relevant to them, from personal profile details to institution-wide alumni directories.</p>"],
         "btn": {
             "text": "Visit Alumni Page",

@@ -5,7 +5,9 @@ import NavScrollTop from "@/src/components/NavScrollTop";
 import FloatingChat from "@/src/components/FloatingChat/FloatingChat";
 import { TalkToUsProvider } from "@/src/context/TalkToUsContext";
 import { QuoteProvider } from "@/src/context/QuoteContext";
+import { PageLinksProvider } from "@/src/context/PageLinksContext";
 import { getSiteSettings, siteUrl } from "@/lib/seo";
+import { prisma } from "@/lib/prisma";
 
 import "swiper/css";
 import "aos/dist/aos.css";
@@ -46,23 +48,35 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export default function RootLayout({
+async function getPageLinksMap(): Promise<Record<string, string>> {
+    const pages = await prisma.seoPage.findMany({
+        where: { key: { not: null } },
+        select: { key: true, slug: true },
+    });
+    return Object.fromEntries(pages.map((p) => [p.key as string, p.slug]));
+}
+
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const pageLinksMap = await getPageLinksMap();
+
     return (
         <html lang="en" className={mulish.variable}>
             <body>
-                <QuoteProvider>
-                    <TalkToUsProvider>
-                        <NavScrollTop>
-                            {children}
-                        </NavScrollTop>
-                        <AosInit />
-                        <FloatingChat />
-                    </TalkToUsProvider>
-                </QuoteProvider>
+                <PageLinksProvider map={pageLinksMap}>
+                    <QuoteProvider>
+                        <TalkToUsProvider>
+                            <NavScrollTop>
+                                {children}
+                            </NavScrollTop>
+                            <AosInit />
+                            <FloatingChat />
+                        </TalkToUsProvider>
+                    </QuoteProvider>
+                </PageLinksProvider>
             </body>
         </html>
     );

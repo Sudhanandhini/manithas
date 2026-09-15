@@ -6,32 +6,38 @@
             {
             "id": 1,
             "text": "Alumni",
-            "url": "/what-we-do/application/alumni"
+            "url": "/what-we-do/application/alumni",
+            "key": "application-alumni"
             },
             {
             "id": 2,
             "text": "eLibrary",
-            "url": "/what-we-do/application/elibrary"
+            "url": "/what-we-do/application/elibrary",
+            "key": "application-elibrary"
             },
             {
             "id": 3,
             "text": "Subscription Module",
-            "url": "/what-we-do/application/subscription"
+            "url": "/what-we-do/application/subscription",
+            "key": "application-subscription"
             },
             {
             "id": 4,
             "text": "Employee Records",
-            "url": "/what-we-do/application/employee-records"
+            "url": "/what-we-do/application/employee-records",
+            "key": "application-employee-records"
             },
              {
             "id": 5,
             "text": "Online Assessment Test",
-            "url": "/what-we-do/application/online-assessment-test"
+            "url": "/what-we-do/application/online-assessment-test",
+            "key": "application-online-assessment-test"
             },
              {
             "id": 6,
             "text": "Custom Web Application",
-            "url": "/what-we-do/application"
+            "url": "/what-we-do/application",
+            "key": "application-root"
             }
         ]
     },

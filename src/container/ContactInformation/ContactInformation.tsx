@@ -20,7 +20,7 @@ const ContactInformation = ({ classOption }) => {
 
     }, [])
     return (
-        <div className={`section section-padding-t90-b100 ${classOption}`}>
+        <div className={`section section-padding-t90-b100 ${classOption}`}  style={{paddingTop: "0px"}}>
             <div className="container shape-animate">
                 <SectionTitle
                     titleOption="section-title text-center mb-lg-12 mb-sm-8 mb-xs-8"
@@ -28,7 +28,7 @@ const ContactInformation = ({ classOption }) => {
                     subTitle=""
                 />
 
-                <div className="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1 row-cols-1 mb-n6">
+                <div className="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1 row-cols-1 mb-n6" style={{paddingTop: "0px"}} >
                     {contactData && contactData.map((single, key) => {
                         return(
                             <div key={key} className="col mb-6" data-aos="fade-up">
@@ -38,7 +38,7 @@ const ContactInformation = ({ classOption }) => {
                     })}
                 </div>
 
-                <div className="shape shape-1" id="scene" ref={sceneEl}>
+                <div className="shape shape-1" id="scene" ref={sceneEl}  style={{paddingTop: "0px"}}>
                   
                     <span data-depth="1"><img src={"/images/shape-animation/video-shape-1.png"} alt="shape" />
                     

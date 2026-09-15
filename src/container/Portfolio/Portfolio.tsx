@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Link from "next/link";
 import SectionTitleTwo from '../../components/SectionTitles/SectionTitleTwo';
 import { WHAT_WE_DO_CATEGORIES } from '../../data/whatWeDo/categories';
+import { usePageLinksMap, resolvePageHref } from '../../context/PageLinksContext';
 
 const PREVIEW_LINKS = [
     { ...WHAT_WE_DO_CATEGORIES[0].links[0], icon: WHAT_WE_DO_CATEGORIES[0].icon },
@@ -15,6 +16,7 @@ const PREVIEW_LINKS = [
 
 const Portfolio = () => {
     const [activeIndex, setActiveIndex] = useState(-1);
+    const pageLinksMap = usePageLinksMap();
 
     const activeCategory = activeIndex >= 0 ? WHAT_WE_DO_CATEGORIES[activeIndex] : null;
     const visibleLinks = activeCategory
@@ -56,8 +58,8 @@ const Portfolio = () => {
 
                 <div className="row row-cols-lg-3 row-cols-md-2 row-cols-1 mb-n6">
                     {visibleLinks.map((link, key) => (
-                        <div key={link.href} className="col mb-6" data-aos="fade-up" data-aos-delay={100 * (key % 3)}>
-                            <Link href={link.href} className="icon-box box-border text-center d-block">
+                        <div key={link.key ?? link.href} className="col mb-6" data-aos="fade-up" data-aos-delay={100 * (key % 3)}>
+                            <Link href={resolvePageHref(pageLinksMap, link.key, link.href)} className="icon-box box-border text-center d-block">
                                 <div className="icon icon-animated">
                                     <i className={link.icon} style={{ fontSize: 32, color: "var(--clr-primary)" }}></i>
                                 </div>

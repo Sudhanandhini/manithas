@@ -49,10 +49,29 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
         }
     }
 
+    if ("slug" in body) {
+        const slug = typeof body.slug === "string" ? body.slug.trim() : "";
+        if (!slug.startsWith("/")) {
+            return NextResponse.json({ error: "slug must start with /" }, { status: 400 });
+        }
+        data.slug = slug;
+    }
+
+    if ("label" in body) {
+        const label = typeof body.label === "string" ? body.label.trim() : "";
+        if (!label) {
+            return NextResponse.json({ error: "label is required" }, { status: 400 });
+        }
+        data.label = label;
+    }
+
     try {
         const page = await prisma.seoPage.update({ where: { id: params.id }, data });
         return NextResponse.json({ page });
-    } catch {
+    } catch (err: unknown) {
+        if (typeof err === "object" && err !== null && "code" in err && (err as { code?: string }).code === "P2002") {
+            return NextResponse.json({ error: "That slug is already in use." }, { status: 409 });
+        }
         return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 }

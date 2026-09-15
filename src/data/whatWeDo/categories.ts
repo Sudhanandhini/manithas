@@ -1,4 +1,4 @@
-export type WhatWeDoLink = { label: string; href: string };
+export type WhatWeDoLink = { label: string; href: string; key?: string };
 export type WhatWeDoCategory = {
     label: string;
     shortLabel: string;
@@ -12,12 +12,12 @@ export const WHAT_WE_DO_CATEGORIES: WhatWeDoCategory[] = [
         shortLabel: "Application",
         icon: "fas fa-laptop-code",
         links: [
-            { label: "Alumni", href: "/what-we-do/application/alumni" },
-            { label: "eLibrary", href: "/what-we-do/application/elibrary" },
-            { label: "Subscription", href: "/what-we-do/application/subscription" },
-            { label: "Employee Records", href: "/what-we-do/application/employee-records" },
-            { label: "Online Assessment Test", href: "/what-we-do/application/online-assessment-test" },
-            { label: "Custom Web Application", href: "/what-we-do/application" },
+            { label: "Alumni", href: "/what-we-do/application/alumni", key: "application-alumni" },
+            { label: "eLibrary", href: "/what-we-do/application/elibrary", key: "application-elibrary" },
+            { label: "Subscription Module", href: "/what-we-do/application/subscription", key: "application-subscription" },
+            { label: "Employee Records", href: "/what-we-do/application/employee-records", key: "application-employee-records" },
+            { label: "Online Assessment Test", href: "/what-we-do/application/online-assessment-test", key: "application-online-assessment-test" },
+            { label: "Custom Web Application", href: "/what-we-do/application", key: "application-root" },
         ],
     },
     {
@@ -27,6 +27,7 @@ export const WHAT_WE_DO_CATEGORIES: WhatWeDoCategory[] = [
         links: [
             { label: "React Development", href: "/what-we-do/web-development/react-development" },
             { label: "HTML & CSS Development", href: "/what-we-do/web-development/html-css-development" },
+            { label: "PHP Development", href: "/what-we-do/web-development/php-development" },
             { label: "E-Commerce Development", href: "/what-we-do/web-development/e-commerce-development" },
             { label: "Custom Web Development", href: "/what-we-do/web-development/custom-web-development" },
             { label: "WooCommerce Development", href: "/what-we-do/web-development/woocommerce-development" },

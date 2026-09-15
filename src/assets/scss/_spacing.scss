@@ -4,7 +4,7 @@
 
 /* Section Spacing */
 .section-padding {
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 100px;
 
     // Responsive
@@ -33,7 +33,7 @@
 }
 .section-padding-t90-b100 {
   padding-top: 50px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 
   // Responsive
   @media #{$tablet-device} {
@@ -141,10 +141,10 @@
     }
 }
 .section-padding-bottom-180{
-    padding-bottom: 180px;
+    padding-bottom: 100px;
     // Responsive
     @media #{$desktop-device} {
-        padding-bottom: 200px;
+        padding-bottom: 100px;
     }
     @media #{$tablet-device} {
         padding-bottom: 80px;

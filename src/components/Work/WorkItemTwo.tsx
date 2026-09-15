@@ -2,9 +2,12 @@
 import PropTypes from "prop-types";
 import React from 'react';
 import Link from "next/link";
+import { usePageLinksMap, resolvePageHref } from "../../context/PageLinksContext";
 
 const WorkItemTwo = ({ data }) => {
-    const href = data.pageLink || `/work-details/${data.id}`;
+    const pageLinksMap = usePageLinksMap();
+    const fallbackHref = data.pageLink || `/work-details/${data.id}`;
+    const href = resolvePageHref(pageLinksMap, data.pageLinkKey, fallbackHref);
     return (
         <div className="work">
             <div className="thumbnail">

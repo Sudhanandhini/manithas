@@ -2,9 +2,12 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import Link from "next/link";
+import { usePageLinksMap, resolvePageHref } from "../../context/PageLinksContext";
 
 const WorkItem = ({ portfolio }) => {
-    const href = portfolio.pageLink || `/work-details/${portfolio.id}`;
+    const pageLinksMap = usePageLinksMap();
+    const fallbackHref = portfolio.pageLink || `/work-details/${portfolio.id}`;
+    const href = resolvePageHref(pageLinksMap, portfolio.pageLinkKey, fallbackHref);
     return (
         <div className="single-portfolio">
             <div className="thumbnail">

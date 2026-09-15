@@ -9,6 +9,8 @@ const PAGE_TYPES = ["Page", "Blog", "Solution", "Landing"];
 export default function SeoEditForm({ page }: { page: SeoPage }) {
     const router = useRouter();
     const [form, setForm] = useState({
+        slug: page.slug ?? "",
+        label: page.label ?? "",
         type: page.type ?? "Page",
         title: page.title ?? "",
         description: page.description ?? "",
@@ -44,7 +46,8 @@ export default function SeoEditForm({ page }: { page: SeoPage }) {
         setSaving(false);
 
         if (!res.ok) {
-            setError("Could not save changes.");
+            const body = await res.json().catch(() => null);
+            setError(body?.error || "Could not save changes.");
             return;
         }
 
@@ -56,6 +59,41 @@ export default function SeoEditForm({ page }: { page: SeoPage }) {
         <form onSubmit={handleSubmit}>
             {error && <div className="admin-error">{error}</div>}
             {saved && <div className="admin-success">Saved.</div>}
+
+            <div className="admin-field">
+                <label htmlFor="label">Page name</label>
+                <input
+                    id="label"
+                    type="text"
+                    value={form.label}
+                    onChange={(e) => update("label", e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="admin-field">
+                <label htmlFor="slug">Slug</label>
+                <input
+                    id="slug"
+                    type="text"
+                    placeholder="/about"
+                    value={form.slug}
+                    onChange={(e) => update("slug", e.target.value)}
+                    required
+                />
+                {page.key ? (
+                    <small className="admin-success">
+                        This page is dynamically routed — renaming the slug moves the live URL and updates
+                        its menu/footer links immediately, with no code changes needed.
+                    </small>
+                ) : (
+                    <small className="admin-error">
+                        This page&apos;s URL is hardcoded in code. Renaming this slug only changes SEO
+                        metadata — it will NOT move the real page or update menu/footer links. Ask a
+                        developer to migrate this page to dynamic routing first.
+                    </small>
+                )}
+            </div>
 
             <div className="admin-field">
                 <label htmlFor="type">Type</label>

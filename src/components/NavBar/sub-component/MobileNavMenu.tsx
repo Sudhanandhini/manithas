@@ -7,9 +7,11 @@ import {
     slideToggle,
     slideUp,
 } from "../../../utils";
-import { APPLICATION_LINKS, SOLUTION_LINKS, WHAT_WE_DO } from "../navData";
+import { SOLUTION_LINKS, WHAT_WE_DO } from "../navData";
+import { usePageLinksMap, resolvePageHref } from "@/src/context/PageLinksContext";
 
 const MobileNavMenu = () => {
+    const pageLinksMap = usePageLinksMap();
     const onClickHandler = (e) => {
         const target = e.currentTarget;
         const parentEl = target.parentElement;
@@ -47,13 +49,14 @@ const MobileNavMenu = () => {
                     <ul className="sub-menu">
                         {WHAT_WE_DO.map((category) => {
                             const links = category.columns.flat();
+                            const firstHref = links[0] ? resolvePageHref(pageLinksMap, links[0].key, links[0].href) : "#";
                             return (
                                 <li className="has-children" key={category.label}>
-                                    <ActiveLink href={links[0]?.href ?? "#"}><span className="menu-text">{category.label}</span></ActiveLink>
+                                    <ActiveLink href={firstHref}><span className="menu-text">{category.label}</span></ActiveLink>
                                     <span className="menu-toggle" onClick={onClickHandler}><i className="fas fa-angle-down"></i></span>
                                     <ul className="sub-menu">
                                         {links.map((link) => (
-                                            <li key={link.href}><ActiveLink href={link.href}><span className="menu-text">{link.label}</span></ActiveLink></li>
+                                            <li key={link.key ?? link.href}><ActiveLink href={resolvePageHref(pageLinksMap, link.key, link.href)}><span className="menu-text">{link.label}</span></ActiveLink></li>
                                         ))}
                                     </ul>
                                 </li>
