@@ -45,7 +45,7 @@ export default function ApplicationOnlineAssessmentTest() {
             />
             {/* <ContentSection
                 eyebrow="Application"
-                title="Online Assessment Test Web Application"
+                title="Online Assessment  Web Application"
                 description="An online assessment web application where students register with their name, class, place, and school, take the test online, and instantly download a certificate on completion."
                 bullets={[
                     "Simple self-registration",

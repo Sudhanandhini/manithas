@@ -5,7 +5,7 @@
         "title": "Web Application",
         "desc": "Build scalable, secure web applications with rich functionality tailored to your business workflows.",
         "pageLink": "Learn More",
-        "link": "/what-we-do/application"
+        "link": "/services/application"
     },
     {
         "id": "2",
@@ -13,7 +13,7 @@
         "title": "Web Development",
         "desc": "From React and Next.js to fully custom builds, we deliver fast, secure, and responsive websites tailored to your brand.",
         "pageLink": "Learn More",
-        "link": "/what-we-do/web-development"
+        "link": "/services/web-development"
     },
     {
         "id": "3",
@@ -21,7 +21,7 @@
         "title": "Hosting",
         "desc": "Reliable Linux and web hosting with the performance, security, and uptime your business depends on.",
         "pageLink": "Learn More",
-        "link": "/what-we-do/web-hosting"
+        "link": "/services/web-hosting"
     },
     {
         "id": "4",

@@ -8,7 +8,7 @@ import Footer from "@/src/container/Footer/Footer";
 import ScrollToTop from "@/src/components/ScrollToTop";
 
 const applicationFaqs = [
-    { question: "What kind of web applications do you build?", answer: "We build Alumni, eLibrary, Subscription, Employee Records, and Online Assessment Test applications, along with fully custom web applications, each with role-based logins and admin dashboards." },
+    { question: "What kind of web applications do you build?", answer: "We build Alumni, eLibrary, Subscription, Employee Records, and Online Assessment  applications, along with fully custom web applications, each with role-based logins and admin dashboards." },
     { question: "Can admins export data from these applications?", answer: "Yes, every application we build includes an admin option to export records to Excel for reporting and offline use." },
     { question: "Do you build role-based logins such as admin, student, or employee?", answer: "Yes, we build separate logins and permission levels for each user type, such as admin, super admin, students, employees, or members, depending on the application." },
     { question: "Can you build a custom web application if my requirement isn't listed?", answer: "Yes, alongside our ready categories we build fully custom web applications designed around your exact workflow." }

@@ -9,12 +9,12 @@
         "categories": ["Application"],
         "awards": ["Role-based portals for students, alumni, admin & super admin"],
         "excerpt": "A role-based alumni platform connecting colleges with their graduates through directories, career updates, and dedicated logins.",
-        "pageLink": "/what-we-do/application/alumni",
+        "pageLink": "/alumni-management-software",
         "pageLinkKey": "application-alumni",
         "body": ["<p>Our alumni web applications give colleges and universities a single system to track graduates, share opportunities, and keep their community engaged long after graduation.</p>", "<p>With dedicated logins for students, alumni, admin, and super admin, every user sees exactly the information relevant to them, from personal profile details to institution-wide alumni directories.</p>"],
         "btn": {
             "text": "Visit Alumni Page",
-            "link": "/what-we-do/application/alumni"
+            "link": "/alumni-management-software"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {
@@ -37,11 +37,11 @@
         "categories": ["Web Development"],
         "awards": ["Component-driven, Next.js-ready builds"],
         "excerpt": "Fast, component-driven web applications built with React and Next.js for performance, scalability, and SEO.",
-        "pageLink": "/what-we-do/web-development/react-development",
+        "pageLink": "/services/react-development/",
         "body": ["<p>React has become the standard for building fast, interactive web interfaces, and we use it to build applications that feel instant, scale cleanly, and stay easy to maintain as your product grows.</p>", "<p>From single-page applications to full Next.js-powered websites, we structure every project around reusable components and clean state management.</p>"],
         "btn": {
             "text": "Visit React Development Page",
-            "link": "/what-we-do/web-development/react-development"
+            "link": "/services/react-development/"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {
@@ -91,11 +91,11 @@
         "categories": ["Business E-Mail"],
         "awards": ["Outlook, Teams & OneDrive on your domain"],
         "excerpt": "Outlook, Teams, and OneDrive configured on your business domain for a professional, secure email setup.",
-        "pageLink": "/what-we-do/business-email/microsoft-365",
+        "pageLink": "/business-email/google-workspace",
         "body": ["<p>Microsoft 365 brings Outlook, Teams, Word, Excel, PowerPoint, and OneDrive together in one subscription, and we handle the setup so your team gets a professional inbox on your own domain from day one.</p>", "<p>We configure Exchange Online mailboxes, security policies, and device sync, so email, chat, and files stay connected everywhere.</p>"],
         "btn": {
             "text": "Visit Microsoft 365 Page",
-            "link": "/what-we-do/business-email/microsoft-365"
+            "link": "/business-email/google-workspace"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {
@@ -139,17 +139,17 @@
         "id": 6,
         "homeImage": "./images/portfolio/portfolio-6.jpg",
         "image": "images/project/project-6.jpg",
-        "title": "Online Assessment Test Web Application",
+        "title": "Online Assessment  Web Application",
         "date": "2026",
         "client": "Schools & Training Institutes",
         "categories": ["Application"],
         "awards": ["Instant certificate generation on completion"],
         "excerpt": "Self-registration, online testing, and instant certificate generation for students, with an admin results dashboard.",
-        "pageLink": "/what-we-do/application/online-assessment-test",
+        "pageLink": "/online-assessment-software",
         "body": ["<p>Students register with just their name, class, place, and school, then take the assessment online without needing an admin-created account, making it easy to open the test to a wide audience.</p>", "<p>As soon as a student completes the test, a certificate is generated automatically for them to download, while admins get a live view of completion and results.</p>"],
         "btn": {
             "text": "Visit Online Assessment Page",
-            "link": "/what-we-do/application/online-assessment-test"
+            "link": "/online-assessment-software"
         },
         "largeImage": "images/project/work-details-1.jpg",
         "subContent": {

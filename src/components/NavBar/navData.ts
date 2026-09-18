@@ -5,12 +5,12 @@ export type MegaMenuCategory = { label: string; columns: MegaMenuLink[][] };
 // PageLinksContext (see src/context/PageLinksContext.tsx) since those pages are
 // database-routed and their slug can be renamed via /admin/seo.
 export const APPLICATION_LINKS: MegaMenuLink[] = [
-    { label: "Alumni", href: "/what-we-do/application/alumni", key: "application-alumni", description: "Keep alumni connected with directories, events, and updates in one place." },
-    { label: "eLibrary", href: "/what-we-do/application/elibrary", key: "application-elibrary", description: "A digital library your members can browse and borrow from anywhere." },
-    { label: "Subscription Module", href: "/what-we-do/application/subscription", key: "application-subscription", description: "Manage recurring memberships, billing, and renewals automatically." },
-    { label: "Employee Records", href: "/what-we-do/application/employee-records", key: "application-employee-records", description: "Centralize staff records, documents, and history securely." },
-    { label: "Online Assessment Test", href: "/what-we-do/application/online-assessment-test", key: "application-online-assessment-test", description: "Run tests and quizzes online with instant, auto-graded results." },
-    { label: "Custom Web Application", href: "/what-we-do/application", key: "application-root", description: "A tailored application built around your exact workflow." },
+    { label: "Alumni", href: "/alumni-management-software", key: "application-alumni", description: "Keep alumni connected with directories, events, and updates in one place." },
+    { label: "eLibrary", href: "/library-management-software", key: "application-elibrary", description: "A digital library your members can browse and borrow from anywhere." },
+    { label: "Subscription Module", href: "/subscription-management-software", key: "application-subscription", description: "Manage recurring memberships, billing, and renewals automatically." },
+    { label: "Employee Records", href: "/employee-record-management-software", key: "application-employee-records", description: "Centralize staff records, documents, and history securely." },
+    { label: "Online Assessment ", href: "/online-assessment-software", key: "application-online-assessment-test", description: "Run tests and quizzes online with instant, auto-graded results." },
+    { label: "Custom Web Application", href: "/services/application", key: "application-root", description: "A tailored application built around your exact workflow." },
 ];
 
 export const SOLUTION_LINKS: MegaMenuLink[] = [
@@ -31,22 +31,22 @@ export const WHAT_WE_DO: MegaMenuCategory[] = [
         label: "Web Development",
         columns: [
             [
-                { label: "React Development", href: "/what-we-do/web-development/react-development", description: "Interactive, component-driven interfaces built with React." },
-                { label: "HTML & CSS Development", href: "/what-we-do/web-development/html-css-development", description: "Clean, hand-coded markup and styling, pixel by pixel." },
-                { label: "PHP Development", href: "/what-we-do/web-development/php-development", description: "Fast, secure, database-driven websites and applications built with PHP." },
-                { label: "E-Commerce Development", href: "/what-we-do/web-development/e-commerce-development", description: "Online stores built to convert browsers into buyers." },
+                { label: "React Development", href: "/services/react-development/", description: "Interactive, component-driven interfaces built with React." },
+                { label: "HTML & CSS Development", href: "/services/html-css-development/", description: "Clean, hand-coded markup and styling, pixel by pixel." },
+                { label: "PHP Development", href: "/services/php-development/", description: "Fast, secure, database-driven websites and applications built with PHP." },
+                { label: "E-Commerce Development", href: "/services/ecommerce-development/", description: "Online stores built to convert browsers into buyers." },
                 
             ],
-            [ { label: "Custom Web Development", href: "/what-we-do/web-development/custom-web-development", description: "Bespoke websites built from scratch around your needs." },
-                { label: "WooCommerce Development", href: "/what-we-do/web-development/woocommerce-development", description: "WordPress-powered stores built on WooCommerce." },
-                { label: "Shopify Development", href: "/what-we-do/web-development/shopify-development", description: "Custom storefronts and themes built on Shopify." },
-                { label: "WordPress Development", href: "/what-we-do/web-development/wordpress-development", description: "Flexible, easy-to-manage sites built on WordPress." },
+            [ { label: "Custom Web Development", href: "/services/web-development/custom-web-development", description: "Bespoke websites built from scratch around your needs." },
+                { label: "WooCommerce Development", href: "/services/woocommerce-development/", description: "WordPress-powered stores built on WooCommerce." },
+                { label: "Shopify Development", href: "/services/shopify-development/", description: "Custom storefronts and themes built on Shopify." },
+                { label: "WordPress Development", href: "/services/wordpress-development/", description: "Flexible, easy-to-manage sites built on WordPress." },
               
             ],
-            [  { label: "Landing Page", href: "/what-we-do/web-development/landing-page", description: "Focused, high-converting pages for a single campaign or offer." },
-                { label: "Website Maintenance", href: "/what-we-do/web-development/website-maintenance", description: "Ongoing updates, backups, and fixes to keep your site healthy." },
-                { label: "Website Redesign", href: "/what-we-do/web-development/website-redesign", description: "A modern refresh for a site that's starting to show its age." },
-                { label: "Responsive Web Design", href: "/what-we-do/web-development/responsive-web-design", description: "Sites that look and work great on every screen size." },
+            [  { label: "Landing Page", href: "/services/landing-page-development/", description: "Focused, high-converting pages for a single campaign or offer." },
+                { label: "Website Maintenance", href: "/services/website-maintenance/", description: "Ongoing updates, backups, and fixes to keep your site healthy." },
+                { label: "Website Redesign", href: "/services/website-redesign/", description: "A modern refresh for a site that's starting to show its age." },
+                { label: "Responsive Web Design", href: "/services/responsive-web-design/", description: "Sites that look and work great on every screen size." },
             ],
         ],
     },
@@ -67,9 +67,9 @@ export const WHAT_WE_DO: MegaMenuCategory[] = [
         label: "Business E-Mail",
         columns: [
             [
-                { label: "Microsoft 365", href: "/what-we-do/business-email/microsoft-365", description: "Business email plus Office apps, hosted by Microsoft." },
-                { label: "Google Workspace", href: "/what-we-do/business-email/google-workspace", description: "Gmail, Docs, and Drive under your own domain." },
-                { label: "Web Email", href: "/what-we-do/business-email/web-email", description: "Simple, browser-based email hosted on your domain." },
+                { label: "Microsoft 365", href: "/business-email/microsoft-365", description: "Business email plus Office apps, hosted by Microsoft." },
+                { label: "Google Workspace", href: "/business-email/google-workspace", description: "Gmail, Docs, and Drive under your own domain." },
+                { label: "Web Email", href: "/business-email/web-email", description: "Simple, browser-based email hosted on your domain." },
             ],
         ],
     },

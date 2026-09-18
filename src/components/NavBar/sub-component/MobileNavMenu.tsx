@@ -44,7 +44,7 @@ const MobileNavMenu = () => {
         <nav className="site-mobile-menu">
             <ul>
                 <li className="has-children">
-                    <ActiveLink href={"/service"}><span className="menu-text">What We Do</span></ActiveLink>
+                    <ActiveLink href={"/services"}><span className="menu-text">What We Do</span></ActiveLink>
                     <span className="menu-toggle" onClick={onClickHandler}><i className="fas fa-angle-down"></i></span>
                     <ul className="sub-menu">
                         {WHAT_WE_DO.map((category) => {

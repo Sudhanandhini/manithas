@@ -7,7 +7,7 @@
         "ctaLabel": "Get A Quote",
         "ctaLink": "/contact",
         "ctaTwoLabel": "See What We Do",
-        "ctaTwoLink": "/service"
+        "ctaTwoLink": "/services"
     },
     {
         "id": "2",
@@ -17,7 +17,7 @@
         "ctaLabel": "Get A Quote",
         "ctaLink": "/contact",
         "ctaTwoLabel": "Explore Web Development",
-        "ctaTwoLink": "/what-we-do/web-development/react-development"
+        "ctaTwoLink": "/services/react-development/"
     },
     {
         "id": "3",
@@ -27,6 +27,6 @@
         "ctaLabel": "Get A Quote",
         "ctaLink": "/contact",
         "ctaTwoLabel": "See Our Solutions",
-        "ctaTwoLink": "/what-we-do/application"
+        "ctaTwoLink": "/services/application"
     }
 ]

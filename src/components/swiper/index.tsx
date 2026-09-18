@@ -2,14 +2,16 @@
 import { forwardRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import cn from "clsx";
-import { Navigation, Pagination, Autoplay, A11y } from "swiper";
+import { Navigation, Pagination, Autoplay, A11y, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/effect-fade";
 
 
 const SwiperSlider = forwardRef<HTMLDivElement, any>(
     (
         {
             options,
+            effect,
             prevIcon,
             nextIcon,
             children,
@@ -45,7 +47,17 @@ const SwiperSlider = forwardRef<HTMLDivElement, any>(
             autoHeight: true,
             breakpoints: {},
             ...options,
-            modules: [Navigation, Pagination, A11y, Autoplay, ...modules],
+            ...(effect === "fade"
+                ? { effect: "fade", fadeEffect: { crossFade: true } }
+                : {}),
+            modules: [
+                Navigation,
+                Pagination,
+                A11y,
+                Autoplay,
+                ...(effect === "fade" ? [EffectFade] : []),
+                ...modules,
+            ],
             navigation: options?.navigation
                 ? {
                       prevEl: `.${prevClass}`,

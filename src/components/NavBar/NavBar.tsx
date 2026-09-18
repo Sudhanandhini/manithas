@@ -12,7 +12,7 @@ const NavBar = () => {
         <nav className="site-main-menu">
             <ul>
                 <li className="has-children has-mega-menu-full" onMouseLeave={() => setActiveTab(0)}>
-                    <ActiveLink style={{ color: 'white' }} href={"/service"}><span className="menu-text">What We Do</span></ActiveLink>
+                    <ActiveLink style={{ color: 'white' }} href={"/services"}><span className="menu-text">What We Do</span></ActiveLink>
                     <span className="menu-toggle"><i className="fas fa-angle-down"></i></span>
                     <ul className="mega-menu mega-menu-tabbed">
                         <li className="mega-menu-tabs-col">

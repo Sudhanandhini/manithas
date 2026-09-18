@@ -19,7 +19,7 @@ const KEYWORDS: Record<string, string[]> = {
     "eLibrary": ["library", "elibrary", "books", "book catalog", "borrow", "lending", "digital library"],
     "Subscription Module": ["payment", "payment app", "billing", "renewal", "subscription", "membership", "fees", "dues", "recurring payment", "online payment"],
     "Employee Records": ["employee", "staff", "attendance", "payroll", "leave tracking", "hr", "salary", "hr software"],
-    "Online Assessment Test": ["test", "exam", "quiz", "assessment", "certificate", "certification", "online exam"],
+    "Online Assessment ": ["test", "exam", "quiz", "assessment", "certificate", "certification", "online exam"],
     "Online Assessment": ["test", "exam", "quiz", "assessment", "certificate", "certification", "online exam"],
     "Custom Web Application": ["custom software", "crm", "erp", "portal", "workflow", "enterprise app", "booking app", "payment app", "custom app", "business application"],
 

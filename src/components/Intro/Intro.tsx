@@ -27,7 +27,7 @@ const Intro =  ({data}) => {
                             ) : (
                                 <Link href={data.ctaLink || "/contact"} className="btn btn-primary btn-hover-secondary">{ctaLabel}</Link>
                             )}
-                            <Link href={data.ctaTwoLink || "/service"} className="btn btn-outline-white btn-hover-primary"> {data.ctaTwoLabel || "Learn More"} </Link>
+                            <Link href={data.ctaTwoLink || "/services"} className="btn btn-outline-white btn-hover-primary"> {data.ctaTwoLabel || "Learn More"} </Link>
                         </div>
                     </div>
 
