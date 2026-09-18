@@ -26,7 +26,7 @@ export const WHAT_WE_DO_CATEGORIES: WhatWeDoCategory[] = [
             { label: "HTML & CSS Development", href: "/services/html-css-development/", icon: "images/svg/linea/linea-software-vector-line.svg" },
             { label: "PHP Development", href: "/services/php-development/", icon: "images/svg/linea/linea-basic-settings.svg" },
             { label: "E-Commerce Development", href: "/services/ecommerce-development/", icon: "images/svg/linea/linea-ecommerce-cart-plus.svg" },
-            { label: "Custom Web Development", href: "/services/web-development/custom-web-development", icon: "images/svg/linea/linea-basic-gear.svg" },
+            { label: "Custom Web Development", href: "/services/cms-web-development/", icon: "images/svg/linea/linea-basic-gear.svg" },
             { label: "WooCommerce Development", href: "/services/woocommerce-development/", icon: "images/svg/linea/linea-ecommerce-bag.svg" },
             { label: "Shopify Development", href: "/services/shopify-development/", icon: "images/svg/linea/linea-ecommerce-basket.svg" },
             { label: "WordPress Development", href: "/services/wordpress-development/", icon: "images/svg/linea/linea-basic-webpage-txt.svg" },

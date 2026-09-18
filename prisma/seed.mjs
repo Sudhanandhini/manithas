@@ -44,7 +44,7 @@ const PAGES = [
     { slug: "/services/html-css-development/", label: "HTML & CSS Development", title: "HTML & CSS Website Development", description: "Lightweight, hand-coded websites built with HTML and CSS for speed and simplicity." },
     { slug: "/services/php-development/", label: "PHP Development", title: "PHP Website Development", description: "Fast, secure, database-driven websites and applications built with PHP." },
     { slug: "/services/ecommerce-development/", label: "E-Commerce Development", title: "E-Commerce Development", description: "Online stores that convert, with secure checkouts and product management." },
-    { slug: "/services/web-development/custom-web-development", label: "Custom Web Development", title: "Custom Web Development", description: "Fully custom websites and web apps engineered around your exact requirements." },
+    { slug: "/services/cms-web-development/", label: "Custom Web Development", title: "Custom Web Development", description: "Fully custom websites and web apps engineered around your exact requirements." },
     { slug: "/services/woocommerce-development/", label: "WooCommerce Development", title: "WooCommerce Development", description: "WooCommerce stores built for reliable, scalable online selling." },
     { slug: "/services/shopify-development/", label: "Shopify Development", title: "Shopify Website Development", description: "High-converting Shopify stores, from theme customization to app integrations." },
     { slug: "/services/wordpress-development/", label: "WordPress Development", title: "WordPress Development", description: "Fast, secure, and easy-to-manage WordPress websites tailored to your brand." },

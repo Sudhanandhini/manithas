@@ -103,7 +103,7 @@ const customDevFaqs = [
 ];
 
 export async function generateMetadata(): Promise<Metadata> {
-    return buildMetadata("/services/web-development/custom-web-development");
+    return buildMetadata("/services/cms-web-development/");
 }
 
 export default function CustomWebDevelopment() {

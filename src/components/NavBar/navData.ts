@@ -37,7 +37,7 @@ export const WHAT_WE_DO: MegaMenuCategory[] = [
                 { label: "E-Commerce Development", href: "/services/ecommerce-development/", description: "Online stores built to convert browsers into buyers." },
                 
             ],
-            [ { label: "Custom Web Development", href: "/services/web-development/custom-web-development", description: "Bespoke websites built from scratch around your needs." },
+            [ { label: "Custom Web Development", href: "/services/cms-web-development/", description: "Bespoke websites built from scratch around your needs." },
                 { label: "WooCommerce Development", href: "/services/woocommerce-development/", description: "WordPress-powered stores built on WooCommerce." },
                 { label: "Shopify Development", href: "/services/shopify-development/", description: "Custom storefronts and themes built on Shopify." },
                 { label: "WordPress Development", href: "/services/wordpress-development/", description: "Flexible, easy-to-manage sites built on WordPress." },

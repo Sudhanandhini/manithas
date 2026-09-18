@@ -12,7 +12,7 @@ const legacyRedirects = [
     ["/what-we-do/web-development/html-css-development", "/services/html-css-development"],
     ["/what-we-do/web-development/php-development", "/services/php-development"],
     ["/what-we-do/web-development/e-commerce-development", "/services/ecommerce-development"],
-    ["/what-we-do/web-development/custom-web-development", "/services/web-development/custom-web-development"],
+    ["/what-we-do/web-development/custom-web-development", "/services/cms-web-development/"],
     ["/what-we-do/web-development/woocommerce-development", "/services/woocommerce-development"],
     ["/what-we-do/web-development/shopify-development", "/services/shopify-development"],
     ["/what-we-do/web-development/wordpress-development", "/services/wordpress-development"],
@@ -33,6 +33,7 @@ const legacyRedirects = [
     ["/what-we-do/application/employee-records", "/employee-record-management-software"],
     ["/what-we-do/application/online-assessment-test", "/online-assessment-software"],
     ["/service", "/services"],
+    ["/what-we-do/web-development/custom-web-development", "/services/cms-web-development/"]
 ];
 
 /** @type {import('next').NextConfig} */

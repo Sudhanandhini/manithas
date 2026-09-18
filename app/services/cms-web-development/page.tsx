@@ -28,11 +28,8 @@ const cmsBenefits = [
     {
         title: "Scalable Structure",
         description: "Content types and templates that grow cleanly as your site expands."
-    },
-    {
-        title: "Faster Publishing",
-        description: "Get new pages and campaigns live faster with a system built for editors, not just developers."
     }
+  
 ];
 
 const cmsServices = [
