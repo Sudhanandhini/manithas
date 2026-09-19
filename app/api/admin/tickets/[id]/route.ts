@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES, CLOSED_STATUSES } from "@/lib/tickets";
+import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES, TICKET_TYPES, CLOSED_STATUSES } from "@/lib/tickets";
 import { sendMail, ticketStatusChangedEmail } from "@/lib/mail";
 
 export async function GET(_req: Request, { params }: { params: { id: string } }) {
@@ -56,6 +56,12 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
             return NextResponse.json({ error: "Invalid category" }, { status: 400 });
         }
         data.category = body.category;
+    }
+    if ("ticketType" in body) {
+        if (body.ticketType && !TICKET_TYPES.includes(body.ticketType)) {
+            return NextResponse.json({ error: "Invalid type" }, { status: 400 });
+        }
+        data.ticketType = body.ticketType || null;
     }
     if ("assignedTo" in body) {
         data.assignedTo = typeof body.assignedTo === "string" && body.assignedTo.trim() ? body.assignedTo.trim() : null;

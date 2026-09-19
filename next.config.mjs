@@ -39,6 +39,11 @@ const legacyRedirects = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     poweredByHeader: false,
+    experimental: {
+        staleTimes: {
+            dynamic: 0,
+        },
+    },
     async headers() {
         return [
             {

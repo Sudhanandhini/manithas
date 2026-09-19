@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import ContactListField from "../ContactListField";
 
 export default function NewCustomerForm() {
     const router = useRouter();
@@ -9,6 +10,9 @@ export default function NewCustomerForm() {
         username: "",
         password: "",
         name: "",
+        customerType: "",
+        amcDateFrom: "",
+        amcDateTo: "",
         email: "",
         mobile: "",
         website: "",
@@ -16,6 +20,8 @@ export default function NewCustomerForm() {
         address: "",
         companyName: "",
     });
+    const [extraEmails, setExtraEmails] = useState<string[]>([]);
+    const [extraPhones, setExtraPhones] = useState<string[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
@@ -31,7 +37,14 @@ export default function NewCustomerForm() {
         const res = await fetch("/api/admin/customers", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(form),
+            body: JSON.stringify({
+                ...form,
+                customerType: form.customerType || null,
+                amcDateFrom: form.amcDateFrom || null,
+                amcDateTo: form.amcDateTo || null,
+                extraEmails: extraEmails.map((v) => v.trim()).filter(Boolean),
+                extraPhones: extraPhones.map((v) => v.trim()).filter(Boolean),
+            }),
         });
 
         setLoading(false);
@@ -67,6 +80,32 @@ export default function NewCustomerForm() {
                 <input id="name" type="text" required value={form.name} onChange={(e) => update("name", e.target.value)} />
             </div>
 
+            <div className="admin-field">
+                <label htmlFor="customerType">Type</label>
+                <select id="customerType" value={form.customerType} onChange={(e) => update("customerType", e.target.value)}>
+                    <option value="">Select type</option>
+                    <option value="AMC">AMC</option>
+                    <option value="AMC_CHARGEABLE">AMC + Chargeable</option>
+                    <option value="CHARGEABLE">Chargeable</option>
+                </select>
+            </div>
+
+            <div style={{ display: "flex", gap: 12 }}>
+                <div className="admin-field" style={{ flex: 1 }}>
+                    <label htmlFor="amcDateFrom">AMC Date From</label>
+                    <input
+                        id="amcDateFrom"
+                        type="date"
+                        value={form.amcDateFrom}
+                        onChange={(e) => update("amcDateFrom", e.target.value)}
+                    />
+                </div>
+                <div className="admin-field" style={{ flex: 1 }}>
+                    <label htmlFor="amcDateTo">AMC Date To</label>
+                    <input id="amcDateTo" type="date" value={form.amcDateTo} onChange={(e) => update("amcDateTo", e.target.value)} />
+                </div>
+            </div>
+
             <div style={{ display: "flex", gap: 12 }}>
                 <div className="admin-field" style={{ flex: 1 }}>
                     <label htmlFor="email">Email</label>
@@ -75,6 +114,27 @@ export default function NewCustomerForm() {
                 <div className="admin-field" style={{ flex: 1 }}>
                     <label htmlFor="mobile">Mobile Number</label>
                     <input id="mobile" type="text" value={form.mobile} onChange={(e) => update("mobile", e.target.value)} />
+                </div>
+            </div>
+
+            <div style={{ display: "flex", gap: 12 }}>
+                <div style={{ flex: 1 }}>
+                    <ContactListField
+                        label="Additional Emails"
+                        type="email"
+                        values={extraEmails}
+                        onChange={setExtraEmails}
+                        addLabel="+ Add another email"
+                    />
+                </div>
+                <div style={{ flex: 1 }}>
+                    <ContactListField
+                        label="Additional Phone Numbers"
+                        type="tel"
+                        values={extraPhones}
+                        onChange={setExtraPhones}
+                        addLabel="+ Add another phone number"
+                    />
                 </div>
             </div>
 

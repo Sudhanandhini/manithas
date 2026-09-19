@@ -17,27 +17,27 @@ model AdminUser {
 
 // One row per site route. `slug` is the site-relative path, e.g. "/", "/about".
 model SeoPage {
-  id             String   @id @default(cuid())
-  slug           String   @unique
+  id            String   @id @default(cuid())
+  slug          String   @unique
   // Stable identifier binding this row to a page component in src/pages-registry.tsx,
   // independent of `slug` (which admins can rename freely). Null = not yet migrated to
   // dynamic routing; the page still lives at a hardcoded app/**/page.tsx folder.
-  key            String?  @unique
-  label          String
-  type           String   @default("Page")
-  title          String?
-  description    String?  @db.Text
-  keywords       String?
-  ogTitle        String?
-  ogDescription  String?  @db.Text
-  ogImage        String?
-  canonicalUrl   String?
-  noindex        Boolean  @default(false)
-  nofollow       Boolean  @default(false)
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  key           String?  @unique
+  label         String
+  type          String   @default("Page")
+  title         String?
+  description   String?  @db.Text
+  keywords      String?
+  ogTitle       String?
+  ogDescription String?  @db.Text
+  ogImage       String?
+  canonicalUrl  String?
+  noindex       Boolean  @default(false)
+  nofollow      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
-@@map("seopage")
+  @@map("seopage")
 }
 
 // A managed list of blog category names the admin can pick from when writing a
@@ -48,7 +48,7 @@ model Category {
   name      String   @unique
   slug      String   @unique
   createdAt DateTime @default(now())
-  
+
   @@map("category")
 }
 
@@ -72,8 +72,8 @@ model BlogPost {
   publishedAt     DateTime @default(now())
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
-  
-    @@map("blogpost")
+
+  @@map("blogpost")
 }
 
 // A solution/service offering, authored in the admin panel and rendered on
@@ -103,8 +103,8 @@ model Solution {
   publishedAt       DateTime @default(now())
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
-  
-      @@map("solution")
+
+  @@map("solution")
 }
 
 // A customer account, created by an admin, used to log in separately from
@@ -112,24 +112,36 @@ model Solution {
 // `teamOwnerId` set is a teammate login added by the top-level account
 // (`teamOwnerId == null`) - teammates share the owner's tickets, but log in
 // with their own username/password and keep their own name/email.
+enum CustomerType {
+  AMC
+  AMC_CHARGEABLE
+  CHARGEABLE
+}
+
 model Customer {
-  id           String     @id @default(cuid())
-  username     String     @unique
-  passwordHash String
-  name         String
-  email        String?
-  mobile       String?
-  website      String?
-  driveLink    String?
-  address      String?    @db.Text
-  companyName  String?
-  disabled     Boolean    @default(false)
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
-  tickets      Ticket[]
-  teamOwnerId  String?
-  teamOwner    Customer?  @relation("TeamMembers", fields: [teamOwnerId], references: [id], onDelete: Cascade)
-  teamMembers  Customer[] @relation("TeamMembers")
+  id                String        @id @default(cuid())
+  username          String        @unique
+  passwordHash      String
+  name              String
+  customerType      CustomerType?
+  amcDateFrom       DateTime?
+  amcDateTo         DateTime?
+  amcReminderSentAt DateTime?
+  email             String?
+  mobile            String?
+  extraEmails       Json?
+  extraPhones       Json?
+  website           String?
+  driveLink         String?
+  address           String?       @db.Text
+  companyName       String?
+  disabled          Boolean       @default(false)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  tickets           Ticket[]
+  teamOwnerId       String?
+  teamOwner         Customer?     @relation("TeamMembers", fields: [teamOwnerId], references: [id], onDelete: Cascade)
+  teamMembers       Customer[]    @relation("TeamMembers")
 
   @@index([teamOwnerId])
 }
@@ -151,6 +163,7 @@ model Ticket {
   category       String
   status         String          @default("New")
   priority       String          @default("Medium")
+  ticketType     String?
   assignedTo     String?
   link           String?
   lastActivityAt DateTime        @default(now())

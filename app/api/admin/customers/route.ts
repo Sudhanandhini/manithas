@@ -3,6 +3,27 @@ import { getServerSession } from "next-auth";
 import bcrypt from "bcryptjs";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { CustomerType } from "@prisma/client";
+
+const CUSTOMER_TYPES = new Set(Object.values(CustomerType));
+
+function sanitizeCustomerType(value: unknown): CustomerType | null {
+    return typeof value === "string" && CUSTOMER_TYPES.has(value as CustomerType) ? (value as CustomerType) : null;
+}
+
+function sanitizeStringArray(value: unknown): string[] {
+    if (!Array.isArray(value)) return [];
+    return value
+        .filter((v): v is string => typeof v === "string")
+        .map((v) => v.trim())
+        .filter(Boolean);
+}
+
+function sanitizeDate(value: unknown): Date | null {
+    if (typeof value !== "string" || !value) return null;
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? null : date;
+}
 
 export async function GET() {
     const session = await getServerSession(authOptions);
@@ -42,13 +63,21 @@ export async function POST(req: Request) {
 
     const passwordHash = await bcrypt.hash(password, 10);
 
+    const extraEmails = sanitizeStringArray(body.extraEmails);
+    const extraPhones = sanitizeStringArray(body.extraPhones);
+
     const customer = await prisma.customer.create({
         data: {
             username,
             passwordHash,
             name,
+            customerType: sanitizeCustomerType(body.customerType),
+            amcDateFrom: sanitizeDate(body.amcDateFrom),
+            amcDateTo: sanitizeDate(body.amcDateTo),
             email: body.email || null,
             mobile: body.mobile || null,
+            extraEmails: extraEmails.length ? extraEmails : undefined,
+            extraPhones: extraPhones.length ? extraPhones : undefined,
             website: body.website || null,
             driveLink: body.driveLink || null,
             address: body.address || null,

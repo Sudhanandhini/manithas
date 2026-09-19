@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES } from "@/lib/tickets";
+import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES, TICKET_TYPES } from "@/lib/tickets";
 import TicketTabs from "./TicketTabs";
 import PaginationLinks, { PAGE_SIZE } from "@/src/components/Pagination/PaginationLinks";
 
@@ -10,6 +10,7 @@ type SearchParams = {
     status?: string;
     priority?: string;
     category?: string;
+    ticketType?: string;
     q?: string;
     sort?: string;
     page?: string;
@@ -29,13 +30,14 @@ function buildOrderBy(sort?: string) {
 }
 
 export default async function AdminTicketsPage({ searchParams }: { searchParams: SearchParams }) {
-    const { status, priority, category, q, sort } = searchParams;
+    const { status, priority, category, ticketType, q, sort } = searchParams;
     const page = Math.max(1, Number(searchParams.page) || 1);
 
     const where = {
         ...(status ? { status } : {}),
         ...(priority ? { priority } : {}),
         ...(category ? { category } : {}),
+        ...(ticketType ? { ticketType } : {}),
         ...(q
             ? {
                   OR: [
@@ -113,6 +115,17 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                         </select>
                     </div>
                     <div className="admin-field" style={{ marginBottom: 0 }}>
+                        <label>Type</label>
+                        <select name="ticketType" defaultValue={ticketType || ""}>
+                            <option value="">All</option>
+                            {TICKET_TYPES.map((t) => (
+                                <option key={t} value={t}>
+                                    {t}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="admin-field" style={{ marginBottom: 0 }}>
                         <label>Sort</label>
                         <select name="sort" defaultValue={sort || "latest"}>
                             <option value="latest">Latest activity</option>
@@ -137,6 +150,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                             <th>Subject</th>
                             <th>Customer</th>
                             <th>Category</th>
+                            <th>Type</th>
                             <th>Status</th>
                             <th>Priority</th>
                             <th>Assigned To</th>
@@ -170,6 +184,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                                     <small>{ticket.customer.email}</small>
                                 </td>
                                 <td>{ticket.category}</td>
+                                <td>{ticket.ticketType || <em>&mdash;</em>}</td>
                                 <td>{ticket.status}</td>
                                 <td>{ticket.priority}</td>
                                 <td>{ticket.assignedTo || <em>&mdash;</em>}</td>
@@ -183,7 +198,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                         ))}
                         {tickets.length === 0 && (
                             <tr>
-                                <td colSpan={8}>No tickets match these filters.</td>
+                                <td colSpan={9}>No tickets match these filters.</td>
                             </tr>
                         )}
                     </tbody>

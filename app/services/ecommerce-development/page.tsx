@@ -303,6 +303,7 @@ export default function ECommerceDevelopment() {
                 eyebrow="How We Work"
                 title="Our ECommerce Website Development Process"
                 items={developmentProcess}
+                columns={3}
             />
             <IndustriesAccordion
                 eyebrow="Who We Serve"

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import SectionTitleTwo from "../SectionTitles/SectionTitleTwo";
 
-const WhyChooseUs = ({ eyebrow, title, items, classOption }) => {
+const WhyChooseUs = ({ eyebrow, title, items, classOption, columns }) => {
     return (
         <div className={`section section-padding-t90-b100 ${classOption}`}>
             <div className="container">
@@ -11,9 +11,9 @@ const WhyChooseUs = ({ eyebrow, title, items, classOption }) => {
                     </div>
                 </div>
 
-                <div className="row row-cols-lg-4 row-cols-md-2 row-cols-1 mb-n6 mt-8 why-choose-grid">
+                <div className={`row row-cols-lg-${columns} row-cols-md-2 row-cols-1 mb-n6 mt-8 why-choose-grid`}>
                     {items && items.map((item, key) => (
-                        <div key={key} className="col mb-6" data-aos="zoom-in" data-aos-delay={80 * (key % 4)}>
+                        <div key={key} className="col mb-6" data-aos="zoom-in" data-aos-delay={80 * (key % columns)}>
                             <div className="why-choose-item">
                                 <span className="why-choose-number">{String(key + 1).padStart(2, "0")}</span>
                                 <h3 className="title">{item.title}</h3>
@@ -31,10 +31,12 @@ WhyChooseUs.propTypes = {
     eyebrow: PropTypes.string,
     title: PropTypes.string,
     items: PropTypes.array,
-    classOption: PropTypes.string
+    classOption: PropTypes.string,
+    columns: PropTypes.number
 };
 WhyChooseUs.defaultProps = {
-    classOption: ""
+    classOption: "",
+    columns: 4
 };
 
 export default WhyChooseUs;

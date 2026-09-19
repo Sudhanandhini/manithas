@@ -6,6 +6,12 @@ import { useRouter } from "next/navigation";
 import type { Customer } from "@prisma/client";
 import Pagination, { PAGE_SIZE } from "@/src/components/Pagination/Pagination";
 
+const CUSTOMER_TYPE_LABELS: Record<string, string> = {
+    AMC: "AMC",
+    AMC_CHARGEABLE: "AMC + Chargeable",
+    CHARGEABLE: "Chargeable",
+};
+
 export default function CustomersTable({ customers }: { customers: Customer[] }) {
     const router = useRouter();
     const [search, setSearch] = useState("");
@@ -60,6 +66,7 @@ export default function CustomersTable({ customers }: { customers: Customer[] })
                     <tr>
                         <th>Username</th>
                         <th>Name</th>
+                        <th>Type</th>
                         <th>Email</th>
                         <th>Company</th>
                         <th>Created</th>
@@ -73,6 +80,7 @@ export default function CustomersTable({ customers }: { customers: Customer[] })
                                 <code>{customer.username}</code>
                             </td>
                             <td>{customer.name}</td>
+                            <td>{customer.customerType ? CUSTOMER_TYPE_LABELS[customer.customerType] : <em>&mdash;</em>}</td>
                             <td>{customer.email || <em>&mdash;</em>}</td>
                             <td>{customer.companyName || <em>&mdash;</em>}</td>
                             <td>{customer.createdAt.toISOString().slice(0, 10)}</td>
@@ -93,7 +101,7 @@ export default function CustomersTable({ customers }: { customers: Customer[] })
                     ))}
                     {filteredCustomers.length === 0 && (
                         <tr>
-                            <td colSpan={6}>{customers.length === 0 ? "No customers yet." : "No customers match your search."}</td>
+                            <td colSpan={7}>{customers.length === 0 ? "No customers yet." : "No customers match your search."}</td>
                         </tr>
                     )}
                 </tbody>

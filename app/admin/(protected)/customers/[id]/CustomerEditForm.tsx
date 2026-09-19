@@ -3,6 +3,15 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import type { Customer } from "@prisma/client";
+import ContactListField from "../ContactListField";
+
+function toStringArray(value: unknown): string[] {
+    return Array.isArray(value) ? value.filter((v): v is string => typeof v === "string") : [];
+}
+
+function toDateInputValue(value: Date | null): string {
+    return value ? value.toISOString().slice(0, 10) : "";
+}
 
 export default function CustomerEditForm({ customer }: { customer: Customer }) {
     const router = useRouter();
@@ -10,6 +19,9 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
         username: customer.username,
         password: "",
         name: customer.name,
+        customerType: customer.customerType ?? "",
+        amcDateFrom: toDateInputValue(customer.amcDateFrom),
+        amcDateTo: toDateInputValue(customer.amcDateTo),
         email: customer.email ?? "",
         mobile: customer.mobile ?? "",
         website: customer.website ?? "",
@@ -17,6 +29,8 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
         address: customer.address ?? "",
         companyName: customer.companyName ?? "",
     });
+    const [extraEmails, setExtraEmails] = useState<string[]>(toStringArray(customer.extraEmails));
+    const [extraPhones, setExtraPhones] = useState<string[]>(toStringArray(customer.extraPhones));
     const [error, setError] = useState<string | null>(null);
     const [saved, setSaved] = useState(false);
     const [saving, setSaving] = useState(false);
@@ -35,7 +49,14 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
         const res = await fetch(`/api/admin/customers/${customer.id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(form),
+            body: JSON.stringify({
+                ...form,
+                customerType: form.customerType || null,
+                amcDateFrom: form.amcDateFrom || null,
+                amcDateTo: form.amcDateTo || null,
+                extraEmails: extraEmails.map((v) => v.trim()).filter(Boolean),
+                extraPhones: extraPhones.map((v) => v.trim()).filter(Boolean),
+            }),
         });
 
         setSaving(false);
@@ -87,6 +108,32 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
                 <input id="name" type="text" required value={form.name} onChange={(e) => update("name", e.target.value)} />
             </div>
 
+            <div className="admin-field">
+                <label htmlFor="customerType">Type</label>
+                <select id="customerType" value={form.customerType} onChange={(e) => update("customerType", e.target.value)}>
+                    <option value="">Select type</option>
+                    <option value="AMC">AMC</option>
+                    <option value="AMC_CHARGEABLE">AMC + Chargeable</option>
+                    <option value="CHARGEABLE">Chargeable</option>
+                </select>
+            </div>
+
+            <div style={{ display: "flex", gap: 12 }}>
+                <div className="admin-field" style={{ flex: 1 }}>
+                    <label htmlFor="amcDateFrom">AMC Date From</label>
+                    <input
+                        id="amcDateFrom"
+                        type="date"
+                        value={form.amcDateFrom}
+                        onChange={(e) => update("amcDateFrom", e.target.value)}
+                    />
+                </div>
+                <div className="admin-field" style={{ flex: 1 }}>
+                    <label htmlFor="amcDateTo">AMC Date To</label>
+                    <input id="amcDateTo" type="date" value={form.amcDateTo} onChange={(e) => update("amcDateTo", e.target.value)} />
+                </div>
+            </div>
+
             <div style={{ display: "flex", gap: 12 }}>
                 <div className="admin-field" style={{ flex: 1 }}>
                     <label htmlFor="email">Email</label>
@@ -95,6 +142,33 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
                 <div className="admin-field" style={{ flex: 1 }}>
                     <label htmlFor="mobile">Mobile Number</label>
                     <input id="mobile" type="text" value={form.mobile} onChange={(e) => update("mobile", e.target.value)} />
+                </div>
+            </div>
+
+            <div style={{ display: "flex", gap: 12 }}>
+                <div style={{ flex: 1 }}>
+                    <ContactListField
+                        label="Additional Emails"
+                        type="email"
+                        values={extraEmails}
+                        onChange={(v) => {
+                            setExtraEmails(v);
+                            setSaved(false);
+                        }}
+                        addLabel="+ Add another email"
+                    />
+                </div>
+                <div style={{ flex: 1 }}>
+                    <ContactListField
+                        label="Additional Phone Numbers"
+                        type="tel"
+                        values={extraPhones}
+                        onChange={(v) => {
+                            setExtraPhones(v);
+                            setSaved(false);
+                        }}
+                        addLabel="+ Add another phone number"
+                    />
                 </div>
             </div>
 

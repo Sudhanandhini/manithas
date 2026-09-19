@@ -60,7 +60,7 @@ const PAGES = [
     { slug: "/hosting/cloud-vps-hosting", label: "Cloud & VPS Hosting", title: "Cloud & VPS Hosting", description: "Scalable cloud and VPS hosting with dedicated resources and full root access." },
 
     // Business E-Mail
-    { slug: "/business-email/google-workspace", label: "Microsoft 365", title: "Microsoft 365", description: "Outlook, Teams, OneDrive, and the full Office suite set up on your business domain." },
+    { slug: "/business-email/microsoft-365", label: "Microsoft 365", title: "Microsoft 365", description: "Outlook, Teams, OneDrive, and the full Office suite set up on your business domain." },
     { slug: "/business-email/google-workspace", label: "Google Workspace", title: "Google Workspace", description: "Gmail, Drive, Docs, Meet, and Calendar set up on your business domain." },
     { slug: "/business-email/web-email", label: "Web Email", title: "Web Email", description: "A simple, cost-effective business email solution hosted on your own domain." },
 

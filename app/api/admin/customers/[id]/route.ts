@@ -3,8 +3,24 @@ import { getServerSession } from "next-auth";
 import bcrypt from "bcryptjs";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { CustomerType } from "@prisma/client";
 
 const EDITABLE_FIELDS = ["name", "email", "mobile", "website", "driveLink", "address", "companyName"] as const;
+const CUSTOMER_TYPES = new Set(Object.values(CustomerType));
+
+function sanitizeStringArray(value: unknown): string[] {
+    if (!Array.isArray(value)) return [];
+    return value
+        .filter((v): v is string => typeof v === "string")
+        .map((v) => v.trim())
+        .filter(Boolean);
+}
+
+function sanitizeDate(value: unknown): Date | null {
+    if (typeof value !== "string" || !value) return null;
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? null : date;
+}
 
 export async function GET(_req: Request, { params }: { params: { id: string } }) {
     const session = await getServerSession(authOptions);
@@ -31,6 +47,32 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
         if (field in body) {
             data[field] = body[field] || null;
         }
+    }
+    if ("customerType" in body) {
+        data.customerType =
+            typeof body.customerType === "string" && CUSTOMER_TYPES.has(body.customerType as CustomerType)
+                ? body.customerType
+                : null;
+    }
+    if ("amcDateFrom" in body) {
+        data.amcDateFrom = sanitizeDate(body.amcDateFrom);
+    }
+    if ("amcDateTo" in body) {
+        const amcDateTo = sanitizeDate(body.amcDateTo);
+        data.amcDateTo = amcDateTo;
+
+        const existing = await prisma.customer.findUnique({ where: { id: params.id }, select: { amcDateTo: true } });
+        if (existing && existing.amcDateTo?.getTime() !== amcDateTo?.getTime()) {
+            data.amcReminderSentAt = null;
+        }
+    }
+    if ("extraEmails" in body) {
+        const extraEmails = sanitizeStringArray(body.extraEmails);
+        data.extraEmails = extraEmails.length ? extraEmails : null;
+    }
+    if ("extraPhones" in body) {
+        const extraPhones = sanitizeStringArray(body.extraPhones);
+        data.extraPhones = extraPhones.length ? extraPhones : null;
     }
     if ("name" in body && !body.name) {
         return NextResponse.json({ error: "Name is required" }, { status: 400 });

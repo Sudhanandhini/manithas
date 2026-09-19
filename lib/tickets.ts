@@ -12,6 +12,8 @@ export const TICKET_STATUSES = [
 
 export const TICKET_PRIORITIES = ["Low", "Medium", "High", "Critical"] as const;
 
+export const TICKET_TYPES = ["AMC", "AMC + Chargeable", "Chargeable"] as const;
+
 export const TICKET_CATEGORIES = [
     "Website",
     "Web Application",
@@ -29,6 +31,7 @@ export const TICKET_CATEGORIES = [
 export type TicketStatus = (typeof TICKET_STATUSES)[number];
 export type TicketPriority = (typeof TICKET_PRIORITIES)[number];
 export type TicketCategory = (typeof TICKET_CATEGORIES)[number];
+export type TicketType = (typeof TICKET_TYPES)[number];
 
 export const CLOSED_STATUSES: TicketStatus[] = ["Resolved", "Closed"];
 

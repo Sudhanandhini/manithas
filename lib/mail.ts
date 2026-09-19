@@ -116,3 +116,13 @@ export function ticketReopenedAdminEmail(subject: string, customerName: string, 
         `/admin/tickets/${ticketId}`
     );
 }
+
+export function amcExpiryReminderEmail(customerName: string, amcDateTo: Date, daysLeft: number) {
+    const formattedDate = amcDateTo.toLocaleDateString("en-IN", { day: "2-digit", month: "long", year: "numeric" });
+    return wrapEmail(
+        "Your AMC is expiring soon",
+        `<p>Hi ${customerName},</p><p>Your Annual Maintenance Contract (AMC) is set to expire on <strong>${formattedDate}</strong> (${daysLeft} day${daysLeft === 1 ? "" : "s"} from today).</p><p>Please get in touch with us to renew your AMC and avoid any interruption in support.</p>`,
+        "Contact Support",
+        `/dashboard`
+    );
+}

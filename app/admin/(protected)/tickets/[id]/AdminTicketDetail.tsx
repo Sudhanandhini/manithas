@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import TicketThread from "@/src/components/Tickets/TicketThread";
 import AttachmentPicker, { type PendingAttachment } from "@/src/components/Tickets/AttachmentPicker";
-import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES } from "@/lib/tickets";
+import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES, TICKET_TYPES } from "@/lib/tickets";
 
 export default function AdminTicketDetail({ ticket, assignees }: { ticket: any; assignees: string[] }) {
     const router = useRouter();
     const [status, setStatus] = useState(ticket.status);
     const [priority, setPriority] = useState(ticket.priority);
     const [category, setCategory] = useState(ticket.category);
+    const [ticketType, setTicketType] = useState(ticket.ticketType || "");
     const [assignedTo, setAssignedTo] = useState(ticket.assignedTo || "");
     const [savingFields, setSavingFields] = useState(false);
 
@@ -23,7 +24,7 @@ export default function AdminTicketDetail({ ticket, assignees }: { ticket: any; 
     const assigneeOptions =
         ticket.assignedTo && !assignees.includes(ticket.assignedTo) ? [ticket.assignedTo, ...assignees] : assignees;
 
-    async function saveFields(next: { status?: string; priority?: string; category?: string; assignedTo?: string }) {
+    async function saveFields(next: { status?: string; priority?: string; category?: string; ticketType?: string; assignedTo?: string }) {
         setSavingFields(true);
         await fetch(`/api/admin/tickets/${ticket.id}`, {
             method: "PATCH",
@@ -129,6 +130,24 @@ export default function AdminTicketDetail({ ticket, assignees }: { ticket: any; 
                             {TICKET_CATEGORIES.map((c) => (
                                 <option key={c} value={c}>
                                     {c}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="admin-field" style={{ flex: 1 }}>
+                        <label>Type</label>
+                        <select
+                            value={ticketType}
+                            disabled={savingFields}
+                            onChange={(e) => {
+                                setTicketType(e.target.value);
+                                saveFields({ ticketType: e.target.value });
+                            }}
+                        >
+                            <option value="">Select type</option>
+                            {TICKET_TYPES.map((t) => (
+                                <option key={t} value={t}>
+                                    {t}
                                 </option>
                             ))}
                         </select>
