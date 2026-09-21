@@ -4,6 +4,7 @@ import { customerAuthOptions } from "@/lib/customerAuth";
 import { prisma } from "@/lib/prisma";
 import CustomerAuthProvider from "@/src/components/CustomerAuthProvider";
 import DashboardSidebar from "./DashboardSidebar";
+import NotificationBell from "./NotificationBell";
 import "../../admin/admin.css";
 
 export default async function DashboardProtectedLayout({ children }: { children: React.ReactNode }) {
@@ -24,6 +25,9 @@ export default async function DashboardProtectedLayout({ children }: { children:
                 <div className="admin-shell">
                     <DashboardSidebar customerName={customer.name} isOwner={isOwner} />
                     <main className="admin-content">
+                        <div className="admin-topbar">
+                            <NotificationBell />
+                        </div>
                         <div className="admin-content-inner">{children}</div>
                     </main>
                 </div>

@@ -24,7 +24,11 @@ export default async function DashboardAccountPage() {
                 Account Settings
             </p>
             <div className="admin-card">
-                <AccountSettingsForm username={customer.username} email={customer.email ?? ""} />
+                <AccountSettingsForm
+                    username={customer.username}
+                    email={customer.email ?? ""}
+                    isOwner={!customer.teamOwnerId}
+                />
             </div>
         </>
     );

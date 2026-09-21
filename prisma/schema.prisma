@@ -34,6 +34,9 @@ model SeoPage {
   canonicalUrl  String?
   noindex       Boolean  @default(false)
   nofollow      Boolean  @default(false)
+  // Raw JSON-LD (schema.org structured data) rendered as a <script type="application/ld+json">
+  // on the matching public page. Free-form so any @type can be used; must be valid JSON.
+  jsonLd        String?  @db.Text
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
@@ -68,6 +71,7 @@ model BlogPost {
   metaTitle       String?
   metaDescription String?  @db.Text
   noindex         Boolean  @default(false)
+  nofollow        Boolean  @default(false)
   published       Boolean  @default(true)
   publishedAt     DateTime @default(now())
   createdAt       DateTime @default(now())
@@ -99,6 +103,7 @@ model Solution {
   metaTitle         String?
   metaDescription   String?  @db.Text
   noindex           Boolean  @default(false)
+  nofollow          Boolean  @default(false)
   published         Boolean  @default(true)
   publishedAt       DateTime @default(now())
   createdAt         DateTime @default(now())
@@ -119,29 +124,30 @@ enum CustomerType {
 }
 
 model Customer {
-  id                String        @id @default(cuid())
-  username          String        @unique
-  passwordHash      String
-  name              String
-  customerType      CustomerType?
-  amcDateFrom       DateTime?
-  amcDateTo         DateTime?
-  amcReminderSentAt DateTime?
-  email             String?
-  mobile            String?
-  extraEmails       Json?
-  extraPhones       Json?
-  website           String?
-  driveLink         String?
-  address           String?       @db.Text
-  companyName       String?
-  disabled          Boolean       @default(false)
-  createdAt         DateTime      @default(now())
-  updatedAt         DateTime      @updatedAt
-  tickets           Ticket[]
-  teamOwnerId       String?
-  teamOwner         Customer?     @relation("TeamMembers", fields: [teamOwnerId], references: [id], onDelete: Cascade)
-  teamMembers       Customer[]    @relation("TeamMembers")
+  id                   String        @id @default(cuid())
+  username             String        @unique
+  passwordHash         String
+  name                 String
+  customerType         CustomerType?
+  amcDateFrom          DateTime?
+  amcDateTo            DateTime?
+  amcReminderSentAt    DateTime?
+  amcExpiredNotifiedAt DateTime?
+  email                String?
+  mobile               String?
+  extraEmails          Json?
+  extraPhones          Json?
+  website              String?
+  driveLink            String?
+  address              String?       @db.Text
+  companyName          String?
+  disabled             Boolean       @default(false)
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+  tickets              Ticket[]
+  teamOwnerId          String?
+  teamOwner            Customer?     @relation("TeamMembers", fields: [teamOwnerId], references: [id], onDelete: Cascade)
+  teamMembers          Customer[]    @relation("TeamMembers")
 
   @@index([teamOwnerId])
 }

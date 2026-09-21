@@ -79,6 +79,21 @@ export async function buildMetadata(slug: string): Promise<Metadata> {
 }
 
 /**
+ * Looks up the raw JSON-LD (schema.org structured data) an admin has set for the page at
+ * `slug` in the SeoPage table. Returns null when there's no row, no schema set, or the
+ * stored value isn't valid JSON (defensive — the admin form already validates on save).
+ */
+export async function getStructuredData(slug: string): Promise<unknown | null> {
+    const page = await prisma.seoPage.findUnique({ where: { slug }, select: { jsonLd: true } });
+    if (!page?.jsonLd) return null;
+    try {
+        return JSON.parse(page.jsonLd);
+    } catch {
+        return null;
+    }
+}
+
+/**
  * Builds Metadata for content that isn't admin-managed row-by-row (blog posts, portfolio
  * items, category/tag listings) - falls back to the item's own title/description/image plus
  * site-wide defaults from SiteSettings.
@@ -89,6 +104,7 @@ export async function buildDynamicMetadata(options: {
     description?: string | null;
     image?: string | null;
     noindex?: boolean;
+    nofollow?: boolean;
 }): Promise<Metadata> {
     const settings = await getSiteSettings();
     const title = options.title ?? settings.siteName;
@@ -103,7 +119,7 @@ export async function buildDynamicMetadata(options: {
         },
         robots: {
             index: !options.noindex,
-            follow: !options.noindex,
+            follow: !options.nofollow,
         },
         openGraph: {
             title,

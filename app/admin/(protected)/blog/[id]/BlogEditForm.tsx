@@ -23,6 +23,7 @@ export default function BlogEditForm({ post, categories }: { post: BlogPost; cat
         published: post.published,
         publishedAt: post.publishedAt.toISOString().slice(0, 10),
         noindex: post.noindex,
+        nofollow: post.nofollow,
     });
     const originalPublishedAt = post.publishedAt;
     const [saving, setSaving] = useState(false);
@@ -203,6 +204,17 @@ export default function BlogEditForm({ post, categories }: { post: BlogPost; cat
                     />
                     <label htmlFor="noindex" style={{ margin: 0 }}>
                         Hide from search engines (noindex)
+                    </label>
+                </div>
+                <div className="admin-checkbox-row" style={{ marginTop: 8 }}>
+                    <input
+                        id="nofollow"
+                        type="checkbox"
+                        checked={form.nofollow}
+                        onChange={(e) => update("nofollow", e.target.checked)}
+                    />
+                    <label htmlFor="nofollow" style={{ margin: 0 }}>
+                        Don&apos;t follow links on this page (nofollow)
                     </label>
                 </div>
             </div>

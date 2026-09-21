@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import AdminSidebar from "./AdminSidebar";
+import NotificationBell from "./NotificationBell";
 import "../admin.css";
 
 export default async function AdminProtectedLayout({ children }: { children: React.ReactNode }) {
@@ -15,6 +16,9 @@ export default async function AdminProtectedLayout({ children }: { children: Rea
             <div className="admin-shell">
                 <AdminSidebar />
                 <main className="admin-content">
+                    <div className="admin-topbar">
+                        <NotificationBell />
+                    </div>
                     <div className="admin-content-inner">{children}</div>
                 </main>
             </div>

@@ -6,6 +6,24 @@ import TicketThread from "@/src/components/Tickets/TicketThread";
 import DriveAttachmentNote from "@/src/components/Tickets/DriveAttachmentNote";
 import { CLOSED_STATUSES } from "@/lib/tickets";
 
+function statusPillClass(status: string) {
+    if (status === "Cancelled") return "ticket-meta-pill--status-cancelled";
+    if ((CLOSED_STATUSES as string[]).includes(status)) return "ticket-meta-pill--status-closed";
+    return "ticket-meta-pill--status-open";
+}
+
+function priorityPillClass(priority: string) {
+    switch (priority) {
+        case "Critical":
+        case "High":
+            return "ticket-meta-pill--priority-high";
+        case "Low":
+            return "ticket-meta-pill--priority-low";
+        default:
+            return "ticket-meta-pill--priority-medium";
+    }
+}
+
 export default function TicketDetailClient({ ticket, driveLink }: { ticket: any; driveLink: string | null }) {
     const router = useRouter();
     const [message, setMessage] = useState("");
@@ -57,19 +75,17 @@ export default function TicketDetailClient({ ticket, driveLink }: { ticket: any;
                     <p className="admin-title" style={{ marginBottom: 4 }}>
                         {ticket.subject}
                     </p>
-                    <small>
-                        {ticket.category} &middot; Status: {ticket.status} &middot; Priority: {ticket.priority} &middot; Assigned To:{" "}
-                        {ticket.assignedTo || "Unassigned"}
+                    <div className="ticket-meta-bar">
+                        <span className="ticket-meta-pill">{ticket.category}</span>
+                        <span className={`ticket-meta-pill ${statusPillClass(ticket.status)}`}>{ticket.status}</span>
+                        <span className={`ticket-meta-pill ${priorityPillClass(ticket.priority)}`}>{ticket.priority}</span>
+                        <span className="ticket-meta-pill">Assigned To: {ticket.assignedTo || "Unassigned"}</span>
                         {driveLink && (
-                            <>
-                                {" "}
-                                &middot;{" "}
-                                <a href={driveLink} target="_blank" rel="noreferrer">
-                                    Google Drive Folder
-                                </a>
-                            </>
+                            <a href={driveLink} target="_blank" rel="noreferrer" className="ticket-meta-pill ticket-meta-pill--link">
+                                Google Drive Folder
+                            </a>
                         )}
-                    </small>
+                    </div>
                 </div>
                 {isClosed && (
                     <button className="admin-btn admin-btn-secondary" onClick={handleReopen} disabled={reopening}>

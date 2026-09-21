@@ -55,6 +55,9 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     if ("noindex" in body) {
         data.noindex = Boolean(body.noindex);
     }
+    if ("nofollow" in body) {
+        data.nofollow = Boolean(body.nofollow);
+    }
     if ("publishedAt" in body) {
         const parsed = new Date(body.publishedAt);
         if (Number.isNaN(parsed.getTime())) {

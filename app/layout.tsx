@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Mulish } from "next/font/google";
 import AosInit from "@/src/components/AosInit";
 import NavScrollTop from "@/src/components/NavScrollTop";
 import FloatingChat from "@/src/components/FloatingChat/FloatingChat";
+import JsonLd from "@/src/components/Seo/JsonLd";
 import { TalkToUsProvider } from "@/src/context/TalkToUsContext";
 import { QuoteProvider } from "@/src/context/QuoteContext";
 import { PageLinksProvider } from "@/src/context/PageLinksContext";
-import { getSiteSettings, siteUrl } from "@/lib/seo";
+import { getSiteSettings, getStructuredData, siteUrl } from "@/lib/seo";
 import { prisma } from "@/lib/prisma";
 
 import "swiper/css";
@@ -61,11 +63,16 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const pageLinksMap = await getPageLinksMap();
+    const pathname = (await headers()).get("x-pathname") ?? "/";
+    const [pageLinksMap, structuredData] = await Promise.all([
+        getPageLinksMap(),
+        getStructuredData(pathname),
+    ]);
 
     return (
         <html lang="en" className={mulish.variable}>
             <body>
+                <JsonLd data={structuredData} />
                 <PageLinksProvider map={pageLinksMap}>
                     <QuoteProvider>
                         <TalkToUsProvider>

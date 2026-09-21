@@ -29,6 +29,7 @@ export default function SolutionEditForm({ solution }: { solution: Solution }) {
         published: solution.published,
         publishedAt: solution.publishedAt.toISOString().slice(0, 10),
         noindex: solution.noindex,
+        nofollow: solution.nofollow,
     });
     const originalPublishedAt = solution.publishedAt;
     const [saving, setSaving] = useState(false);
@@ -280,6 +281,17 @@ export default function SolutionEditForm({ solution }: { solution: Solution }) {
                     />
                     <label htmlFor="noindex" style={{ margin: 0 }}>
                         Hide from search engines (noindex)
+                    </label>
+                </div>
+                <div className="admin-checkbox-row" style={{ marginTop: 8 }}>
+                    <input
+                        id="nofollow"
+                        type="checkbox"
+                        checked={form.nofollow}
+                        onChange={(e) => update("nofollow", e.target.checked)}
+                    />
+                    <label htmlFor="nofollow" style={{ margin: 0 }}>
+                        Don&apos;t follow links on this page (nofollow)
                     </label>
                 </div>
             </div>

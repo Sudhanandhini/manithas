@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         description: post?.metaDescription ?? post?.excerpt,
         image: post?.largeImage ?? post?.image,
         noindex: post?.noindex,
+        nofollow: post?.nofollow,
     });
 }
 

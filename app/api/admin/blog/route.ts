@@ -67,3 +67,30 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ post }, { status: 201 });
 }
+
+export async function PATCH(req: Request) {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const body = await req.json();
+    const ids = Array.isArray(body.ids) ? body.ids.filter((id: unknown) => typeof id === "string") : [];
+    if (ids.length === 0) {
+        return NextResponse.json({ error: "ids is required" }, { status: 400 });
+    }
+    if (typeof body.noindex !== "boolean" && typeof body.nofollow !== "boolean") {
+        return NextResponse.json({ error: "noindex or nofollow must be provided" }, { status: 400 });
+    }
+
+    const data: Record<string, boolean> = {};
+    if (typeof body.noindex === "boolean") data.noindex = body.noindex;
+    if (typeof body.nofollow === "boolean") data.nofollow = body.nofollow;
+
+    const result = await prisma.blogPost.updateMany({
+        where: { id: { in: ids } },
+        data,
+    });
+
+    return NextResponse.json({ count: result.count });
+}

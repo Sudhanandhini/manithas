@@ -102,20 +102,21 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
                     <small>Leave blank to keep the current password.</small>
                 </div>
             </div>
-
-            <div className="admin-field">
+    <div style={{ display: "flex", gap: 12 }}>
+            <div className="admin-field" style={{ flex: 1 }}>
                 <label htmlFor="name">Full Name</label>
                 <input id="name" type="text" required value={form.name} onChange={(e) => update("name", e.target.value)} />
             </div>
 
-            <div className="admin-field">
+            <div className="admin-field" style={{ flex: 1 }}>
                 <label htmlFor="customerType">Type</label>
                 <select id="customerType" value={form.customerType} onChange={(e) => update("customerType", e.target.value)}>
                     <option value="">Select type</option>
                     <option value="AMC">AMC</option>
-                    <option value="AMC_CHARGEABLE">AMC + Chargeable</option>
+                    {/* <option value="AMC_CHARGEABLE">AMC + Chargeable</option> */}
                     <option value="CHARGEABLE">Chargeable</option>
                 </select>
+            </div>
             </div>
 
             <div style={{ display: "flex", gap: 12 }}>
@@ -194,10 +195,10 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
                 <input id="companyName" type="text" value={form.companyName} onChange={(e) => update("companyName", e.target.value)} />
             </div>
 
-            <div className="admin-field">
+            {/* <div className="admin-field">
                 <label htmlFor="address">Address</label>
                 <textarea id="address" rows={2} value={form.address} onChange={(e) => update("address", e.target.value)} />
-            </div>
+            </div> */}
 
             <div style={{ display: "flex", gap: 12 }}>
                 <button className="admin-btn" type="submit" disabled={saving}>

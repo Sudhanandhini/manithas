@@ -136,6 +136,115 @@
     width: 100%;
 }
 
+.admin-topbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.admin-notification-bell {
+    position: relative;
+}
+
+.admin-notification-bell-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e2e2ea;
+    background: #fff;
+    color: #1a1a2e;
+    cursor: pointer;
+}
+
+.admin-notification-bell-btn:hover {
+    background: #f4f5fb;
+}
+
+.admin-notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background: #a4262c;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+}
+
+.admin-notification-panel {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    width: 340px;
+    max-height: 420px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #e2e2ea;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(20, 20, 50, 0.12);
+    z-index: 50;
+    padding: 8px 0;
+}
+
+.admin-notification-panel-section {
+    padding: 8px 16px 12px;
+}
+
+.admin-notification-panel-section + .admin-notification-panel-section {
+    border-top: 1px solid #eee;
+}
+
+.admin-notification-panel-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #7c88a3;
+    font-weight: 700;
+    margin: 4px 0 8px;
+}
+
+.admin-notification-empty {
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+}
+
+.admin-notification-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 13px;
+    color: #1a1a2e !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid #f4f5fb;
+}
+
+.admin-notification-item:last-child {
+    border-bottom: none;
+}
+
+.admin-notification-item:hover {
+    color: #2952e3 !important;
+}
+
+.admin-notification-item-meta {
+    flex-shrink: 0;
+    font-size: 12px;
+    color: #a4262c;
+    font-weight: 600;
+}
+
 .admin-content-header {
     display: flex;
     align-items: center;
@@ -254,6 +363,108 @@
 
 .admin-btn-sm:hover {
     background: #dfe5fb;
+}
+
+.admin-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.admin-pagination-page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 6px;
+    border: none;
+    background: #eef1fb;
+    color: #2952e3 !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.admin-pagination-page:hover {
+    background: #dfe5fb;
+}
+
+.admin-pagination-page.is-active {
+    background: #2952e3;
+    color: #fff !important;
+    cursor: default;
+}
+
+.admin-pagination-dots {
+    color: #999;
+    font-size: 13px;
+    padding: 0 2px;
+}
+
+.ticket-meta-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.ticket-meta-pill {
+    display: inline-flex;
+    align-items: center;
+    background: #eef1fb;
+    color: #2952e3;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none !important;
+    white-space: nowrap;
+}
+
+.ticket-meta-pill--link {
+    background: #dfe5fb;
+}
+
+.ticket-meta-pill--link:hover {
+    background: #cdd7fa;
+}
+
+.ticket-meta-pill--status-open {
+    background: #fff4de;
+    color: #b8790a;
+}
+
+.ticket-meta-pill--status-closed {
+    background: #e3f9ee;
+    color: #1a9c63;
+}
+
+.ticket-meta-pill--status-cancelled {
+    background: #f1f1f6;
+    color: #67718a;
+}
+
+.ticket-meta-pill--priority-critical,
+.ticket-meta-pill--priority-high {
+    background: #fdeaea;
+    color: #c0392b;
+}
+
+.ticket-meta-pill--priority-medium {
+    background: #eef1fb;
+    color: #2952e3;
+}
+
+.ticket-meta-pill--priority-low {
+    background: #f1f1f6;
+    color: #67718a;
 }
 
 .admin-field {

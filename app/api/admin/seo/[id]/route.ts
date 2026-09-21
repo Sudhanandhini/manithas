@@ -14,6 +14,7 @@ const EDITABLE_FIELDS = [
     "canonicalUrl",
     "noindex",
     "nofollow",
+    "jsonLd",
 ] as const;
 
 export async function GET(_req: Request, { params }: { params: { id: string } }) {
@@ -63,6 +64,14 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
             return NextResponse.json({ error: "label is required" }, { status: 400 });
         }
         data.label = label;
+    }
+
+    if (typeof data.jsonLd === "string") {
+        try {
+            JSON.parse(data.jsonLd);
+        } catch {
+            return NextResponse.json({ error: "Schema (JSON-LD) must be valid JSON." }, { status: 400 });
+        }
     }
 
     try {

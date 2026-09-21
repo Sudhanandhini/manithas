@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import type { SeoPage } from "@prisma/client";
 
@@ -21,10 +21,21 @@ export default function SeoEditForm({ page }: { page: SeoPage }) {
         canonicalUrl: page.canonicalUrl ?? "",
         noindex: page.noindex,
         nofollow: page.nofollow,
+        jsonLd: page.jsonLd ?? "",
     });
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [saved, setSaved] = useState(false);
+
+    const jsonLdError = useMemo(() => {
+        if (!form.jsonLd.trim()) return null;
+        try {
+            JSON.parse(form.jsonLd);
+            return null;
+        } catch {
+            return "Not valid JSON — this schema will not be saved until it's fixed.";
+        }
+    }, [form.jsonLd]);
 
     function update<K extends keyof typeof form>(key: K, value: (typeof form)[K]) {
         setForm((prev) => ({ ...prev, [key]: value }));
@@ -33,6 +44,10 @@ export default function SeoEditForm({ page }: { page: SeoPage }) {
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
+        if (jsonLdError) {
+            setError(jsonLdError);
+            return;
+        }
         setSaving(true);
         setError(null);
         setSaved(false);
@@ -182,6 +197,23 @@ export default function SeoEditForm({ page }: { page: SeoPage }) {
             </div>
 
             <div className="admin-field">
+                <label htmlFor="jsonLd">Schema (JSON-LD)</label>
+                <textarea
+                    id="jsonLd"
+                    rows={8}
+                    style={{ fontFamily: "monospace", fontSize: 13 }}
+                    placeholder={'{\n  "@context": "https://schema.org",\n  "@type": "WebPage",\n  "name": "..."\n}'}
+                    value={form.jsonLd}
+                    onChange={(e) => update("jsonLd", e.target.value)}
+                />
+                {jsonLdError && <small className="admin-error" style={{ marginBottom: 0 }}>{jsonLdError}</small>}
+                <small>
+                    Optional structured data rendered as a <code>&lt;script type=&quot;application/ld+json&quot;&gt;</code> tag
+                    on this page. Leave blank to render none. Must be valid JSON.
+                </small>
+            </div>
+
+            <div className="admin-field">
                 <div className="admin-checkbox-row">
                     <input
                         id="noindex"
@@ -206,7 +238,7 @@ export default function SeoEditForm({ page }: { page: SeoPage }) {
                 </div>
             </div>
 
-            <button className="admin-btn" type="submit" disabled={saving}>
+            <button className="admin-btn" type="submit" disabled={saving || !!jsonLdError}>
                 {saving ? "Saving..." : "Save changes"}
             </button>
         </form>

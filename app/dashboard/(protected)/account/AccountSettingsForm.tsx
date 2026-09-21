@@ -3,7 +3,15 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
-export default function AccountSettingsForm({ username, email }: { username: string; email: string }) {
+export default function AccountSettingsForm({
+    username,
+    email,
+    isOwner,
+}: {
+    username: string;
+    email: string;
+    isOwner: boolean;
+}) {
     const router = useRouter();
     const [form, setForm] = useState({
         username,
@@ -60,15 +68,17 @@ export default function AccountSettingsForm({ username, email }: { username: str
             </div>
 
             <div style={{ display: "flex", gap: 12 }}>
-                <div className="admin-field" style={{ flex: 1 }}>
-                    <label htmlFor="currentPassword">Current Password</label>
-                    <input
-                        id="currentPassword"
-                        type="password"
-                        value={form.currentPassword}
-                        onChange={(e) => update("currentPassword", e.target.value)}
-                    />
-                </div>
+                {!isOwner && (
+                    <div className="admin-field" style={{ flex: 1 }}>
+                        <label htmlFor="currentPassword">Current Password</label>
+                        <input
+                            id="currentPassword"
+                            type="password"
+                            value={form.currentPassword}
+                            onChange={(e) => update("currentPassword", e.target.value)}
+                        />
+                    </div>
+                )}
                 <div className="admin-field" style={{ flex: 1 }}>
                     <label htmlFor="newPassword">New Password</label>
                     <input id="newPassword" type="password" value={form.newPassword} onChange={(e) => update("newPassword", e.target.value)} />

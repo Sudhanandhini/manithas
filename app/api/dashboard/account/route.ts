@@ -37,12 +37,15 @@ export async function PATCH(req: Request) {
     };
 
     if (newPassword) {
-        if (!currentPassword) {
-            return NextResponse.json({ error: "Enter your current password to set a new one." }, { status: 400 });
-        }
-        const isValid = await bcrypt.compare(currentPassword, customer.passwordHash);
-        if (!isValid) {
-            return NextResponse.json({ error: "Current password is incorrect." }, { status: 400 });
+        const isOwner = !customer.teamOwnerId;
+        if (!isOwner) {
+            if (!currentPassword) {
+                return NextResponse.json({ error: "Enter your current password to set a new one." }, { status: 400 });
+            }
+            const isValid = await bcrypt.compare(currentPassword, customer.passwordHash);
+            if (!isValid) {
+                return NextResponse.json({ error: "Current password is incorrect." }, { status: 400 });
+            }
         }
         if (newPassword.length < 6) {
             return NextResponse.json({ error: "New password must be at least 6 characters." }, { status: 400 });

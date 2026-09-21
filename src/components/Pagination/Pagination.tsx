@@ -1,5 +1,7 @@
 "use client";
 
+import { getPageRange } from "./pageRange";
+
 export const PAGE_SIZE = 10;
 
 export default function Pagination({
@@ -14,13 +16,27 @@ export default function Pagination({
     if (totalPages <= 1) return null;
 
     return (
-        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 12, marginTop: 16 }}>
+        <div className="admin-pagination">
             <button type="button" className="admin-btn-sm" disabled={page <= 1} onClick={() => onChange(page - 1)}>
                 Prev
             </button>
-            <span>
-                Page {page} of {totalPages}
-            </span>
+            {getPageRange(page, totalPages).map((token, i) =>
+                token === "..." ? (
+                    <span key={`dots-${i}`} className="admin-pagination-dots">
+                        …
+                    </span>
+                ) : (
+                    <button
+                        key={token}
+                        type="button"
+                        className={`admin-pagination-page${token === page ? " is-active" : ""}`}
+                        onClick={() => onChange(token)}
+                        aria-current={token === page ? "page" : undefined}
+                    >
+                        {token}
+                    </button>
+                )
+            )}
             <button
                 type="button"
                 className="admin-btn-sm"

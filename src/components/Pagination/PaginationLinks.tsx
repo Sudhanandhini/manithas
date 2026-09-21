@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getPageRange } from "./pageRange";
 
 export const PAGE_SIZE = 10;
 
@@ -27,7 +28,7 @@ export default function PaginationLinks({
     }
 
     return (
-        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 12, marginTop: 16 }}>
+        <div className="admin-pagination">
             <Link
                 href={hrefFor(page - 1)}
                 className="admin-btn-sm"
@@ -36,9 +37,22 @@ export default function PaginationLinks({
             >
                 Prev
             </Link>
-            <span>
-                Page {page} of {totalPages}
-            </span>
+            {getPageRange(page, totalPages).map((token, i) =>
+                token === "..." ? (
+                    <span key={`dots-${i}`} className="admin-pagination-dots">
+                        …
+                    </span>
+                ) : (
+                    <Link
+                        key={token}
+                        href={hrefFor(token)}
+                        className={`admin-pagination-page${token === page ? " is-active" : ""}`}
+                        aria-current={token === page ? "page" : undefined}
+                    >
+                        {token}
+                    </Link>
+                )
+            )}
             <Link
                 href={hrefFor(page + 1)}
                 className="admin-btn-sm"

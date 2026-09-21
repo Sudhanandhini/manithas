@@ -64,6 +64,7 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
         const existing = await prisma.customer.findUnique({ where: { id: params.id }, select: { amcDateTo: true } });
         if (existing && existing.amcDateTo?.getTime() !== amcDateTo?.getTime()) {
             data.amcReminderSentAt = null;
+            data.amcExpiredNotifiedAt = null;
         }
     }
     if ("extraEmails" in body) {
