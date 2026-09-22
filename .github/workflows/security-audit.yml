@@ -1,0 +1,25 @@
+name: Security audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Weekly, so newly-disclosed CVEs in existing dependencies surface even
+    # without a code change triggering a run.
+    - cron: "0 6 * * 1"
+
+jobs:
+  npm-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      # This is expected to fail red until the known Next.js/swiper major-version
+      # upgrades (tracked separately - see chat history) are done. Left failing
+      # on purpose rather than suppressed, so the debt stays visible.
+      - run: npm audit --omit=dev --audit-level=high

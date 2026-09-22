@@ -4,6 +4,10 @@ import { customerAuthOptions } from "@/lib/customerAuth";
 import { prisma } from "@/lib/prisma";
 import { TICKET_CATEGORIES } from "@/lib/tickets";
 import { sendMail, ticketCreatedCustomerEmail, ticketCreatedAdminEmail } from "@/lib/mail";
+import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
+
+const TICKET_CREATE_LIMIT = 10;
+const TICKET_CREATE_WINDOW_MS = 10 * 60 * 1000;
 
 type AttachmentInput = { url: string; fileName: string; fileType: string; fileSize: number };
 
@@ -37,6 +41,11 @@ export async function POST(req: Request) {
     }
     const customerId = (session.user as { id: string }).id;
     const accountId = (session.user as { accountId: string }).accountId;
+
+    const ip = getClientIp(req.headers);
+    if (!checkRateLimit(`ticket-create:${ip}`, TICKET_CREATE_LIMIT, TICKET_CREATE_WINDOW_MS)) {
+        return NextResponse.json({ error: "Too many tickets created. Please try again later." }, { status: 429 });
+    }
 
     const body = await req.json();
     const subject = typeof body.subject === "string" ? body.subject.trim() : "";

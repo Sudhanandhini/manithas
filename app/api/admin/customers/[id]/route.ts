@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { CustomerType } from "@prisma/client";
+import { isValidEmail } from "@/lib/enquiries";
 
 const EDITABLE_FIELDS = ["name", "email", "mobile", "website", "driveLink", "address", "companyName"] as const;
 const CUSTOMER_TYPES = new Set(Object.values(CustomerType));
@@ -84,6 +85,9 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     if ("extraPhones" in body) {
         const extraPhones = sanitizeStringArray(body.extraPhones);
         data.extraPhones = extraPhones.length ? extraPhones : null;
+    }
+    if (typeof body.email === "string" && body.email.trim() && !isValidEmail(body.email)) {
+        return NextResponse.json({ error: "Please enter a valid email address" }, { status: 400 });
     }
     if ("name" in body && !body.name) {
         return NextResponse.json({ error: "Name is required" }, { status: 400 });

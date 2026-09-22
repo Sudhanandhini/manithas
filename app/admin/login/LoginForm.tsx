@@ -26,7 +26,7 @@ export default function LoginForm() {
         setLoading(false);
 
         if (result?.error) {
-            setError("Invalid email or password.");
+            setError(result.error === "CredentialsSignin" ? "Invalid email or password." : result.error);
             return;
         }
 

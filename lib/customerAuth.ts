@@ -2,6 +2,10 @@ import type { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
+import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
+
+const LOGIN_ATTEMPT_LIMIT = 10;
+const LOGIN_ATTEMPT_WINDOW_MS = 15 * 60 * 1000;
 
 // A second, independent NextAuth instance for customer (ticket portal) logins.
 // Every cookie is renamed so this session can never be confused with, or
@@ -46,9 +50,14 @@ export const customerAuthOptions: AuthOptions = {
                 username: { label: "Username", type: "text" },
                 password: { label: "Password", type: "password" },
             },
-            async authorize(credentials) {
+            async authorize(credentials, req) {
                 if (!credentials?.username || !credentials?.password) {
                     return null;
+                }
+
+                const ip = getClientIp(req?.headers);
+                if (!checkRateLimit(`customer-login:${ip}`, LOGIN_ATTEMPT_LIMIT, LOGIN_ATTEMPT_WINDOW_MS)) {
+                    throw new Error("Too many login attempts. Please try again in a few minutes.");
                 }
 
                 const customer = await prisma.customer.findUnique({

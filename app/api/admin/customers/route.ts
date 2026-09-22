@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { CustomerType } from "@prisma/client";
+import { isValidEmail } from "@/lib/enquiries";
 
 const CUSTOMER_TYPES = new Set(Object.values(CustomerType));
 
@@ -57,6 +58,9 @@ export async function POST(req: Request) {
     }
     if (!name) {
         return NextResponse.json({ error: "Name is required" }, { status: 400 });
+    }
+    if (typeof body.email === "string" && body.email.trim() && !isValidEmail(body.email)) {
+        return NextResponse.json({ error: "Please enter a valid email address" }, { status: 400 });
     }
 
     const existing = await prisma.customer.findUnique({ where: { username } });

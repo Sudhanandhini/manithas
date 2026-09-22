@@ -2,11 +2,20 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { isValidEmail, enquirySourceLabel } from "@/lib/enquiries";
 import { sendMail, enquiryCreatedAdminEmail } from "@/lib/mail";
+import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
+
+const ENQUIRY_LIMIT = 5;
+const ENQUIRY_WINDOW_MS = 10 * 60 * 1000;
 
 // Public endpoint - the website chatbot posts a captured lead here (no auth,
 // visitors aren't logged in). Kept intentionally minimal: name, email, and
 // what they're looking for, plus which service they were viewing.
 export async function POST(req: Request) {
+    const ip = getClientIp(req.headers);
+    if (!checkRateLimit(`enquiry:${ip}`, ENQUIRY_LIMIT, ENQUIRY_WINDOW_MS)) {
+        return NextResponse.json({ error: "Too many requests. Please try again later." }, { status: 429 });
+    }
+
     const body = await req.json();
     const name = typeof body.name === "string" ? body.name.trim() : "";
     const email = typeof body.email === "string" ? body.email.trim() : "";
