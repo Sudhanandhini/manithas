@@ -2,11 +2,12 @@ import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 import type { NextRequest } from "next/server";
 
-// Enforcing, not report-only: every external resource the site loads (YouTube
-// embeds, the Google Maps iframe, Next.js's own hydration scripts) was audited
-// against this policy and smoke-tested before switching this on. Set back to
-// true if something breaks and console CSP violations point at a missed source.
-const CSP_REPORT_ONLY = false;
+// Back to report-only: enforcing mode shipped once already and missed a real
+// external resource (Google Fonts, pulled in via a .scss partial that the
+// first audit didn't check), which broke font loading on the live admin
+// login page. Re-verify thoroughly - grep every .scss/.css file, not just
+// the top-level one - before flipping this back to enforcing.
+const CSP_REPORT_ONLY = true;
 
 function buildCsp(nonce: string): string {
     // Webpack's dev-mode module runtime wraps chunks in eval() for fast HMR
@@ -24,9 +25,12 @@ function buildCsp(nonce: string): string {
         // Inline <style> tags (FloatingChat's keyframe block, swiper/AOS runtime
         // styles) aren't practical to nonce - style-based XSS is a much smaller
         // risk than script-based, so this is the standard tradeoff.
-        `style-src 'self' 'unsafe-inline'`,
+        // fonts.googleapis.com: the Rubik font is pulled in via @import url()
+        // in src/assets/scss/_common.scss (missed in the first audit, which
+        // only checked the top-level style.scss).
+        `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`,
         `img-src 'self' data: blob: https://i.ytimg.com`,
-        `font-src 'self' data:`,
+        `font-src 'self' data: https://fonts.gstatic.com`,
         `connect-src 'self'`,
         `frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com`,
         `object-src 'none'`,
