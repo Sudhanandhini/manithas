@@ -24,7 +24,7 @@ export const SOLUTION_LINKS: MegaMenuLink[] = [
 
 export const WHAT_WE_DO: MegaMenuCategory[] = [
     {
-        label: "Application",
+        label: "Application / Software",
         columns: [APPLICATION_LINKS.slice(0, 3), APPLICATION_LINKS.slice(3)],
     },
     {

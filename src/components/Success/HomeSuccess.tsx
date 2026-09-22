@@ -47,7 +47,7 @@ const HomeSuccess = () => {
                         <div className="success-content mt-lg-0 mt-md-50 mt-sm-50 mt-40">
                             <SectionTitleTwo
                                 subTitle="Your success is our success"
-                                title="Web design, marketing &amp; SEO solutions that get results"
+                                title="Web applications, customised software,  web & hosting solutions that get results "
                             />
 
 
@@ -60,7 +60,7 @@ const HomeSuccess = () => {
                                 </div>
 
                                 <div className="progress-charts ">
-                                    <h6 className="heading ">UI & UX Design</h6>
+                                    <h6 className="heading ">Customised Software</h6>
                                     <div className="single-progress">
                                         <ProgressBar data-aos="fade-right" data-aos-delay="100" data-aos-duration="450" className="gradient-2" now={100} label={<span>100%</span>} />
                                     </div>

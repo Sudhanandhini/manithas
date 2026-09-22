@@ -60,7 +60,7 @@ const HomeAbout = () => {
                                 title="<em>Two decades</em> of experience, one focused team"
                             />
 
-                            <p> Since 2006, Manithas Technologies Pvt Ltd has been turning ideas into practical technology solutions that help businesses evolve and grow. Formerly known as Sunsys Technologies, our journey has evolved alongside technology—from websites and hosting to customized web applications and next-generation AI solutions.
+                            <p> Since 2006, Manithas Technologies Pvt. Ltd. has been turning ideas into practical technology solutions that help businesses evolve and grow. Formerly known as Sunsys Technologies, our journey has evolved alongside technology—from websites and hosting to customized web applications, software solutions, and next-generation AI solutions.
 
 We believe technology works best when it is built around the business, not the other way around. That’s why we work closely with our clients, understand their unique challenges, and create reliable solutions designed to simplify operations, unlock new opportunities, and drive long-term growth.</p>
 
