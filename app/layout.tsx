@@ -63,7 +63,9 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const pathname = (await headers()).get("x-pathname") ?? "/";
+    const requestHeaders = await headers();
+    const pathname = requestHeaders.get("x-pathname") ?? "/";
+    const nonce = requestHeaders.get("x-nonce") ?? undefined;
     const [pageLinksMap, structuredData] = await Promise.all([
         getPageLinksMap(),
         getStructuredData(pathname),
@@ -72,7 +74,7 @@ export default async function RootLayout({
     return (
         <html lang="en" className={mulish.variable}>
             <body>
-                <JsonLd data={structuredData} />
+                <JsonLd data={structuredData} nonce={nonce} />
                 <PageLinksProvider map={pageLinksMap}>
                     <QuoteProvider>
                         <TalkToUsProvider>
