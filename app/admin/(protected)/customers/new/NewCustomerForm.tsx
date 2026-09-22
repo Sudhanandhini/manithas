@@ -16,6 +16,7 @@ export default function NewCustomerForm() {
         email: "",
         mobile: "",
         website: "",
+        websiteExpiryDate: "",
         driveLink: "",
         address: "",
         companyName: "",
@@ -42,6 +43,7 @@ export default function NewCustomerForm() {
                 customerType: form.customerType || null,
                 amcDateFrom: form.amcDateFrom || null,
                 amcDateTo: form.amcDateTo || null,
+                websiteExpiryDate: form.websiteExpiryDate || null,
                 extraEmails: extraEmails.map((v) => v.trim()).filter(Boolean),
                 extraPhones: extraPhones.map((v) => v.trim()).filter(Boolean),
             }),
@@ -144,6 +146,18 @@ export default function NewCustomerForm() {
                     <input id="website" type="text" value={form.website} onChange={(e) => update("website", e.target.value)} />
                 </div>
                 <div className="admin-field" style={{ flex: 1 }}>
+                    <label htmlFor="websiteExpiryDate">Website Expiry Date</label>
+                    <input
+                        id="websiteExpiryDate"
+                        type="date"
+                        value={form.websiteExpiryDate}
+                        onChange={(e) => update("websiteExpiryDate", e.target.value)}
+                    />
+                </div>
+            </div>
+
+            <div style={{ display: "flex", gap: 12 }}>
+                <div className="admin-field" style={{ flex: 1 }}>
                     <label htmlFor="driveLink">Drive Link</label>
                     <input
                         id="driveLink"
@@ -160,10 +174,10 @@ export default function NewCustomerForm() {
                 <input id="companyName" type="text" value={form.companyName} onChange={(e) => update("companyName", e.target.value)} />
             </div>
 
-            <div className="admin-field">
+            {/* <div className="admin-field">
                 <label htmlFor="address">Address</label>
                 <textarea id="address" rows={2} value={form.address} onChange={(e) => update("address", e.target.value)} />
-            </div>
+            </div> */}
 
             <button className="admin-btn" type="submit" disabled={loading}>
                 {loading ? "Creating..." : "Create Customer"}

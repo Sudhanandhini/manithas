@@ -31,7 +31,10 @@ export async function GET() {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const customers = await prisma.customer.findMany({ orderBy: { createdAt: "desc" } });
+    const customers = await prisma.customer.findMany({
+        where: { teamOwnerId: null },
+        orderBy: { createdAt: "desc" },
+    });
     return NextResponse.json({ customers });
 }
 
@@ -74,6 +77,7 @@ export async function POST(req: Request) {
             customerType: sanitizeCustomerType(body.customerType),
             amcDateFrom: sanitizeDate(body.amcDateFrom),
             amcDateTo: sanitizeDate(body.amcDateTo),
+            websiteExpiryDate: sanitizeDate(body.websiteExpiryDate),
             email: body.email || null,
             mobile: body.mobile || null,
             extraEmails: extraEmails.length ? extraEmails : undefined,

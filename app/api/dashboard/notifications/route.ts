@@ -19,7 +19,7 @@ export async function GET() {
     const [account, ticketsWithUnread] = await Promise.all([
         prisma.customer.findUnique({
             where: { id: accountId },
-            select: { amcDateTo: true },
+            select: { amcDateTo: true, websiteExpiryDate: true },
         }),
         prisma.ticket.findMany({
             where: { customerId: accountId, messages: { some: { senderType: "admin", isReadByCustomer: false } } },
@@ -41,6 +41,14 @@ export async function GET() {
               }
             : null;
 
+    const websiteExpiring =
+        account?.websiteExpiryDate && account.websiteExpiryDate >= now && account.websiteExpiryDate <= windowEnd
+            ? {
+                  websiteExpiryDate: account.websiteExpiryDate,
+                  daysLeft: Math.ceil((account.websiteExpiryDate.getTime() - now.getTime()) / MS_PER_DAY),
+              }
+            : null;
+
     const tickets = ticketsWithUnread.map((t) => ({
         id: t.id,
         subject: t.subject,
@@ -49,7 +57,8 @@ export async function GET() {
 
     return NextResponse.json({
         amc: amcExpiring,
+        website: websiteExpiring,
         tickets,
-        totalCount: (amcExpiring ? 1 : 0) + tickets.length,
+        totalCount: (amcExpiring ? 1 : 0) + (websiteExpiring ? 1 : 0) + tickets.length,
     });
 }

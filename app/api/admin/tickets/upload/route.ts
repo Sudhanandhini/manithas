@@ -4,7 +4,7 @@ import path from "path";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { TICKET_ATTACHMENT_TYPES, TICKET_ATTACHMENT_MAX_BYTES } from "@/lib/tickets";
+import { TICKET_ATTACHMENT_MAX_BYTES, resolveTicketAttachmentExtension } from "@/lib/tickets";
 
 export async function POST(req: Request) {
     const session = await getServerSession(authOptions);
@@ -18,9 +18,12 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
     }
 
-    const ext = TICKET_ATTACHMENT_TYPES[file.type];
+    const ext = resolveTicketAttachmentExtension(file);
     if (!ext) {
-        return NextResponse.json({ error: "Unsupported file type" }, { status: 400 });
+        return NextResponse.json(
+            { error: "Unsupported file type. Please upload an image, PDF, Word, Excel, or ZIP file." },
+            { status: 400 }
+        );
     }
     if (file.size > TICKET_ATTACHMENT_MAX_BYTES) {
         return NextResponse.json({ error: "File must be under 10MB" }, { status: 400 });

@@ -4,25 +4,7 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import TicketThread from "@/src/components/Tickets/TicketThread";
 import DriveAttachmentNote from "@/src/components/Tickets/DriveAttachmentNote";
-import { CLOSED_STATUSES } from "@/lib/tickets";
-
-function statusPillClass(status: string) {
-    if (status === "Cancelled") return "ticket-meta-pill--status-cancelled";
-    if ((CLOSED_STATUSES as string[]).includes(status)) return "ticket-meta-pill--status-closed";
-    return "ticket-meta-pill--status-open";
-}
-
-function priorityPillClass(priority: string) {
-    switch (priority) {
-        case "Critical":
-        case "High":
-            return "ticket-meta-pill--priority-high";
-        case "Low":
-            return "ticket-meta-pill--priority-low";
-        default:
-            return "ticket-meta-pill--priority-medium";
-    }
-}
+import { CLOSED_STATUSES, statusPillClass, priorityPillClass } from "@/lib/tickets";
 
 export default function TicketDetailClient({ ticket, driveLink }: { ticket: any; driveLink: string | null }) {
     const router = useRouter();
@@ -73,7 +55,7 @@ export default function TicketDetailClient({ ticket, driveLink }: { ticket: any;
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
                 <div>
                     <p className="admin-title" style={{ marginBottom: 4 }}>
-                        {ticket.subject}
+                        #{ticket.ticketNumber} &middot; {ticket.subject}
                     </p>
                     <div className="ticket-meta-bar">
                         <span className="ticket-meta-pill">{ticket.category}</span>

@@ -66,7 +66,9 @@ export default function AdminTicketDetail({ ticket, assignees }: { ticket: any; 
             </Link>
 
             <div className="admin-card" style={{ marginBottom: 20 }}>
-                <h2 style={{ marginTop: 0 }}>{ticket.subject}</h2>
+                <h2 style={{ marginTop: 0 }}>
+                    #{ticket.ticketNumber} &middot; {ticket.subject}
+                </h2>
                 <p style={{ marginTop: -8 }}>
                     <small>
                         {ticket.customer.name} &middot; {ticket.customer.email}

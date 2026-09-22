@@ -67,6 +67,16 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
             data.amcExpiredNotifiedAt = null;
         }
     }
+    if ("websiteExpiryDate" in body) {
+        const websiteExpiryDate = sanitizeDate(body.websiteExpiryDate);
+        data.websiteExpiryDate = websiteExpiryDate;
+
+        const existing = await prisma.customer.findUnique({ where: { id: params.id }, select: { websiteExpiryDate: true } });
+        if (existing && existing.websiteExpiryDate?.getTime() !== websiteExpiryDate?.getTime()) {
+            data.websiteReminderSentAt = null;
+            data.websiteExpiredNotifiedAt = null;
+        }
+    }
     if ("extraEmails" in body) {
         const extraEmails = sanitizeStringArray(body.extraEmails);
         data.extraEmails = extraEmails.length ? extraEmails : null;

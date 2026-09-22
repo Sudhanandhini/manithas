@@ -5,7 +5,10 @@ import CustomersTable from "./CustomersTable";
 export const dynamic = "force-dynamic";
 
 export default async function AdminCustomersPage() {
-    const customers = await prisma.customer.findMany({ orderBy: { createdAt: "desc" } });
+    const customers = await prisma.customer.findMany({
+        where: { teamOwnerId: null },
+        orderBy: { createdAt: "desc" },
+    });
 
     return (
         <>

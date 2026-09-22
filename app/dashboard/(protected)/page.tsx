@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { customerAuthOptions } from "@/lib/customerAuth";
 import { prisma } from "@/lib/prisma";
 import PaginationLinks, { PAGE_SIZE } from "@/src/components/Pagination/PaginationLinks";
+import { statusPillClass, priorityPillClass } from "@/lib/tickets";
 
 export const dynamic = "force-dynamic";
 
@@ -46,6 +47,7 @@ export default async function DashboardTicketsPage({ searchParams }: { searchPar
                 <table className="admin-table">
                     <thead>
                         <tr>
+                            <th>Ticket ID</th>
                             <th>Subject</th>
                             <th>Category</th>
                             <th>Status</th>
@@ -57,6 +59,9 @@ export default async function DashboardTicketsPage({ searchParams }: { searchPar
                     <tbody>
                         {tickets.map((ticket) => (
                             <tr key={ticket.id}>
+                                <td>
+                                    <span className="admin-table-id">#{ticket.ticketNumber}</span>
+                                </td>
                                 <td>
                                     {ticket.subject}
                                     {ticket.messages.length > 0 && (
@@ -74,9 +79,15 @@ export default async function DashboardTicketsPage({ searchParams }: { searchPar
                                         </span>
                                     )}
                                 </td>
-                                <td>{ticket.category}</td>
-                                <td>{ticket.status}</td>
-                                <td>{ticket.priority}</td>
+                                <td>
+                                    <span className="admin-table-chip">{ticket.category}</span>
+                                </td>
+                                <td>
+                                    <span className={`ticket-meta-pill ${statusPillClass(ticket.status)}`}>{ticket.status}</span>
+                                </td>
+                                <td>
+                                    <span className={`ticket-meta-pill ${priorityPillClass(ticket.priority)}`}>{ticket.priority}</span>
+                                </td>
                                 <td>{ticket.lastActivityAt.toLocaleString("en-US", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}</td>
                                 <td>
                                     <Link href={`/dashboard/${ticket.id}`} className="admin-btn-sm">
@@ -87,7 +98,7 @@ export default async function DashboardTicketsPage({ searchParams }: { searchPar
                         ))}
                         {tickets.length === 0 && (
                             <tr>
-                                <td colSpan={6}>No tickets yet. Raise one whenever you need support.</td>
+                                <td colSpan={7}>No tickets yet. Raise one whenever you need support.</td>
                             </tr>
                         )}
                     </tbody>

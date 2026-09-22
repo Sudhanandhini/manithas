@@ -11,6 +11,13 @@ type AmcNotification = {
     daysLeft: number | null;
 };
 
+type WebsiteNotification = {
+    id: string;
+    name: string;
+    websiteExpiryDate: string | null;
+    daysLeft: number | null;
+};
+
 type TicketNotification = {
     id: string;
     subject: string;
@@ -20,6 +27,7 @@ type TicketNotification = {
 
 type NotificationsResponse = {
     amc: AmcNotification[];
+    website: WebsiteNotification[];
     tickets: TicketNotification[];
     totalCount: number;
 };
@@ -85,6 +93,22 @@ export default function NotificationBell() {
                             <p className="admin-notification-empty">No AMCs expiring soon.</p>
                         ) : (
                             data.amc.map((c) => (
+                                <Link key={c.id} href={`/admin/customers/${c.id}`} className="admin-notification-item" onClick={() => setOpen(false)}>
+                                    <span>{c.name}</span>
+                                    <span className="admin-notification-item-meta">
+                                        {c.daysLeft !== null ? `${c.daysLeft} day${c.daysLeft === 1 ? "" : "s"} left` : ""}
+                                    </span>
+                                </Link>
+                            ))
+                        )}
+                    </div>
+
+                    <div className="admin-notification-panel-section">
+                        <p className="admin-notification-panel-title">Website Expiring (next 15 days)</p>
+                        {!data || data.website.length === 0 ? (
+                            <p className="admin-notification-empty">No websites expiring soon.</p>
+                        ) : (
+                            data.website.map((c) => (
                                 <Link key={c.id} href={`/admin/customers/${c.id}`} className="admin-notification-item" onClick={() => setOpen(false)}>
                                     <span>{c.name}</span>
                                     <span className="admin-notification-item-meta">

@@ -12,6 +12,7 @@ type TicketNotification = {
 
 type NotificationsResponse = {
     amc: { amcDateTo: string; daysLeft: number } | null;
+    website: { websiteExpiryDate: string; daysLeft: number } | null;
     tickets: TicketNotification[];
     totalCount: number;
 };
@@ -80,6 +81,20 @@ export default function NotificationBell() {
                                 <span>Your AMC expires soon</span>
                                 <span className="admin-notification-item-meta">
                                     {data.amc.daysLeft} day{data.amc.daysLeft === 1 ? "" : "s"} left
+                                </span>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="admin-notification-panel-section">
+                        <p className="admin-notification-panel-title">Website</p>
+                        {!data?.website ? (
+                            <p className="admin-notification-empty">No website expiring soon.</p>
+                        ) : (
+                            <div className="admin-notification-item">
+                                <span>Your website expires soon</span>
+                                <span className="admin-notification-item-meta">
+                                    {data.website.daysLeft} day{data.website.daysLeft === 1 ? "" : "s"} left
                                 </span>
                             </div>
                         )}

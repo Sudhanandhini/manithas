@@ -136,3 +136,23 @@ export function amcExpiredEmail(customerName: string, amcDateTo: Date) {
         `/dashboard`
     );
 }
+
+export function websiteExpiryReminderEmail(customerName: string, websiteExpiryDate: Date, daysLeft: number) {
+    const formattedDate = websiteExpiryDate.toLocaleDateString("en-IN", { day: "2-digit", month: "long", year: "numeric" });
+    return wrapEmail(
+        "Your website is expiring soon",
+        `<p>Hi ${customerName},</p><p>Your website is set to expire on <strong>${formattedDate}</strong> (${daysLeft} day${daysLeft === 1 ? "" : "s"} from today).</p><p>Please get in touch with us to renew it and avoid any downtime.</p>`,
+        "Contact Support",
+        `/dashboard`
+    );
+}
+
+export function websiteExpiredEmail(customerName: string, websiteExpiryDate: Date) {
+    const formattedDate = websiteExpiryDate.toLocaleDateString("en-IN", { day: "2-digit", month: "long", year: "numeric" });
+    return wrapEmail(
+        "Your website has expired",
+        `<p>Hi ${customerName},</p><p>Your website expired on <strong>${formattedDate}</strong>.</p><p>Please get in touch with us to renew it and avoid any downtime.</p>`,
+        "Contact Support",
+        `/dashboard`
+    );
+}

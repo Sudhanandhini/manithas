@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES, TICKET_TYPES } from "@/lib/tickets";
+import { TICKET_STATUSES, TICKET_PRIORITIES, TICKET_CATEGORIES, TICKET_TYPES, statusPillClass, priorityPillClass } from "@/lib/tickets";
 import TicketTabs from "./TicketTabs";
 import PaginationLinks, { PAGE_SIZE } from "@/src/components/Pagination/PaginationLinks";
 
@@ -41,6 +41,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
         ...(q
             ? {
                   OR: [
+                      ...(Number.isInteger(Number(q)) && q.trim() !== "" ? [{ ticketNumber: Number(q) }] : []),
                       { id: { contains: q } },
                       { subject: { contains: q } },
                       { customer: { name: { contains: q } } },
@@ -71,8 +72,11 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
         <>
             <TicketTabs />
 
-            <p className="admin-title" style={{ marginBottom: 20 }}>
+            <p className="admin-title" style={{ marginBottom: 20, display: "flex", alignItems: "center", gap: 10 }}>
                 Support Tickets
+                <span className="admin-table-chip" style={{ fontWeight: 700 }}>
+                    {totalCount} total
+                </span>
             </p>
 
             <div className="admin-card" style={{ marginBottom: 20 }}>
@@ -147,6 +151,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                 <table className="admin-table">
                     <thead>
                         <tr>
+                            <th>Ticket ID</th>
                             <th>Subject</th>
                             <th>Customer</th>
                             <th>Category</th>
@@ -161,6 +166,9 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                     <tbody>
                         {tickets.map((ticket) => (
                             <tr key={ticket.id}>
+                                <td>
+                                    <span className="admin-table-id">#{ticket.ticketNumber}</span>
+                                </td>
                                 <td>
                                     {ticket.subject}
                                     {ticket.messages.length > 0 && (
@@ -183,10 +191,22 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                                     <br />
                                     <small>{ticket.customer.email}</small>
                                 </td>
-                                <td>{ticket.category}</td>
-                                <td>{ticket.ticketType || <em>&mdash;</em>}</td>
-                                <td>{ticket.status}</td>
-                                <td>{ticket.priority}</td>
+                                <td>
+                                    <span className="admin-table-chip">{ticket.category}</span>
+                                </td>
+                                <td>
+                                    {ticket.ticketType ? (
+                                        <span className="admin-table-chip">{ticket.ticketType}</span>
+                                    ) : (
+                                        <em>&mdash;</em>
+                                    )}
+                                </td>
+                                <td>
+                                    <span className={`ticket-meta-pill ${statusPillClass(ticket.status)}`}>{ticket.status}</span>
+                                </td>
+                                <td>
+                                    <span className={`ticket-meta-pill ${priorityPillClass(ticket.priority)}`}>{ticket.priority}</span>
+                                </td>
                                 <td>{ticket.assignedTo || <em>&mdash;</em>}</td>
                                 <td>{ticket.lastActivityAt.toISOString().slice(0, 16).replace("T", " ")}</td>
                                 <td>
@@ -198,7 +218,7 @@ export default async function AdminTicketsPage({ searchParams }: { searchParams:
                         ))}
                         {tickets.length === 0 && (
                             <tr>
-                                <td colSpan={9}>No tickets match these filters.</td>
+                                <td colSpan={10}>No tickets match these filters.</td>
                             </tr>
                         )}
                     </tbody>

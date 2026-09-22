@@ -124,30 +124,33 @@ enum CustomerType {
 }
 
 model Customer {
-  id                   String        @id @default(cuid())
-  username             String        @unique
-  passwordHash         String
-  name                 String
-  customerType         CustomerType?
-  amcDateFrom          DateTime?
-  amcDateTo            DateTime?
-  amcReminderSentAt    DateTime?
-  amcExpiredNotifiedAt DateTime?
-  email                String?
-  mobile               String?
-  extraEmails          Json?
-  extraPhones          Json?
-  website              String?
-  driveLink            String?
-  address              String?       @db.Text
-  companyName          String?
-  disabled             Boolean       @default(false)
-  createdAt            DateTime      @default(now())
-  updatedAt            DateTime      @updatedAt
-  tickets              Ticket[]
-  teamOwnerId          String?
-  teamOwner            Customer?     @relation("TeamMembers", fields: [teamOwnerId], references: [id], onDelete: Cascade)
-  teamMembers          Customer[]    @relation("TeamMembers")
+  id                       String        @id @default(cuid())
+  username                 String        @unique
+  passwordHash             String
+  name                     String
+  customerType             CustomerType?
+  amcDateFrom              DateTime?
+  amcDateTo                DateTime?
+  amcReminderSentAt        DateTime?
+  amcExpiredNotifiedAt     DateTime?
+  email                    String?
+  mobile                   String?
+  extraEmails              Json?
+  extraPhones              Json?
+  website                  String?
+  websiteExpiryDate        DateTime?
+  websiteReminderSentAt    DateTime?
+  websiteExpiredNotifiedAt DateTime?
+  driveLink                String?
+  address                  String?       @db.Text
+  companyName              String?
+  disabled                 Boolean       @default(false)
+  createdAt                DateTime      @default(now())
+  updatedAt                DateTime      @updatedAt
+  tickets                  Ticket[]
+  teamOwnerId              String?
+  teamOwner                Customer?     @relation("TeamMembers", fields: [teamOwnerId], references: [id], onDelete: Cascade)
+  teamMembers              Customer[]    @relation("TeamMembers")
 
   @@index([teamOwnerId])
 }
@@ -163,6 +166,9 @@ model TicketAssignee {
 // A support ticket raised by a customer.
 model Ticket {
   id             String          @id @default(cuid())
+  // Human-facing sequential ID, assigned in creation order across all
+  // customers (unlike `id`, which is an opaque cuid used for routing).
+  ticketNumber   Int             @unique @default(autoincrement())
   customerId     String
   customer       Customer        @relation(fields: [customerId], references: [id])
   subject        String

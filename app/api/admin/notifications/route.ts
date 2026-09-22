@@ -15,11 +15,17 @@ export async function GET() {
     const now = new Date();
     const windowEnd = new Date(now.getTime() + AMC_WINDOW_DAYS * MS_PER_DAY);
 
-    const [amcCustomers, ticketsWithUnread] = await Promise.all([
+    const [amcCustomers, websiteCustomers, ticketsWithUnread] = await Promise.all([
         prisma.customer.findMany({
-            where: { amcDateTo: { gte: now, lte: windowEnd }, disabled: false },
+            where: { amcDateTo: { gte: now, lte: windowEnd }, disabled: false, teamOwnerId: null },
             orderBy: { amcDateTo: "asc" },
             select: { id: true, name: true, companyName: true, amcDateTo: true },
+            take: 20,
+        }),
+        prisma.customer.findMany({
+            where: { websiteExpiryDate: { gte: now, lte: windowEnd }, disabled: false, teamOwnerId: null },
+            orderBy: { websiteExpiryDate: "asc" },
+            select: { id: true, name: true, companyName: true, websiteExpiryDate: true },
             take: 20,
         }),
         prisma.ticket.findMany({
@@ -40,6 +46,13 @@ export async function GET() {
         daysLeft: c.amcDateTo ? Math.ceil((c.amcDateTo.getTime() - now.getTime()) / MS_PER_DAY) : null,
     }));
 
+    const website = websiteCustomers.map((c) => ({
+        id: c.id,
+        name: c.companyName || c.name,
+        websiteExpiryDate: c.websiteExpiryDate,
+        daysLeft: c.websiteExpiryDate ? Math.ceil((c.websiteExpiryDate.getTime() - now.getTime()) / MS_PER_DAY) : null,
+    }));
+
     const tickets = ticketsWithUnread.map((t) => ({
         id: t.id,
         subject: t.subject,
@@ -49,7 +62,8 @@ export async function GET() {
 
     return NextResponse.json({
         amc,
+        website,
         tickets,
-        totalCount: amc.length + tickets.length,
+        totalCount: amc.length + website.length + tickets.length,
     });
 }

@@ -25,6 +25,7 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
         email: customer.email ?? "",
         mobile: customer.mobile ?? "",
         website: customer.website ?? "",
+        websiteExpiryDate: toDateInputValue(customer.websiteExpiryDate),
         driveLink: customer.driveLink ?? "",
         address: customer.address ?? "",
         companyName: customer.companyName ?? "",
@@ -54,6 +55,7 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
                 customerType: form.customerType || null,
                 amcDateFrom: form.amcDateFrom || null,
                 amcDateTo: form.amcDateTo || null,
+                websiteExpiryDate: form.websiteExpiryDate || null,
                 extraEmails: extraEmails.map((v) => v.trim()).filter(Boolean),
                 extraPhones: extraPhones.map((v) => v.trim()).filter(Boolean),
             }),
@@ -178,6 +180,18 @@ export default function CustomerEditForm({ customer }: { customer: Customer }) {
                     <label htmlFor="website">Website</label>
                     <input id="website" type="text" value={form.website} onChange={(e) => update("website", e.target.value)} />
                 </div>
+                <div className="admin-field" style={{ flex: 1 }}>
+                    <label htmlFor="websiteExpiryDate">Website Expiry Date</label>
+                    <input
+                        id="websiteExpiryDate"
+                        type="date"
+                        value={form.websiteExpiryDate}
+                        onChange={(e) => update("websiteExpiryDate", e.target.value)}
+                    />
+                </div>
+            </div>
+
+            <div style={{ display: "flex", gap: 12 }}>
                 <div className="admin-field" style={{ flex: 1 }}>
                     <label htmlFor="driveLink">Drive Link</label>
                     <input
